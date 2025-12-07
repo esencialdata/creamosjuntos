@@ -94,6 +94,9 @@ const Backstage = () => {
     const [inputCode, setInputCode] = useState('');
     const [error, setError] = useState(false);
     const [schedule, setSchedule] = useState([]);
+    const [fontSizePercent, setFontSizePercent] = useState(() => {
+        return parseInt(localStorage.getItem('appFontSize') || '100');
+    });
 
     useEffect(() => {
         const isLeader = localStorage.getItem('isLeader');
@@ -101,6 +104,12 @@ const Backstage = () => {
             setIsAuthenticated(true);
         }
     }, []);
+
+    // Apply font size globally
+    useEffect(() => {
+        document.documentElement.style.fontSize = `${fontSizePercent}%`;
+        localStorage.setItem('appFontSize', fontSizePercent);
+    }, [fontSizePercent]);
 
     // Subscribe to schedule updates
     useEffect(() => {
@@ -130,6 +139,10 @@ const Backstage = () => {
         setInputCode('');
     };
 
+    const handleFontSizeChange = (delta) => {
+        setFontSizePercent(prev => Math.min(Math.max(prev + delta, 70), 150));
+    };
+
     const handleRoleStatusChange = (weekId, eventId, roleIndex, newStatus, roleData) => {
         updateEventStatus(weekId, eventId, roleIndex, newStatus);
 
@@ -144,56 +157,65 @@ const Backstage = () => {
             <div style={{
                 height: '100vh',
                 display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#f8f9fa', // Light gray background
-                color: '#333',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                padding: '2rem'
+                alignItems: 'center',
+                backgroundColor: '#f3f4f6',
+                fontFamily: 'Inter, system-ui, sans-serif'
             }}>
-                <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                    <img src={logoHeader} alt="Campo David" style={{ height: '100px', marginBottom: '1rem' }} />
-                    <h1 style={{ fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase', color: '#0052CC' }}>Logística de Servicio</h1>
-                </div>
+                <div style={{
+                    backgroundColor: '#fff',
+                    padding: '2.5rem',
+                    borderRadius: '16px',
+                    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                    width: '100%',
+                    maxWidth: '400px',
+                    textAlign: 'center'
+                }}>
+                    <img src={logoHeader} alt="Campo David" style={{ marginBottom: '1.5rem', height: '60px' }} />
+                    <h2 style={{
+                        marginTop: '0.5rem',
+                        marginBottom: '1.5rem',
+                        color: '#111827',
+                        fontSize: '1.5rem',
+                        fontWeight: '700'
+                    }}>Logística de Servicio</h2>
 
-                <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '300px' }}>
-                    <input
-                        type="password"
-                        value={inputCode}
-                        onChange={(e) => setInputCode(e.target.value)}
-                        placeholder="Código de acceso"
-                        style={{
-                            padding: '0.75rem',
-                            borderRadius: '6px',
-                            border: error ? '1px solid #ef4444' : '1px solid #ccc',
-                            backgroundColor: '#fff',
-                            color: '#333',
-                            outline: 'none',
-                            fontSize: '1rem',
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-                        }}
-                    />
-                    {error && <span style={{ color: '#ef4444', fontSize: '0.8rem', textAlign: 'center' }}>Código incorrecto</span>}
-                    <button
-                        type="submit"
-                        style={{
-                            padding: '0.75rem',
-                            backgroundColor: '#0052CC',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: '6px',
-                            fontWeight: 'bold',
-                            cursor: 'pointer',
-                            textTransform: 'uppercase',
-                            fontSize: '0.9rem',
-                            letterSpacing: '1px',
-                            boxShadow: '0 4px 6px rgba(0,82,204,0.2)'
-                        }}
-                    >
-                        Entrar
-                    </button>
-                </form>
+                    <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <input
+                            type="password"
+                            value={inputCode}
+                            onChange={(e) => setInputCode(e.target.value)}
+                            placeholder="Código de acceso"
+                            style={{
+                                padding: '0.75rem',
+                                borderRadius: '6px',
+                                border: `1px solid ${error ? '#ef4444' : '#d1d5db'}`,
+                                fontSize: '1rem',
+                                outline: 'none',
+                                transition: 'all 0.2s'
+                            }}
+                        />
+                        {error && <span style={{ color: '#ef4444', fontSize: '0.875rem' }}>Código incorrecto</span>}
+                        <button
+                            type="submit"
+                            style={{
+                                padding: '0.75rem',
+                                backgroundColor: '#0052CC',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '6px',
+                                fontWeight: 'bold',
+                                cursor: 'pointer',
+                                textTransform: 'uppercase',
+                                fontSize: '0.9rem',
+                                letterSpacing: '1px',
+                                boxShadow: '0 4px 6px rgba(0,82,204,0.2)'
+                            }}
+                        >
+                            Entrar
+                        </button>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -214,20 +236,30 @@ const Backstage = () => {
             }}>
                 <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <img src={logoHeader} alt="Campo David" style={{ height: '72px' }} />
-                    <button
-                        onClick={handleLogout}
-                        style={{
-                            background: 'none',
-                            border: '1px solid #e5e5e5',
-                            color: '#666',
-                            padding: '0.4rem 1rem',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                            fontSize: '0.8rem'
-                        }}
-                    >
-                        Salir
-                    </button>
+
+                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                        {/* Font Controls */}
+                        <div style={{ display: 'flex', border: '1px solid #e5e5e5', borderRadius: '6px', overflow: 'hidden', marginRight: '1rem' }}>
+                            <button onClick={() => handleFontSizeChange(-10)} style={{ padding: '4px 10px', background: '#f9fafb', border: 'none', borderRight: '1px solid #e5e5e5', cursor: 'pointer', fontSize: '0.9rem', color: '#555' }}>A-</button>
+                            <button onClick={() => setFontSizePercent(100)} style={{ padding: '4px 10px', background: '#fff', border: 'none', borderRight: '1px solid #e5e5e5', cursor: 'pointer', fontSize: '0.8rem', color: '#333', minWidth: '50px' }}>{fontSizePercent}%</button>
+                            <button onClick={() => handleFontSizeChange(10)} style={{ padding: '4px 10px', background: '#f9fafb', border: 'none', cursor: 'pointer', fontSize: '1rem', color: '#555' }}>A+</button>
+                        </div>
+
+                        <button
+                            onClick={handleLogout}
+                            style={{
+                                background: 'none',
+                                border: '1px solid #e5e5e5',
+                                color: '#666',
+                                padding: '0.4rem 1rem',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                fontSize: '0.8rem'
+                            }}
+                        >
+                            Salir
+                        </button>
+                    </div>
                 </div>
             </div>
 
