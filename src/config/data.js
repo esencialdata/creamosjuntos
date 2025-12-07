@@ -179,7 +179,8 @@ export const CONFIG = {
         weeklyDeepDive: "Líderes: Esta semana el objetivo es que los jóvenes entiendan que su identidad no depende de sus errores. Enfatizen la gracia sobre el juicio."
     },
     weeklyHabit: {
-        name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos):r",
+        id: 1,
+        name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos)",
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Salmo 101:3, Filipenses 4:8"
     },
@@ -187,7 +188,7 @@ export const CONFIG = {
     habits: [
         {
             id: 1,
-            name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos",
+            name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos)",
             action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
             reference: "Salmo 101:3, Filipenses 4:8"
         },
