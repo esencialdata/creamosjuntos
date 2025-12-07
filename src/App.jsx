@@ -73,7 +73,7 @@ function App() {
           }
         />
         <Route
-          path="/taller"
+          path="/servicio"
           element={<Backstage />}
         />
       </Routes>
