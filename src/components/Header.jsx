@@ -37,7 +37,13 @@ const Header = () => {
                     Creamos juntos
                 </Link>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'var(--spacing-md)',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center' // Center content if it wraps on very small screens
+                }}>
                     {/* Font Controls */}
                     <div style={{ display: 'flex', border: '1px solid var(--color-border)', borderRadius: '6px', overflow: 'hidden' }}>
                         <button onClick={() => handleFontSizeChange(-10)} style={{ padding: '4px 10px', background: 'var(--color-bg-secondary)', border: 'none', borderRight: '1px solid var(--color-border)', cursor: 'pointer', fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>A-</button>

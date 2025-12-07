@@ -40,7 +40,15 @@ body {
 }
 
 html {
-  font-size: 120%;
+  font-size: 110%;
+  /* Slightly smaller on mobile to prevent overflow */
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 120%;
+    /* Requested 20% increase on larger screens */
+  }
 }
 
 
