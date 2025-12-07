@@ -94,9 +94,6 @@ const Backstage = () => {
     const [inputCode, setInputCode] = useState('');
     const [error, setError] = useState(false);
     const [schedule, setSchedule] = useState([]);
-    const [fontSizePercent, setFontSizePercent] = useState(() => {
-        return parseInt(localStorage.getItem('appFontSize') || '100');
-    });
 
     useEffect(() => {
         const isLeader = localStorage.getItem('isLeader');
@@ -104,12 +101,6 @@ const Backstage = () => {
             setIsAuthenticated(true);
         }
     }, []);
-
-    // Apply font size globally
-    useEffect(() => {
-        document.documentElement.style.fontSize = `${fontSizePercent}%`;
-        localStorage.setItem('appFontSize', fontSizePercent);
-    }, [fontSizePercent]);
 
     // Subscribe to schedule updates
     useEffect(() => {
@@ -238,13 +229,6 @@ const Backstage = () => {
                     <img src={logoHeader} alt="Campo David" style={{ height: '72px' }} />
 
                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                        {/* Font Controls */}
-                        <div style={{ display: 'flex', border: '1px solid #e5e5e5', borderRadius: '6px', overflow: 'hidden', marginRight: '1rem' }}>
-                            <button onClick={() => handleFontSizeChange(-10)} style={{ padding: '4px 10px', background: '#f9fafb', border: 'none', borderRight: '1px solid #e5e5e5', cursor: 'pointer', fontSize: '0.9rem', color: '#555' }}>A-</button>
-                            <button onClick={() => setFontSizePercent(100)} style={{ padding: '4px 10px', background: '#fff', border: 'none', borderRight: '1px solid #e5e5e5', cursor: 'pointer', fontSize: '0.8rem', color: '#333', minWidth: '50px' }}>{fontSizePercent}%</button>
-                            <button onClick={() => handleFontSizeChange(10)} style={{ padding: '4px 10px', background: '#f9fafb', border: 'none', cursor: 'pointer', fontSize: '1rem', color: '#555' }}>A+</button>
-                        </div>
-
                         <button
                             onClick={handleLogout}
                             style={{
