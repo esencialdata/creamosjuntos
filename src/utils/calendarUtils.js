@@ -14,16 +14,19 @@ export const generateGoogleCalendarLink = (event, roleData) => {
         const monthMatch = dateStr.match(monthRegex);
         const dayMatch = dateStr.match(dayRegex);
 
-        if (monthMatch && dayMatch) {
+        if (dayMatch) {
             const day = dayMatch[1].padStart(2, '0');
-            // Normalize month to Title Case for lookup
-            const monthStr = monthMatch[1].charAt(0).toUpperCase() + monthMatch[1].slice(1).toLowerCase();
-            const month = months[monthStr];
-            const year = '2025';
+            let month = '12'; // Default to December if missing
 
-            if (month) {
-                return `${year}${month}${day}`;
+            if (monthMatch) {
+                // Normalize month to Title Case for lookup
+                const monthStr = monthMatch[1].charAt(0).toUpperCase() + monthMatch[1].slice(1).toLowerCase();
+                const mapped = months[monthStr];
+                if (mapped) month = mapped;
             }
+
+            const year = '2025';
+            return `${year}${month}${day}`;
         }
 
         // Fallback for YYYY-MM-DD

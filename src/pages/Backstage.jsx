@@ -37,7 +37,7 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, event
 
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                 <button
-                    onClick={() => calendarLink ? window.open(calendarLink, '_blank') : alert(`Error: La fecha "${eventDate}" no se reconoció. (Intenta: "06 Dic")`)}
+                    onClick={() => calendarLink && window.open(calendarLink, '_blank')}
                     title={calendarLink ? "Agregar a Google Calendar" : "Error de datos"}
                     style={{
                         background: 'none',
