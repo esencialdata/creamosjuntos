@@ -6,13 +6,18 @@ export const generateGoogleCalendarLink = (event, roleData) => {
             'Jul': '07', 'Ago': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dic': '12'
         };
 
-        // Expected format: "Day DD Mon" e.g., "Sábado 06 Dic"
-        const parts = dateStr.split(' ');
-        if (parts.length === 3) {
+        // Expected format: "Day DD Mon" e.g., "Sábado 06 Dic" or with extra spaces
+        const parts = dateStr.split(' ').filter(p => p.trim() !== '');
+
+        if (parts.length >= 3) {
             const day = parts[1]; // "06"
-            const month = months[parts[2]]; // "12"
+            const monthVal = parts[2]; // "Dic"
+            const month = months[monthVal];
             const year = '2025';
-            return `${year}${month}${day}`;
+
+            if (day && month) {
+                return `${year}${month}${day}`;
+            }
         }
 
         // Fallback for YYYY-MM-DD
