@@ -122,3 +122,7 @@ export const toggleReaction = async (weekId, eventId, shouldAdd) => {
         console.error("Error toggling reaction:", error);
     }
 };
+
+export const toggleLightReaction = async (weekId, eventId, shouldAdd) => {
+    return toggleReaction(weekId, eventId, shouldAdd);
+};
