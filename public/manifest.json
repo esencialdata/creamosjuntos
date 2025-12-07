@@ -1,0 +1,16 @@
+{
+    "name": "Campo David - Logística",
+    "short_name": "Campo David",
+    "description": "Logística de Servicio y Hábito para Campo David",
+    "start_url": "/#/servicio",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+            "src": "logo_CD_w.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
