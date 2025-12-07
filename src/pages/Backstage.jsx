@@ -4,7 +4,7 @@ import { subscribeToSchedule, updateEventStatus, initializeDefaultData } from '.
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import logoHeader from '../assets/logo_header.png';
 
-const ACCESS_CODE = "LIDER2025";
+const ACCESS_CODE = "heme aquí";
 
 const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink }) => {
     const getStatusColor = () => {
@@ -118,7 +118,7 @@ const Backstage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (inputCode === ACCESS_CODE) {
+        if (inputCode.trim().normalize('NFC') === ACCESS_CODE.normalize('NFC')) {
             localStorage.setItem('isLeader', 'true');
             setIsAuthenticated(true);
         } else {

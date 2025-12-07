@@ -8,13 +8,19 @@ export const generateGoogleCalendarLink = (event, roleData) => {
 
         // Expected format: "Day DD Mon" e.g., "Sábado 06 Dic"
         const parts = dateStr.split(' ');
-        if (parts.length < 3) return null;
+        if (parts.length === 3) {
+            const day = parts[1]; // "06"
+            const month = months[parts[2]]; // "12"
+            const year = '2025';
+            return `${year}${month}${day}`;
+        }
 
-        const day = parts[1]; // "06"
-        const month = months[parts[2]]; // "12"
-        const year = '2025';
+        // Fallback for YYYY-MM-DD
+        if (dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            return dateStr.replace(/-/g, '');
+        }
 
-        return `${year}${month}${day}`;
+        return null;
     };
 
     // Helper to format time "10:00 AM" to HHmm00
@@ -33,7 +39,7 @@ export const generateGoogleCalendarLink = (event, roleData) => {
     };
 
     const dateBase = parseDate(event.date);
-    if (!dateBase) return '#';
+    if (!dateBase) return null;
 
     // Assume 2 hour duration default
     const startTime = parseTime(event.time); // e.g. 100000
