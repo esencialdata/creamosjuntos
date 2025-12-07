@@ -1,8 +1,8 @@
 {
-    "name": "Campo David - Logística",
+    "name": "Campo David",
     "short_name": "Campo David",
-    "description": "Logística de Servicio y Hábito para Campo David",
-    "start_url": "/#/servicio",
+    "description": "App oficial de Campo David",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
