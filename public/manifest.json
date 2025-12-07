@@ -1,7 +1,7 @@
 {
-    "name": "Campo David",
-    "short_name": "Campo David",
-    "description": "App oficial de Campo David",
+    "name": "Creamos Juntos",
+    "short_name": "Creamos Juntos",
+    "description": "App oficial de Creamos Juntos",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
