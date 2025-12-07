@@ -55,8 +55,8 @@ const SermonList = ({ schedule }) => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {sermonEvents.map(event => {
-                    // Extract preacher name
-                    const preacher = event.details.find(d => d.role === "Predicación")?.name || "Invitado";
+                    // Extract preacher name (removed as per request)
+                    // const preacher = event.details.find(d => d.role === "Predicación")?.name || "Invitado";
                     const isLiked = likedSermons.includes(event.id);
                     // Use event.lights from props (real-time from firestore subscription in parent)
                     // If local optimistic update happened, the prop might lag slightly, but usually fast.
@@ -91,8 +91,8 @@ const SermonList = ({ schedule }) => {
                                 }}>
                                     {event.theme || "Tema Especial"}
                                 </h4>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', fontStyle: 'italic' }}>
-                                    {preacher}
+                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem' }}>
+                                    {event.objective}
                                 </p>
                             </div>
 
