@@ -36,26 +36,22 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink }) => 
             </div>
 
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                {calendarLink && (
-                    <a
-                        href={calendarLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Agregar a Google Calendar"
-                        style={{
-                            textDecoration: 'none',
-                            fontSize: '1rem',
-                            opacity: 0.6,
-                            transition: 'opacity 0.2s',
-                            cursor: 'pointer',
-                            marginRight: '0.5rem'
-                        }}
-                        onMouseOver={(e) => e.target.style.opacity = 1}
-                        onMouseOut={(e) => e.target.style.opacity = 0.6}
-                    >
-                        📅
-                    </a>
-                )}
+                <button
+                    onClick={() => calendarLink ? window.open(calendarLink, '_blank') : alert('Error al generar fecha. Avisa a Aarón.')}
+                    title={calendarLink ? "Agregar a Google Calendar" : "Error en fecha"}
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        fontSize: '1.2rem',
+                        cursor: 'pointer',
+                        marginRight: '0.5rem',
+                        opacity: calendarLink ? 1 : 0.3,
+                        filter: calendarLink ? 'none' : 'grayscale(100%)'
+                    }}
+                >
+                    📅
+                </button>
+
                 <button
                     onClick={onConfirm}
                     title="Confirmar asistencia"

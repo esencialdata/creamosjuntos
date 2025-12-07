@@ -6,16 +6,22 @@ export const generateGoogleCalendarLink = (event, roleData) => {
             'Jul': '07', 'Ago': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dic': '12'
         };
 
-        // Expected format: "Day DD Mon" e.g., "Sábado 06 Dic" or with extra spaces
-        const parts = dateStr.split(' ').filter(p => p.trim() !== '');
+        // Regex to find "DD Month" (e.g. "06 Dic") anywhere in string
+        // Case insensitive match for months
+        const monthRegex = /(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)/i;
+        const dayRegex = /(\d{1,2})/;
 
-        if (parts.length >= 3) {
-            const day = parts[1]; // "06"
-            const monthVal = parts[2]; // "Dic"
-            const month = months[monthVal];
+        const monthMatch = dateStr.match(monthRegex);
+        const dayMatch = dateStr.match(dayRegex);
+
+        if (monthMatch && dayMatch) {
+            const day = dayMatch[1].padStart(2, '0');
+            // Normalize month to Title Case for lookup
+            const monthStr = monthMatch[1].charAt(0).toUpperCase() + monthMatch[1].slice(1).toLowerCase();
+            const month = months[monthStr];
             const year = '2025';
 
-            if (day && month) {
+            if (month) {
                 return `${year}${month}${day}`;
             }
         }
