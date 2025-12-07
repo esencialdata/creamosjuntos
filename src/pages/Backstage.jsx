@@ -156,8 +156,8 @@ const Backstage = () => {
                 padding: '2rem'
             }}>
                 <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                    <img src={logoHeader} alt="Campo David" style={{ height: '60px', marginBottom: '1rem' }} />
-                    <h1 style={{ fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase', color: '#0052CC' }}>Área de Liderazgo</h1>
+                    <img src={logoHeader} alt="Campo David" style={{ height: '100px', marginBottom: '1rem' }} />
+                    <h1 style={{ fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase', color: '#0052CC' }}>Logística de Servicio</h1>
                 </div>
 
                 <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '300px' }}>
