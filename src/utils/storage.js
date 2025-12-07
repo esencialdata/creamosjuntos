@@ -1,3 +1,5 @@
+import { getLocalTodayDate } from './dateUtils';
+
 const STREAK_KEY = 'templo_streak';
 
 export const getStreak = () => {
@@ -12,7 +14,7 @@ export const getStreak = () => {
 };
 
 export const updateStreak = () => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = getLocalTodayDate();
     const { count, lastVisit } = getStreak();
 
     if (lastVisit === today) {
@@ -21,13 +23,23 @@ export const updateStreak = () => {
 
     let newCount = 1;
     if (lastVisit) {
-        const lastDate = new Date(lastVisit);
-        const currentDate = new Date(today);
-        const diffTime = Math.abs(currentDate - lastDate);
+        // Parse "YYYY-MM-DD" explicitly to avoid timezone shifts
+        // Constructing Date from string "YYYY-MM-DD" defaults to UTC in some browsers or Local in others.
+        // Safer to split and construct local date.
+        const [ly, lm, ld] = lastVisit.split('-').map(Number);
+        const [ty, tm, td] = today.split('-').map(Number);
+
+        const lastDate = new Date(ly, lm - 1, ld);
+        const currentDate = new Date(ty, tm - 1, td);
+
+        const diffTime = currentDate - lastDate; // Milliseconds
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
         if (diffDays === 1) {
             newCount = count + 1;
+        } else if (diffDays === 0) {
+            // Should be caught by lastVisit === today check, but strictly speaking same day
+            newCount = count;
         } else {
             newCount = 1; // Reset if missed a day
         }

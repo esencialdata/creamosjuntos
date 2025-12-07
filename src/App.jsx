@@ -6,6 +6,7 @@ import Backstage from './pages/Backstage';
 import './index.css';
 
 import { initializeDefaultData } from './services/firestoreService';
+import { getLocalTodayDate } from './utils/dateUtils';
 
 function App() {
   // State for tracking completed habits: Array of { id: number, date: string (ISO date part) }
@@ -28,13 +29,8 @@ function App() {
   }, [completedHabits]);
 
   // Helper to get local date string YYYY-MM-DD
-  const getLocalTodayDate = () => {
-    const date = new Date();
-    const headers = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${headers}-${month}-${day}`;
-  };
+  // Imported from utils now
+  // const getLocalTodayDate = ... (removed)
 
   const toggleHabit = (habitId) => {
     const today = getLocalTodayDate();
