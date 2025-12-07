@@ -378,9 +378,27 @@ const Backstage = () => {
                                         {event.theme && (
                                             <div style={{ marginBottom: '1.2rem' }}>
                                                 <p style={{ color: '#555', fontSize: '0.95rem', fontStyle: 'italic' }}>"{event.theme}"</p>
-                                                {event.objective && (
-                                                    <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.2rem' }}>Obj: {event.objective}</p>
-                                                )}
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.4rem' }}>
+                                                    {event.objective && (
+                                                        <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>Obj: {event.objective}</p>
+                                                    )}
+                                                    {/* Lights Metric Badge */}
+                                                    {event.lights > 0 && (
+                                                        <span style={{
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '4px',
+                                                            backgroundColor: '#FEF3C7',
+                                                            color: '#D97706',
+                                                            padding: '2px 8px',
+                                                            borderRadius: '12px',
+                                                            fontSize: '0.8rem',
+                                                            fontWeight: 'bold'
+                                                        }}>
+                                                            💡 {event.lights}
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                         )}
 
