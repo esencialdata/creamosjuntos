@@ -6,7 +6,7 @@ import logoHeader from '../assets/logo_header.png';
 
 const ACCESS_CODE = "hemeaqui";
 
-const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink }) => {
+const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, eventDate }) => {
     const getStatusColor = () => {
         if (status === 'confirmed') return '#10b981'; // emerald-500
         if (status === 'sos') return '#ef4444'; // red-500
@@ -37,8 +37,8 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink }) => 
 
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                 <button
-                    onClick={() => calendarLink ? window.open(calendarLink, '_blank') : alert(`Error: La fecha "${event.date}" no se reconoció. (Intenta: "06 Dic")`)}
-                    title={calendarLink ? "Agregar a Google Calendar" : `Error: ${event.date}`}
+                    onClick={() => calendarLink ? window.open(calendarLink, '_blank') : alert(`Error: La fecha "${eventDate}" no se reconoció. (Intenta: "06 Dic")`)}
+                    title={calendarLink ? "Agregar a Google Calendar" : "Error de datos"}
                     style={{
                         background: 'none',
                         border: 'none',
@@ -375,6 +375,7 @@ const Backstage = () => {
                                                     role={detail.role}
                                                     name={detail.name}
                                                     status={detail.status}
+                                                    eventDate={event.date}
                                                     calendarLink={generateGoogleCalendarLink(event, detail)}
                                                     onConfirm={() => handleRoleStatusChange(week.id, event.id, dIdx, 'confirmed', { ...detail, date: event.date, type: event.type })}
                                                     onSOS={() => handleRoleStatusChange(week.id, event.id, dIdx, 'sos', { ...detail, date: event.date, type: event.type })}
