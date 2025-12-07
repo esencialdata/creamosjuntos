@@ -91,3 +91,44 @@ export const updateEventStatus = async (weekId, eventId, roleIndex, newStatus) =
         console.error("Error updating event status:", error);
     }
 };
+
+export const toggleReaction = async (weekId, eventId) => {
+    try {
+        const docRef = doc(db, "appData", "schedule");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            const updatedSchedule = [...data.schedule];
+
+            const week = updatedSchedule.find(w => w.id === weekId);
+            if (week) {
+                const event = week.events.find(e => e.id === eventId);
+                if (event) {
+                    // Check local storage to see if user effectively 'toggled' it on or off
+                    const likedEvents = JSON.parse(localStorage.getItem('likedEvents') || '[]');
+                    const hasLiked = likedEvents.includes(eventId);
+
+                    let currentLights = event.lights || 0;
+
+                    if (hasLiked) {
+                        // User is removing their light
+                        currentLights = Math.max(0, currentLights - 1);
+                        const newLikedEvents = likedEvents.filter(id => id !== eventId);
+                        localStorage.setItem('likedEvents', JSON.stringify(newLikedEvents));
+                    } else {
+                        // User is adding their light
+                        currentLights += 1;
+                        likedEvents.push(eventId);
+                        localStorage.setItem('likedEvents', JSON.stringify(likedEvents));
+                    }
+
+                    event.lights = currentLights;
+                    await updateDoc(docRef, { schedule: updatedSchedule });
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Error toggling reaction:", error);
+    }
+};
