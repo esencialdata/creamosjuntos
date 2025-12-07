@@ -26,9 +26,11 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
     }, []);
 
     const handleLightClick = (weekId, eventId) => {
+        const isLiked = likedEvents.includes(eventId);
+        const shouldAdd = !isLiked;
+
         // Optimistic update for local UI state
         setLikedEvents(prev => {
-            const isLiked = prev.includes(eventId);
             let newLiked;
             if (isLiked) {
                 newLiked = prev.filter(id => id !== eventId);
@@ -39,8 +41,8 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
             return newLiked;
         });
 
-        // Trigger backend update
-        toggleReaction(weekId, eventId);
+        // Trigger backend update with explicit direction
+        toggleReaction(weekId, eventId, shouldAdd);
     };
 
     // Filter for current week's messages (events with a theme)

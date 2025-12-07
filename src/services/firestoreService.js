@@ -92,7 +92,7 @@ export const updateEventStatus = async (weekId, eventId, roleIndex, newStatus) =
     }
 };
 
-export const toggleReaction = async (weekId, eventId) => {
+export const toggleReaction = async (weekId, eventId, shouldAdd) => {
     try {
         const docRef = doc(db, "appData", "schedule");
         const docSnap = await getDoc(docRef);
@@ -105,22 +105,12 @@ export const toggleReaction = async (weekId, eventId) => {
             if (week) {
                 const event = week.events.find(e => e.id === eventId);
                 if (event) {
-                    // Check local storage to see if user effectively 'toggled' it on or off
-                    const likedEvents = JSON.parse(localStorage.getItem('likedEvents') || '[]');
-                    const hasLiked = likedEvents.includes(eventId);
-
                     let currentLights = event.lights || 0;
 
-                    if (hasLiked) {
-                        // User is removing their light
-                        currentLights = Math.max(0, currentLights - 1);
-                        const newLikedEvents = likedEvents.filter(id => id !== eventId);
-                        localStorage.setItem('likedEvents', JSON.stringify(newLikedEvents));
-                    } else {
-                        // User is adding their light
+                    if (shouldAdd) {
                         currentLights += 1;
-                        likedEvents.push(eventId);
-                        localStorage.setItem('likedEvents', JSON.stringify(likedEvents));
+                    } else {
+                        currentLights = Math.max(0, currentLights - 1);
                     }
 
                     event.lights = currentLights;
