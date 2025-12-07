@@ -176,7 +176,12 @@ export const CONFIG = {
     weeklyTheme: {
         title: "Identidad",
         description: "Esta semana: Recordar quiénes somos realmente cuando nadie nos ve.",
-        weeklyDeepDive: "Líderes: Esta semana el objetivo es que los jóvenes entiendan que su identidad no depende de sus errores. Enfatizen la gracia sobre el juicio."
+        weeklyDeepDive: "Líderes: Esta semana el objetivo es que los jóvenes entiendan que su identidad no depende de sus errores. Enfatizen la gracia sobre el juicio.",
+        slides: [
+            { type: "title", content: "IDENTIDAD", sub: "Semana 1" },
+            { type: "verse", content: "Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios.", citation: "1 Pedro 2:9" },
+            { type: "challenge", content: "Tu valor no depende de tus errores, sino de quién te creó." }
+        ]
     },
     weeklyHabit: {
         id: 1,
