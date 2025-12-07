@@ -27,8 +27,17 @@ function App() {
     localStorage.setItem('completedHabits', JSON.stringify(completedHabits));
   }, [completedHabits]);
 
+  // Helper to get local date string YYYY-MM-DD
+  const getLocalTodayDate = () => {
+    const date = new Date();
+    const headers = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${headers}-${month}-${day}`;
+  };
+
   const toggleHabit = (habitId) => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = getLocalTodayDate();
     setCompletedHabits(prev => {
       const isCompletedToday = prev.some(h => h.id === habitId && h.date === today);
       if (isCompletedToday) {
@@ -42,7 +51,7 @@ function App() {
   };
 
   const isHabitCompletedToday = (habitId) => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = getLocalTodayDate();
     return completedHabits.some(h => h.id === habitId && h.date === today);
   };
 
