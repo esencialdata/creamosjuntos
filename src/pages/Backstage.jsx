@@ -27,30 +27,33 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, event
                 display: 'flex',
                 gap: '0.5rem',
                 alignItems: 'center',
-                flex: '1 1 200px', // <--- Ancho mínimo antes de hacer wrap
-                minWidth: '60%'    // Asegura legibilidad del nombre
+                flex: '1 1 200px',
+                minWidth: '60%'
             }}>
-                <span style={{
-                    color: '#666',
-                    fontSize: '0.75rem', // Un poco más pequeño en móvil
-                    textTransform: 'uppercase',
-                    fontWeight: '600',
-                    letterSpacing: '0.5px',
-                    minWidth: '70px' // Alineación de roles
-                }}>{role}</span>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{
+                        color: '#666',
+                        fontSize: '0.75rem',
+                        textTransform: 'uppercase',
+                        fontWeight: '600',
+                        letterSpacing: '0.5px'
+                    }}>{role}</span>
 
-                <span style={{
-                    color: getStatusColor(),
-                    fontSize: '0.95rem',
-                    fontWeight: status && status !== 'none' ? 'bold' : 'normal',
-                    lineHeight: '1.2',
-                    transition: 'all 0.3s'
-                }}>
-                    {name}
-                </span>
+                    <span style={{
+                        color: getStatusColor(),
+                        fontSize: '0.95rem',
+                        fontWeight: status && status !== 'none' ? 'bold' : 'normal',
+                        lineHeight: '1.2',
+                        transition: 'all 0.3s'
+                    }}>
+                        {name}
+                    </span>
+                </div>
 
-                {status === 'confirmed' && <span style={{ fontSize: '0.8rem' }}>✅</span>}
-                {status === 'sos' && <span className="animate-pulse" style={{ fontSize: '0.8rem' }}>🚨</span>}
+                <div style={{ display: 'flex', gap: '0.25rem', marginLeft: '0.5rem' }}>
+                    {status === 'confirmed' && <span style={{ fontSize: '0.8rem' }}>✅</span>}
+                    {status === 'sos' && <span className="animate-pulse" style={{ fontSize: '0.8rem' }}>🚨</span>}
+                </div>
             </div>
 
             <div style={{
