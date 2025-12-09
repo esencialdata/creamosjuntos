@@ -14,28 +14,52 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, event
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: '1px solid #f0f0f0' }}>
-            <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flex: 1 }}>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '0.75rem 0', // Un poco más de aire
+            borderBottom: '1px solid #f0f0f0',
+            flexWrap: 'wrap', // <--- CLAVE PARA RESPONSIVE
+            gap: '0.5rem'     // <--- ESPACIO ENTRE FILAS
+        }}>
+            <div style={{
+                display: 'flex',
+                gap: '0.5rem',
+                alignItems: 'center',
+                flex: '1 1 200px', // <--- Ancho mínimo antes de hacer wrap
+                minWidth: '60%'    // Asegura legibilidad del nombre
+            }}>
                 <span style={{
                     color: '#666',
-                    fontSize: '0.85rem',
+                    fontSize: '0.75rem', // Un poco más pequeño en móvil
                     textTransform: 'uppercase',
                     fontWeight: '600',
-                    letterSpacing: '0.5px'
+                    letterSpacing: '0.5px',
+                    minWidth: '70px' // Alineación de roles
                 }}>{role}</span>
+
                 <span style={{
                     color: getStatusColor(),
                     fontSize: '0.95rem',
                     fontWeight: status && status !== 'none' ? 'bold' : 'normal',
+                    lineHeight: '1.2',
                     transition: 'all 0.3s'
                 }}>
                     {name}
                 </span>
-                {status === 'confirmed' && <span>✅</span>}
-                {status === 'sos' && <span className="animate-pulse">🚨</span>}
+
+                {status === 'confirmed' && <span style={{ fontSize: '0.8rem' }}>✅</span>}
+                {status === 'sos' && <span className="animate-pulse" style={{ fontSize: '0.8rem' }}>🚨</span>}
             </div>
 
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <div style={{
+                display: 'flex',
+                gap: '0.5rem',
+                alignItems: 'center',
+                marginLeft: 'auto', // Empuja a la derecha en desktop
+                flexShrink: 0       // Evita que los botones se aplasten
+            }}>
                 <button
                     onClick={() => calendarLink && window.open(calendarLink, '_blank')}
                     title={calendarLink ? "Agregar a Google Calendar" : "Error de datos"}
