@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { shareContent } from '../utils/share';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import { toggleThemeSave } from '../services/firestoreService';
 
 // Import local styles for swiper
 import 'swiper/css';
@@ -9,9 +10,32 @@ import 'swiper/css/pagination';
 import '../index.css'; // Ensure we have access to global variables if needed
 
 const WeeklyTheme = ({ theme }) => {
+    const [isSaved, setIsSaved] = useState(false);
+
+    useEffect(() => {
+        // Check localStorage on mount
+        const storedSave = localStorage.getItem(`saved_theme_${theme.title}`);
+        if (storedSave === 'true') {
+            setIsSaved(true);
+        } else {
+            setIsSaved(false);
+        }
+    }, [theme.title]);
+
     const handleShare = async () => {
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}. Únete aquí:`;
         await shareContent('Tema de la semana - Creamos Juntos', textToShare, window.location.href);
+    };
+
+    const handleSave = async () => {
+        const newStatus = !isSaved;
+        setIsSaved(newStatus);
+
+        // Update local storage
+        localStorage.setItem(`saved_theme_${theme.title}`, newStatus);
+
+        // Update Firestore
+        await toggleThemeSave(theme.title, newStatus);
     };
 
     // If no slides define, fallback to simple view (safety check)
@@ -124,35 +148,67 @@ const WeeklyTheme = ({ theme }) => {
                 ))}
             </Swiper>
 
-            {/* Floating Share Button */}
-            <button
-                onClick={handleShare}
-                style={{
-                    position: 'absolute',
-                    bottom: '0',
-                    right: '10px',
-                    zIndex: 10,
-                    background: 'white',
-                    border: '1px solid #E5E7EB',
-                    borderRadius: '50%',
-                    width: '40px',
-                    height: '40px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                    cursor: 'pointer',
-                    color: 'var(--color-text-secondary)'
-                }}
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="18" cy="5" r="3"></circle>
-                    <circle cx="6" cy="12" r="3"></circle>
-                    <circle cx="18" cy="19" r="3"></circle>
-                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                </svg>
-            </button>
+            {/* Actions Container */}
+            <div style={{
+                position: 'absolute',
+                bottom: '0',
+                right: '10px',
+                zIndex: 10,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+            }}>
+                {/* Save Button */}
+                <button
+                    onClick={handleSave}
+                    title="Guardar tema"
+                    style={{
+                        background: isSaved ? 'var(--color-primary)' : 'white',
+                        border: '1px solid #E5E7EB',
+                        borderRadius: '50%',
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        cursor: 'pointer',
+                        color: isSaved ? 'white' : 'var(--color-text-secondary)',
+                        transition: 'all 0.2s ease'
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </button>
+
+                {/* Share Button */}
+                <button
+                    onClick={handleShare}
+                    title="Compartir tema"
+                    style={{
+                        background: 'white',
+                        border: '1px solid #E5E7EB',
+                        borderRadius: '50%',
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        cursor: 'pointer',
+                        color: 'var(--color-text-secondary)'
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                </button>
+            </div>
         </section>
     );
 };

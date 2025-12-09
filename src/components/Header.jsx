@@ -55,6 +55,7 @@ const Header = () => {
                         <ul style={{ display: 'flex', gap: 'var(--spacing-md)', listStyle: 'none', margin: 0, padding: 0 }}>
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/habitos">Hábitos</Link></li>
+                            <li><Link to="/recursos">Recursos</Link></li>
                         </ul>
                     </nav>
                 </div>

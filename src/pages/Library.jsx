@@ -1,0 +1,180 @@
+import React, { useState } from 'react';
+import Layout from '../components/Layout';
+import WeeklyTheme from '../components/WeeklyTheme';
+import { CONFIG, VERSES_POOL } from '../config/data';
+
+const Library = () => {
+    const [activeTab, setActiveTab] = useState('themes');
+    const [selectedTheme, setSelectedTheme] = useState(null);
+
+    // Filter verses to only show those released up to today
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    const currentIndex = dayOfYear % VERSES_POOL.length;
+    const visibleVerses = VERSES_POOL.slice(0, currentIndex + 1);
+
+    return (
+        <Layout>
+            <div style={{ padding: 'var(--spacing-md) 0' }}>
+                <h1 style={{ marginBottom: 'var(--spacing-md)', fontSize: '1.5rem', fontWeight: 700 }}>Biblioteca</h1>
+
+                {/* Tabs */}
+                <div style={{
+                    display: 'flex',
+                    gap: 'var(--spacing-md)',
+                    borderBottom: '1px solid var(--color-border)',
+                    marginBottom: 'var(--spacing-lg)'
+                }}>
+                    <button
+                        onClick={() => setActiveTab('themes')}
+                        style={{
+                            padding: 'var(--spacing-sm) var(--spacing-md)',
+                            background: 'none',
+                            border: 'none',
+                            borderBottom: activeTab === 'themes' ? '2px solid var(--color-primary)' : '2px solid transparent',
+                            color: activeTab === 'themes' ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                            fontWeight: activeTab === 'themes' ? 700 : 400,
+                            cursor: 'pointer',
+                            fontSize: '1rem'
+                        }}
+                    >
+                        Temas Semanales
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('verses')}
+                        style={{
+                            padding: 'var(--spacing-sm) var(--spacing-md)',
+                            background: 'none',
+                            border: 'none',
+                            borderBottom: activeTab === 'verses' ? '2px solid var(--color-primary)' : '2px solid transparent',
+                            color: activeTab === 'verses' ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                            fontWeight: activeTab === 'verses' ? 700 : 400,
+                            cursor: 'pointer',
+                            fontSize: '1rem'
+                        }}
+                    >
+                        Citas Bíblicas
+                    </button>
+                </div>
+
+                {/* Content */}
+                {activeTab === 'themes' && (
+                    <div style={{ display: 'grid', gap: 'var(--spacing-md)' }}>
+                        {CONFIG.themes.map((theme, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setSelectedTheme(theme)}
+                                style={{
+                                    border: '1px solid var(--color-border)',
+                                    borderRadius: 'var(--radius-md)',
+                                    padding: 'var(--spacing-md)',
+                                    cursor: 'pointer',
+                                    background: 'var(--color-surface)',
+                                    transition: 'transform 0.2s',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 'var(--spacing-sm)'
+                                }}
+                            >
+                                <div style={{ fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 600 }}>
+                                    SEMANA {index + 1}
+                                </div>
+                                <h3 style={{ margin: 0 }}>{theme.title}</h3>
+                                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
+                                    {theme.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {activeTab === 'verses' && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+                        {visibleVerses.map((verse, index) => (
+                            <div
+                                key={index}
+                                style={{
+                                    background: 'var(--color-surface)',
+                                    padding: 'var(--spacing-md)',
+                                    borderRadius: 'var(--radius-md)',
+                                    border: '1px solid var(--color-border)'
+                                }}
+                            >
+                                <blockquote style={{ margin: '0 0 var(--spacing-sm) 0', fontStyle: 'italic', lineHeight: 1.5 }}>
+                                    "{verse.text}"
+                                </blockquote>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-primary)' }}>
+                                        {verse.reference}
+                                    </span>
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(`"${verse.text}" - ${verse.reference}`);
+                                            alert('Cita copiada al portapapeles');
+                                        }}
+                                        style={{
+                                            background: 'var(--color-surface-hover)',
+                                            border: 'none',
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            fontSize: '0.8rem',
+                                            cursor: 'pointer',
+                                            color: 'var(--color-text)'
+                                        }}
+                                    >
+                                        Copiar
+                                    </button>
+                                </div>
+                                {verse.comment && (
+                                    <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
+                                        💡 {verse.comment}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Theme Modal/Overlay */}
+                {selectedTheme && (
+                    <div style={{
+                        position: 'fixed',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        background: 'rgba(0,0,0,0.85)',
+                        zIndex: 1000,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        padding: 'var(--spacing-md)',
+                        overflowY: 'auto'
+                    }}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'var(--spacing-md)' }}>
+                            <button
+                                onClick={() => setSelectedTheme(null)}
+                                style={{
+                                    background: 'var(--color-surface)',
+                                    border: 'none',
+                                    borderRadius: '50%',
+                                    width: '40px',
+                                    height: '40px',
+                                    fontSize: '1.5rem',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                ×
+                            </button>
+                        </div>
+                        <WeeklyTheme theme={selectedTheme} />
+                    </div>
+                )}
+            </div>
+        </Layout>
+    );
+};
+
+export default Library;

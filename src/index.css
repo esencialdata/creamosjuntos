@@ -13,6 +13,8 @@
   --color-accent: #8E8B82;
   /* Warm grey/taupe accent */
   --color-border: #E6E4DD;
+  --color-primary: #2563EB;
+  /* Blue for primary actions */
 
   --font-serif: 'Lora', serif;
   --font-sans: 'Inter', sans-serif;

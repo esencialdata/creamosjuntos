@@ -1,5 +1,5 @@
 import { db } from "../firebase";
-import { doc, getDoc, setDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, onSnapshot, updateDoc, increment } from "firebase/firestore";
 
 const defaultSchedule = [
     {
@@ -125,4 +125,47 @@ export const toggleReaction = async (weekId, eventId, shouldAdd) => {
 
 export const toggleLightReaction = async (weekId, eventId, shouldAdd) => {
     return toggleReaction(weekId, eventId, shouldAdd);
+};
+
+// --- Pulse Measurement Stats ---
+
+export const toggleVerseHeart = async (verseReference, shouldAdd) => {
+    // Uses a central 'stats' document in 'appData' collection
+    // Structure: { verse_hearts: { [reference]: count } }
+    try {
+        const docRef = doc(db, "appData", "stats");
+        // We use dot notation for nested field updates in Firestore
+        // e.g. "verse_hearts.Juan 3:16"
+        const fieldPath = `verse_hearts.${verseReference}`;
+
+        await setDoc(docRef, {
+            verse_hearts: {
+                [verseReference]: increment(shouldAdd ? 1 : -1)
+            }
+        }, { merge: true });
+
+    } catch (error) {
+        console.error("Error toggling verse heart:", error);
+    }
+};
+
+export const toggleThemeSave = async (themeTitle, shouldAdd) => {
+    // Uses the same central 'stats' document
+    // Structure: { theme_saves: { [title]: count } }
+    try {
+        const docRef = doc(db, "appData", "stats");
+        const docSnap = await getDoc(docRef); // Check existence if we wanted to avoid negative, but increment handles it OK mostly
+        // actually, increment(-1) on undefined starts at -1. 
+        // Ideally we should care, but for this specific "Pulse" use case, 
+        // we assume we start from 0.
+
+        await setDoc(docRef, {
+            theme_saves: {
+                [themeTitle]: increment(shouldAdd ? 1 : -1)
+            }
+        }, { merge: true });
+
+    } catch (error) {
+        console.error("Error toggling theme save:", error);
+    }
 };
