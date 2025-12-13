@@ -177,7 +177,7 @@ export const CONFIG = {
 
         {
             id: 2,
-            title: "La Arquitectura de TU Vida",
+            title: "INGENIERÍA DEL SUELO",
             description: "Preparando la tierra para ver los frutos de una vida plena.",
             themeStyles: {
                 bg: '#F8F5F2', // Warm off-white/beige
@@ -190,7 +190,7 @@ export const CONFIG = {
             slides: [
                 {
                     type: "cover",
-                    title: "LA ARQUITECTURA DE TU VIDA",
+                    title: "INGENIERÍA DEL SUELO",
                     subtitle: "Neurociencia, Espiritualidad y la Ley de la Siembra.",
                     visual: "🌱",
                     footerText: "¿Por qué deseamos cambiar y no podemos? La respuesta está en la tierra, no en la semilla."
