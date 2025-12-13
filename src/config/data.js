@@ -217,7 +217,7 @@ export const CONFIG = {
                     title: "DIAGNÓSTICO DE TU SUELO INTERNO",
                     question: "¿En cuál de estas mentes estás intentando sembrar tu futuro?",
                     options: [
-                        "1. Junto al camino (Mente Cerrada): La verdad rebota por el prejuicio.",
+                        "1. Junto al camino (Mente Cerrada): La verdad rebota por el prejuicio, en el qué dirán...",
                         "2. En pedregales (Mente Emocional): Se emociona rápido, pero abandona ante la primera dificultad.",
                         "3. Entre espinas (Mente Ansiosa): Quiere crecer, pero 'el afán de este siglo' le roba el enfoque.",
                         "4. Buena Tierra (Mente Enfocada): Escucha, entiende, aplica y persevera."
@@ -225,7 +225,7 @@ export const CONFIG = {
                 },
                 {
                     type: "diagnostic",
-                    label: "Tú pones la acción, Dios pone la Vida",
+                    label: "Tú pones la acción, Dios pone la dirección los medios y los resultados,",
                     title: "SOCIEDAD DE LUZ",
                     body: "Vivimos ansiosos tratando de forzar los resultados. Pero la sabiduría bíblica nos enseña a enfocarnos solo en nuestra competencia: La Siembra. Tú preparas la tierra (carácter) y pones la semilla (acción/fe). Pero la vida misma es un don divino.",
                     citation: "Yo planté, Apolos regó; mas Dios ha dado el crecimiento.",
@@ -236,8 +236,8 @@ export const CONFIG = {
                     title: "INGENIERÍA DE VIDA DIARIA",
                     subtitle: "Guía Práctica para Sembrar Hoy:",
                     steps: [
-                        "Arar (Neuroplasticidad): Identifica un hábito mental negativo hoy y rómpelo conscientemente. 'No pensaré esto'.",
-                        "Sembrar (Muerte al Yo): Haz algo que te cueste trabajo pero que sea correcto. Deja que tu comodidad 'muera'.",
+                        "Arar : Prepara tu mente para sembrar semilla nueva, hábitos nuevos y para resultados diferentes",
+                        "Sembrar Deja que la semilla muera, analiza en qué tipo de tierra cae la semilla.",
                         "Regar (Paciencia): No desentierres la semilla mañana para ver si ya creció. Confía en el proceso."
                     ],
                     citation: "La calidad de tu cosecha depende de la calidad de tu espera.",
