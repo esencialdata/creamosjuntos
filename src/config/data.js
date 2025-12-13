@@ -157,31 +157,18 @@ export const VERSES_POOL = [
 ];
 
 const getDailyVerse = () => {
+    // Logic: Use day of year to rotate through the pool
+    // This allows consistency: everyone sees the same verse on the same day
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+
     // Safety check just in case
     if (!VERSES_POOL || VERSES_POOL.length === 0) return null;
 
-    const now = new Date();
-
-    // MVP LAUNCH LOGIC:
-    // Force specific verse for Launch Day (Dec 13, 2025)
-    // "De modo que si alguno está en Cristo..." (2 Corintios 5:17)
-    if (now.getDate() === 13 && now.getMonth() === 11 && now.getFullYear() === 2025) {
-        return VERSES_POOL[6]; // Index 6 is 2 Corintios 5:17
-    }
-
-    // SEEDED RANDOM FOR FUTURE DAYS:
-    // Use the date string as a seed to ensure the same verse shows all day,
-    // but the selection represents a "random" jump rather than sequential order.
-    const seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
-
-    // Simple Mulberry32-like pseudo-random generator step
-    let t = seed + 0x6D2B79F5;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    const randomFloat = ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-
-    const randomIndex = Math.floor(randomFloat * VERSES_POOL.length);
-    return VERSES_POOL[randomIndex];
+    return VERSES_POOL[dayOfYear % VERSES_POOL.length];
 };
 
 export const CONFIG = {
