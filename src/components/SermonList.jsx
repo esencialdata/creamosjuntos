@@ -12,8 +12,50 @@ const SermonList = ({ schedule }) => {
         }
     });
 
-    // Ensure we have the current week's schedule
-    const currentWeek = schedule && schedule[0]; // Assuming index 0 is current, or filter by logic
+    // Helper to parse dates like "Viernes 05 Dic"
+    const parseSpanishDate = (dateStr) => {
+        const months = {
+            'Ene': 0, 'Feb': 1, 'Mar': 2, 'Abr': 3, 'May': 4, 'Jun': 5,
+            'Jul': 6, 'Ago': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dic': 11
+        };
+        const parts = dateStr.match(/(\d+)\s(\w{3})/);
+        if (!parts) return new Date(); // Fallback
+
+        const day = parseInt(parts[1], 10);
+        const month = months[parts[2]];
+        const year = 2025; // Hardcoded for this schedule's context
+
+        const date = new Date(year, month, day);
+        // Set to end of day to include events of that day
+        date.setHours(23, 59, 59, 999);
+        return date;
+    };
+
+    const getRelevantWeek = (scheduleData) => {
+        if (!scheduleData || scheduleData.length === 0) return null;
+
+        const now = new Date();
+
+        // Find the first week where the last event hasn't happened yet OR is happening today
+        // Actually, we want to show the week UNTIL it's fully over.
+        const currentMs = now.getTime();
+
+        const upcomingOrCurrentWeek = scheduleData.find(week => {
+            const lastEvent = week.events[week.events.length - 1];
+            if (!lastEvent) return false;
+
+            const weekEndDate = parseSpanishDate(lastEvent.date);
+            return weekEndDate.getTime() >= currentMs;
+        });
+
+        // If found, return it. If not found (all dates passed), return the last week?
+        // Or maybe return null to show nothing? Let's return the last week to show *something*.
+        return upcomingOrCurrentWeek || scheduleData[scheduleData.length - 1];
+    };
+
+    // Determine the current week dynamically
+    const currentWeek = getRelevantWeek(schedule);
+
 
     // Filter for "Predicación" events only
     const sermonEvents = currentWeek ? currentWeek.events.filter(event => {
