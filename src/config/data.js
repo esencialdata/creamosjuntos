@@ -177,7 +177,7 @@ export const CONFIG = {
 
         {
             id: 2,
-            title: "La Ingeniería del Alma",
+            title: "La Arquitectura de TU Vida",
             description: "Preparando la tierra para ver los frutos de una vida plena.",
             themeStyles: {
                 bg: '#F8F5F2', // Warm off-white/beige
