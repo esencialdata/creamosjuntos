@@ -50,11 +50,14 @@ const SermonList = ({ schedule }) => {
 
         // If found, return it. If not found (all dates passed), return the last week?
         // Or maybe return null to show nothing? Let's return the last week to show *something*.
+        console.log("DEBUG: Found week:", upcomingOrCurrentWeek);
         return upcomingOrCurrentWeek || scheduleData[scheduleData.length - 1];
     };
 
     // Determine the current week dynamically
+    console.log("DEBUG: Schedule received:", schedule);
     const currentWeek = getRelevantWeek(schedule);
+    console.log("DEBUG: Calculated Current Week:", currentWeek);
 
 
     // Filter for "Predicación" events only
