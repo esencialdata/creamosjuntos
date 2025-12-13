@@ -165,13 +165,22 @@ const getDailyVerse = () => {
     // MVP LAUNCH LOGIC:
     // Force specific verse for Launch Day (Dec 13, 2025)
     // "De modo que si alguno está en Cristo..." (2 Corintios 5:17)
-    // Checks for Day 13, Month 11 (Dec), Year 2025
     if (now.getDate() === 13 && now.getMonth() === 11 && now.getFullYear() === 2025) {
         return VERSES_POOL[6]; // Index 6 is 2 Corintios 5:17
     }
 
-    // For any other day, select randomly on each load
-    const randomIndex = Math.floor(Math.random() * VERSES_POOL.length);
+    // SEEDED RANDOM FOR FUTURE DAYS:
+    // Use the date string as a seed to ensure the same verse shows all day,
+    // but the selection represents a "random" jump rather than sequential order.
+    const seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+
+    // Simple Mulberry32-like pseudo-random generator step
+    let t = seed + 0x6D2B79F5;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    const randomFloat = ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+
+    const randomIndex = Math.floor(randomFloat * VERSES_POOL.length);
     return VERSES_POOL[randomIndex];
 };
 
