@@ -157,18 +157,22 @@ export const VERSES_POOL = [
 ];
 
 const getDailyVerse = () => {
-    // Logic: Use day of year to rotate through the pool
-    // This allows consistency: everyone sees the same verse on the same day
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
-
     // Safety check just in case
     if (!VERSES_POOL || VERSES_POOL.length === 0) return null;
 
-    return VERSES_POOL[dayOfYear % VERSES_POOL.length];
+    const now = new Date();
+
+    // MVP LAUNCH LOGIC:
+    // Force specific verse for Launch Day (Dec 13, 2025)
+    // "De modo que si alguno está en Cristo..." (2 Corintios 5:17)
+    // Checks for Day 13, Month 11 (Dec), Year 2025
+    if (now.getDate() === 13 && now.getMonth() === 11 && now.getFullYear() === 2025) {
+        return VERSES_POOL[6]; // Index 6 is 2 Corintios 5:17
+    }
+
+    // For any other day, select randomly on each load
+    const randomIndex = Math.floor(Math.random() * VERSES_POOL.length);
+    return VERSES_POOL[randomIndex];
 };
 
 export const CONFIG = {
