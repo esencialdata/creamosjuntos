@@ -236,7 +236,7 @@ export const CONFIG = {
                     title: "INGENIERÍA DE VIDA DIARIA",
                     subtitle: "Guía Práctica para Sembrar Hoy:",
                     steps: [
-                        "Arar : Prepara tu mente para sembrar semilla nueva, hábitos nuevos y para resultados diferentes",
+                        "Arar: Prepara tu mente para sembrar semilla nueva, nuevos hábitos y así obtener los resultados esperados",
                         "Sembrar: Deja que la semilla muera, analiza en qué tipo de tierra cae la semilla.",
                         "Regar (Paciencia): No desentierres la semilla mañana para ver si ya creció. Confía en el proceso."
                     ],
