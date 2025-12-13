@@ -33,7 +33,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}
-                    isCompleted={isHabitCompletedToday ? isHabitCompletedToday(CONFIG.habits.find(h => h.name === CONFIG.weeklyHabit.name)?.id || 0) : false}
+                    isCompleted={isHabitCompletedToday ? isHabitCompletedToday(CONFIG.weeklyHabit.id) : false}
                 />
 
                 {/* New Sermon List Section */}

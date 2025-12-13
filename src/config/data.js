@@ -255,7 +255,7 @@ export const CONFIG = {
         }
     ],
     weeklyHabit: {
-        id: 1,
+        id: 99,
         name: "Apliqué el Filtro Kadosh",
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Isaías 33:15, Job 31:1"
