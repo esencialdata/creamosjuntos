@@ -174,43 +174,111 @@ const getDailyVerse = () => {
 export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     themes: [
+
         {
-            id: 1,
-            title: "Identidad",
-            description: "Esta semana: Recordar quiénes somos realmente cuando nadie nos ve.",
-            weeklyDeepDive: "Líderes: Esta semana el objetivo es que los jóvenes entiendan que su identidad no depende de sus errores. Enfatizen la gracia sobre el juicio.",
+            id: 2,
+            title: "La Ingeniería del Alma",
+            description: "Preparando la tierra para la cosecha divina.",
+            themeStyles: {
+                bg: '#F8F5F2', // Warm off-white/beige
+                textPrimary: '#4A4238', // Dark earth tone
+                textSecondary: '#8C857B', // Muted earth tone
+                accent: '#B08D55', // Muted gold/terracotta
+                cardBorder: '1px solid #E6E2DE',
+                cardShadow: '0 8px 24px -4px rgba(74, 66, 56, 0.08)'
+            },
             slides: [
-                { type: "title", content: "IDENTIDAD", sub: "Semana 1" },
-                { type: "verse", content: "Mas vosotros sois linaje escogido, real sacerdocio, nación santa, pueblo adquirido por Dios.", citation: "1 Pedro 2:9" },
-                { type: "challenge", content: "Tu valor no depende de tus errores, sino de quién te creó." }
+                {
+                    type: "cover",
+                    title: "LA ARQUITECTURA DE TU VIDA",
+                    subtitle: "Neurociencia, Espiritualidad y la Ley de la Siembra.",
+                    visual: "🌱",
+                    footerText: "¿Por qué deseamos cambiar y no podemos? La respuesta está en la tierra, no en la semilla."
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Secreto del Cambio Real",
+                    title: "PRIMERO, EL QUIEBRE",
+                    body: "Para que una semilla libere su código genético y cree un bosque, su cáscara debe romperse. Igual pasa con nosotros: Para ver la 'vida que anhelas', tu viejo 'yo' (tus excusas, tu ego, tu comodidad) tiene que morir.",
+                    citation: "Si el grano de trigo no cae en la tierra y muere, él solo queda; mas si muriere, mucho fruto lleva.",
+                    reference: "Juan 12:24 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Ciencia de Preparar la Tierra",
+                    title: "TU CEREBRO ES TIERRA FÉRTIL",
+                    body: "La Biblia ordenó 'Arad campo para vosotros' (Jeremías 4:3). Hoy, la neurociencia llama a esto Neuroplasticidad. 'Arar' significa romper la tierra dura. Biológicamente, significa esforzarte conscientemente para romper viejos circuitos neuronales y crear nuevos caminos.",
+                    citation: "Arad campo para vosotros, y no sembréis entre espinos.",
+                    reference: "Jeremías 4:3"
+                },
+                {
+                    type: "diagnostic",
+                    label: "¿Dónde cae tu propósito?",
+                    title: "DIAGNÓSTICO DE TU SUELO INTERNO",
+                    question: "¿En cuál de estas mentes estás intentando sembrar tu futuro?",
+                    options: [
+                        "1. Junto al camino (Mente Cerrada): La verdad rebota por el prejuicio.",
+                        "2. En pedregales (Mente Emocional): Se emociona rápido, pero abandona ante la primera dificultad.",
+                        "3. Entre espinas (Mente Ansiosa): Quiere crecer, pero 'el afán de este siglo' le roba el enfoque.",
+                        "4. Buena Tierra (Mente Enfocada): Escucha, entiende, aplica y persevera."
+                    ]
+                },
+                {
+                    type: "diagnostic",
+                    label: "Tú pones la acción, Dios pone la Vida",
+                    title: "SOCIEDAD DE LUZ",
+                    body: "Vivimos ansiosos tratando de forzar los resultados. Pero la sabiduría bíblica nos enseña a enfocarnos solo en nuestra competencia: La Siembra. Tú preparas la tierra (carácter) y pones la semilla (acción/fe). Pero la vida misma es un don divino.",
+                    citation: "Yo planté, Apolos regó; mas Dios ha dado el crecimiento.",
+                    reference: "1ª Corintios 3:6 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "INGENIERÍA DE VIDA DIARIA",
+                    subtitle: "Guía Práctica para Sembrar Hoy:",
+                    steps: [
+                        "Arar (Neuroplasticidad): Identifica un hábito mental negativo hoy y rómpelo conscientemente. 'No pensaré esto'.",
+                        "Sembrar (Muerte al Yo): Haz algo que te cueste trabajo pero que sea correcto. Deja que tu comodidad 'muera'.",
+                        "Regar (Paciencia): No desentierres la semilla mañana para ver si ya creció. Confía en el proceso."
+                    ],
+                    citation: "La calidad de tu cosecha depende de la calidad de tu espera.",
+                    reference: "Principio de Siembra"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Llamado a la Sabiduría",
+                    title: "ESTO ES SOLO EL PRINCIPIO",
+                    body: "La Biblia no es un libro religioso antiguo; es el manual del fabricante de la mente humana. Estudiamos esta sabiduría para vivir vidas con propósito, orden y entendimiento. ¿Quieres aprender a preparar tu tierra?",
+                    citation: "Mas el que fué sembrado en buena tierra... da fruto.",
+                    reference: "Mateo 13:23"
+                }
             ]
         }
     ],
     weeklyHabit: {
         id: 1,
-        name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos)",
+        name: "Apliqué el Filtro Kadosh",
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
-        reference: "Salmo 101:3, Filipenses 4:8"
+        reference: "Isaías 33:15, Job 31:1"
     },
-    currentWeek: 1,
+    currentWeek: 2,
     habits: [
         {
             id: 1,
-            name: "Aplicar el Filtro Kadosh(Separar lo que Vemos, Oímos)",
-            action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
-            reference: "Salmo 101:3, Filipenses 4:8"
+            name: "Fui impecable con mis palabras",
+            action: "Ser prudentes con nuestras palabras, no herir, no lastimar, cumplir con nuestra palabra, ser congruentes",
+            reference: "Efesios 4:29, Proverbios 21:23"
         },
         {
             id: 2,
-            name: "Una cita con la Palabra",
-            action: "Aparta cada día 5 minutos para leer un pasaje sin distracciones.",
-            reference: "Josué 1:8"
+            name: "Asigné una parte de mi día para mi conexión con Dios",
+            action: "Aparta cada día un momento para conectarte con Dios.",
+            reference: "Salmo 5:3, Salmo 55:17"
         },
         {
             id: 3,
-            name: "Gratitud nocturna",
-            action: "Escribe 3 cosas por las que estás agradecido antes de dormir.",
-            reference: "1 Tesalonicenses 5:18"
+            name: "Escribí en mi mente y en mi corazón la sabiduría de Dios",
+            action: "Escribe con lapiz en un cuaderno una cita bíblica, el escribirlo a mano crea conexiones en nuestra mente",
+            reference: "Proverbios 3:3, Proverbios 7:3"
         }
     ],
     schedule: [

@@ -41,6 +41,228 @@ const WeeklyTheme = ({ theme }) => {
     // If no slides define, fallback to simple view (safety check)
     if (!theme.slides || !theme.slides.length) return null;
 
+    // Define styles based on theme or defaults
+    const styles = {
+        bg: theme.themeStyles?.bg || '#F9FAFB',
+        textPrimary: theme.themeStyles?.textPrimary || 'var(--color-text-primary)',
+        textSecondary: theme.themeStyles?.textSecondary || 'var(--color-text-secondary)',
+        accent: theme.themeStyles?.accent || 'var(--color-accent)',
+        fontSerif: theme.themeStyles?.fontSerif || 'var(--font-serif)',
+        fontSans: theme.themeStyles?.fontSans || 'var(--font-sans)',
+        cardBorder: theme.themeStyles?.cardBorder || '1px solid #E5E7EB',
+        cardShadow: theme.themeStyles?.cardShadow || '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+        backgroundImage: theme.themeStyles?.backgroundImage || 'none',
+        backgroundSize: 'cover',
+    };
+
+    const renderSlideContent = (slide) => {
+        switch (slide.type) {
+            case 'cover':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
+                        <div style={{ marginTop: '2rem' }}>
+                            <h1 style={{ fontFamily: styles.fontSerif, fontSize: '2.2rem', fontWeight: 700, color: styles.textPrimary, lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                                {slide.title}
+                            </h1>
+                            <p style={{ fontFamily: styles.fontSans, fontSize: '0.9rem', color: styles.textSecondary, textTransform: 'uppercase', letterSpacing: '2px' }}>
+                                {slide.subtitle}
+                            </p>
+                        </div>
+
+                        {slide.visual && (
+                            <div style={{ fontSize: '4rem', margin: '2rem 0' }}>
+                                {slide.visual}
+                            </div>
+                        )}
+
+                        <div style={{ marginBottom: '2rem', maxWidth: '90%' }}>
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '0.9rem', fontStyle: 'italic', color: styles.accent }}>
+                                {slide.footerText}
+                            </p>
+                        </div>
+                    </div>
+                );
+
+            case 'diagnostic':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                        <span style={{ fontFamily: styles.fontSans, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', color: styles.accent, marginBottom: '1rem' }}>
+                            {slide.label || 'Diagnóstico'}
+                        </span>
+                        <h2 style={{ fontFamily: styles.fontSerif, fontSize: '1.6rem', fontWeight: 700, color: styles.textPrimary, marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            {slide.title}
+                        </h2>
+                        {slide.body && (
+                            <div style={{ fontFamily: styles.fontSans, fontSize: '0.95rem', lineHeight: 1.6, color: styles.textPrimary, marginBottom: '2rem' }}>
+                                {slide.body}
+                            </div>
+                        )}
+                        {slide.question && (
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '1.1rem', fontWeight: 600, color: styles.textPrimary, marginBottom: '1rem' }}>
+                                {slide.question}
+                            </p>
+                        )}
+                        {slide.options && (
+                            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', textAlign: 'left' }}>
+                                {slide.options.map((opt, idx) => (
+                                    <li key={idx} style={{
+                                        marginBottom: '0.8rem',
+                                        padding: '0.8rem',
+                                        background: 'rgba(0,0,0,0.03)',
+                                        borderRadius: '8px',
+                                        fontSize: '0.9rem',
+                                        color: styles.textPrimary
+                                    }}>
+                                        {opt}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {slide.citation && (
+                            <blockquote style={{ borderLeft: `3px solid ${styles.accent}`, paddingLeft: '1rem', fontStyle: 'italic', fontFamily: styles.fontSerif, color: styles.textSecondary, fontSize: '0.9rem' }}>
+                                "{slide.citation}"
+                                <div style={{ fontSize: '0.8rem', marginTop: '0.5rem', fontStyle: 'normal', fontWeight: 600 }}>— {slide.reference}</div>
+                            </blockquote>
+                        )}
+                    </div>
+                );
+
+            case 'concept':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                            <span style={{ background: styles.accent, color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 700, fontFamily: styles.fontSans }}>
+                                {slide.tag}
+                            </span>
+                            <span style={{ fontFamily: styles.fontSerif, fontSize: '1rem', fontStyle: 'italic', color: styles.textSecondary }}>
+                                {slide.subTag}
+                            </span>
+                        </div>
+
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <h3 style={{ fontFamily: styles.fontSans, fontSize: '0.85rem', fontWeight: 700, color: styles.textPrimary, marginBottom: '0.5rem', textTransform: 'uppercase' }}>CONCEPTO</h3>
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '0.95rem', lineHeight: 1.5, color: styles.textPrimary }}>
+                                {slide.concept}
+                            </p>
+                        </div>
+
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <h3 style={{ fontFamily: styles.fontSans, fontSize: '0.85rem', fontWeight: 700, color: '#DC2626', marginBottom: '0.5rem', textTransform: 'uppercase' }}>{slide.dangerTitle}</h3>
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '0.95rem', lineHeight: 1.5, color: styles.textPrimary }}>
+                                {slide.dangerText}
+                            </p>
+                        </div>
+
+                        {slide.citation && (
+                            <div style={{ borderTop: `1px solid ${styles.accent}40`, paddingTop: '1rem', fontSize: '0.85rem', color: styles.textSecondary, fontFamily: styles.fontSerif, fontStyle: 'italic' }}>
+                                "{slide.citation}" — {slide.reference}
+                            </div>
+                        )}
+                    </div>
+                );
+            case 'action':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                        <div>
+                            <h2 style={{ fontFamily: styles.fontSerif, fontSize: '1.6rem', fontWeight: 700, color: styles.textPrimary, marginBottom: '0.5rem' }}>
+                                {slide.title}
+                            </h2>
+                            <p style={{ fontFamily: styles.fontSans, fontSize: '0.9rem', color: styles.accent, marginBottom: '2rem' }}>
+                                {slide.subtitle}
+                            </p>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                {slide.steps.map((step, idx) => {
+                                    let label = '';
+                                    let text = '';
+                                    if (typeof step === 'string') {
+                                        const parts = step.split(':');
+                                        if (parts.length > 1) {
+                                            label = parts[0] + ':';
+                                            text = parts.slice(1).join(':').trim();
+                                        } else {
+                                            text = step;
+                                        }
+                                    } else {
+                                        label = step.label;
+                                        text = step.text;
+                                    }
+
+                                    return (
+                                        <div key={idx} style={{ display: 'flex', gap: '1rem' }}>
+                                            <div style={{
+                                                background: styles.accent, color: '#fff',
+                                                width: '24px', height: '24px', borderRadius: '50%',
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                fontSize: '0.8rem', fontWeight: 700, flexShrink: 0
+                                            }}>
+                                                {idx + 1}
+                                            </div>
+                                            <div style={{ textAlign: 'left' }}>
+                                                {label && <strong style={{ display: 'block', fontFamily: styles.fontSans, fontSize: '0.95rem', color: styles.textPrimary }}>{label}</strong>}
+                                                <span style={{ fontFamily: styles.fontSerif, fontSize: '0.9rem', color: styles.textSecondary }}>{text}</span>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {slide.citation && (
+                            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                                <blockquote style={{ fontFamily: styles.fontSerif, fontSize: '1rem', fontStyle: 'italic', color: styles.textPrimary, marginBottom: '0.5rem' }}>
+                                    "{slide.citation}"
+                                </blockquote>
+                                <div style={{ fontSize: '0.8rem', color: styles.accent, fontWeight: 600 }}>— {slide.reference}</div>
+                            </div>
+                        )}
+
+                        {slide.footer && (
+                            <div style={{ marginTop: '1rem', textAlign: 'center', fontSize: '0.8rem', color: styles.textSecondary }}>
+                                {slide.footer}
+                            </div>
+                        )}
+                    </div>
+                );
+
+            // Legacy/Default types
+            case 'title':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                        <span style={{ textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', color: styles.accent, marginBottom: '1rem' }}>
+                            {slide.sub}
+                        </span>
+                        <h2 style={{ fontFamily: styles.fontSans, fontSize: '2rem', fontWeight: '800', color: styles.textPrimary, lineHeight: 1.1 }}>
+                            {slide.content}
+                        </h2>
+                    </div>
+                );
+            case 'verse':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                        <p style={{ fontFamily: styles.fontSerif, fontSize: '1.35rem', fontStyle: 'italic', color: styles.textPrimary, marginBottom: '1.5rem', lineHeight: 1.6 }}>
+                            "{slide.content}"
+                        </p>
+                        <span style={{ fontSize: '0.9rem', fontWeight: '600', color: styles.textSecondary }}>
+                            — {slide.citation}
+                        </span>
+                    </div>
+                );
+            case 'challenge':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                        <div style={{ marginBottom: '1rem', fontSize: '2rem' }}>🔥</div>
+                        <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: styles.textPrimary, lineHeight: 1.4 }}>
+                            {slide.content}
+                        </h3>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
+
+
     return (
         <section style={{ position: 'relative', marginBottom: 'var(--spacing-md)' }}>
             <Swiper
@@ -52,7 +274,7 @@ const WeeklyTheme = ({ theme }) => {
                 pagination={{ clickable: true, dynamicBullets: true }}
                 style={{
                     paddingBottom: '30px', // Space for pagination dots
-                    '--swiper-pagination-color': 'var(--color-accent)',
+                    '--swiper-pagination-color': styles.accent,
                     '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
                     '--swiper-pagination-bullet-inactive-opacity': '0.5',
                 }}
@@ -61,88 +283,19 @@ const WeeklyTheme = ({ theme }) => {
                     <SwiperSlide key={index} style={{ height: 'auto' }}>
                         <div className="card" style={{
                             aspectRatio: '4/5',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            textAlign: 'center',
                             padding: '2rem',
-                            backgroundColor: '#F9FAFB', // Paper-like off-white
-                            border: '1px solid #E5E7EB',
-                            borderRadius: '16px', // Rounded corners like Instagram posts
-                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+                            backgroundColor: styles.bg,
+                            border: styles.cardBorder,
+                            borderRadius: '16px',
+                            boxShadow: styles.cardShadow,
                             position: 'relative',
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            backgroundImage: styles.backgroundImage,
+                            backgroundSize: styles.backgroundSize,
+                            backgroundPosition: 'center',
                         }}>
-                            {/* Decorative Elements */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-20px',
-                                right: '-20px',
-                                width: '100px',
-                                height: '100px',
-                                background: 'radial-gradient(circle, rgba(217,119,6,0.05) 0%, rgba(255,255,255,0) 70%)',
-                                borderRadius: '50%'
-                            }} />
-
-                            {slide.type === 'title' && (
-                                <>
-                                    <span style={{
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '0.2em',
-                                        fontSize: '0.75rem',
-                                        color: 'var(--color-accent)',
-                                        marginBottom: '1rem'
-                                    }}>
-                                        {slide.sub}
-                                    </span>
-                                    <h2 style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: '2rem',
-                                        fontWeight: '800',
-                                        color: 'var(--color-text-primary)',
-                                        lineHeight: 1.1
-                                    }}>
-                                        {slide.content}
-                                    </h2>
-                                </>
-                            )}
-
-                            {slide.type === 'verse' && (
-                                <>
-                                    <p style={{
-                                        fontFamily: 'var(--font-serif)',
-                                        fontSize: '1.35rem',
-                                        fontStyle: 'italic',
-                                        color: 'var(--color-text-primary)',
-                                        marginBottom: '1.5rem',
-                                        lineHeight: 1.6
-                                    }}>
-                                        "{slide.content}"
-                                    </p>
-                                    <span style={{
-                                        fontSize: '0.9rem',
-                                        fontWeight: '600',
-                                        color: 'var(--color-text-secondary)'
-                                    }}>
-                                        — {slide.citation}
-                                    </span>
-                                </>
-                            )}
-
-                            {slide.type === 'challenge' && (
-                                <>
-                                    <div style={{ marginBottom: '1rem' }}>🔥</div>
-                                    <h3 style={{
-                                        fontSize: '1.25rem',
-                                        fontWeight: '600',
-                                        color: 'var(--color-text-primary)',
-                                        lineHeight: 1.4
-                                    }}>
-                                        {slide.content}
-                                    </h3>
-                                </>
-                            )}
+                            {/* Content Render */}
+                            {renderSlideContent(slide)}
                         </div>
                     </SwiperSlide>
                 ))}

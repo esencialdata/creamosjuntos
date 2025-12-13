@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo_CD_w.svg', 'apple-icon.png', 'logo-footer.png', 'logo_header.png'],
+      includeAssets: ['logo_app_w.svg', 'apple-icon.png', 'logo-footer.png', 'logo_header.png'],
       manifest: {
         name: 'Creamos Juntos',
         short_name: 'Creamos Juntos',
@@ -19,13 +19,13 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'logo_CD_w.svg',
+            src: 'logo_app_w.svg',
             sizes: '192x192',
             type: 'image/svg+xml',
             purpose: 'any maskable'
           },
           {
-            src: 'logo_CD_w.svg',
+            src: 'logo_app_w.svg',
             sizes: '512x512',
             type: 'image/svg+xml',
             purpose: 'any maskable'

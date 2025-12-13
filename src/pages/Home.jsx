@@ -29,7 +29,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
                 <DailyVerse verse={CONFIG.dailyVerse} />
 
-                <WeeklyTheme theme={CONFIG.themes[0]} />
+                <WeeklyTheme theme={CONFIG.themes.find(t => t.id === CONFIG.currentWeek) || CONFIG.themes[0]} />
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}
