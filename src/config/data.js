@@ -178,7 +178,7 @@ export const CONFIG = {
         {
             id: 2,
             title: "La Ingeniería del Alma",
-            description: "Preparando la tierra para la cosecha divina.",
+            description: "Preparando la tierra para ver los frutos de una vida plena.",
             themeStyles: {
                 bg: '#F8F5F2', // Warm off-white/beige
                 textPrimary: '#4A4238', // Dark earth tone

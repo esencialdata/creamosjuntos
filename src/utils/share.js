@@ -7,7 +7,7 @@ export const shareContent = async (title, text, url) => {
         try {
             await navigator.share({
                 title: title,
-                text: fullText, // Some apps take text + url in 'text'
+                text: text, // Pass clean text, let the OS handle the URL placement
                 url: url
             });
             return;
