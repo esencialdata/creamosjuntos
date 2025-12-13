@@ -59,7 +59,7 @@ const WeeklyTheme = ({ theme }) => {
         switch (slide.type) {
             case 'cover':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
                         <div style={{ marginTop: '2rem' }}>
                             <h1 style={{ fontFamily: styles.fontSerif, fontSize: '2.2rem', fontWeight: 700, color: styles.textPrimary, lineHeight: 1.1, marginBottom: '0.5rem' }}>
                                 {slide.title}
@@ -85,7 +85,7 @@ const WeeklyTheme = ({ theme }) => {
 
             case 'diagnostic':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', textAlign: 'left' }}>
                         <span style={{ fontFamily: styles.fontSans, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', color: styles.accent, marginBottom: '1rem' }}>
                             {slide.label || 'Diagnóstico'}
                         </span>
@@ -129,7 +129,7 @@ const WeeklyTheme = ({ theme }) => {
 
             case 'concept':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', textAlign: 'left' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
                             <span style={{ background: styles.accent, color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 700, fontFamily: styles.fontSans }}>
                                 {slide.tag}
@@ -162,7 +162,7 @@ const WeeklyTheme = ({ theme }) => {
                 );
             case 'action':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', textAlign: 'left' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', textAlign: 'left' }}>
                         <div>
                             <h2 style={{ fontFamily: styles.fontSerif, fontSize: '1.6rem', fontWeight: 700, color: styles.textPrimary, marginBottom: '0.5rem' }}>
                                 {slide.title}
@@ -228,7 +228,7 @@ const WeeklyTheme = ({ theme }) => {
             // Legacy/Default types
             case 'title':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', flex: 1 }}>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.75rem', color: styles.accent, marginBottom: '1rem' }}>
                             {slide.sub}
                         </span>
@@ -239,7 +239,7 @@ const WeeklyTheme = ({ theme }) => {
                 );
             case 'verse':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', flex: 1 }}>
                         <p style={{ fontFamily: styles.fontSerif, fontSize: '1.35rem', fontStyle: 'italic', color: styles.textPrimary, marginBottom: '1.5rem', lineHeight: 1.6 }}>
                             "{slide.content}"
                         </p>
@@ -250,7 +250,7 @@ const WeeklyTheme = ({ theme }) => {
                 );
             case 'challenge':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', height: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center', flex: 1 }}>
                         <div style={{ marginBottom: '1rem', fontSize: '2rem' }}>🔥</div>
                         <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: styles.textPrimary, lineHeight: 1.4 }}>
                             {slide.content}
@@ -282,7 +282,10 @@ const WeeklyTheme = ({ theme }) => {
                 {theme.slides.map((slide, index) => (
                     <SwiperSlide key={index} style={{ height: 'auto' }}>
                         <div className="card" style={{
-                            aspectRatio: '4/5',
+                            // aspectRatio: '4/5', // Removed to allow growing
+                            minHeight: '500px', // Fallback height
+                            display: 'flex',
+                            flexDirection: 'column',
                             padding: '2rem',
                             backgroundColor: styles.bg,
                             border: styles.cardBorder,
