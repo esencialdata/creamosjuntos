@@ -18,6 +18,7 @@ const DailyVerse = ({ verse }) => {
 
     const handleShare = async () => {
         const textToShare = `"${verse.text}" — ${verse.reference}. Creamos Juntos`;
+        // URL is passed as 3rd arg, handled by share.js
         await shareContent('Cita del día - Creamos Juntos', textToShare, window.location.href);
     };
 

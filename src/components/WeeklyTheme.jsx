@@ -24,7 +24,7 @@ const WeeklyTheme = ({ theme }) => {
     }, [theme.title]);
 
     const handleShare = async () => {
-        const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}. Únete aquí:`;
+        const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent('Tema de la semana - Creamos Juntos', textToShare, window.location.href);
     };
 
