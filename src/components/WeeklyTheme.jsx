@@ -8,6 +8,7 @@ import { toggleThemeSave } from '../services/firestoreService';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../index.css'; // Ensure we have access to global variables if needed
+import './WeeklyTheme.css'; // Import specific styles for scrollbars and effects
 
 const WeeklyTheme = ({ theme }) => {
     const [isSaved, setIsSaved] = useState(false);
@@ -281,9 +282,10 @@ const WeeklyTheme = ({ theme }) => {
             >
                 {theme.slides.map((slide, index) => (
                     <SwiperSlide key={index} style={{ height: 'auto' }}>
-                        <div className="card" style={{
-                            // aspectRatio: '4/5', // Removed to allow growing
-                            minHeight: '500px', // Fallback height
+                        <div className="card weekly-theme-card" style={{
+                            // Elegant Fixed Dimensions with Internal Scroll
+                            aspectRatio: '3/5', // Slightly taller than 4/5 for modern content
+                            maxHeight: '75vh', // Never take up more than 75% of screen height
                             display: 'flex',
                             flexDirection: 'column',
                             padding: '2rem',
@@ -292,13 +294,31 @@ const WeeklyTheme = ({ theme }) => {
                             borderRadius: '16px',
                             boxShadow: styles.cardShadow,
                             position: 'relative',
-                            overflow: 'hidden',
+                            overflow: 'hidden', // Hide overflow of container
                             backgroundImage: styles.backgroundImage,
                             backgroundSize: styles.backgroundSize,
                             backgroundPosition: 'center',
                         }}>
-                            {/* Content Render */}
-                            {renderSlideContent(slide)}
+                            {/* Scrollable Content Wrapper */}
+                            <div className="card-content-scrollable" style={{
+                                flex: 1,
+                                overflowY: 'auto',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                // Hide scrollbar but allow functionality
+                                scrollbarWidth: 'none', /* Firefox */
+                                msOverflowStyle: 'none',  /* IE and Edge */
+                                paddingRight: '4px' // Prevent content touching scroll edge
+                            }}>
+                                {renderSlideContent(slide)}
+                            </div>
+
+                            {/* Styling for WebKit scrollbar hiding injected via class or style */}
+                            <style>{`
+                                .card-content-scrollable::-webkit-scrollbar {
+                                    display: none;
+                                }
+                             `}</style>
                         </div>
                     </SwiperSlide>
                 ))}
