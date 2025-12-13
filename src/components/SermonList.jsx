@@ -24,8 +24,18 @@ const SermonList = ({ schedule }) => {
         const parts = dateStr.toLowerCase().match(/(\d+)\s+([a-z]{3})/);
 
         if (!parts) {
+            // Check for just a number (e.g. "Sábado 06" -> 06)
+            const dayParts = dateStr.match(/(\d+)/);
+            if (dayParts) {
+                console.log("DEBUG: Incomplete date found, assuming December:", dateStr);
+                const day = parseInt(dayParts[1], 10);
+                const date = new Date(2025, 11, day); // Default to December
+                date.setHours(23, 59, 59, 999);
+                return date;
+            }
+
             console.warn("Date parse fallback for:", dateStr);
-            return new Date(); // Fallback to now (will likely match immediately)
+            return new Date(0); // Fallback to epoch (past) so it doesn't trigger "isFuture"
         }
 
         const day = parseInt(parts[1], 10);
@@ -34,7 +44,7 @@ const SermonList = ({ schedule }) => {
 
         if (month === undefined) {
             console.warn("Month parse failed for:", monthStr);
-            return new Date();
+            return new Date(0); // Fallback to past
         }
 
         const year = 2025; // Hardcoded
