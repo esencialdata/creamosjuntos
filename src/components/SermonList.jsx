@@ -14,19 +14,31 @@ const SermonList = ({ schedule }) => {
 
     // Helper to parse dates like "Viernes 05 Dic"
     const parseSpanishDate = (dateStr) => {
+        // Normalize: lowercase, remove accents for matching (simplified map)
         const months = {
-            'Ene': 0, 'Feb': 1, 'Mar': 2, 'Abr': 3, 'May': 4, 'Jun': 5,
-            'Jul': 6, 'Ago': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dic': 11
+            'ene': 0, 'feb': 1, 'mar': 2, 'abr': 3, 'may': 4, 'jun': 5,
+            'jul': 6, 'ago': 7, 'sep': 8, 'oct': 9, 'nov': 10, 'dic': 11
         };
-        const parts = dateStr.match(/(\d+)\s(\w{3})/);
-        if (!parts) return new Date(); // Fallback
+
+        // Match day and month (first 3 chars) loosely
+        const parts = dateStr.toLowerCase().match(/(\d+)\s+([a-z]{3})/);
+
+        if (!parts) {
+            console.warn("Date parse fallback for:", dateStr);
+            return new Date(); // Fallback to now (will likely match immediately)
+        }
 
         const day = parseInt(parts[1], 10);
-        const month = months[parts[2]];
-        const year = 2025; // Hardcoded for this schedule's context
+        const monthStr = parts[2]; // e.g., "dic"
+        const month = months[monthStr];
 
+        if (month === undefined) {
+            console.warn("Month parse failed for:", monthStr);
+            return new Date();
+        }
+
+        const year = 2025; // Hardcoded
         const date = new Date(year, month, day);
-        // Set to end of day to include events of that day
         date.setHours(23, 59, 59, 999);
         return date;
     };
@@ -35,22 +47,21 @@ const SermonList = ({ schedule }) => {
         if (!scheduleData || scheduleData.length === 0) return null;
 
         const now = new Date();
-
-        // Find the first week where the last event hasn't happened yet OR is happening today
-        // Actually, we want to show the week UNTIL it's fully over.
         const currentMs = now.getTime();
+        console.log("DEBUG: Checking current time:", now.toString());
 
-        const upcomingOrCurrentWeek = scheduleData.find(week => {
+        const upcomingOrCurrentWeek = scheduleData.find((week, index) => {
             const lastEvent = week.events[week.events.length - 1];
             if (!lastEvent) return false;
 
             const weekEndDate = parseSpanishDate(lastEvent.date);
-            return weekEndDate.getTime() >= currentMs;
+            const isFuture = weekEndDate.getTime() >= currentMs;
+
+            console.log(`DEBUG: Week ${index + 1} (${lastEvent.date}) ends: ${weekEndDate.toDateString()}. Is Future/Now? ${isFuture}`);
+            return isFuture;
         });
 
-        // If found, return it. If not found (all dates passed), return the last week?
-        // Or maybe return null to show nothing? Let's return the last week to show *something*.
-        console.log("DEBUG: Found week:", upcomingOrCurrentWeek);
+        console.log("DEBUG: Selected week:", upcomingOrCurrentWeek ? upcomingOrCurrentWeek.week : "None (Using last)");
         return upcomingOrCurrentWeek || scheduleData[scheduleData.length - 1];
     };
 
