@@ -237,7 +237,7 @@ export const CONFIG = {
                     subtitle: "Guía Práctica para Sembrar Hoy:",
                     steps: [
                         "Arar : Prepara tu mente para sembrar semilla nueva, hábitos nuevos y para resultados diferentes",
-                        "Sembrar Deja que la semilla muera, analiza en qué tipo de tierra cae la semilla.",
+                        "Sembrar: Deja que la semilla muera, analiza en qué tipo de tierra cae la semilla.",
                         "Regar (Paciencia): No desentierres la semilla mañana para ver si ya creció. Confía en el proceso."
                     ],
                     citation: "La calidad de tu cosecha depende de la calidad de tu espera.",
