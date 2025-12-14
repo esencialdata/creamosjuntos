@@ -215,7 +215,7 @@ const SermonList = ({ schedule }) => {
                                     fontWeight: '600',
                                     color: isLiked ? '#D97706' : '#9CA3AF'
                                 }}>
-                                    {isLiked ? 'Iluminado' : 'Iluminar'}
+                                    {isLiked ? 'Luz' : 'Iluminar'}
                                     {event.lights > 0 && ` (${event.lights})`}
                                 </span>
                             </button>
