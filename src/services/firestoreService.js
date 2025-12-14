@@ -1,5 +1,5 @@
 import { db } from "../firebase";
-import { doc, getDoc, setDoc, onSnapshot, updateDoc, increment } from "firebase/firestore";
+import { doc, getDoc, setDoc, onSnapshot, updateDoc, increment, runTransaction } from "firebase/firestore";
 
 const defaultSchedule = [
     {
@@ -93,13 +93,20 @@ export const updateEventStatus = async (weekId, eventId, roleIndex, newStatus) =
 };
 
 export const toggleReaction = async (weekId, eventId, shouldAdd) => {
-    try {
-        const docRef = doc(db, "appData", "schedule");
-        const docSnap = await getDoc(docRef);
+    const docRef = doc(db, "appData", "schedule");
 
-        if (docSnap.exists()) {
+    try {
+        await runTransaction(db, async (transaction) => {
+            const docSnap = await transaction.get(docRef);
+
+            if (!docSnap.exists()) {
+                throw "Document does not exist!";
+            }
+
             const data = docSnap.data();
-            const updatedSchedule = [...data.schedule];
+            // Clone the array/objects to avoid mutating state directly if referenced elsewhere (though not critical here with deep cloning)
+            // JSON parse/stringify is a cheap way to deep clone for this specific simple structure
+            const updatedSchedule = JSON.parse(JSON.stringify(data.schedule));
 
             const week = updatedSchedule.find(w => w.id === weekId);
             if (week) {
@@ -114,12 +121,14 @@ export const toggleReaction = async (weekId, eventId, shouldAdd) => {
                     }
 
                     event.lights = currentLights;
-                    await updateDoc(docRef, { schedule: updatedSchedule });
+
+                    // Transactional write
+                    transaction.update(docRef, { schedule: updatedSchedule });
                 }
             }
-        }
+        });
     } catch (error) {
-        console.error("Error toggling reaction:", error);
+        console.error("Error toggling reaction (transaction):", error);
     }
 };
 
