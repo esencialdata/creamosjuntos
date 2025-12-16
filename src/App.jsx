@@ -9,6 +9,8 @@ import './index.css';
 import { initializeDefaultData } from './services/firestoreService';
 import { getLocalTodayDate } from './utils/dateUtils';
 
+import PWAInstallBanner from './components/PWAInstallBanner';
+
 function App() {
   // State for tracking completed habits: Array of { id: number, date: string (ISO date part) }
   const [completedHabits, setCompletedHabits] = useState(() => {
@@ -58,6 +60,7 @@ function App() {
 
   return (
     <Router>
+      <PWAInstallBanner />
       <Routes>
         <Route
           path="/"

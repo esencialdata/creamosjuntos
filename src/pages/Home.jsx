@@ -8,11 +8,12 @@ import TempleGrowth from '../components/TempleGrowth';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
 import { subscribeToSchedule } from '../services/firestoreService';
+import { usePWAInstall } from '../hooks/usePWAInstall';
 
 const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
     const [streak, setStreak] = useState(null);
-
     const [schedule, setSchedule] = useState([]);
+    const { isInstallable, install } = usePWAInstall();
 
     useEffect(() => {
         const currentStreak = updateStreak();
@@ -27,6 +28,29 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
     return (
         <Layout>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
+                {isInstallable && (
+                    <button
+                        onClick={install}
+                        style={{
+                            width: '100%',
+                            padding: '0.8rem',
+                            backgroundColor: 'var(--color-primary)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '0.5rem',
+                            fontSize: '0.9rem'
+                        }}
+                    >
+                        <span>⬇️</span> Instalar App para mejor experiencia
+                    </button>
+                )}
+
                 <DailyVerse verse={CONFIG.dailyVerse} />
 
                 <WeeklyTheme theme={CONFIG.themes.find(t => t.id === CONFIG.currentWeek) || CONFIG.themes[0]} />
