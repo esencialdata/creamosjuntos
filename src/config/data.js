@@ -291,7 +291,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "El Conflicto",
                     title: "¿HAY ALGO DIFÍCIL PARA DIOS?",
-                    body: "La lógica humana decía de Sara: 'Biológicamente imposible'. Dios respondió con una pregunta eterna. Traemos nuestros 'cuerpos muertos' y olvidamos que Él es el Creador.",
+                    body: "La lógica humana decía de Sara: 'Biológicamente imposible'. Dios respondió con una pregunta eterna.",
                     citation: "¿Hay para Dios alguna cosa difícil? Al tiempo señalado volveré á ti... y Sara tendrá un hijo.",
                     reference: "Génesis 18:14 (RVA)"
                 },
@@ -300,7 +300,7 @@ export const CONFIG = {
                     label: "Principio",
                     title: "EL PODER DE LA MULTIPLICACIÓN",
                     subtitle: "Donde tú ves poco, Dios ve suficiente.",
-                    body: "Los discípulos calcularon escasez (200 denarios). Jesús aplicó la ley de la sobreabundancia. Jesús nunca da 'solo lo justo'; su firma es el remanente.",
+                    body: "Los discípulos calcularon escasez (200 denarios). Jesús aplicó la ley de la sobreabundancia.",
                     citation: "Comieron todos, se saciaron y sobraron doce cestas.",
                     reference: "Mateo 14:20 (Ref)"
                 },
