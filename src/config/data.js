@@ -291,7 +291,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "El Conflicto",
                     title: "¿HAY ALGO DIFÍCIL PARA DIOS?",
-                    body: "La lógica humana decía de Sara: 'Biológicamente imposible'. Dios respondió con una pregunta eterna.",
+                    body: "La lógica humana decía de Sara: 'Biológicamente imposible'. Dios respondió con una pregunta eterna. Traemos pensamientos limitantes y nos olvidamos que él es el creador.",
                     citation: "¿Hay para Dios alguna cosa difícil? Al tiempo señalado volveré á ti... y Sara tendrá un hijo.",
                     reference: "Génesis 18:14 (RVA)"
                 },
