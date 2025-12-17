@@ -171,6 +171,12 @@ const getDailyVerse = () => {
     return VERSES_POOL[dayOfYear % VERSES_POOL.length];
 };
 
+const getCurrentWeekId = () => {
+    const now = new Date();
+    const releaseDate = new Date(2025, 11, 17); // Dec 17, 2025
+    return now >= releaseDate ? 3 : 2;
+};
+
 export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     themes: [
@@ -252,6 +258,80 @@ export const CONFIG = {
                     reference: "Mateo 13:23"
                 }
             ]
+        },
+        {
+            id: 3,
+            title: "DIOS SIN LÍMITES",
+            description: "Cuando tus cálculos se quedan cortos.",
+            themeStyles: {
+                bg: '#0F172A', // Slate 900
+                textPrimary: '#F8FAFC', // Slate 50
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#38BDF8', // Sky 400
+                cardBorder: '1px solid #1E293B',
+                cardShadow: '0 20px 25px -5px rgba(56, 189, 248, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "DIOS SIN LÍMITES",
+                    subtitle: "Cuando tus cálculos se quedan cortos.",
+                    videoUrl: "/portada_agua.mp4",
+                    footerText: "Desliza para romper tus límites ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Tesis",
+                    title: "LA LEY DE LA ABUNDANCIA DIVINA",
+                    body: "No servimos a un Dios de 'lo suficiente', sino de la sobreabundancia. Pablo rompe la escala humana de medición.",
+                    citation: "Y á Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos ó entendemos...",
+                    reference: "Efesios 3:20 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Conflicto",
+                    title: "¿HAY ALGO DIFÍCIL PARA DIOS?",
+                    body: "La lógica humana decía de Sara: 'Biológicamente imposible'. Dios respondió con una pregunta eterna. Traemos nuestros 'cuerpos muertos' y olvidamos que Él es el Creador.",
+                    citation: "¿Hay para Dios alguna cosa difícil? Al tiempo señalado volveré á ti... y Sara tendrá un hijo.",
+                    reference: "Génesis 18:14 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Principio",
+                    title: "EL PODER DE LA MULTIPLICACIÓN",
+                    subtitle: "Donde tú ves poco, Dios ve suficiente.",
+                    body: "Los discípulos calcularon escasez (200 denarios). Jesús aplicó la ley de la sobreabundancia. Jesús nunca da 'solo lo justo'; su firma es el remanente.",
+                    citation: "Comieron todos, se saciaron y sobraron doce cestas.",
+                    reference: "Mateo 14:20 (Ref)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Neurociencia y Mente",
+                    title: "EL SESGO DE DISPONIBILIDAD",
+                    body: "La neurociencia dice que juzgamos el futuro por recuerdos pasados ('Si nunca ha pasado, no pasará'). Pero Dios opera fuera de tu base de datos neuronal. No limites al Infinito con tu experiencia finita.",
+                    citation: "He aquí que yo hago cosa nueva; presto saldrá á luz...",
+                    reference: "Isaías 43:19"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Poder Interno",
+                    title: "EL MOTOR ERES TÚ",
+                    body: "No es magia externa; es el Espíritu Santo y la Palabra en tu carácter. Tu fe es el interruptor. Si dudas, apagas el sistema. Si crees, activas la maquinaria del cielo.",
+                    citation: "...por la potencia que obra en nosotros.",
+                    reference: "Efesios 3:20 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "ROMPE EL TECHO DE CRISTAL",
+                    subtitle: "Deja de pedir 'una taza de agua'. Él es dueño de los océanos.",
+                    steps: [
+                        "Identifica dónde bajaste expectativas por miedo o costumbre.",
+                        "Tus límites no los tiene Dios: pide lo que solo Dios puede hacer y escapa de tu lógica."
+                    ],
+                    citation: "Porque mis pensamientos no son vuestros pensamientos... dijo Jehová.",
+                    reference: "Isaías 55:8 (RVA)"
+                }
+            ]
         }
     ],
     weeklyHabit: {
@@ -260,7 +340,7 @@ export const CONFIG = {
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Isaías 33:15, Job 31:1"
     },
-    currentWeek: 2,
+    currentWeek: getCurrentWeekId(),
     habits: [
         {
             id: 1,

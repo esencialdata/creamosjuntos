@@ -70,7 +70,26 @@ const WeeklyTheme = ({ theme }) => {
                             </p>
                         </div>
 
-                        {slide.visual && (
+                        {/* Video Support */}
+                        {slide.videoUrl ? (
+                            <div style={{
+                                margin: '2rem 0',
+                                width: '100%',
+                                height: '200px',
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                            }}>
+                                <video
+                                    src={slide.videoUrl}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </div>
+                        ) : slide.visual && (
                             <div style={{ fontSize: '4rem', margin: '2rem 0' }}>
                                 {slide.visual}
                             </div>
@@ -84,6 +103,35 @@ const WeeklyTheme = ({ theme }) => {
                     </div>
                 );
 
+            case 'video': // explicit video card type
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{
+                            width: '100%',
+                            aspectRatio: '9/16',
+                            borderRadius: '12px',
+                            overflow: 'hidden',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                            marginBottom: '1rem'
+                        }}>
+                            <video
+                                src={slide.videoUrl}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                controls={slide.controls}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                        </div>
+                        {slide.caption && (
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '1rem', color: styles.textPrimary, textAlign: 'center' }}>
+                                {slide.caption}
+                            </p>
+                        )}
+                    </div>
+                );
+
             case 'diagnostic':
                 return (
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', textAlign: 'left' }}>
@@ -93,6 +141,11 @@ const WeeklyTheme = ({ theme }) => {
                         <h2 style={{ fontFamily: styles.fontSerif, fontSize: '1.6rem', fontWeight: 700, color: styles.textPrimary, marginBottom: '1.5rem', lineHeight: 1.2 }}>
                             {slide.title}
                         </h2>
+                        {slide.subtitle && (
+                            <p style={{ fontFamily: styles.fontSans, fontSize: '1rem', color: styles.accent, marginBottom: '1.5rem', fontStyle: 'italic' }}>
+                                {slide.subtitle}
+                            </p>
+                        )}
                         {slide.body && (
                             <div style={{ fontFamily: styles.fontSans, fontSize: '0.95rem', lineHeight: 1.6, color: styles.textPrimary, marginBottom: '2rem' }}>
                                 {slide.body}
