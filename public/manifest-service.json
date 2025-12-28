@@ -9,13 +9,13 @@
     "start_url": "/service.html",
     "icons": [
         {
-            "src": "logo_CD_w.svg",
+            "src": "logo-servicio.svg",
             "sizes": "192x192",
             "type": "image/svg+xml",
             "purpose": "any maskable"
         },
         {
-            "src": "logo_CD_w.svg",
+            "src": "logo-servicio.svg",
             "sizes": "512x512",
             "type": "image/svg+xml",
             "purpose": "any maskable"
