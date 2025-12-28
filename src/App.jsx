@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
-import Backstage from './pages/Backstage';
+
 import './index.css';
 
 import { initializeDefaultData } from './services/firestoreService';
@@ -85,10 +85,7 @@ function App() {
           path="/recursos"
           element={<Library />}
         />
-        <Route
-          path="/servicio"
-          element={<Backstage />}
-        />
+
       </Routes>
     </Router>
   );

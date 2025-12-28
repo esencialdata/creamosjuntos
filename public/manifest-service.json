@@ -1,0 +1,24 @@
+{
+    "name": "Logística de Servicio",
+    "short_name": "Servicio",
+    "description": "Logística y Organización de Servicios",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/service.html",
+    "icons": [
+        {
+            "src": "logo_app_w.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "logo_app_w.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

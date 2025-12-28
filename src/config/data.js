@@ -173,8 +173,11 @@ const getDailyVerse = () => {
 
 const getCurrentWeekId = () => {
     const now = new Date();
-    const releaseDate = new Date(2025, 11, 17); // Dec 17, 2025
-    return now >= releaseDate ? 3 : 2;
+    const releaseDate3 = new Date(2025, 11, 17); // Dec 17, 2025
+    const releaseDate4 = new Date(2025, 11, 24); // Dec 24, 2025
+
+    if (now >= releaseDate4) return 4;
+    return now >= releaseDate3 ? 3 : 2;
 };
 
 export const CONFIG = {
@@ -330,6 +333,79 @@ export const CONFIG = {
                     ],
                     citation: "Porque mis pensamientos no son vuestros pensamientos... dijo Jehová.",
                     reference: "Isaías 55:8 (RVA)"
+                }
+            ]
+        },
+        {
+            id: 4,
+            title: "EL EXPEDIENTE LEGAL",
+            description: "¿Por qué Jesús dijo: «Yo soy el camino»?",
+            themeStyles: {
+                bg: '#1C1917', // Stone 900
+                textPrimary: '#FAFAF9', // Stone 50
+                textSecondary: '#A8A29E', // Stone 400
+                accent: '#EA580C', // Orange 600
+                cardBorder: '1px solid #44403C', // Stone 700
+                cardShadow: '0 20px 25px -5px rgba(234, 88, 12, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿POR QUÉ JESÚS DIJO: «YO SOY EL CAMINO»?",
+                    subtitle: "No fue una frase poética ni mística. Fue una necesidad legal que exigía una solución humana.",
+                    videoUrl: "/portada_camino.mp4",
+                    footerText: "Desliza para leer el expediente ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL PLAN",
+                    title: "DISEÑO, NO IMPROVISACIÓN",
+                    body: "Mucho antes del pesebre, ya existía un plan detallado. Isaías 9:6 perfiló al Mesías con precisión:\n\n👶 \"Un NIÑO nos es nacido\" (Su Humanidad: Materia, biología y sangre).\n👑 \"Hijo nos es dado\" (Su Divinidad: Origen externo al sistema).",
+                    citation: "Su llegada no tenía el propósito de crear una festividad en el calendario, sino establecer un Gobierno legítimo.",
+                    reference: "Isaías 9:6 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL CONFLICTO",
+                    title: "EL PROBLEMA LEGAL",
+                    body: "Para entender la misión, hay que entender el conflicto. La humanidad rompió el orden establecido y la consecuencia inevitable es la muerte.\n\nEl Dilema: En su naturaleza espiritual original, el Verbo no podía morir. La Justicia exigía un cambio de naturaleza para poder enfrentar esa consecuencia.",
+                    citation: "El pecado es transgresión de la ley",
+                    reference: "1 Juan 3:4"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA SOLUCIÓN",
+                    title: "EL CUMPLIMIENTO DE REQUISITOS",
+                    body: "La antigua Ley del Rescate tenía una cláusula estricta: Solo un Pariente de Sangre (Goel) podía pagar la deuda de otro.\n\nPor eso Cristo se hizo \"Súbdito de la Ley\":\n\n1. Nació de mujer para entrar legalmente en nuestra familia humana.\n2. Cumplió la normativa para tener la solvencia moral necesaria.",
+                    citation: "Su humanidad fue el requisito técnico indispensable para asumir la consecuencia de nuestra transgresión.",
+                    reference: "Gálatas 4:4"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA DEFINICIÓN",
+                    title: "¿QUÉ SIGNIFICA SER \"EL CAMINO\"?",
+                    body: "No se trata solo de un concepto religioso. \"El Camino\" es vivir en armonía con la realidad diseñada. La Ley de Dios rige tres dimensiones:\n\n- Leyes Físicas: El orden del entorno.\n- Leyes del Cuerpo: Biología y salud.\n- Leyes Morales: Ética y convivencia.",
+                    citation: "Jesús es la Ley en acción. Vino a mostrar cómo transitar estas tres dimensiones sin estrellarnos contra las consecuencias del error.",
+                    reference: "Juan 14:6"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA PARADOJA",
+                    title: "ESTRUCTURA ES LIBERTAD",
+                    body: "Suele pensarse que libertad es la ausencia de límites. Pero si ignoras la ley de la gravedad o la ley de la salud, sufres.\n\nPiensa en un Río: El agua fluye libre y con fuerza solo cuando se mantiene dentro de su cauce. Sin orillas, se dispersa y se estanca.\nLa Ley de Dios es ese cauce. Nos da dirección y evita el caos físico, biológico y moral.",
+                    citation: "Estructura es libertad.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "action",
+                    title: "MÁS ALLÁ DE LA FECHA",
+                    subtitle: "El velo se rompió. El acceso está abierto.",
+                    steps: [
+                        "Entender que Él es \"El Camino\" implica más que recordar un nacimiento una vez al año.",
+                        "Implica dejar la transgresión y alinearse con las leyes del Creador en tu cuerpo y con tus semejantes."
+                    ],
+                    citation: "¿En qué área (física o moral) te cuesta más mantener el orden?",
+                    reference: "Cierre"
                 }
             ]
         }
