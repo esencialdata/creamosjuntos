@@ -134,6 +134,7 @@ export const PAST_SCHEDULES = {
                         time: "10:00 AM",
                         theme: "Yo soy el camino, la verdad y la vida",
                         objective: "Reconocer el ejemplo de Cristo en nuestras acciones.",
+                        lights: 42, // Data acumulada (Ejemplo)
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Lección", name: "Absalón Perusquía (La nueva Jerusalém)" },
@@ -146,6 +147,7 @@ export const PAST_SCHEDULES = {
                         time: "4:00 PM",
                         theme: "Nuestra herencia",
                         objective: "Reconocer características de los valientes.",
+                        lights: 28, // Data acumulada (Ejemplo)
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Predicación", name: "Aarón Espinosa" }

@@ -188,6 +188,48 @@ const getCurrentWeekId = () => {
 export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     themes: [
+        {
+            id: 1,
+            title: "EL LIBRO DE APOCALIPSIS",
+            description: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
+            themeStyles: {
+                bg: '#2e1065', // Violet 950
+                textPrimary: '#F8FAFC', // Slate 50
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#A78BFA', // Violet 400
+                cardBorder: '1px solid #4C1D95',
+                cardShadow: '0 20px 25px -5px rgba(139, 92, 246, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "EL LIBRO DE APOCALIPSIS",
+                    subtitle: "Verdades y Mitos del Fin",
+                    visual: "📜",
+                    footerText: "¿Miedo o Esperanza?"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Contexto",
+                    title: "EL INICIO DEL AÑO",
+                    body: "El mundo celebra ciclos, pero la Biblia marca tiempos proféticos. Entender Apocalipsis no es para predecir fechas, sino para vivir con propósito en el tiempo que nos toca.",
+                    citation: "Bienaventurado el que lee, y los que oyen las palabras de esta profecía...",
+                    reference: "Apocalipsis 1:3"
+                },
+                {
+                    type: "action",
+                    title: "VIVIENDO LA REVELACIÓN",
+                    subtitle: "Aplicaciones Prácticas",
+                    steps: [
+                        "No vivas con miedo al futuro, vive con la certeza del Rey que viene.",
+                        "Santifícate: El tiempo es corto, úsalo sabiamente.",
+                        "Testifica: La verdad debe ser contada."
+                    ],
+                    citation: "He aquí, yo vengo pronto...",
+                    reference: "Apocalipsis 22:7"
+                }
+            ]
+        },
 
         {
             id: 2,

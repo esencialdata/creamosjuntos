@@ -530,6 +530,27 @@ const Backstage = () => {
                                                 </div>
                                                 <h4 style={{ fontSize: '1rem', marginBottom: '0.4rem', color: '#444' }}>{event.type}</h4>
 
+                                                {event.theme && (
+                                                    <div style={{ marginBottom: '0.8rem' }}>
+                                                        <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
+                                                        {event.lights && (
+                                                            <span style={{
+                                                                display: 'inline-flex',
+                                                                alignItems: 'center',
+                                                                gap: '4px',
+                                                                backgroundColor: '#FEF3C7',
+                                                                color: '#D97706',
+                                                                padding: '2px 8px',
+                                                                borderRadius: '12px',
+                                                                fontSize: '0.75rem',
+                                                                fontWeight: 'bold'
+                                                            }}>
+                                                                💡 {event.lights}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )}
+
                                                 {/* Only basic details for simplified history view */}
                                                 <div style={{ marginTop: '0.8rem' }}>
                                                     {event.details.map((detail, dIdx) => (
