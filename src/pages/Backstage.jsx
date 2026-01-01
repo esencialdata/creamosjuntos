@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CONFIG } from '../config/data';
-import { db, subscribeToSchedule, updateEventStatus, getThemeStats } from '../services/firestoreService';
+import { subscribeToSchedule, updateEventStatus, initializeDefaultData, getThemeStats } from '../services/firestoreService';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
-// import AnalyticsDashboard from '../components/AnalyticsDashboard';
 import logoHeader from '../assets/logo_header.png';
 
 const ACCESS_CODE = "hemeaqui";
@@ -126,7 +125,6 @@ const Backstage = () => {
     const [showArchive, setShowArchive] = useState(false);
     const [selectedYear, setSelectedYear] = useState('2025');
     const [selectedMonth, setSelectedMonth] = useState('December');
-    const [archiveViewMode, setArchiveViewMode] = useState('calendar'); // 'calendar' | 'analytics'
 
     useEffect(() => {
         const isLeader = localStorage.getItem('isLeader');
@@ -522,6 +520,7 @@ const Backstage = () => {
                             </select>
                         </div>
 
+                        {/* Render Past Schedule Grid */}
                         <div style={{ display: 'grid', gap: '2rem' }}>
                             {PAST_SCHEDULES[selectedYear]?.[selectedMonth]?.map(week => (
                                 <div key={week.id} style={{ opacity: 0.8 }}>
@@ -557,6 +556,7 @@ const Backstage = () => {
                                                         <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
                                                     </div>
                                                 )}
+                                                {/* Only basic details for simplified history view */}
                                                 <div style={{ marginTop: '0.8rem' }}>
                                                     {event.details.map((detail, dIdx) => (
                                                         <div key={dIdx} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
@@ -570,16 +570,11 @@ const Backstage = () => {
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 )}
             </div>
-                        )}
-
         </div>
-    )
-}
-            </div >
-        </div >
     );
 };
 
