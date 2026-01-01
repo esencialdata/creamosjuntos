@@ -111,6 +111,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Vespertino",
                         time: "4:00 PM",
                         theme: "Parábola del hijo pródigo",
+                        lights: 3,
                         objective: "Identificar la forma de obtener perdón y crear compromisos.",
                         details: [
                             { role: "Superintendente", name: "Gerardo Mier" },
