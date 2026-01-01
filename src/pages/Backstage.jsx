@@ -422,10 +422,8 @@ const Backstage = () => {
                                                         <p style={{ color: '#555', fontSize: '0.95rem', fontStyle: 'italic' }}>"{displayTheme}"</p>
                                                     );
                                                 })()}
-                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.4rem' }}>
-                                                    {event.objective && (
-                                                        <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>Obj: {event.objective}</p>
-                                                    )}
+                                                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginTop: '0.4rem' }}>
+                                                    {/* Objective removed from here */}
                                                     {/* Lights Metric Badge */}
                                                     {event.lights > 0 && (
                                                         <span style={{
@@ -448,16 +446,30 @@ const Backstage = () => {
 
                                         <div style={{ display: 'flex', flexDirection: 'column', marginTop: '1rem' }}>
                                             {event.details.map((detail, dIdx) => (
-                                                <RoleManager
-                                                    key={dIdx}
-                                                    role={detail.role}
-                                                    name={detail.name}
-                                                    status={detail.status}
-                                                    eventDate={event.date}
-                                                    calendarLink={generateGoogleCalendarLink(event, detail)}
-                                                    onConfirm={() => handleRoleStatusChange(week.id, event.id, dIdx, 'confirmed', { ...detail, date: event.date, type: event.type })}
-                                                    onSOS={() => handleRoleStatusChange(week.id, event.id, dIdx, 'sos', { ...detail, date: event.date, type: event.type })}
-                                                />
+                                                <div key={dIdx}>
+                                                    <RoleManager
+                                                        role={detail.role}
+                                                        name={detail.name}
+                                                        status={detail.status}
+                                                        eventDate={event.date}
+                                                        calendarLink={generateGoogleCalendarLink(event, detail)}
+                                                        onConfirm={() => handleRoleStatusChange(week.id, event.id, dIdx, 'confirmed', { ...detail, date: event.date, type: event.type })}
+                                                        onSOS={() => handleRoleStatusChange(week.id, event.id, dIdx, 'sos', { ...detail, date: event.date, type: event.type })}
+                                                    />
+                                                    {/* Display Objective immediately after Predicación */}
+                                                    {detail.role === "Predicación" && event.objective && (
+                                                        <p style={{
+                                                            fontSize: '0.8rem',
+                                                            color: '#666',
+                                                            margin: '0.5rem 0 0.5rem 0',
+                                                            paddingLeft: '1rem',
+                                                            borderLeft: '2px solid #ddd',
+                                                            fontStyle: 'italic'
+                                                        }}>
+                                                            Obj: {event.objective}
+                                                        </p>
+                                                    )}
+                                                </div>
                                             ))}
                                         </div>
                                     </div>
