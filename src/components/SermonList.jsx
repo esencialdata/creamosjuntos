@@ -149,14 +149,27 @@ const SermonList = ({ schedule }) => {
                                 }}>
                                     {event.date} • {event.time}
                                 </span>
-                                <h4 style={{
-                                    fontSize: '1rem',
-                                    fontWeight: '700',
-                                    marginBottom: '0.25rem',
-                                    lineHeight: '1.3'
-                                }}>
-                                    {event.theme || "Tema Especial"}
-                                </h4>
+                                {(() => {
+                                    // Extract specific sermon title from Predicación detail if available
+                                    // Format expected: "Name (Sermon Title)"
+                                    const preacherDetail = event.details && event.details.find(d => d.role === "Predicación");
+                                    const preacherText = preacherDetail ? preacherDetail.name : "";
+                                    const titleMatch = preacherText.match(/\(([^)]+)\)/);
+
+                                    // If title found in parens, use it. Otherwise fallback to event theme.
+                                    const displayTitle = titleMatch ? titleMatch[1] : (event.theme || "Tema Especial");
+
+                                    return (
+                                        <h4 style={{
+                                            fontSize: '1rem',
+                                            fontWeight: '700',
+                                            marginBottom: '0.25rem',
+                                            lineHeight: '1.3'
+                                        }}>
+                                            {displayTitle}
+                                        </h4>
+                                    );
+                                })()}
                                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem' }}>
                                     {event.objective}
                                 </p>
