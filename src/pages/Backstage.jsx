@@ -541,22 +541,6 @@ const Backstage = () => {
                                                 {event.theme && (
                                                     <div style={{ marginBottom: '0.8rem' }}>
                                                         <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
-                                                        {/* Use statsKey if available to look up the Weekly Theme stat */}
-                                                        {((event.statsKey && themeStats[event.statsKey]) || (event.theme && themeStats[event.theme])) !== undefined && (
-                                                            <span style={{
-                                                                display: 'inline-flex',
-                                                                alignItems: 'center',
-                                                                gap: '4px',
-                                                                backgroundColor: '#FEF3C7',
-                                                                color: '#D97706',
-                                                                padding: '2px 8px',
-                                                                borderRadius: '12px',
-                                                                fontSize: '0.75rem',
-                                                                fontWeight: 'bold'
-                                                            }}>
-                                                                💡 {themeStats[event.statsKey] || themeStats[event.theme]}
-                                                            </span>
-                                                        )}
                                                     </div>
                                                 )}
                                                 {/* Only basic details for simplified history view */}
