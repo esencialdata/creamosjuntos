@@ -1,12 +1,21 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import Backstage from './pages/Backstage'
 import PWAInstallBanner from './components/PWAInstallBanner'
+import { initializeDefaultData } from './services/firestoreService'
 
-createRoot(document.getElementById('root-service')).render(
-    <StrictMode>
-        <PWAInstallBanner />
-        <Backstage />
-    </StrictMode>,
-)
+const ServiceApp = () => {
+    useEffect(() => {
+        initializeDefaultData();
+    }, []);
+
+    return (
+        <StrictMode>
+            <PWAInstallBanner />
+            <Backstage />
+        </StrictMode>
+    );
+};
+
+createRoot(document.getElementById('root-service')).render(<ServiceApp />)

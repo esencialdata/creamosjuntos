@@ -173,11 +173,16 @@ const getDailyVerse = () => {
 
 const getCurrentWeekId = () => {
     const now = new Date();
-    const releaseDate3 = new Date(2025, 11, 17); // Dec 17, 2025
-    const releaseDate4 = new Date(2025, 11, 24); // Dec 24, 2025
+    const week2Start = new Date(2026, 0, 9);  // Jan 9, 2026
+    const week3Start = new Date(2026, 0, 16); // Jan 16, 2026
+    const week4Start = new Date(2026, 0, 23); // Jan 23, 2026
+    const week5Start = new Date(2026, 0, 30); // Jan 30, 2026
 
-    if (now >= releaseDate4) return 4;
-    return now >= releaseDate3 ? 3 : 2;
+    if (now >= week5Start) return 5;
+    if (now >= week4Start) return 4;
+    if (now >= week3Start) return 3;
+    if (now >= week2Start) return 2;
+    return 1;
 };
 
 export const CONFIG = {
@@ -440,10 +445,10 @@ export const CONFIG = {
     schedule: [
         {
             id: 1,
-            week: "Semana del 5 al 6 Dic",
+            week: "Semana del 2 al 3 Ene",
             events: [
                 {
-                    date: "Viernes 05 Dic",
+                    date: "Viernes 02 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
                     details: [
@@ -452,61 +457,38 @@ export const CONFIG = {
                     ]
                 },
                 {
-                    date: "Sábado 06 Dic",
+                    date: "Sábado 03 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La Virgen María, verdades y mitos",
-                    objective: "Sustentar la creencia verdadera acerca de la virgen María.",
+                    theme: "El libro de Apocalipsis",
+                    objective: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Mizraim Montiel (Mensaje del 3er ángel)" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
+                        { role: "Lección", name: "Mizraim Montiel" },
+                        { role: "Predicación", name: "Absalón Perusquía (El año nuevo, usos y costumbres en la vida de la Iglesia)" }
                     ]
                 },
                 {
-                    date: "Sábado 06 Dic",
+                    date: "Sábado 03 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "La familia de Jesús",
-                    objective: "Tener bases para sustentar que Jesús tuvo familia.",
+                    theme: "Los magos de oriente y la visita al hijo de Dios",
+                    objective: "Desechar creencias mundanas sobre este suceso y entender la verdad bíblica de su trascendencia.",
                     details: [
-                        { role: "Superintendente", name: "Mizraim Montiel" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 }
             ]
         },
         {
             id: 2,
-            week: "Semana del 12 al 13 Dic",
+            week: "Semana del 9 al 10 Ene",
             events: [
                 {
-                    date: "Viernes 12 Dic",
+                    date: "Viernes 09 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
-                    details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
-                    ]
-                },
-                {
-                    date: "Sábado 13 Dic",
-                    type: "Culto Matutino",
-                    time: "10:00 AM",
-                    theme: "Parábola del sembrador",
-                    objective: "Establecer formas para trabajar en la evangelización.",
-                    details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Gerardo Mier (El mar de vidrio)" },
-                        { role: "Predicación", name: "Aarón Espinosa" }
-                    ]
-                },
-                {
-                    date: "Sábado 13 Dic",
-                    type: "Culto Vespertino",
-                    time: "4:00 PM",
-                    theme: "¿Andarás por el fuego sin quemarte?",
-                    objective: "Reconocer fiestas que provocan desobediencia.",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
                         { role: "Predicación", name: "Absalón Perusquía" }
@@ -516,76 +498,45 @@ export const CONFIG = {
         },
         {
             id: 3,
-            week: "Semana del 19 al 20 Dic",
+            week: "Semana del 16 al 17 Ene",
             events: [
                 {
-                    date: "Viernes 19 Dic",
+                    date: "Viernes 16 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Yahir López" }
                     ]
-                },
-                {
-                    date: "Sábado 20 Dic",
-                    type: "Culto Matutino",
-                    time: "10:00 AM",
-                    theme: "El nacimiento de Cristo",
-                    objective: "Defender la verdad acerca del nacimiento de Jesús.",
-                    details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Mizraim Montiel" },
-                        { role: "Predicación", name: "Aarón Espinosa" }
-                    ]
-                },
-                {
-                    date: "Sábado 20 Dic",
-                    type: "Culto Vespertino",
-                    time: "4:00 PM",
-                    theme: "Parábola del hijo pródigo",
-                    objective: "Identificar la forma de obtener perdón y crear compromisos.",
-                    details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
-                    ]
                 }
             ]
         },
         {
             id: 4,
-            week: "Semana del 26 al 27 Dic",
+            week: "Semana del 23 al 24 Ene",
             events: [
                 {
-                    date: "Viernes 26 Dic",
+                    date: "Viernes 23 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            id: 5,
+            week: "Semana del 30 al 31 Ene",
+            events: [
                 {
-                    date: "Sábado 27 Dic",
-                    type: "Culto Matutino",
-                    time: "10:00 AM",
-                    theme: "Yo soy el camino, la verdad y la vida",
-                    objective: "Reconocer el ejemplo de Cristo en nuestras acciones.",
+                    date: "Viernes 30 Ene",
+                    type: "Virtual (Zoom)",
+                    time: "7:00 PM",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Absalón Perusquía (La nueva Jerusalém)" },
-                        { role: "Predicación", name: "Aarón Espinoza" }
-                    ]
-                },
-                {
-                    date: "Sábado 27 Dic",
-                    type: "Culto Vespertino",
-                    time: "4:00 PM",
-                    theme: "Nuestra herencia",
-                    objective: "Reconocer características de los valientes.",
-                    details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Aarón Espinosa" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Predicación", name: "Yahir López" }
                     ]
                 }
             ]

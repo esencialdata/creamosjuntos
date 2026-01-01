@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CONFIG } from '../config/data';
 import { subscribeToSchedule, updateEventStatus, initializeDefaultData } from '../services/firestoreService';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
+import { PAST_SCHEDULES } from '../config/schedule_archive';
 import logoHeader from '../assets/logo_header.png';
 
 const ACCESS_CODE = "hemeaqui";
@@ -120,7 +121,14 @@ const Backstage = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [inputCode, setInputCode] = useState('');
     const [error, setError] = useState(false);
+    const [error, setError] = useState(false);
     const [schedule, setSchedule] = useState([]);
+    const [showArchive, setShowArchive] = useState(false);
+    const [selectedYear, setSelectedYear] = useState('2025');
+    const [selectedMonth, setSelectedMonth] = useState('December');
+    const [showArchive, setShowArchive] = useState(false);
+    const [selectedYear, setSelectedYear] = useState('2025');
+    const [selectedMonth, setSelectedMonth] = useState('December');
 
     useEffect(() => {
         const isLeader = localStorage.getItem('isLeader');
@@ -451,6 +459,108 @@ const Backstage = () => {
                 </div>
             </div>
         </div>
+            </div >
+
+    {/* Archive Section */ }
+    < div className = "container" style = {{ maxWidth: '800px', margin: '2rem auto', padding: '0 1rem' }}>
+        <button
+            onClick={() => setShowArchive(!showArchive)}
+            style={{
+                background: 'none',
+                border: 'none',
+                color: '#666',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                marginBottom: '1rem'
+            }}
+        >
+            {showArchive ? 'Ocultar Historial' : 'Ver Servicios Anteriores'}
+        </button>
+
+{
+    showArchive && (
+        <div style={{
+            backgroundColor: '#fff',
+            borderRadius: '12px',
+            padding: '1.5rem',
+            border: '1px solid #e5e5e5'
+        }}>
+            <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>Historial de Servicios</h3>
+
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+                <select
+                    value={selectedYear}
+                    onChange={(e) => setSelectedYear(e.target.value)}
+                    style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                >
+                    {Object.keys(PAST_SCHEDULES).map(year => (
+                        <option key={year} value={year}>{year}</option>
+                    ))}
+                </select>
+
+                <select
+                    value={selectedMonth}
+                    onChange={(e) => setSelectedMonth(e.target.value)}
+                    style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
+                >
+                    {Object.keys(PAST_SCHEDULES[selectedYear] || {}).map(month => (
+                        <option key={month} value={month}>{month}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* Render Past Schedule Grid */}
+            <div style={{ display: 'grid', gap: '2rem' }}>
+                {PAST_SCHEDULES[selectedYear]?.[selectedMonth]?.map(week => (
+                    <div key={week.id} style={{ opacity: 0.8 }}>
+                        <h3 style={{
+                            fontSize: '0.8rem',
+                            fontWeight: '700',
+                            color: '#888',
+                            textTransform: 'uppercase',
+                            marginBottom: '0.8rem',
+                            borderLeft: '3px solid #ccc',
+                            paddingLeft: '0.5rem'
+                        }}>
+                            {week.week}
+                        </h3>
+                        <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+                            {week.events.map((event, idx) => (
+                                <div key={idx} style={{
+                                    backgroundColor: '#fafafa',
+                                    borderRadius: '8px',
+                                    padding: '1rem',
+                                    border: '1px solid #eee'
+                                }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                                        <span style={{ fontWeight: 'bold', fontSize: '0.85rem', color: '#555' }}>
+                                            {event.date}
+                                        </span>
+                                        <span style={{ fontSize: '0.8rem', color: '#999' }}>{event.time}</span>
+                                    </div>
+                                    <h4 style={{ fontSize: '1rem', marginBottom: '0.4rem', color: '#444' }}>{event.type}</h4>
+
+                                    {/* Only basic details for simplified history view */}
+                                    <div style={{ marginTop: '0.8rem' }}>
+                                        {event.details.map((detail, dIdx) => (
+                                            <div key={dIdx} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+                                                <strong>{detail.role}:</strong> {detail.name}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    )
+}
+            </div >
+        </div >
     );
 };
 
