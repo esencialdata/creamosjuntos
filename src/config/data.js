@@ -422,7 +422,7 @@ export const CONFIG = {
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Isaías 33:15, Job 31:1"
     },
-    currentWeek: getCurrentWeekId(),
+    currentWeek: 4, // "EL EXPEDIENTE LEGAL" (Último tema subido)
     habits: [
         {
             id: 1,
