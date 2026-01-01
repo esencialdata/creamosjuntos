@@ -99,6 +99,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Matutino",
                         time: "10:00 AM",
                         theme: "El nacimiento de Cristo",
+                        lights: 3,
                         objective: "Defender la verdad acerca del nacimiento de Jesús.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
