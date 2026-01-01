@@ -141,16 +141,33 @@ export const toggleThemeSave = async (themeTitle, shouldAdd) => {
     }
 };
 
+export const toggleThemeShare = async (themeTitle, shouldAdd) => {
+    // Uses the same central 'stats' document
+    // Structure: { theme_shares: { [title]: count } }
+    try {
+        const docRef = doc(db, "appData", "stats");
+        // We assume we start from 0 and increment.
+        await setDoc(docRef, {
+            theme_shares: {
+                [themeTitle]: increment(1) // Shares usually only increment
+            }
+        }, { merge: true });
+
+    } catch (error) {
+        console.error("Error toggling theme share:", error);
+    }
+};
+
 export const getThemeStats = async () => {
     try {
         const docRef = doc(db, "appData", "stats");
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            return docSnap.data().theme_saves || {};
+            return docSnap.data(); // Returns { theme_saves, theme_shares, verse_hearts }
         }
         return {};
     } catch (error) {
-        console.error("Error getting theme stats:", error);
+        console.error("Error getting analytics stats:", error);
         return {};
     }
 };

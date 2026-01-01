@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { shareContent } from '../utils/share';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import { toggleThemeSave } from '../services/firestoreService';
+import { toggleThemeSave, toggleThemeShare } from '../services/firestoreService';
 
 // Import local styles for swiper
 import 'swiper/css';
@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import '../index.css'; // Ensure we have access to global variables if needed
 import './WeeklyTheme.css'; // Import specific styles for scrollbars and effects
 
-const WeeklyTheme = ({ theme }) => {
+const WeeklyTheme = ({ theme = {} }) => {
     const [isSaved, setIsSaved] = useState(false);
 
     useEffect(() => {
@@ -24,6 +24,9 @@ const WeeklyTheme = ({ theme }) => {
     }, [theme.title]);
 
     const handleShare = async () => {
+        // Track the share attempt in Firestore
+        await toggleThemeShare(theme.title, true);
+
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, window.location.href);
     };
