@@ -188,25 +188,7 @@ const getCurrentWeekId = () => {
 export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     themes: [
-        {
-            id: 1,
-            title: "EL LIBRO DE APOCALIPSIS",
-            description: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
-            themeStyles: {
-                bg: '#2e1065', // Violet 950
-                textPrimary: '#F8FAFC', // Slate 50
-                textSecondary: '#94A3B8', // Slate 400
-                accent: '#A78BFA', // Violet 400
-            },
-            slides: [
-                {
-                    type: "cover",
-                    title: "EL LIBRO DE APOCALIPSIS",
-                    subtitle: "Culto Matutino",
-                    visual: "📖"
-                }
-            ]
-        },
+
 
         {
             id: 2,
