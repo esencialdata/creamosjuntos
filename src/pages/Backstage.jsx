@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CONFIG } from '../config/data';
-import { subscribeToSchedule, updateEventStatus, initializeDefaultData } from '../services/firestoreService';
+import { subscribeToSchedule, updateEventStatus, initializeDefaultData, getThemeStats } from '../services/firestoreService';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
 import logoHeader from '../assets/logo_header.png';
@@ -142,6 +142,14 @@ const Backstage = () => {
             return () => unsubscribe();
         }
     }, [isAuthenticated]);
+
+    // Fetch stats for archive
+    const [themeStats, setThemeStats] = useState({});
+    useEffect(() => {
+        if (showArchive) {
+            getThemeStats().then(stats => setThemeStats(stats));
+        }
+    }, [showArchive]);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -533,7 +541,7 @@ const Backstage = () => {
                                                 {event.theme && (
                                                     <div style={{ marginBottom: '0.8rem' }}>
                                                         <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
-                                                        {event.lights && (
+                                                        {themeStats[event.theme] !== undefined && (
                                                             <span style={{
                                                                 display: 'inline-flex',
                                                                 alignItems: 'center',
@@ -545,12 +553,11 @@ const Backstage = () => {
                                                                 fontSize: '0.75rem',
                                                                 fontWeight: 'bold'
                                                             }}>
-                                                                💡 {event.lights}
+                                                                💡 {themeStats[event.theme]}
                                                             </span>
                                                         )}
                                                     </div>
                                                 )}
-
                                                 {/* Only basic details for simplified history view */}
                                                 <div style={{ marginTop: '0.8rem' }}>
                                                     {event.details.map((detail, dIdx) => (
