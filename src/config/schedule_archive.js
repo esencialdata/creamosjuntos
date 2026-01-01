@@ -20,6 +20,7 @@ export const PAST_SCHEDULES = {
                         time: "10:00 AM",
                         theme: "La Virgen María, verdades y mitos",
                         objective: "Sustentar la creencia verdadera acerca de la virgen María.",
+                        lights: 2, // Data real recuperada: 'Identidad'
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Lección", name: "Mizraim Montiel (Mensaje del 3er ángel)" },
@@ -32,6 +33,7 @@ export const PAST_SCHEDULES = {
                         time: "4:00 PM",
                         theme: "La familia de Jesús",
                         objective: "Tener bases para sustentar que Jesús tuvo familia.",
+                        lights: 2,
                         details: [
                             { role: "Superintendente", name: "Mizraim Montiel" },
                             { role: "Predicación", name: "Absalón Perusquía" }
@@ -58,6 +60,7 @@ export const PAST_SCHEDULES = {
                         time: "10:00 AM",
                         theme: "Parábola del sembrador",
                         objective: "Establecer formas para trabajar en la evangelización.",
+                        lights: 0, // Data real recuperada: 'Ingeniería del Suelo'
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Lección", name: "Gerardo Mier (El mar de vidrio)" },
@@ -96,6 +99,7 @@ export const PAST_SCHEDULES = {
                         time: "10:00 AM",
                         theme: "El nacimiento de Cristo",
                         objective: "Defender la verdad acerca del nacimiento de Jesús.",
+                        lights: 2, // Data real recuperada: 'Dios Sin Límites'
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Lección", name: "Mizraim Montiel" },
@@ -134,7 +138,7 @@ export const PAST_SCHEDULES = {
                         time: "10:00 AM",
                         theme: "Yo soy el camino, la verdad y la vida",
                         objective: "Reconocer el ejemplo de Cristo en nuestras acciones.",
-                        lights: 42, // Data acumulada (Ejemplo)
+                        lights: 1, // Data real recuperada: 'El Expediente Legal'
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Lección", name: "Absalón Perusquía (La nueva Jerusalém)" },
@@ -147,7 +151,7 @@ export const PAST_SCHEDULES = {
                         time: "4:00 PM",
                         theme: "Nuestra herencia",
                         objective: "Reconocer características de los valientes.",
-                        lights: 28, // Data acumulada (Ejemplo)
+                        lights: 1,
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
                             { role: "Predicación", name: "Aarón Espinosa" }
