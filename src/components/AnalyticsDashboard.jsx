@@ -43,11 +43,19 @@ const AnalyticsDashboard = () => {
         };
 
         // Process Archive
-        Object.values(PAST_SCHEDULES).forEach(year => {
-            Object.values(year).forEach(monthWeeks => {
-                extract(monthWeeks);
-            });
-        });
+        try {
+            if (PAST_SCHEDULES) {
+                Object.values(PAST_SCHEDULES).forEach(year => {
+                    if (year) {
+                        Object.values(year).forEach(monthWeeks => {
+                            if (monthWeeks) extract(monthWeeks);
+                        });
+                    }
+                });
+            }
+        } catch (err) {
+            console.error("Error processing past schedules:", err);
+        }
 
         // Process Current Schedule (Optional: exclude if empty stats? Include for now)
         // extract(CONFIG.schedule); 
