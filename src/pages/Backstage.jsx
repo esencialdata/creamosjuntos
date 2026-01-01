@@ -541,7 +541,8 @@ const Backstage = () => {
                                                 {event.theme && (
                                                     <div style={{ marginBottom: '0.8rem' }}>
                                                         <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
-                                                        {themeStats[event.theme] !== undefined && (
+                                                        {/* Use statsKey if available to look up the Weekly Theme stat */}
+                                                        {((event.statsKey && themeStats[event.statsKey]) || (event.theme && themeStats[event.theme])) !== undefined && (
                                                             <span style={{
                                                                 display: 'inline-flex',
                                                                 alignItems: 'center',
@@ -553,7 +554,7 @@ const Backstage = () => {
                                                                 fontSize: '0.75rem',
                                                                 fontWeight: 'bold'
                                                             }}>
-                                                                💡 {themeStats[event.theme]}
+                                                                💡 {themeStats[event.statsKey] || themeStats[event.theme]}
                                                             </span>
                                                         )}
                                                     </div>
