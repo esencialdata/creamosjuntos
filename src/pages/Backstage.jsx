@@ -3,7 +3,7 @@ import { CONFIG } from '../config/data';
 import { db, subscribeToSchedule, updateEventStatus, getThemeStats } from '../services/firestoreService';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
-import AnalyticsDashboard from '../components/AnalyticsDashboard';
+// import AnalyticsDashboard from '../components/AnalyticsDashboard';
 import logoHeader from '../assets/logo_header.png';
 
 const ACCESS_CODE = "hemeaqui";
@@ -501,135 +501,54 @@ const Backstage = () => {
                         <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#333' }}>Historial de Servicios</h3>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-                            {/* Analytics Toggle */}
-                            <div style={{
-                                display: 'flex',
-                                backgroundColor: '#F1F5F9',
-                                padding: '4px',
-                                borderRadius: '8px'
-                            }}>
-                                <button
-                                    onClick={() => setArchiveViewMode('calendar')}
-                                    style={{
-                                        padding: '6px 16px',
-                                        borderRadius: '6px',
-                                        border: 'none',
-                                        fontSize: '0.9rem',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                        backgroundColor: archiveViewMode === 'calendar' ? '#fff' : 'transparent',
-                                        color: archiveViewMode === 'calendar' ? '#0F172A' : '#64748B',
-                                        boxShadow: archiveViewMode === 'calendar' ? '0 1px 2px rgba(0,0,0,0.1)' : 'none',
-                                        transition: 'all 0.2s'
-                                    }}
-                                >
-                                    Calendario
-                                </button>
-                                <button
-                                    onClick={() => setArchiveViewMode('analytics')}
-                                    style={{
-                                        padding: '6px 16px',
-                                        borderRadius: '6px',
-                                        border: 'none',
-                                        fontSize: '0.9rem',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                        backgroundColor: archiveViewMode === 'analytics' ? '#fff' : 'transparent',
-                                        color: archiveViewMode === 'analytics' ? '#0F172A' : '#64748B',
-                                        boxShadow: archiveViewMode === 'analytics' ? '0 1px 2px rgba(0,0,0,0.1)' : 'none',
-                                        transition: 'all 0.2s'
-                                    }}
-                                >
-                                    Analíticas
-                                </button>
-                            </div>
-
                             {/* Date Selectors (Only visible in Calendar mode) */}
-                            {archiveViewMode === 'calendar' && (
-                                <div style={{ display: 'flex', gap: '1rem' }}>
-                                    <select
-                                        value={selectedYear}
-                                        onChange={(e) => setSelectedYear(e.target.value)}
-                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-                                    >
-                                        {Object.keys(PAST_SCHEDULES).map(year => (
-                                            <option key={year} value={year}>{year}</option>
-                                        ))}
-                                    </select>
-
-                                    <select
-                                        value={selectedMonth}
-                                        onChange={(e) => setSelectedMonth(e.target.value)}
-                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-                                    >
-                                        {Object.keys(PAST_SCHEDULES[selectedYear] || {}).map(month => (
-                                            <option key={month} value={month}>{month}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* CONTENT SWITCHER */}
-                        {archiveViewMode === 'analytics' ? (
-                            <AnalyticsDashboard />
-                        ) : (
-                            /* Render Past Schedule Grid (Existing Code) */
-                            <div style={{ display: 'grid', gap: '2rem' }}>
-                                {PAST_SCHEDULES[selectedYear]?.[selectedMonth]?.map(week => (
-                                    <div key={week.id} style={{ opacity: 0.8 }}>
-                                        <h3 style={{
-                                            fontSize: '0.8rem',
-                                            fontWeight: '700',
-                                            color: '#888',
-                                            textTransform: 'uppercase',
-                                            marginBottom: '0.8rem',
-                                            borderLeft: '3px solid #ccc',
-                                            paddingLeft: '0.5rem'
+                            borderLeft: '3px solid #ccc',
+                            paddingLeft: '0.5rem'
                                         }}>
-                                            {week.week}
-                                        </h3>
-                                        <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-                                            {week.events.map((event, idx) => (
-                                                <div key={idx} style={{
-                                                    backgroundColor: '#fafafa',
-                                                    borderRadius: '8px',
-                                                    padding: '1rem',
-                                                    border: '1px solid #eee'
-                                                }}>
-                                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                                                        <span style={{ fontWeight: 'bold', fontSize: '0.85rem', color: '#555' }}>
-                                                            {event.date}
-                                                        </span>
-                                                        <span style={{ fontSize: '0.8rem', color: '#999' }}>{event.time}</span>
-                                                    </div>
-                                                    <h4 style={{ fontSize: '1rem', marginBottom: '0.4rem', color: '#444' }}>{event.type}</h4>
-
-                                                    {event.theme && (
-                                                        <div style={{ marginBottom: '0.8rem' }}>
-                                                            <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
-                                                        </div>
-                                                    )}
-                                                    {/* Only basic details for simplified history view */}
-                                                    <div style={{ marginTop: '0.8rem' }}>
-                                                        {event.details.map((detail, dIdx) => (
-                                                            <div key={dIdx} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
-                                                                <strong>{detail.role}:</strong> {detail.name}
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
+                            {week.week}
+                        </h3>
+                        <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+                            {week.events.map((event, idx) => (
+                                <div key={idx} style={{
+                                    backgroundColor: '#fafafa',
+                                    borderRadius: '8px',
+                                    padding: '1rem',
+                                    border: '1px solid #eee'
+                                }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                                        <span style={{ fontWeight: 'bold', fontSize: '0.85rem', color: '#555' }}>
+                                            {event.date}
+                                        </span>
+                                        <span style={{ fontSize: '0.8rem', color: '#999' }}>{event.time}</span>
                                     </div>
-                                ))}
-                            </div>
+                                    <h4 style={{ fontSize: '1rem', marginBottom: '0.4rem', color: '#444' }}>{event.type}</h4>
+
+                                    {event.theme && (
+                                        <div style={{ marginBottom: '0.8rem' }}>
+                                            <p style={{ color: '#666', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '0.3rem' }}>"{event.theme}"</p>
+                                        </div>
+                                    )}
+                                    {/* Only basic details for simplified history view */}
+                                    <div style={{ marginTop: '0.8rem' }}>
+                                        {event.details.map((detail, dIdx) => (
+                                            <div key={dIdx} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.2rem' }}>
+                                                <strong>{detail.role}:</strong> {detail.name}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
                         )}
 
-                    </div>
-                )}
-            </div>
         </div>
+    )
+}
+            </div >
+        </div >
     );
 };
 
