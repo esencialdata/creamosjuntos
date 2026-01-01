@@ -47,7 +47,7 @@ const SermonList = ({ schedule }) => {
             return new Date(0); // Fallback to past
         }
 
-        const year = 2025; // Hardcoded
+        const year = 2026; // Updated for new year
         const date = new Date(year, month, day);
         date.setHours(23, 59, 59, 999);
         return date;
