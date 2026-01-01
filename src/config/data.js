@@ -190,19 +190,20 @@ export const CONFIG = {
     themes: [
         {
             id: 1,
-            title: "TEMA DE ENERO - SEMANA 1",
-            description: "Descripción pendiente de asignar.",
+            title: "EL LIBRO DE APOCALIPSIS",
+            description: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
             themeStyles: {
-                bg: '#fff',
-                textPrimary: '#333',
-                textSecondary: '#666',
-                accent: '#000',
+                bg: '#2e1065', // Violet 950
+                textPrimary: '#F8FAFC', // Slate 50
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#A78BFA', // Violet 400
             },
             slides: [
                 {
                     type: "cover",
-                    title: "TEMA DE ENERO",
-                    subtitle: "Próximamente",
+                    title: "EL LIBRO DE APOCALIPSIS",
+                    subtitle: "Culto Matutino",
+                    visual: "📖"
                 }
             ]
         },
