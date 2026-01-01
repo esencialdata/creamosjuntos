@@ -412,7 +412,16 @@ const Backstage = () => {
 
                                         {event.theme && (
                                             <div style={{ marginBottom: '1.2rem' }}>
-                                                <p style={{ color: '#555', fontSize: '0.95rem', fontStyle: 'italic' }}>"{event.theme}"</p>
+                                                {/* Logic to extract sermon title from Predicación details if available */}
+                                                {(() => {
+                                                    const preacherDetail = event.details && event.details.find(d => d.role === "Predicación");
+                                                    const titleMatch = preacherDetail ? preacherDetail.name.match(/\(([^)]+)\)/) : null;
+                                                    const displayTheme = titleMatch ? titleMatch[1] : event.theme;
+
+                                                    return (
+                                                        <p style={{ color: '#555', fontSize: '0.95rem', fontStyle: 'italic' }}>"{displayTheme}"</p>
+                                                    );
+                                                })()}
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.4rem' }}>
                                                     {event.objective && (
                                                         <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>Obj: {event.objective}</p>
