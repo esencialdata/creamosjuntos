@@ -465,7 +465,7 @@ export const CONFIG = {
                     objective: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Mizraim Montiel" },
+                        { role: "Lección", name: "Mizraim Montiel (El libro de Apocalipsis)" },
                         { role: "Predicación", name: "Absalón Perusquía (El año nuevo, usos y costumbres en la vida de la Iglesia)" }
                     ]
                 },
