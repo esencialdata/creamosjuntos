@@ -19,6 +19,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Matutino",
                         time: "10:00 AM",
                         theme: "La Virgen María, verdades y mitos",
+                        lights: 4,
                         objective: "Sustentar la creencia verdadera acerca de la virgen María.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
@@ -31,6 +32,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Vespertino",
                         time: "4:00 PM",
                         theme: "La familia de Jesús",
+                        lights: 3,
                         objective: "Tener bases para sustentar que Jesús tuvo familia.",
                         details: [
                             { role: "Superintendente", name: "Mizraim Montiel" },
@@ -57,6 +59,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Matutino",
                         time: "10:00 AM",
                         theme: "Parábola del sembrador",
+                        lights: 6,
                         objective: "Establecer formas para trabajar en la evangelización.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
@@ -69,6 +72,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Vespertino",
                         time: "4:00 PM",
                         theme: "¿Andarás por el fuego sin quemarte?",
+                        lights: 2,
                         objective: "Reconocer fiestas que provocan desobediencia.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
@@ -133,6 +137,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Matutino",
                         time: "10:00 AM",
                         theme: "Yo soy el camino, la verdad y la vida",
+                        lights: 4,
                         objective: "Reconocer el ejemplo de Cristo en nuestras acciones.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
@@ -145,6 +150,7 @@ export const PAST_SCHEDULES = {
                         type: "Culto Vespertino",
                         time: "4:00 PM",
                         theme: "Nuestra herencia",
+                        lights: 2,
                         objective: "Reconocer características de los valientes.",
                         details: [
                             { role: "Superintendente", name: "Yahir López" },
