@@ -1,189 +1,189 @@
 export const VERSES_POOL = [
     {
-        text: "La caridad es sufrida, es benigna; la caridad no tiene envidia, la caridad no hace sinrazón, no se ensancha;",
-        reference: "1 Corintios 13:4",
+        text: "Mira que te mando que te esfuerces y seas valiente: no temas ni desmayes, porque Jehová tu Dios será contigo en donde quiera que fueres.",
+        reference: "Josué 1:9",
         likes: 0,
-        comment: "La verdadera caridad (amor) no se mide por emociones, sino por la paciencia, la humildad y la manera en que tratamos a los demás aun cuando creemos que no lo merecen."
+        comment: "La valentía no es la ausencia de miedo, sino la certeza de que la presencia de Dios es mayor que cualquier territorio desconocido que debas pisar."
     },
     {
-        text: "Porque de tal manera amó Dios al mundo, que ha dado á su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
-        reference: "Juan 3:16",
+        text: "Bienaventurado el varón que no anduvo en consejo de malos, Ni estuvo en camino de pecadores, Ni en silla de escarnecedores se ha sentado.",
+        reference: "Salmos 1:1",
         likes: 0,
-        comment: "Dios no solo habla de amor, lo demuestra entregando a su Hijo; creer en Cristo es entrar en esa vida que no se acaba."
+        comment: "La verdadera felicidad comienza con un filtro: saber a quién escuchar, dónde detenerse y con quién asociarse, protegiendo así la integridad del corazón."
     },
     {
-        text: "Y sabemos que á los que á Dios aman, todas las cosas les ayudan á bien, es á saber, á los que conforme al propósito son llamados.",
-        reference: "Romanos 8:28",
+        text: "Lámpara es á mis pies tu palabra, Y lumbrera á mi camino.",
+        reference: "Salmos 119:105",
         likes: 0,
-        comment: "Aun lo que parece pérdida o fracaso, en manos de Dios se convierte en parte de un bien mayor para quienes le aman."
+        comment: "En un mundo confuso, la Biblia no es solo un libro de historia, es la luz práctica e inmediata que te muestra dónde poner el siguiente pie con seguridad."
     },
     {
-        text: "Y no os conforméis á este siglo; mas reformaos por la renovación de vuestro entendimiento, para que experimentéis cuál sea la buena voluntad de Dios, agradable y perfecta.",
-        reference: "Romanos 12:2",
+        text: "Tú le guardarás en completa paz, cuyo pensamiento en ti persevera; porque en ti se ha confiado.",
+        reference: "Isaías 26:3",
         likes: 0,
-        comment: "Seguir a Cristo implica pensar distinto: dejar que Dios transforme la manera en que vemos la vida para discernir lo que Él quiere."
+        comment: "La paz mental no depende de la ausencia de problemas, sino de mantener el enfoque fijo en Dios; la estabilidad interna es fruto de la confianza sostenida."
     },
     {
-        text: "No seas vencido de lo malo; mas vence con el bien el mal.",
-        reference: "Romanos 12:21",
+        text: "Mas los que esperan á Jehová tendrán nuevas fuerzas; levantarán las alas como águilas, correrán, y no se cansarán, caminarán, y no se fatigarán.",
+        reference: "Isaías 40:31",
         likes: 0,
-        comment: "El mal no se vence con más maldad, sino con una respuesta radicalmente distinta: el bien, aun cuando cueste."
+        comment: "Esperar en Dios no es pasividad, es un intercambio espiritual: entregas tu debilidad y recibes Su resistencia sobrenatural para seguir avanzando."
     },
     {
-        text: "No os ha tomado tentación, sino humana: mas fiel es Dios, que no os dejará ser tentados más de lo que podeís llevar; antes dará también juntamente con la tentación la salida, para que podáis aguantar.",
-        reference: "1 Corintios 10:13",
+        text: "Buscad á Jehová mientras puede ser hallado, llamadle en tanto que está cercano.",
+        reference: "Isaías 55:6",
         likes: 0,
-        comment: "La tentación nunca es única ni invencible; Dios siempre provee una salida, y nunca te deja solo en la lucha."
+        comment: "Hay tiempos de oportunidad espiritual que no deben desperdiciarse; la cercanía de Dios es un regalo que requiere una respuesta activa y urgente."
     },
     {
-        text: "De modo que si alguno está en Cristo, nueva criatura es: las cosas viejas pasaron; he aquí todas son hechas nuevas.",
-        reference: "2 Corintios 5:17",
+        text: "Oh hombre, él te ha declarado qué sea lo bueno, y qué pida de ti Jehová: solamente hacer juicio, y amar misericordia, y humillarte ante tu Dios.",
+        reference: "Miqueas 6:8",
         likes: 0,
-        comment: "En Cristo no hay solo “mejoras”, hay un comienzo nuevo: tu identidad ya no la define tu pasado, sino lo que Cristo hizo por ti."
+        comment: "La religión verdadera no es complicada; se resume en una ética justa hacia los demás, un corazón compasivo y una postura humilde ante el Creador."
     },
     {
-        text: "Con Cristo estoy juntamente crucificado, y vivo, no ya yo, mas vive Cristo en mí: y lo que ahora vivo en la carne, lo vivo en la fe del Hijo de Dios, el cual me amó, y se entregó á sí mismo por mí.",
-        reference: "Gálatas 2:20",
+        text: "Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.",
+        reference: "Mateo 7:7",
         likes: 0,
-        comment: "La vida cristiana no es solo “creer en Dios”, es dejar que Cristo sea el centro real de tu vida diaria."
+        comment: "Dios responde a la persistencia. La oración no es un monólogo vacío, sino una búsqueda activa donde el Padre está listo para responder a sus hijos."
     },
     {
-        text: "Mas el fruto del Espíritu es: caridad, gozo, paz, tolerancia, benignidad, bondad, fe,",
-        reference: "Gálatas 5:22",
+        text: "Mas el que perseverare hasta el fin, éste será salvo.",
+        reference: "Mateo 24:13",
         likes: 0,
-        comment: "La evidencia de la obra del Espíritu no son solo dones espectaculares, sino un carácter transformado en amor, paciencia y bondad."
+        comment: "La carrera cristiana no es de velocidad, sino de resistencia; la salvación final está reservada para aquellos que mantienen la fe a pesar de las pruebas del tiempo."
     },
     {
-        text: "Porque por gracia sois salvos por la fe; y esto no de vosotros, pues es don de Dios:",
-        reference: "Efesios 2:8",
+        text: "Y he aquí, yo estoy con vosotros todos los días, hasta el fin del mundo. Amén.",
+        reference: "Mateo 28:20",
         likes: 0,
-        comment: "La salvación no se compra ni se merece: es un regalo inmerecido que se recibe confiando en Cristo."
+        comment: "La Gran Comisión viene con una Gran Promesa: nunca enfrentas la misión solo; la compañía de Cristo es diaria, constante y eterna."
     },
     {
-        text: "Y á Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos ó entendemos, por la potencia que obra en nosotros,",
-        reference: "Efesios 3:20",
+        text: "Si me amáis, guardad mis mandamientos.",
+        reference: "Juan 14:15",
         likes: 0,
-        comment: "Dios siempre va más allá de lo que imaginamos; su poder no está limitado por nuestras expectativas."
+        comment: "El amor a Cristo no es un sentimiento abstracto; se valida y se demuestra a través de una obediencia concreta a lo que Él ordenó."
     },
     {
-        text: "Antes sed los unos con los otros benignos, misericordiosos, perdónandoos los unos á los otros, como también Dios os perdonó en Cristo.",
-        reference: "Efesios 4:32",
+        text: "Yo soy la vid, vosotros los pámpanos: el que está en mí, y yo en él, éste lleva mucho fruto; porque sin mí nada podéis hacer.",
+        reference: "Juan 15:5",
         likes: 0,
-        comment: "El perdón que damos a otros debe reflejar el perdón que Dios ya nos dio: inmerecido, completo y repetido."
+        comment: "La productividad espiritual depende de la conexión; intentar dar fruto lejos de Cristo es tan inútil como esperar uvas de una rama cortada."
     },
     {
-        text: "Por nada estéis afanosos; sino sean notorias vuestras peticiones delante de Dios en toda oración y ruego, con hacimiento de gracias. Y la paz de Dios, que sobrepuja todo entendimiento, guardará vuestros corazones y vuestros entendimientos en Cristo Jesús.",
-        reference: "Filipenses 4:6–7",
+        text: "Mas recibiréis la virtud del Espíritu Santo que vendrá sobre vosotros; y me seréis testigos en Jerusalem, y en toda Judea, y Samaria, y hasta lo postrero de la tierra.",
+        reference: "Hechos 1:8",
         likes: 0,
-        comment: "La salida a la ansiedad no es controlar más, sino entregar más a Dios y descansar en una paz que no depende de las circunstancias."
+        comment: "No se nos pide testificar con nuestras propias fuerzas; se nos da una \"virtud\" (poder) sobrenatural para ser efectivos en la misión global."
     },
     {
-        text: "Todo lo puedo en Cristo que me fortalece.",
-        reference: "Filipenses 4:13",
+        text: "Porque no me avergüenzo del evangelio: porque es potencia de Dios para salud á todo aquel que cree...",
+        reference: "Romanos 1:16",
         likes: 0,
-        comment: "No significa que puedes hacer cualquier cosa que quieras, sino que en Cristo tendrás fuerza para hacer lo que Dios te llama a hacer."
+        comment: "El mensaje de Cristo no es motivo de timidez; es la herramienta más poderosa del universo para transformar y sanar la condición humana."
     },
     {
-        text: "Y todo lo que hagáis, hacedlo de ánimo, como al Señor, y no á los hombres;",
-        reference: "Colosenses 3:23",
+        text: "Porque la paga del pecado es muerte: mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro.",
+        reference: "Romanos 6:23",
         likes: 0,
-        comment: "El trabajo más simple se vuelve sagrado cuando entiendes que, en última instancia, lo haces para Dios."
+        comment: "Hay dos destinos claros: lo que ganamos por nuestros méritos (muerte) y lo que recibimos por el regalo de Dios (vida); el contraste nos lleva a la gratitud."
     },
     {
-        text: "ES pues la fe la sustancia de las cosas que se esperan, la demostración de las cosas que no se ven.",
-        reference: "Hebreos 11:1",
+        text: "Ahora pues, ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme á la carne, mas conforme al espíritu.",
+        reference: "Romanos 8:1",
         likes: 0,
-        comment: "La fe no es fantasía: es vivir hoy como si las promesas de Dios fueran tan reales como lo que ves."
+        comment: "Estar en Cristo significa salir del tribunal de juicio y entrar en la libertad; la culpa ya no tiene la última palabra sobre tu vida."
     },
     {
-        text: "Porque la palabra de Dios es viva y eficaz, y más penetrante que toda espada de dos filos: y que alcanza hasta partir el alma, y aun el espíritu, y las coyunturas y tuétanos, y discierne los pensamientos y las intenciones del corazón.",
-        reference: "Hebreos 4:12",
+        text: "¿Qué pues diremos á esto? Si Dios por nosotros, ¿quién contra nosotros?",
+        reference: "Romanos 8:31",
         likes: 0,
-        comment: "La Biblia no es un libro muerto; confronta, revela motivaciones y corta aquello que estorba la vida con Dios."
+        comment: "Cuando el Creador del universo está de tu lado, la oposición humana o espiritual se vuelve irrelevante; la mayoría absoluta siempre es Dios contigo."
     },
     {
-        text: "Y si alguno de vosotros tiene falta de sabiduría, demándela á Dios, el cual da á todos abundantemente, y no zahiere; y le será dada.",
-        reference: "Santiago 1:5",
+        text: "Luego la fe es por el oír; y el oír por la palabra de Dios.",
+        reference: "Romanos 10:17",
         likes: 0,
-        comment: "Dios no ridiculiza tu ignorancia; al contrario, se complace en darte sabiduría cuando se la pides sinceramente."
+        comment: "La fe no nace de la nada ni del optimismo; se alimenta y crece cuando nos exponemos constantemente a la verdad de las Escrituras."
     },
     {
-        text: "Echando toda vuestra solicitud en él, porque él tiene cuidado de vosotros.",
-        reference: "1 Pedro 5:7",
+        text: "Así que, hermanos míos amados, estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es vano.",
+        reference: "1 Corintios 15:58",
         likes: 0,
-        comment: "No estás diseñado para cargar con todo; Dios te invita a poner tus preocupaciones sobre Él, porque realmente le importas."
+        comment: "Nada de lo que haces por Dios se pierde; la constancia tiene un propósito eterno, aunque no veas resultados inmediatos."
     },
     {
-        text: "En amor no hay temor; mas el perfecto amor echa fuera el temor: porque el temor tiene pena. De donde el que teme, no está perfecto en el amor.",
-        reference: "1 Juan 4:18",
+        text: "Velad, estad firmes en la fe; portaos varonilmente, y esforzaos.",
+        reference: "1 Corintios 16:13",
         likes: 0,
-        comment: "Cuando entiendes cuánto te ama Dios, el miedo al castigo y al rechazo comienza a perder fuerza."
+        comment: "La vida espiritual requiere alerta y madurez; se nos llama a tener carácter, firmeza y vigor para enfrentar los desafíos de la fe."
     },
     {
-        text: "JEHOVÁ es mi pastor; nada me faltará.",
-        reference: "Salmos 23:1",
+        text: "Y me ha dicho: Bástate mi gracia; porque mi potencia en la flaqueza se perfecciona...",
+        reference: "2 Corintios 12:9",
         likes: 0,
-        comment: "Si Jehová es tu Pastor, no eres huérfano ni estás desamparado; Él cuida cada área de tu vida."
+        comment: "Tu debilidad no es un obstáculo para Dios, es el escenario perfecto para que Su poder brille; Su gracia es suficiente para sostenerte hoy."
     },
     {
-        text: "Aunque ande en valle de sombra de muerte, No temeré mal alguno; porque tú estarás conmigo: Tu vara y tu cayado me infundirán aliento.",
-        reference: "Salmos 23:4",
+        text: "No nos cansemos, pues, de hacer bien; que á su tiempo segaremos, si no hubiéremos desmayado.",
+        reference: "Gálatas 6:9",
         likes: 0,
-        comment: "La presencia de Dios no siempre evita los valles, pero sí transforma la forma en que los atraviesas."
+        comment: "La siembra del bien a menudo tarda en brotar, pero la cosecha es una ley espiritual inquebrantable; la clave es no rendirse antes de tiempo."
     },
     {
-        text: "JEHOVÁ es mi luz y mi salvación: ¿de quién temeré? Jehová es la fortaleza de mi vida: ¿de quién he de atemorizarme?",
-        reference: "Salmos 27:1",
+        text: "Vestíos de toda la armadura de Dios, para que podáis estar firmes contra las asechanzas del diablo.",
+        reference: "Efesios 6:11",
         likes: 0,
-        comment: "Cuando Dios es tu luz y tu defensa, el miedo a las personas y a las circunstancias pierde autoridad."
+        comment: "No estamos en un día de campo, sino en una batalla espiritual; Dios provee el equipo necesario para resistir y mantenernos en pie, pero debemos ponérnoslo."
     },
     {
-        text: "DIOS es nuestro amparo y fortaleza, Nuestro pronto auxilio en las tribulaciones.",
-        reference: "Salmos 46:1",
+        text: "Estando confiado de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo;",
+        reference: "Filipenses 1:6",
         likes: 0,
-        comment: "Dios no es solo un concepto; es refugio real y ayuda inmediata en medio de las crisis."
+        comment: "Dios termina lo que empieza. Tu santificación es un proyecto en curso que Él se ha comprometido a completar hasta el regreso de Cristo."
     },
     {
-        text: "Enséñanos de tal modo á contar nuestros días, Que traigamos al corazón sabiduría.",
-        reference: "Salmos 90:12",
+        text: "Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús:",
+        reference: "Filipenses 2:5",
         likes: 0,
-        comment: "Recordar que la vida es breve nos hace vivir con más intención, priorizando lo que realmente importa."
+        comment: "La meta del cristiano es tener la mente de Cristo: una disposición a la humildad, al servicio y a la obediencia, renunciando al egoísmo."
     },
     {
-        text: "No temas, que yo soy contigo; no desmayes, que yo soy tu Dios que te esfuerzo: siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.",
-        reference: "Isaías 41:10",
+        text: "Porque no nos ha dado Dios el espíritu de temor, sino de fortaleza, y de amor, y de templanza.",
+        reference: "2 Timoteo 1:7",
         likes: 0,
-        comment: "La razón para no temer no está en tus fuerzas, sino en quién está contigo y te sostiene."
+        comment: "La cobardía no proviene del cielo. El Espíritu que habita en ti te capacita con poder, afecto y, crucialmente, dominio propio para actuar con sabiduría."
     },
     {
-        text: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.",
-        reference: "Jeremías 29:11",
+        text: "Toda Escritura es inspirada divinamente y útil para enseñar, para redargüir, para corregir, para instituir en justicia,",
+        reference: "2 Timoteo 3:16",
         likes: 0,
-        comment: "Dios no improvisa con tu vida; tiene planes de paz, aun cuando el presente parezca confuso."
+        comment: "La Biblia es el manual completo del fabricante; tiene la autoridad para ajustar nuestra vida y equiparnos para vivir rectamente."
     },
     {
-        text: "Es por la misericordia de Jehová que no somos consumidos, porque nunca decayeron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad.",
-        reference: "Lamentaciones 3:22–23",
+        text: "Puestos los ojos en el autor y consumador de la fe, en Jesús...",
+        reference: "Hebreos 12:2",
         likes: 0,
-        comment: "Cada día empieza con misericordia fresca: no vives de tus méritos, sino de la fidelidad constante de Dios."
+        comment: "La distracción es enemiga de la fe. Para correr bien, la mirada no debe estar en los obstáculos ni en los corredores, sino fija en Jesús, quien es la meta."
     },
     {
-        text: "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.",
-        reference: "Mateo 6:33",
+        text: "Someteos pues á Dios; resistid al diablo, y de vosotros huirá.",
+        reference: "Santiago 4:7",
         likes: 0,
-        comment: "Cuando Dios es primero, las demás necesidades encuentran su lugar correcto y Dios mismo se encarga de lo que falta."
+        comment: "La victoria espiritual tiene un orden: primero sumisión a Dios, luego resistencia al enemigo. Sin lo primero, lo segundo no tiene autoridad."
     },
     {
-        text: "Venid á mí todos los que estáis trabajados y cargados, que yo os haré descansar.",
-        reference: "Mateo 11:28",
+        text: "He aquí, yo estoy á la puerta y llamo: si alguno oyere mi voz y abriere la puerta, entraré á él, y cenaré con él, y él conmigo.",
+        reference: "Apocalipsis 3:20",
         likes: 0,
-        comment: "El descanso profundo no se encuentra solo en vacaciones o pausas, sino en venir a Cristo con toda la carga."
+        comment: "Jesús busca intimidad personal, no solo rituales; Él espera tu invitación diaria para compartir comunión profunda en el centro de tu vida."
     },
     {
-        text: "Fíate de Jehová de todo tu corazón, Y no estribes en tu prudencia. Reconócelo en todos tus caminos, Y él enderezará tus veredas.",
-        reference: "Proverbios 3:5–6",
+        text: "Y limpiará Dios toda lágrima de los ojos de ellos; y la muerte no será más; y no habrá más llanto, ni clamor, ni dolor: porque las primeras cosas son pasadas.",
+        reference: "Apocalipsis 21:4",
         likes: 0,
-        comment: "Confiar en Dios implica soltar el control absoluto y admitirle en cada área; Él es quien endereza el camino, no tú."
+        comment: "Nuestra esperanza final es real: un futuro donde el sufrimiento será erradicado para siempre y Dios mismo consolará personalmente a su pueblo."
     }
 ];
 
