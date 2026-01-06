@@ -445,6 +445,79 @@ export const CONFIG = {
                     reference: "Cierre"
                 }
             ]
+        },
+        {
+            id: 5,
+            title: "EL CHECKLIST DIARIO (VERSIÓN DIOS)",
+            description: "El Checklist de 3 pasos que nunca falla.",
+            themeStyles: {
+                bg: '#F5F5F0', // Beige/White Minimalist
+                textPrimary: '#1a1a1a', // Strong Black/Dark Gray
+                textSecondary: '#5a5a5a', // Medium Gray
+                accent: '#000000', // Black Accent
+                cardBorder: '1px solid #e0e0e0',
+                cardShadow: 'none' // Minimalist
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿NO SABES QUÉ HACER CON TU VIDA HOY?",
+                    subtitle: "Aquí tienes el Checklist de 3 pasos que nunca falla.",
+                    visual: "☐☐☐",
+                    footerText: "Desliza para llenar ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Problema",
+                    title: "LO QUE PENSAMOS",
+                    body: "A veces pensamos que agradar a Dios (y tener éxito) es:\n\n~~Hacer sacrificios extremos~~\n~~Vivir estresado~~\n~~Complicarse la existencia~~\n\nLa verdad es más simple (y poderosa) de lo que crees.",
+                    citation: "La religión pura... es simple.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Base",
+                    title: "EL PLAN ORIGINAL",
+                    body: "Solo 3 cosas. Nada más. Dios ya ha declarado lo que es bueno y lo que espera de ti.",
+                    citation: "Oh hombre, él te ha declarado qué sea lo bueno... solamente hacer juicio, y amar misericordia, y humillarte para andar con tu Dios.",
+                    reference: "Miqueas 6:8 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Paso 1: La Estructura",
+                    title: "1. HACER JUICIO ☑️☐☐",
+                    body: "No es solo 'creer'. Es HACER lo correcto.\n\nDoctrina: Es respetar los Mandamientos en tu trabajo, tu familia y tus finanzas. Sin atajos.",
+                    citation: "La integridad es tu mejor estrategia.",
+                    reference: "Paso 1"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Paso 2: El Corazón",
+                    title: "2. AMAR MISERICORDIA ☑️☑️☐",
+                    body: "La justicia sin amor es dureza. \n\nDoctrina: Es tener empatía. Es el 'fruto del Espíritu' en acción: perdonar al que falla y ayudar al que cae.",
+                    citation: "Trata a otros como quieres que Dios te trate a ti.",
+                    reference: "Paso 2"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Paso 3: La Inteligencia",
+                    title: "3. HUMILLARTE ☑️☑️☑️",
+                    body: "Humildad no es debilidad. Es la inteligencia de reconocer que Dios es el Creador y tú sigues Su guía.\n\nAcción: Es bajarse del trono de tu ego y dejar que Él dirija.",
+                    citation: "El sabio camina CON Dios, no delante de Él.",
+                    reference: "Paso 3"
+                },
+                {
+                    type: "action",
+                    title: "CHECKLIST COMPLETO",
+                    subtitle: "☑️ Hice lo justo. ☑️ Amé a mi prójimo. ☑️ Caminé con Dios.",
+                    steps: [
+                        "Guárdalo para leerlo antes de tomar decisiones difíciles.",
+                        "Compártelo con alguien que se está complicando la vida."
+                    ],
+                    citation: "¿Listo para simplificar tu vida?",
+                    reference: "Cierre"
+                }
+            ]
         }
     ],
     weeklyHabit: {
@@ -453,7 +526,7 @@ export const CONFIG = {
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Isaías 33:15, Job 31:1"
     },
-    currentWeek: 4, // "EL EXPEDIENTE LEGAL" (Último tema subido)
+    currentWeek: 5, // "EL CHECKLIST DIARIO"
     habits: [
         {
             id: 1,
