@@ -525,6 +525,29 @@ export const CONFIG = {
                         { role: "Superintendente", name: "Yahir López" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
+                },
+                {
+                    date: "Sábado 10 Ene",
+                    type: "Culto Matutino",
+                    time: "10:00 AM",
+                    theme: "La primera plaga",
+                    objective: "La grey identificará y se comprometerá a realizar actividades que muestren su fe y decisión de alcanzar las promesas de Dios",
+                    details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Yahir López (La primera plaga)" },
+                        { role: "Predicación", name: "Aarón Espinosa (¿Qué debo hacer para ganar la vida eterna?)" }
+                    ]
+                },
+                {
+                    date: "Sábado 10 Ene",
+                    type: "Culto Vespertino",
+                    time: "4:00 PM",
+                    theme: "Nuestra Contribución a la obra de Dios",
+                    objective: "La grey se comprometerá a realizar acciones que apoyen el desarrollo y crecimiento de la Iglesia.",
+                    details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Absalón Perusquía" }
+                    ]
                 }
             ]
         },
@@ -539,6 +562,29 @@ export const CONFIG = {
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Yahir López" }
+                    ]
+                },
+                {
+                    date: "Sábado 17 Ene",
+                    type: "Culto Matutino",
+                    time: "10:00 AM",
+                    theme: "La segunda y tercera plaga",
+                    objective: "La grey comprometerá su participación unida en todo lo que tenga que ver con el amor de Dios hacia su Iglesia",
+                    details: [
+                        { role: "Superintendente", name: "Mizraim Montiel" },
+                        { role: "Lección", name: "Gerardo Mier (La segunda y tercera plaga)" },
+                        { role: "Predicación", name: "Absalón Perusquía (Mejores son dos que uno)" }
+                    ]
+                },
+                {
+                    date: "Sábado 17 Ene",
+                    type: "Culto Vespertino",
+                    time: "4:00 PM",
+                    theme: "El valor del sacrificio de Cristo en la vida del hombre",
+                    objective: "La grey identificará y se comprometerá a corresponder siguiendo las pisadas del maestro, propuestas por el expositor de la palabra.",
+                    details: [
+                        { role: "Superintendente", name: "Yahir López" },
+                        { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 }
             ]
@@ -555,6 +601,29 @@ export const CONFIG = {
                         { role: "Superintendente", name: "Yahir López" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
+                },
+                {
+                    date: "Sábado 24 Ene",
+                    type: "Culto Matutino",
+                    time: "10:00 AM",
+                    theme: "La cuarta plaga",
+                    objective: "La grey mostrará con acciones la forma en que el amor de Dios no hace acepción de personas para la salvación",
+                    details: [
+                        { role: "Superintendente", name: "Yahir López" },
+                        { role: "Lección", name: "Absalón Perusquía (La cuarta plaga)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Dios acepta a todos)" }
+                    ]
+                },
+                {
+                    date: "Sábado 24 Ene",
+                    type: "Culto Vespertino",
+                    time: "4:00 PM",
+                    theme: "Si caíste fue porque te enalteciste",
+                    objective: "La grey identificará como la soberbia de la vida los puede apartar de Dios, previniéndose para evitarlo.",
+                    details: [
+                        { role: "Superintendente", name: "Yahir López" },
+                        { role: "Predicación", name: "Gerardo Mier" }
+                    ]
                 }
             ]
         },
@@ -566,6 +635,29 @@ export const CONFIG = {
                     date: "Viernes 30 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
+                    details: [
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Predicación", name: "Yahir López" }
+                    ]
+                },
+                {
+                    date: "Sábado 31 Ene",
+                    type: "Culto Matutino",
+                    time: "10:00 AM",
+                    theme: "La quinta plaga",
+                    objective: "La grey encontrará formas para evitar caer en esos ejemplos dolorosos para quien los hace.",
+                    details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Mizraim Montiel (La quinta plaga)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Los cinco ayes de Isaías 5)" }
+                    ]
+                },
+                {
+                    date: "Sábado 31 Ene",
+                    type: "Culto Vespertino",
+                    time: "4:00 PM",
+                    theme: "Las tentaciones de Jesús",
+                    objective: "La grey reconocerá la manera de rechazar la tentación y tomar el ejemplo del Maestro",
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Yahir López" }
