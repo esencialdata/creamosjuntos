@@ -1,4 +1,5 @@
 export const VERSES_POOL = [
+    // --- NUEVO SET (ENERO - CICLO 2) ---
     {
         text: "Mira que te mando que te esfuerces y seas valiente: no temas ni desmayes, porque Jehová tu Dios será contigo en donde quiera que fueres.",
         reference: "Josué 1:9",
@@ -204,10 +205,11 @@ const getDailyVerse = () => {
 
 const getCurrentWeekId = () => {
     const now = new Date();
-    const week2Start = new Date(2026, 0, 9);  // Jan 9, 2026
-    const week3Start = new Date(2026, 0, 16); // Jan 16, 2026
-    const week4Start = new Date(2026, 0, 23); // Jan 23, 2026
-    const week5Start = new Date(2026, 0, 30); // Jan 30, 2026
+    // Schedule for 2026 (Adjusted for "Abre Tus Ojos" launch on Jan 7)
+    const week2Start = new Date(2025, 11, 18); // Dec 18
+    const week3Start = new Date(2025, 11, 25); // Dec 25
+    const week4Start = new Date(2026, 0, 1);   // Jan 1
+    const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
 
     if (now >= week5Start) return 5;
     if (now >= week4Start) return 4;
@@ -445,6 +447,82 @@ export const CONFIG = {
                     reference: "Cierre"
                 }
             ]
+        },
+        {
+            id: 5,
+            title: "ABRE TUS OJOS",
+            description: "La neurociencia y la Biblia explican por qué te sientes acorralado.",
+            themeStyles: {
+                bg: '#F0F4F8', // Light Gray/Blueish White
+                textPrimary: '#1E293B', // Dark Slate
+                textSecondary: '#64748B', // Muted Slate
+                accent: '#B45309', // Bronze/Gold
+                cardBorder: '1px solid #E2E8F0',
+                cardShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E\")",
+                backgroundSize: '200px' // Ensure noise tiles instead of stretching
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿TU MENTE TE MIENTE?",
+                    subtitle: "La neurociencia y la Biblia explican por qué te sientes acorralado.",
+                    imageUrl: "/rompiendo_ceguera.png",
+                    footerText: "A veces, el milagro no es que el problema desaparezca, sino que tus ojos se abran. Desliza 👉"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Dothán, año 850 a.C.",
+                    title: "EL CONFLICTO",
+                    body: "El criado de Eliseo sale temprano y se paraliza. Lo único que sus ojos captan es un ejército enemigo rodeando la ciudad. Acero, carros de guerra, muerte segura. El pánico secuestró su visión. Solo podía ver la amenaza inmediata.",
+                    citation: "¡Ah, señor mío! ¿qué haremos?",
+                    reference: "2 Reyes 6:15"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Ciencia (El Filtro)",
+                    title: "TU CEREBRO FILTRA LA REALIDAD",
+                    body: "Existe un mecanismo biológico en tu base cerebral llamado Sistema de Activación Reticular. Su función es actuar como un \"portero\": solo deja pasar la información que considera importante para ti. Si tu enfoque es el miedo, este sistema literalmente bloquea y borra las soluciones de tu vista para que solo veas el peligro.",
+                    citation: "El criado no veía la salida, porque su cerebro solo estaba buscando espadas.",
+                    reference: "Neurociencia"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Giro Bíblico",
+                    title: "LA ÓPTICA DEL PROFETA",
+                    body: "Eliseo no tenía miedo porque su sistema de enfoque estaba calibrado en la Promesa, no en la amenaza. No oró para que el enemigo desapareciera. Pidió algo más profundo.",
+                    citation: "No hayas miedo: porque más son los que están con nosotros que los que están con ellos",
+                    reference: "2 Reyes 6:16"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Revelación (Clímax)",
+                    title: "ABRE SUS OJOS PARA QUE VEA",
+                    body: "El secreto: Los ángeles YA estaban allí. La oración no trajo la solución; la oración desbloqueó la visión de lo que ya estaba presente.",
+                    citation: "Y oró Eliseo... Entonces Jehová abrió los ojos del mozo... y he aquí que el monte estaba lleno de gente de á caballo, y de carros de fuego...",
+                    reference: "2 Reyes 6:17 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Doctrina y Aplicación",
+                    title: "DIOS EL SUSTENTADOR",
+                    body: "Creemos que Dios \"sostiene todas las cosas con su poder\" (Punto de Fe #2). En tu crisis económica o personal, los recursos divinos no \"van a llegar\"; ya están desplegados a tu alrededor. Tu angustia no anula Su provisión; solo le dice a tu Sistema de Activación Reticular que la ignore.",
+                    citation: "Deja de mirar el muro. Pide ver la grieta de luz.",
+                    reference: "Punto de Fe #2"
+                },
+                {
+                    type: "action",
+                    title: "RECALIBRA TU ENFOQUE HOY",
+                    subtitle: "Cambia tu oración.",
+                    steps: [
+                        "En lugar de gritar \"¡Señor, sácame de aquí!\"...",
+                        "Haz la oración de Eliseo: \"Señor, abre mis ojos para ver los recursos que ya has puesto a mi favor\".",
+                        "Obliga a tu mente a buscar la provisión de Dios."
+                    ],
+                    citation: "Comenta \"ABRE MIS OJOS\" si necesitas ver la salida hoy. 👁️🔥",
+                    reference: "Cierre"
+                }
+            ]
         }
     ],
     weeklyHabit: {
@@ -453,7 +531,7 @@ export const CONFIG = {
         action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
         reference: "Isaías 33:15, Job 31:1"
     },
-    currentWeek: 4, // "EL EXPEDIENTE LEGAL" (Último tema subido)
+    currentWeek: getCurrentWeekId(), // "ABRE TUS OJOS" starts Jan 7
     habits: [
         {
             id: 1,

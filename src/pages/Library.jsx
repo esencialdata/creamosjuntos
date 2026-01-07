@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import WeeklyTheme from '../components/WeeklyTheme';
 import { CONFIG, VERSES_POOL } from '../config/data';
+import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
 
 const Library = () => {
@@ -14,7 +15,9 @@ const Library = () => {
     const diff = now - start;
     const oneDay = 1000 * 60 * 60 * 24;
     const dayOfYear = Math.floor(diff / oneDay);
-    const currentIndex = dayOfYear % VERSES_POOL.length;
+    // Subtract 1 because array is 0-indexed (Jan 1st = Index 0)
+    // Use Math.max to ensure we don't slice with a negative number if something is off
+    const currentIndex = Math.max(0, dayOfYear - 1);
     const visibleVerses = VERSES_POOL.slice(0, currentIndex + 1);
 
     return (
@@ -93,73 +96,160 @@ const Library = () => {
                 )}
 
                 {activeTab === 'verses' && (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
-                        {visibleVerses.map((verse, index) => (
-                            <div
-                                key={index}
-                                style={{
-                                    background: 'var(--color-surface)',
-                                    padding: 'var(--spacing-md)',
-                                    borderRadius: 'var(--radius-md)',
-                                    border: '1px solid var(--color-border)'
-                                }}
-                            >
-                                <blockquote style={{ margin: '0 0 var(--spacing-sm) 0', fontStyle: 'italic', lineHeight: 1.5 }}>
-                                    "{verse.text}"
-                                </blockquote>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-primary)' }}>
-                                        {verse.reference}
-                                    </span>
-                                    <div style={{ display: 'flex', gap: '8px' }}>
-                                        <button
-                                            onClick={() => shareContent('Cita Bíblica Creamos Juntos', `"${verse.text}" - ${verse.reference}`, window.location.href)}
-                                            style={{
-                                                background: 'var(--color-surface-hover)',
-                                                border: 'none',
-                                                padding: '4px 8px',
-                                                borderRadius: '4px',
-                                                fontSize: '0.8rem',
-                                                cursor: 'pointer',
-                                                color: 'var(--color-text)',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '4px'
-                                            }}
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                <circle cx="18" cy="5" r="3"></circle>
-                                                <circle cx="6" cy="12" r="3"></circle>
-                                                <circle cx="18" cy="19" r="3"></circle>
-                                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                                            </svg>
-                                            Compartir
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                navigator.clipboard.writeText(`"${verse.text}" - ${verse.reference}`);
-                                                alert('Cita copiada al portapapeles');
-                                            }}
-                                            style={{
-                                                background: 'var(--color-surface-hover)',
-                                                border: 'none',
-                                                padding: '4px 8px',
-                                                borderRadius: '4px',
-                                                fontSize: '0.8rem',
-                                                cursor: 'pointer',
-                                                color: 'var(--color-text)'
-                                            }}
-                                        >
-                                            Copiar
-                                        </button>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
+                        {/* Current Month */}
+                        <div>
+                            <h2 style={{ fontSize: '1.2rem', marginBottom: 'var(--spacing-md)', color: 'var(--color-text-secondary)' }}>
+                                Enero 2026
+                            </h2>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+                                {visibleVerses.map((verse, index) => (
+                                    <div
+                                        key={index}
+                                        style={{
+                                            background: 'var(--color-surface)',
+                                            padding: 'var(--spacing-md)',
+                                            borderRadius: 'var(--radius-md)',
+                                            border: '1px solid var(--color-border)'
+                                        }}
+                                    >
+                                        <blockquote style={{ margin: '0 0 var(--spacing-sm) 0', fontStyle: 'italic', lineHeight: 1.5 }}>
+                                            "{verse.text}"
+                                        </blockquote>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-primary)' }}>
+                                                {verse.reference}
+                                            </span>
+                                            <div style={{ display: 'flex', gap: '8px' }}>
+                                                <button
+                                                    onClick={() => shareContent('Cita Bíblica Creamos Juntos', `"${verse.text}" - ${verse.reference}`, window.location.href)}
+                                                    style={{
+                                                        background: 'var(--color-surface-hover)',
+                                                        border: 'none',
+                                                        padding: '4px 8px',
+                                                        borderRadius: '4px',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        color: 'var(--color-text)',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '4px'
+                                                    }}
+                                                >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                        <circle cx="18" cy="5" r="3"></circle>
+                                                        <circle cx="6" cy="12" r="3"></circle>
+                                                        <circle cx="18" cy="19" r="3"></circle>
+                                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                                    </svg>
+                                                    Compartir
+                                                </button>
+                                                <button
+                                                    onClick={() => {
+                                                        navigator.clipboard.writeText(`"${verse.text}" - ${verse.reference}`);
+                                                        alert('Cita copiada al portapapeles');
+                                                    }}
+                                                    style={{
+                                                        background: 'var(--color-surface-hover)',
+                                                        border: 'none',
+                                                        padding: '4px 8px',
+                                                        borderRadius: '4px',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        color: 'var(--color-text)'
+                                                    }}
+                                                >
+                                                    Copiar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {verse.comment && (
+                                            <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
+                                                💡 {verse.comment}
+                                            </div>
+                                        )}
                                     </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* History */}
+                        {Object.entries(CITAS_HISTORIAL).map(([month, verses]) => (
+                            <div key={month}>
+                                <h2 style={{ fontSize: '1.2rem', marginBottom: 'var(--spacing-md)', color: 'var(--color-text-secondary)', textTransform: 'capitalize' }}>
+                                    {month} {month === 'diciembre' ? '2025' : ''}
+                                </h2>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+                                    {verses.map((verse, index) => (
+                                        <div
+                                            key={index}
+                                            style={{
+                                                background: 'var(--color-surface)',
+                                                padding: 'var(--spacing-md)',
+                                                borderRadius: 'var(--radius-md)',
+                                                border: '1px solid var(--color-border)'
+                                            }}
+                                        >
+                                            <blockquote style={{ margin: '0 0 var(--spacing-sm) 0', fontStyle: 'italic', lineHeight: 1.5 }}>
+                                                "{verse.text}"
+                                            </blockquote>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-primary)' }}>
+                                                    {verse.reference}
+                                                </span>
+                                                <div style={{ display: 'flex', gap: '8px' }}>
+                                                    <button
+                                                        onClick={() => shareContent('Cita Bíblica Creamos Juntos', `"${verse.text}" - ${verse.reference}`, window.location.href)}
+                                                        style={{
+                                                            background: 'var(--color-surface-hover)',
+                                                            border: 'none',
+                                                            padding: '4px 8px',
+                                                            borderRadius: '4px',
+                                                            fontSize: '0.8rem',
+                                                            cursor: 'pointer',
+                                                            color: 'var(--color-text)',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '4px'
+                                                        }}
+                                                    >
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                            <circle cx="18" cy="5" r="3"></circle>
+                                                            <circle cx="6" cy="12" r="3"></circle>
+                                                            <circle cx="18" cy="19" r="3"></circle>
+                                                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                                        </svg>
+                                                        Compartir
+                                                    </button>
+                                                    <button
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(`"${verse.text}" - ${verse.reference}`);
+                                                            alert('Cita copiada al portapapeles');
+                                                        }}
+                                                        style={{
+                                                            background: 'var(--color-surface-hover)',
+                                                            border: 'none',
+                                                            padding: '4px 8px',
+                                                            borderRadius: '4px',
+                                                            fontSize: '0.8rem',
+                                                            cursor: 'pointer',
+                                                            color: 'var(--color-text)'
+                                                        }}
+                                                    >
+                                                        Copiar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            {verse.comment && (
+                                                <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
+                                                    💡 {verse.comment}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
                                 </div>
-                                {verse.comment && (
-                                    <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
-                                        💡 {verse.comment}
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>
@@ -200,7 +290,7 @@ const Library = () => {
                     </div>
                 )}
             </div>
-        </Layout>
+        </Layout >
     );
 };
 

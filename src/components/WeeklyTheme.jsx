@@ -56,7 +56,7 @@ const WeeklyTheme = ({ theme = {} }) => {
         cardBorder: theme.themeStyles?.cardBorder || '1px solid #E5E7EB',
         cardShadow: theme.themeStyles?.cardShadow || '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
         backgroundImage: theme.themeStyles?.backgroundImage || 'none',
-        backgroundSize: 'cover',
+        backgroundSize: theme.themeStyles?.backgroundSize || 'cover',
     };
 
     const renderSlideContent = (slide) => {
@@ -90,6 +90,21 @@ const WeeklyTheme = ({ theme = {} }) => {
                                     muted
                                     playsInline
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </div>
+                        ) : slide.imageUrl ? (
+                            <div style={{
+                                margin: '2rem 0',
+                                width: '100%',
+                                height: 'auto',
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                            }}>
+                                <img
+                                    src={slide.imageUrl}
+                                    alt={slide.title}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                                 />
                             </div>
                         ) : slide.visual && (
