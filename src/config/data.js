@@ -558,6 +558,7 @@ export const CONFIG = {
             week: "Semana del 2 al 3 Ene",
             events: [
                 {
+                    id: "w1_e1",
                     date: "Viernes 02 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
@@ -567,6 +568,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w1_e2",
                     date: "Sábado 03 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
@@ -579,6 +581,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w1_e3",
                     date: "Sábado 03 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
@@ -596,6 +599,7 @@ export const CONFIG = {
             week: "Semana del 9 al 10 Ene",
             events: [
                 {
+                    id: "w2_e1",
                     date: "Viernes 09 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
@@ -605,6 +609,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w2_e2",
                     date: "Sábado 10 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
@@ -617,6 +622,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w2_e3",
                     date: "Sábado 10 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
@@ -634,6 +640,7 @@ export const CONFIG = {
             week: "Semana del 16 al 17 Ene",
             events: [
                 {
+                    id: "w3_e1",
                     date: "Viernes 16 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
@@ -643,6 +650,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w3_e2",
                     date: "Sábado 17 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
@@ -655,6 +663,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w3_e3",
                     date: "Sábado 17 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
@@ -672,6 +681,7 @@ export const CONFIG = {
             week: "Semana del 23 al 24 Ene",
             events: [
                 {
+                    id: "w4_e1",
                     date: "Viernes 23 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
@@ -681,6 +691,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w4_e2",
                     date: "Sábado 24 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
@@ -693,6 +704,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w4_e3",
                     date: "Sábado 24 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
@@ -710,6 +722,7 @@ export const CONFIG = {
             week: "Semana del 30 al 31 Ene",
             events: [
                 {
+                    id: "w5_e1",
                     date: "Viernes 30 Ene",
                     type: "Virtual (Zoom)",
                     time: "7:00 PM",
@@ -719,6 +732,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w5_e2",
                     date: "Sábado 31 Ene",
                     type: "Culto Matutino",
                     time: "10:00 AM",
@@ -731,6 +745,7 @@ export const CONFIG = {
                     ]
                 },
                 {
+                    id: "w5_e3",
                     date: "Sábado 31 Ene",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
