@@ -466,7 +466,7 @@ export const CONFIG = {
                 {
                     type: "cover",
                     title: "¿TU MENTE TE MIENTE?",
-                    subtitle: "La neurociencia y la Biblia explican por qué te sientes acorralado.",
+                    subtitle: "La neurociencia y la Biblia explican por qué hay veces que te sientes acorralado.",
                     imageUrl: "/rompiendo_ceguera.png",
                     footerText: "A veces, el milagro no es que el problema desaparezca, sino que tus ojos se abran. Desliza 👉"
                 },
