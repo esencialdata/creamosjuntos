@@ -84,7 +84,7 @@ const Library = () => {
                                 }}
                             >
                                 <div style={{ fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 600 }}>
-                                    SEMANA {index + 1}
+                                    SEMANA {theme.weekId || index + 1}
                                 </div>
                                 <h3 style={{ margin: 0 }}>{theme.title}</h3>
                                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>

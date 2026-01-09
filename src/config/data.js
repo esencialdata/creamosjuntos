@@ -210,7 +210,12 @@ const getCurrentWeekId = () => {
     const week3Start = new Date(2025, 11, 25); // Dec 25
     const week4Start = new Date(2026, 0, 1);   // Jan 1
     const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
+    const week6Start = new Date(2026, 0, 14);  // Jan 14 (Midnight launch for Theme 6)
 
+    // TODO: Remove this override when done testing Theme 6
+    // return 6;
+
+    if (now >= week6Start) return 6;
     if (now >= week5Start) return 5;
     if (now >= week4Start) return 4;
     if (now >= week3Start) return 3;
@@ -225,6 +230,7 @@ export const CONFIG = {
 
         {
             id: 2,
+            weekId: 2,
             title: "INGENIERÍA DEL SUELO",
             description: "Preparando la tierra para ver los frutos de una vida plena.",
             themeStyles: {
@@ -303,6 +309,7 @@ export const CONFIG = {
         },
         {
             id: 3,
+            weekId: 3,
             title: "DIOS SIN LÍMITES",
             description: "Cuando tus cálculos se quedan cortos.",
             themeStyles: {
@@ -377,6 +384,7 @@ export const CONFIG = {
         },
         {
             id: 4,
+            weekId: 4,
             title: "EL EXPEDIENTE LEGAL",
             description: "¿Por qué Jesús dijo: «Yo soy el camino»?",
             themeStyles: {
@@ -450,6 +458,7 @@ export const CONFIG = {
         },
         {
             id: 5,
+            weekId: 5,
             title: "ABRE TUS OJOS",
             description: "La neurociencia y la Biblia explican por qué te sientes acorralado.",
             themeStyles: {
@@ -521,6 +530,80 @@ export const CONFIG = {
                     ],
                     citation: "Comenta \"ABRE MIS OJOS\" si necesitas ver la salida hoy. 👁️🔥",
                     reference: "Cierre"
+                }
+            ]
+        },
+        {
+            id: 6,
+            weekId: 5,
+            title: "LA FIRMA DEL HIJO DE DIOS",
+            description: "Una promesa respaldada por la máxima autoridad.",
+            themeStyles: {
+                bg: '#0c0a09',
+                textPrimary: '#fafaf9',
+                textSecondary: '#a8a29e',
+                accent: '#f59e0b',
+                cardBorder: '1px solid #292524',
+                cardShadow: '0 8px 24px -4px rgba(245, 158, 11, 0.12)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "LA FIRMA DEL HIJO DE DIOS",
+                    subtitle: "Una promesa respaldada por la máxima autoridad.",
+                    imageUrl: "/firma_hijo_dios.png",
+                    footerText: "No es una idea, es un compromiso legal. Desliza ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Fuente de Poder",
+                    title: "AUTORIDAD DELEGADA",
+                    body: "Antes de prometer su compañía, Jesús aclaró el origen de su poder: 'Toda potestad me es dada en el cielo y en la tierra' (v. 18). Dios el Padre le entregó el mando a su Hijo. Por eso, cuando Jesús dice 'Yo estoy contigo', no habla solo por sí mismo; habla con el respaldo total del Trono de Dios.\\n\\nEl Padre autoriza.\\nEl Hijo ejecuta y acompaña.\\nTú caminas seguro.",
+                    citation: "Toda potestad me es dada en el cielo y en la tierra.",
+                    reference: "Mateo 28:18 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Condición",
+                    title: "UNA PROMESA EN MOVIMIENTO",
+                    body: "Fíjate en el contexto: Jesús dijo 'Id, y doctrinad' (v. 19) y luego dijo 'Yo estoy con vosotros' (v. 20). Su presencia no es estática para el que se queda cómodo; es dinámica para el que avanza.\\n\\n¿Sientes a Cristo lejos? Quizás te detuviste en el camino.\\nLa garantía del Maestro se activa cuando sales a cumplir la misión que Él te dio.",
+                    citation: "Id... y he aquí yo estoy con vosotros.",
+                    reference: "Mateo 28:19-20"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Realidad Espiritual",
+                    title: "¿CÓMO ESTÁ ÉL AQUÍ?",
+                    body: "Sabemos que Jesucristo está corporalmente en el cielo, sentado a la diestra de Dios. No está caminando físicamente en la tierra hoy. Sin embargo, su promesa es real a través de Su Espíritu y Su Palabra. Como un General que dirige a su ejército desde el cuartel general, su dirección, su consuelo y su protección cubren a su Iglesia en cualquier lugar del mundo.",
+                    citation: "Porque donde están dos ó tres congregados en mi nombre, allí estoy yo en medio de ellos.",
+                    reference: "Mateo 18:20 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Respaldo Científico",
+                    title: "EL PODER DE NO ESTAR SOLO",
+                    body: "La psicología confirma el efecto 'Base Segura'. Cuando una persona sabe que tiene un defensor poderoso respaldándolo, su cerebro reduce el miedo y aumenta la capacidad de tomar riesgos valientes. Saber que tienes a un Abogado para con el Padre (1 Juan 2:1) te da la estabilidad mental para enfrentar cualquier crisis sin desesperación.",
+                    citation: "Abogado tenemos para con el Padre, a Jesucristo el justo.",
+                    reference: "1 Juan 2:1"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Esperanza Futura",
+                    title: "HASTA QUE SE CUMPLA EL TIEMPO",
+                    body: "La promesa dice: 'hasta el fin del mundo' (o del siglo/era). Esto significa que Jesús no nos abandonará mientras dure este sistema de cosas. Su asistencia espiritual hoy es la garantía de lo que vendrá mañana. Cuando Él regrese para establecer Su Reino en la tierra, la fe se convertirá en vista. Hoy nos acompaña en espíritu; mañana reinaremos con Él en persona.",
+                    citation: "...hasta el fin del mundo. Amén.",
+                    reference: "Mateo 28:20"
+                },
+                {
+                    type: "action",
+                    title: "CAMINA CON RESPALDO",
+                    subtitle: "No eres un huérfano espiritual.",
+                    steps: [
+                        "Identifica qué te da temor hacer hoy (perdonar, decidir, avanzar).",
+                        "Hazlo sabiendo que la autoridad de Cristo te cubre las espaldas mientras obedeces Su ley."
+                    ],
+                    citation: "Esforzaos y cobrad ánimo; no temáis, ni tengáis miedo...",
+                    reference: "Deuteronomio 31:6 (RVA)"
                 }
             ]
         }

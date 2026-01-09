@@ -53,7 +53,16 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
 
                 <DailyVerse verse={CONFIG.dailyVerse} />
 
-                <WeeklyTheme theme={CONFIG.themes.find(t => t.id === CONFIG.currentWeek) || CONFIG.themes[0]} />
+                {/* Render ONLY the latest theme for the current week */}
+                {(() => {
+                    const currentWeekThemes = CONFIG.themes.filter(t => t.weekId === CONFIG.currentWeek);
+                    // Show only the last theme (most recent) for this week
+                    const latestTheme = currentWeekThemes.length > 0
+                        ? currentWeekThemes[currentWeekThemes.length - 1]
+                        : CONFIG.themes[0];
+
+                    return <WeeklyTheme key={latestTheme.id} theme={latestTheme} />;
+                })()}
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}
