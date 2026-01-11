@@ -327,7 +327,7 @@ const Backstage = () => {
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Servicio Unificado (3 Localidades)</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>28 Feb</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>14 Mar</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Bautizos</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
