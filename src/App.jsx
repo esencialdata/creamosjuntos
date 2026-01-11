@@ -11,6 +11,8 @@ import { getLocalTodayDate } from './utils/dateUtils';
 
 import PWAInstallBanner from './components/PWAInstallBanner';
 
+import AutoRefresh from './components/AutoRefresh';
+
 function App() {
   // State for tracking completed habits: Array of { id: number, date: string (ISO date part) }
   const [completedHabits, setCompletedHabits] = useState(() => {
@@ -60,6 +62,7 @@ function App() {
 
   return (
     <Router>
+      <AutoRefresh />
       <PWAInstallBanner />
       <Routes>
         <Route

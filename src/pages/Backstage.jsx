@@ -323,6 +323,14 @@ const Backstage = () => {
                             }}>Próximos Eventos</h3>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>28 Feb</span>
+                                    <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Servicio Unificado (3 Localidades)</span>
+                                </li>
+                                <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>28 Feb</span>
+                                    <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Bautizos</span>
+                                </li>
+                                <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
                                     <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>01 Abr</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Pascua</span>
                                 </li>
@@ -351,12 +359,6 @@ const Backstage = () => {
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                     <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
                                         • Recordatorio: Confirmar asistencia a las reuniones antes del jueves.
-                                    </li>
-                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • Servicio unificado 3 localidades para el 28 de Febrero.
-                                    </li>
-                                    <li style={{ fontSize: '0.95rem', color: '#334155' }}>
-                                        • Bautizos.
                                     </li>
                                 </ul>
                             </div>
