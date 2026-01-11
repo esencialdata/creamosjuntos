@@ -643,7 +643,7 @@ export const CONFIG = {
                 {
                     id: "w1_e1",
                     date: "Viernes 02 Ene",
-                    type: "Virtual (Zoom)",
+                    type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },
@@ -684,7 +684,7 @@ export const CONFIG = {
                 {
                     id: "w2_e1",
                     date: "Viernes 09 Ene",
-                    type: "Virtual (Zoom)",
+                    type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
@@ -725,7 +725,7 @@ export const CONFIG = {
                 {
                     id: "w3_e1",
                     date: "Viernes 16 Ene",
-                    type: "Virtual (Zoom)",
+                    type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },
@@ -766,7 +766,7 @@ export const CONFIG = {
                 {
                     id: "w4_e1",
                     date: "Viernes 23 Ene",
-                    type: "Virtual (Zoom)",
+                    type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
@@ -807,7 +807,7 @@ export const CONFIG = {
                 {
                     id: "w5_e1",
                     date: "Viernes 30 Ene",
-                    type: "Virtual (Zoom)",
+                    type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Absalón Perusquía" },

@@ -323,15 +323,15 @@ const Backstage = () => {
                             }}>Próximos Eventos</h3>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>16 Abr</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>01 Abr</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Pascua</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>02 Jun</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>22 May</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Pentecostés</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>07 Oct</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>22 Sep</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Cabañas</span>
                                 </li>
                             </ul>
@@ -348,9 +348,17 @@ const Backstage = () => {
                                 letterSpacing: '0.5px'
                             }}>Avisos Semanales</h3>
                             <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', border: '1px solid #dbeafe' }}>
-                                <p style={{ fontSize: '0.95rem', lineHeight: '1.5', opacity: 0.9, color: '#334155' }}>
-                                    Recordatorio: Confirmar asistencia a las reuniones antes del jueves.
-                                </p>
+                                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • Recordatorio: Confirmar asistencia a las reuniones antes del jueves.
+                                    </li>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • Servicio unificado 3 localidades para el 28 de Febrero.
+                                    </li>
+                                    <li style={{ fontSize: '0.95rem', color: '#334155' }}>
+                                        • Bautizos.
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
