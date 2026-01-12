@@ -210,7 +210,7 @@ const getCurrentWeekId = () => {
     const week3Start = new Date(2025, 11, 25); // Dec 25
     const week4Start = new Date(2026, 0, 1);   // Jan 1
     const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
-    const week6Start = new Date(2026, 0, 14);  // Jan 14 (Midnight launch for Theme 6)
+    const week6Start = new Date(2026, 0, 12);  // Jan 12 (Midnight launch for Theme 7 - Identidad Activa)
 
     // TODO: Remove this override when done testing Theme 6
     // return 6;
@@ -604,6 +604,80 @@ export const CONFIG = {
                     ],
                     citation: "Esforzaos y cobrad ánimo; no temáis, ni tengáis miedo...",
                     reference: "Deuteronomio 31:6 (RVA)"
+                }
+            ]
+        },
+        {
+            id: 7,
+            weekId: 6,
+            title: "EL PRINCIPIO DE LA IDENTIDAD ACTIVA",
+            description: "Transformación del 'Ser' para potenciar el 'Hacer'.",
+            themeStyles: {
+                bg: '#F8FAFC',
+                textPrimary: '#0F172A',
+                textSecondary: '#475569',
+                accent: '#D97706',
+                cardBorder: '1px solid #E2E8F0',
+                cardShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿POR QUÉ FALLAMOS AL INTENTAR CAMBIAR?",
+                    subtitle: "El secreto no está en tu fuerza de voluntad, sino en tu definición propia.",
+                    imageUrl: "/somos.png",
+                    footerText: "Desliza para descubrir tu verdadera identidad ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Premisa",
+                    title: "PRIMERO DITE A TI MISMO QUIÉN QUIERES SER",
+                    body: "Solemos hacerlo al revés: intentamos 'hacer' cosas buenas para 'sentirnos' buenas personas. Pero la Biblia enseña un orden diferente. Tu conducta, tus hábitos y tus decisiones son el resultado directo de quién crees que eres en lo más profundo.",
+                    citation: "Porque cual es su pensamiento en su alma, tal es él.",
+                    reference: "Proverbios 23:7 (RVA referencial)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Fundamento",
+                    title: "DEFINE TU IDENTIDAD EN CRISTO",
+                    body: "No eres un pecador luchando por ser santo; eres un Santo luchando contra el pecado. Dios ya te ha dado un título. Antes de mover un dedo, debes apropiarte de tu posición legal ante el cielo.\\n\\nEres Hijo de Dios.\\nEres Nueva Criatura.\\nEres Embajador.",
+                    citation: "De modo que si alguno está en Cristo, nueva criatura es: las cosas viejas pasaron; he aquí todas son hechas nuevas.",
+                    reference: "2 Corintios 5:17"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Estrategia Mental",
+                    title: "RENUEVA EL 'ESPÍRITU DE TU MENTE'",
+                    body: "La ciencia lo llama 'disonancia cognitiva': tu cerebro lucha si tus acciones no coinciden con tu identidad. La Biblia lo llama 'renovación'. Para actuar diferente, primero debes vestirte mentalmente del Nuevo Hombre creado según Dios. Si te ves como 'hijo de luz', las obras de las tinieblas dejarán de tener sentido para ti.",
+                    citation: "Y á renovarnos en el espíritu de vuestra mente, y vestir el nuevo hombre...",
+                    reference: "Efesios 4:23-24"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Acción",
+                    title: "HAZ LO QUE TU IDENTIDAD DICTA",
+                    body: "Una identidad pasiva es fe muerta. Si eres Hijo, actúas como el Padre (Obediencia). Si eres Templo del Espíritu, cuidas lo que entra en ti (Santidad). La identidad no anula la Ley; la identidad es el motor para cumplir los Mandamientos de Dios con gozo y no por carga.\\n\\nIdentidad Pasiva: 'Oidor olvidadizo'.\\nIdentidad Activa: 'Hacedor de la obra'.",
+                    citation: "Sed hacedores de la palabra, y no tan solamente oidores...",
+                    reference: "Santiago 1:22"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Ejemplo",
+                    title: "DAVID NO PELEÓ PARA SER UNGIDO",
+                    body: "David peleó contra Goliat porque ya sabía que era el ungido. Su identidad ('Pastor que vence osos y leones en el nombre de Jehová') definió su acción ('Yo vengo a ti en el nombre de Jehová'). No esperes a 'sentirte' capaz. Declara quién dice Dios que eres, y actúa conforme a esa verdad.",
+                    citation: "Tú vienes a mí con espada y lanza y jabalina; mas yo vengo a ti en el nombre de Jehová de los ejércitos...",
+                    reference: "1 Samuel 17:45"
+                },
+                {
+                    type: "action",
+                    title: "¿QUIÉN DICES QUE ERES HOY?",
+                    subtitle: "Esta semana, antes de enfrentar una tentación o una decisión difícil, detente y pregúntate:",
+                    steps: [
+                        "¿Cómo actuaría un Hijo de Dios / un Embajador de Cristo en esta situación?",
+                        "Deja que tu identidad dirija tus pasos."
+                    ],
+                    citation: "Digo pues: Andad en el Espíritu, y no satisfagáis la concupiscencia de la carne.",
+                    reference: "Gálatas 5:16"
                 }
             ]
         }
