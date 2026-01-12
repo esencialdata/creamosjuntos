@@ -13,6 +13,7 @@ import { useRegisterSW } from 'virtual:pwa-register/react';
 function AutoRefresh() {
     const {
         updateServiceWorker,
+        needRefresh,
     } = useRegisterSW({
         onRegisteredSW(swUrl, r) {
             if (r) {
@@ -39,6 +40,13 @@ function AutoRefresh() {
             }
         },
     });
+
+    // Automatically reload when a new SW is waiting
+    useEffect(() => {
+        if (needRefresh) {
+            updateServiceWorker(true);
+        }
+    }, [needRefresh, updateServiceWorker]);
 
     return null; // This component renders nothing
 }
