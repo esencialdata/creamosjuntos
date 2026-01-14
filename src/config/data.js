@@ -212,8 +212,8 @@ const getCurrentWeekId = () => {
     const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
     const week6Start = new Date(2026, 0, 12);  // Jan 12 (Midnight launch for Theme 7 - Identidad Activa)
 
-    // TODO: Remove this override when done testing Theme 6
-    // return 6;
+    // TODO: Remove this override when done testing Theme 7
+    // return 7;
 
     if (now >= week6Start) return 6;
     if (now >= week5Start) return 5;
@@ -678,6 +678,81 @@ export const CONFIG = {
                     ],
                     citation: "Digo pues: Andad en el Espíritu, y no satisfagáis la concupiscencia de la carne.",
                     reference: "Gálatas 5:16"
+                }
+            ]
+        },
+        {
+            id: 8,
+            weekId: 7,
+            title: "LA PAZ MENTAL",
+            description: "La Paz Mental NO es la ausencia de problemas. Es la capacidad de mantener el enfoque mientras todo se mueve.",
+            themeStyles: {
+                bg: '#0F172A', // Slate 900
+                textPrimary: '#F8FAFC', // Slate 50
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#38BDF8', // Sky 400
+                cardBorder: '1px solid #1E293B',
+                cardShadow: '0 20px 25px -5px rgba(56, 189, 248, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "La Paz Mental NO es la ausencia de problemas.",
+                    subtitle: "Es la capacidad de mantener el enfoque mientras todo se mueve.",
+                    videoUrl: "/mar_agitado.mp4",
+                    footerText: "\"En el mundo tendréis aflicción: mas confiad, yo he vencido al mundo.\" — Juan 16:33 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Tesis",
+                    title: "PERSEVERA",
+                    body: "La promesa no es automática. Tiene una condición mecánica: Perseverar (sostener el pensamiento en un punto fijo).",
+                    citation: "Tú le guardarás en completa paz, cuyo pensamiento en ti persevera; porque en ti se ha confiado.",
+                    reference: "Isaías 26:3 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Concepto",
+                    title: "Estabilidad Interna vs. Ruido Externo",
+                    body: "La verdadera paz no depende de que cambien tus circunstancias, sino de que tu corazón esté \"fijo\" en medio de ellas. La inestabilidad viene de la duda (doble ánimo); la paz viene de la certeza.",
+                    citation: "No tendrá temor de malas nuevas; Su corazón está firme, confiado en Jehová.",
+                    reference: "Salmos 112:7 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Causa y Efecto",
+                    title: "La Transgresión quita la Paz",
+                    body: "El pecado no es un \"tabú religioso\", es —por definición bíblica— transgresión de la Ley (1 Juan 3:4). Si violas la ley, pierdes la paz. Si amas la ley (el orden de Dios), la paz es la consecuencia lógica. La angustia es la señal de que hemos salido del diseño.",
+                    citation: "Mucha paz tienen los que aman tu ley; Y no hay para ellos tropiezo.",
+                    reference: "Salmos 119:165 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Mecanismo",
+                    title: "El Mecanismo del Sustento",
+                    body: "¿Por qué perseverar en Dios genera paz? Porque Él asume la carga. \"Perseverar\" implica transferir el peso de tu ansiedad al Sustentador. Si tú cargas el problema, te rompes. Si lo transfieres, te estabilizas.",
+                    citation: "Echa sobre Jehová tu carga, y él te sustentará; No dejará para siempre caído al justo.",
+                    reference: "Salmos 55:22 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "Protocolo de Recuperación",
+                    subtitle: "Cómo volver a la Paz",
+                    steps: [
+                        "Detente y Observa: ¿Te saliste del camino (Ley)?",
+                        "Pregunta por la Senda Antigua: Vuelve al principio bíblico que olvidaste.",
+                        "Camina en ella: La acción correcta trae descanso mental."
+                    ],
+                    citation: "Parad en los caminos, y mirad... y hallaréis descanso para vuestra alma.",
+                    reference: "Jeremías 6:16 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Conclusión",
+                    title: "El Efecto de la Justicia",
+                    body: "La Paz no es un sentimiento; es el EFECTO de vivir en Justicia (ajustado a la Ley de Dios).",
+                    citation: "Y el efecto de la justicia será paz; y la labor de justicia, reposo y seguridad para siempre.",
+                    reference: "Isaías 32:17 (RVA)"
                 }
             ]
         }
