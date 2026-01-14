@@ -609,7 +609,7 @@ export const CONFIG = {
         },
         {
             id: 7,
-            weekId: 6,
+            weekId: 7,
             title: "EL PRINCIPIO DE LA IDENTIDAD ACTIVA",
             description: "Transformación del 'Ser' para potenciar el 'Hacer'.",
             themeStyles: {
@@ -683,7 +683,7 @@ export const CONFIG = {
         },
         {
             id: 8,
-            weekId: 7,
+            weekId: 6,
             title: "LA PAZ MENTAL",
             description: "La Paz Mental NO es la ausencia de problemas. Es la capacidad de mantener el enfoque mientras todo se mueve.",
             themeStyles: {
