@@ -609,7 +609,7 @@ export const CONFIG = {
         },
         {
             id: 7,
-            weekId: 7,
+            weekId: 6,
             title: "EL PRINCIPIO DE LA IDENTIDAD ACTIVA",
             description: "Transformación del 'Ser' para potenciar el 'Hacer'.",
             themeStyles: {
