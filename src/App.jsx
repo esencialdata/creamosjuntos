@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
+import MyTreasure from './pages/MyTreasure';
 
 import './index.css';
 
@@ -87,6 +88,10 @@ function App() {
         <Route
           path="/recursos"
           element={<Library />}
+        />
+        <Route
+          path="/tesoro"
+          element={<MyTreasure />}
         />
 
       </Routes>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useBookmarks } from '../hooks/useBookmarks';
 import { shareContent } from '../utils/share';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -11,17 +12,7 @@ import '../index.css'; // Ensure we have access to global variables if needed
 import './WeeklyTheme.css'; // Import specific styles for scrollbars and effects
 
 const WeeklyTheme = ({ theme = {} }) => {
-    const [isSaved, setIsSaved] = useState(false);
-
-    useEffect(() => {
-        // Check localStorage on mount
-        const storedSave = localStorage.getItem(`saved_theme_${theme.title}`);
-        if (storedSave === 'true') {
-            setIsSaved(true);
-        } else {
-            setIsSaved(false);
-        }
-    }, [theme.title]);
+    const { isBookmarked, toggleBookmark } = useBookmarks();
 
     const handleShare = async () => {
         // Track the share attempt in Firestore
@@ -29,17 +20,6 @@ const WeeklyTheme = ({ theme = {} }) => {
 
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, window.location.href);
-    };
-
-    const handleSave = async () => {
-        const newStatus = !isSaved;
-        setIsSaved(newStatus);
-
-        // Update local storage
-        localStorage.setItem(`saved_theme_${theme.title}`, newStatus);
-
-        // Update Firestore
-        await toggleThemeSave(theme.title, newStatus);
     };
 
     // If no slides define, fallback to simple view (safety check)
@@ -407,10 +387,15 @@ const WeeklyTheme = ({ theme = {} }) => {
             }}>
                 {/* Save Button */}
                 <button
-                    onClick={handleSave}
-                    title="Guardar tema"
+                    onClick={() => toggleBookmark({
+                        itemID: theme.title,
+                        itemType: 'topic',
+                        contentPreview: theme.description || theme.title,
+                        title: theme.title
+                    })}
+                    title={isBookmarked(theme.title) ? "Quitar de guardados" : "Guardar tema"}
                     style={{
-                        background: isSaved ? 'var(--color-primary)' : 'white',
+                        background: isBookmarked(theme.title) ? 'var(--color-primary)' : 'white',
                         border: '1px solid #E5E7EB',
                         borderRadius: '50%',
                         width: '40px',
@@ -420,11 +405,11 @@ const WeeklyTheme = ({ theme = {} }) => {
                         alignItems: 'center',
                         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                         cursor: 'pointer',
-                        color: isSaved ? 'white' : 'var(--color-text-secondary)',
+                        color: isBookmarked(theme.title) ? 'white' : 'var(--color-text-secondary)',
                         transition: 'all 0.2s ease'
                     }}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill={isBookmarked(theme.title) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                     </svg>
                 </button>

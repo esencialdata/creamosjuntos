@@ -265,6 +265,17 @@ const Backstage = () => {
                     <img src={logoHeader} alt="Campo David" style={{ height: '72px' }} />
 
                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                        <a href="#/termometro" style={{
+                            textDecoration: 'none',
+                            color: '#0052CC',
+                            background: '#e6f0ff',
+                            padding: '0.4rem 1rem',
+                            borderRadius: '4px',
+                            fontSize: '0.8rem',
+                            fontWeight: '600'
+                        }}>
+                            📊 Termómetro
+                        </a>
                         <button
                             onClick={handleLogout}
                             style={{

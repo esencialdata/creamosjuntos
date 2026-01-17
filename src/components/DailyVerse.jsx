@@ -1,40 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useBookmarks } from '../hooks/useBookmarks';
 import { shareContent } from '../utils/share';
 import { toggleVerseHeart } from '../services/firestoreService';
 
 const DailyVerse = ({ verse }) => {
-    const [isLiked, setIsLiked] = useState(false);
+    const { isBookmarked, toggleBookmark } = useBookmarks();
     const [isAnimating, setIsAnimating] = useState(false);
 
-    useEffect(() => {
-        // Check localStorage on mount
-        const storedLike = localStorage.getItem(`liked_verse_${verse.reference}`);
-        if (storedLike === 'true') {
-            setIsLiked(true);
-        } else {
-            setIsLiked(false);
-        }
-    }, [verse.reference]);
+    const isLiked = isBookmarked(verse.reference);
 
     const handleShare = async () => {
         const textToShare = `"${verse.text}" — ${verse.reference}. Creamos Juntos`;
-        // URL is passed as 3rd arg, handled by share.js
         await shareContent('Cita del día - Creamos Juntos', textToShare, window.location.href);
     };
 
     const handleHeart = async () => {
-        const newStatus = !isLiked;
-        setIsLiked(newStatus);
-
         // Trigger animation
         setIsAnimating(true);
         setTimeout(() => setIsAnimating(false), 300);
 
-        // Update local storage
-        localStorage.setItem(`liked_verse_${verse.reference}`, newStatus);
+        await toggleBookmark({
+            itemID: verse.reference,
+            itemType: 'quote',
+            contentPreview: verse.text,
+            reference: verse.reference
+        });
 
-        // Update Firestore
-        await toggleVerseHeart(verse.reference, newStatus);
+        // Also update the public stats if needed, or we rely solely on private bookmarks now?
+        // The prompt asked to "save this specific Item ID to the user's personal list". 
+        // It didn't explicitly say to remove the public counter, but typically "Like" vs "Bookmark" is different.
+        // However, the prompt says "Add a 'Bookmark/Heart Icon' ... Interaction: ... save ... to user's personal list".
+        // It seems this REPLACES the old generic public "heart".
+        // I will keep the `toggleVerseHeart` call if we want to maintain public stats, but the requirement focuses on personal list.
+        // I'll call the legacy public stat as well to be safe/nice, effectively treating it as a "Like" too.
+        await toggleVerseHeart(verse.reference, !isLiked);
     };
 
     return (
@@ -89,7 +88,7 @@ const DailyVerse = ({ verse }) => {
                     {/* Heart Button */}
                     <button
                         onClick={handleHeart}
-                        title="Me llega al corazón"
+                        title={isLiked ? "Eliminar de favoritos" : "Guardar en favoritos"}
                         style={{
                             background: 'none',
                             border: 'none',

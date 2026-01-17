@@ -56,6 +56,7 @@ const Header = () => {
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/habitos">Hábitos</Link></li>
                             <li><Link to="/recursos">Recursos</Link></li>
+                            <li><Link to="/tesoro" style={{ color: 'var(--color-accent)' }}>Mi Tesoro</Link></li>
                         </ul>
                     </nav>
                 </div>

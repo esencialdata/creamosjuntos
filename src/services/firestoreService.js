@@ -1,5 +1,5 @@
 import { db } from "../firebase";
-import { doc, getDoc, setDoc, onSnapshot, updateDoc, increment, runTransaction } from "firebase/firestore";
+import { doc, getDoc, setDoc, onSnapshot, updateDoc, increment, runTransaction, collection, deleteDoc, collectionGroup, query, where, getDocs } from "firebase/firestore";
 import { CONFIG } from "../config/data";
 
 export const initializeDefaultData = async () => {
@@ -169,5 +169,113 @@ export const getThemeStats = async () => {
     } catch (error) {
         console.error("Error getting analytics stats:", error);
         return {};
+    }
+};
+const getCollectionPath = (deviceId) => `users/${deviceId}/bookmarks`;
+
+export const subscribeToUserBookmarks = (deviceId, callback) => {
+    if (!deviceId) return () => { };
+
+    const collectionRef = collection(db, getCollectionPath(deviceId));
+
+    return onSnapshot(collectionRef, (snapshot) => {
+        const bookmarks = {};
+        snapshot.forEach(doc => {
+            bookmarks[doc.id] = doc.data();
+        });
+        callback(bookmarks);
+    }, (error) => {
+        console.error("Error subscribing to bookmarks:", error);
+        callback({});
+    });
+};
+
+export const saveBookmark = async (deviceId, item) => {
+    if (!deviceId || !item.itemID) return;
+
+    try {
+        const docRef = doc(db, getCollectionPath(deviceId), item.itemID);
+        await setDoc(docRef, {
+            ...item,
+            dateSaved: new Date().toISOString(),
+            userDeviceID: deviceId
+        }, { merge: true });
+    } catch (error) {
+        console.error("Error saving bookmark:", error);
+    }
+};
+
+export const removeBookmark = async (deviceId, itemId) => {
+    if (!deviceId || !itemId) return;
+
+    try {
+        const docRef = doc(db, getCollectionPath(deviceId), itemId);
+        await deleteDoc(docRef);
+    } catch (error) {
+        console.error("Error removing bookmark:", error);
+    }
+};
+
+export const getCommunityStats = async () => {
+    try {
+        // Calculate start of current week (Sunday)
+        const today = new Date();
+        const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
+        startOfWeek.setHours(0, 0, 0, 0);
+
+        const bookmarksQuery = query(
+            collectionGroup(db, 'bookmarks'),
+            where('dateSaved', '>=', startOfWeek.toISOString())
+        );
+
+        const querySnapshot = await getDocs(bookmarksQuery);
+
+        const stats = {
+            topVerses: {},
+            topTopics: {},
+            dailyPulse: {
+                "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 0, "Sun": 0
+            }
+        };
+
+        const daysMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const date = new Date(data.dateSaved);
+            const dayName = daysMap[date.getDay()];
+
+            // Daily Pulse
+            if (stats.dailyPulse[dayName] !== undefined) {
+                stats.dailyPulse[dayName]++;
+            }
+
+            // Top Items
+            if (data.itemType === 'quote') {
+                const key = data.contentPreview || data.itemID; // Fallback to ID if no preview
+                stats.topVerses[key] = (stats.topVerses[key] || 0) + 1;
+            } else if (data.itemType === 'topic') {
+                const key = data.title || data.itemID;
+                stats.topTopics[key] = (stats.topTopics[key] || 0) + 1;
+            }
+        });
+
+        // Convert to Arrays, Sort and Slice
+        const sortAndSlice = (obj) => {
+            return Object.entries(obj)
+                .map(([name, count]) => ({ name, count }))
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 5);
+        };
+
+        return {
+            topVerses: sortAndSlice(stats.topVerses),
+            topTopics: sortAndSlice(stats.topTopics),
+            dailyPulse: Object.entries(stats.dailyPulse).map(([day, count]) => ({ day, count }))
+        };
+
+    } catch (error) {
+        console.error("Error getting community stats:", error);
+        return { topVerses: [], topTopics: [], dailyPulse: [] };
     }
 };
