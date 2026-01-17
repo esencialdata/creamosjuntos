@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { toggleLightReaction } from '../services/firestoreService';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 const SermonList = ({ schedule }) => {
-    // State to track liked sermons (persisted in localStorage)
-    const [likedSermons, setLikedSermons] = useState(() => {
-        try {
-            const stored = localStorage.getItem('likedSermons');
-            return stored ? JSON.parse(stored) : [];
-        } catch (e) {
-            return [];
-        }
-    });
+    const { isBookmarked, toggleBookmark } = useBookmarks();
+    const [showToast, setShowToast] = useState(false);
 
     // Helper to parse dates like "Viernes 05 Dic"
     const parseSpanishDate = (dateStr) => {
@@ -86,30 +79,36 @@ const SermonList = ({ schedule }) => {
         return event.details && event.details.some(d => d.role === "Predicación");
     }) : [];
 
-    const handleLightClick = (weekId, eventId) => {
-        const isLiked = likedSermons.includes(eventId);
-        const shouldAdd = !isLiked;
+    const handleInterestClick = async (event) => {
+        const isCurrentlyBookmarked = isBookmarked(event.id);
 
-        // Optimistic UI Update
-        setLikedSermons(prev => {
-            let newLiked;
-            if (isLiked) {
-                newLiked = prev.filter(id => id !== eventId);
-            } else {
-                newLiked = [...prev, eventId];
-            }
-            localStorage.setItem('likedSermons', JSON.stringify(newLiked));
-            return newLiked;
-        });
+        // Construct the item to save
+        // We need a title for the bookmark.
+        const preacherDetail = event.details && event.details.find(d => d.role === "Predicación");
+        const preacherText = preacherDetail ? preacherDetail.name : "";
+        const titleMatch = preacherText.match(/\(([^)]+)\)/);
+        const displayTitle = titleMatch ? titleMatch[1] : (event.theme || "Tema Especial");
 
-        // Backend Update
-        toggleLightReaction(weekId, eventId, shouldAdd);
+        const itemToSave = {
+            itemID: event.id,
+            itemType: 'event', // New type
+            title: displayTitle,
+            contentPreview: `${event.date} • ${event.time}`,
+            ...event
+        };
+
+        await toggleBookmark(itemToSave);
+
+        if (!isCurrentlyBookmarked) {
+            setShowToast(true);
+            setTimeout(() => setShowToast(false), 3000);
+        }
     };
 
     if (!sermonEvents.length) return null;
 
     return (
-        <section style={{ marginBottom: 'var(--spacing-md)' }}>
+        <section style={{ marginBottom: 'var(--spacing-md)', position: 'relative' }}>
             <h3 style={{
                 fontSize: '1.25rem',
                 fontWeight: '600',
@@ -121,12 +120,7 @@ const SermonList = ({ schedule }) => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {sermonEvents.map(event => {
-                    // Extract preacher name (removed as per request)
-                    // const preacher = event.details.find(d => d.role === "Predicación")?.name || "Invitado";
-                    const isLiked = likedSermons.includes(event.id);
-                    // Use event.lights from props (real-time from firestore subscription in parent)
-                    // If local optimistic update happened, the prop might lag slightly, but usually fast.
-                    // For better UX during lag, we could locally modify count, but let's stick to props for simplicity + optimistic "status" color.
+                    const saved = isBookmarked(event.id);
 
                     return (
                         <div key={event.id} className="card" style={{
@@ -175,9 +169,9 @@ const SermonList = ({ schedule }) => {
                                 </p>
                             </div>
 
-                            {/* Reaction Button */}
+                            {/* Interest Button (Heart) */}
                             <button
-                                onClick={() => handleLightClick(currentWeek.id, event.id)}
+                                onClick={() => handleInterestClick(event)}
                                 style={{
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -190,51 +184,61 @@ const SermonList = ({ schedule }) => {
                                 }}
                             >
                                 <div style={{
-                                    backgroundColor: isLiked ? '#FFFBEB' : '#F3F4F6', // Amber-50 vs Gray-100
+                                    backgroundColor: 'transparent',
                                     borderRadius: '50%',
-                                    padding: '0.75rem',
                                     marginBottom: '0.25rem',
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    boxShadow: isLiked ? '0 0 15px rgba(245, 158, 11, 0.4)' : 'none',
                                     transition: 'all 0.3s ease'
                                 }}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
-                                        fill={isLiked ? "#F59E0B" : "none"} // Amber-500
-                                        stroke={isLiked ? "#F59E0B" : "#9CA3AF"} // Gray-400
+                                        fill={saved ? "#EF4444" : "none"} // Red-500 if saved
+                                        stroke={saved ? "#EF4444" : "#9CA3AF"} // Gray-400 if not
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        style={{ width: '1.5rem', height: '1.5rem' }}
+                                        style={{ width: '1.75rem', height: '1.75rem' }} // Slightly larger as requested? Kept similar but bold feel
                                     >
-                                        <path d="M12 2v2"></path>
-                                        <path d="M12 20v2"></path>
-                                        <path d="M4.93 4.93l1.41 1.41"></path>
-                                        <path d="M17.66 17.66l1.41 1.41"></path>
-                                        <path d="M2 12h2"></path>
-                                        <path d="M20 12h2"></path>
-                                        <path d="M6.34 17.66l-1.41 1.41"></path>
-                                        <path d="M19.07 4.93l-1.41 1.41"></path>
-                                        {/* Bulb Body */}
-                                        <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"></path>
-                                        <path d="M9.7 17h4.6"></path>
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                                     </svg>
                                 </div>
                                 <span style={{
                                     fontSize: '0.75rem',
-                                    fontWeight: '600',
-                                    color: isLiked ? '#D97706' : '#9CA3AF'
+                                    fontWeight: '700', // Slightly bold
+                                    color: saved ? '#EF4444' : '#9CA3AF'
                                 }}>
-                                    {isLiked ? 'Luz' : 'Iluminar'}
-                                    {event.lights > 0 && ` (${event.lights})`}
+                                    Me interesa
                                 </span>
                             </button>
                         </div>
                     );
                 })}
+            </div>
+
+            {/* Toast Notification */}
+            <div style={{
+                position: 'fixed',
+                bottom: showToast ? '24px' : '-100px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: 'rgba(31, 41, 55, 0.95)', // Dark gray background
+                color: 'white',
+                padding: '12px 24px',
+                borderRadius: '99px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                zIndex: 9999,
+                transition: 'bottom 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                whiteSpace: 'nowrap',
+                fontWeight: '500',
+                fontSize: '0.9rem'
+            }}>
+                <span>❤️</span> Guardado en tus intereses
             </div>
         </section>
     );

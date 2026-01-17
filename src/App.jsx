@@ -86,8 +86,8 @@ function App() {
           }
         />
         <Route
-          path="/recursos"
-          element={<Library />}
+          path="/biblioteca"
+          element={<UserLibrary />}
         />
         <Route
           path="/tesoro"

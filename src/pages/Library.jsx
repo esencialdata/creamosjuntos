@@ -4,10 +4,12 @@ import WeeklyTheme from '../components/WeeklyTheme';
 import { CONFIG, VERSES_POOL } from '../config/data';
 import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 const Library = () => {
     const [activeTab, setActiveTab] = useState('themes');
     const [selectedTheme, setSelectedTheme] = useState(null);
+    const { toggleBookmark, isBookmarked } = useBookmarks();
 
     // Filter verses to only show those released up to today
     const now = new Date();
@@ -147,6 +149,34 @@ const Library = () => {
                                                 </button>
                                                 <button
                                                     onClick={() => {
+                                                        const itemToSave = {
+                                                            itemID: verse.reference,
+                                                            itemType: 'quote',
+                                                            contentPreview: verse.reference + " - " + verse.text,
+                                                            ...verse
+                                                        };
+                                                        toggleBookmark(itemToSave);
+                                                    }}
+                                                    style={{
+                                                        background: 'var(--color-surface-hover)',
+                                                        border: 'none',
+                                                        padding: '4px 8px',
+                                                        borderRadius: '4px',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        color: isBookmarked(verse.reference) ? '#ef4444' : 'var(--color-text)',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '4px'
+                                                    }}
+                                                >
+                                                    <span style={{ fontSize: '1rem' }}>
+                                                        {isBookmarked(verse.reference) ? "❤️" : "🤍"}
+                                                    </span>
+                                                    {isBookmarked(verse.reference) ? "Guardado" : "Guardar"}
+                                                </button>
+                                                <button
+                                                    onClick={() => {
                                                         navigator.clipboard.writeText(`"${verse.text}" - ${verse.reference}`);
                                                         alert('Cita copiada al portapapeles');
                                                     }}
@@ -164,11 +194,13 @@ const Library = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                        {verse.comment && (
-                                            <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
-                                                💡 {verse.comment}
-                                            </div>
-                                        )}
+                                        {
+                                            verse.comment && (
+                                                <div style={{ marginTop: 'var(--spacing-sm)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '8px' }}>
+                                                    💡 {verse.comment}
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 ))}
                             </div>
@@ -222,6 +254,34 @@ const Library = () => {
                                                             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                                                         </svg>
                                                         Compartir
+                                                    </button>
+                                                    <button
+                                                        onClick={() => {
+                                                            const itemToSave = {
+                                                                itemID: verse.reference,
+                                                                itemType: 'quote',
+                                                                contentPreview: verse.reference + " - " + verse.text,
+                                                                ...verse
+                                                            };
+                                                            toggleBookmark(itemToSave);
+                                                        }}
+                                                        style={{
+                                                            background: 'var(--color-surface-hover)',
+                                                            border: 'none',
+                                                            padding: '4px 8px',
+                                                            borderRadius: '4px',
+                                                            fontSize: '0.8rem',
+                                                            cursor: 'pointer',
+                                                            color: isBookmarked(verse.reference) ? '#ef4444' : 'var(--color-text)',
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: '4px'
+                                                        }}
+                                                    >
+                                                        <span style={{ fontSize: '1rem' }}>
+                                                            {isBookmarked(verse.reference) ? "❤️" : "🤍"}
+                                                        </span>
+                                                        {isBookmarked(verse.reference) ? "Guardado" : "Guardar"}
                                                     </button>
                                                     <button
                                                         onClick={() => {
