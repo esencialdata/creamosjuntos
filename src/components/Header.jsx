@@ -57,8 +57,8 @@ const Header = () => {
                             <li><Link to="/habitos">Hábitos</Link></li>
                             <li><Link to="/recursos">Recursos</Link></li>
                             <li>
-                                <Link to="/biblioteca" style={{ color: 'var(--color-accent)' }}>
-                                    Mi Biblioteca
+                                <Link to="/favoritos" style={{ color: 'var(--color-accent)' }}>
+                                    Favoritos
                                 </Link>
                             </li>
                         </ul>

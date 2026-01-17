@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
-import UserLibrary from './pages/UserLibrary';
+import Favorites from './pages/Favorites';
 
 import './index.css';
 
@@ -90,8 +90,8 @@ function App() {
           element={<Library />}
         />
         <Route
-          path="/biblioteca"
-          element={<UserLibrary />}
+          path="/favoritos"
+          element={<Favorites />}
         />
 
       </Routes>

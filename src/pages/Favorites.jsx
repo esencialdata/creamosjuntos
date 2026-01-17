@@ -5,7 +5,7 @@ import { shareContent } from '../utils/share';
 import WeeklyTheme from '../components/WeeklyTheme';
 import { CONFIG } from '../config/data';
 
-const UserLibrary = () => {
+const Favorites = () => {
     const { bookmarks, toggleBookmark } = useBookmarks();
     const [activeTab, setActiveTab] = useState('verses');
     const [selectedTheme, setSelectedTheme] = useState(null);
@@ -35,7 +35,7 @@ const UserLibrary = () => {
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
             <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem' }}>
-                Aún no tienes recursos en tu biblioteca.
+                Aún no tienes favoritos guardados.
             </p>
             <p style={{ fontSize: '0.9rem' }}>
                 Marca "Me interesa" en los eventos o el corazón en versículos para verlos aquí.
@@ -202,9 +202,9 @@ const UserLibrary = () => {
                         fontSize: '2rem',
                         color: 'var(--color-accent)'
                     }}>
-                        Mi Biblioteca
+                        Favoritos
                     </h1>
-                    <p style={{ color: 'var(--color-text-secondary)' }}>Tus recursos y temas guardados</p>
+                    <p style={{ color: 'var(--color-text-secondary)' }}>Tus recursos y temas favoritos</p>
                 </header>
 
                 <div style={{
@@ -354,4 +354,4 @@ const UserLibrary = () => {
     );
 };
 
-export default UserLibrary;
+export default Favorites;
