@@ -57,8 +57,8 @@ const Header = () => {
                             <li><Link to="/habitos">Hábitos</Link></li>
                             <li><Link to="/recursos">Recursos</Link></li>
                             <li>
-                                <Link to="/biblioteca" style={{ color: 'var(--color-accent)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                                    <span>📖</span> Mi Biblioteca
+                                <Link to="/biblioteca" style={{ color: 'var(--color-accent)' }}>
+                                    Mi Biblioteca
                                 </Link>
                             </li>
                         </ul>
