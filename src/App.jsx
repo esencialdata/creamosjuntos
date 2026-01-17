@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
-import MyTreasure from './pages/MyTreasure';
+import UserLibrary from './pages/UserLibrary';
 
 import './index.css';
 
@@ -86,12 +86,12 @@ function App() {
           }
         />
         <Route
-          path="/biblioteca"
-          element={<UserLibrary />}
+          path="/recursos"
+          element={<Library />}
         />
         <Route
-          path="/tesoro"
-          element={<MyTreasure />}
+          path="/biblioteca"
+          element={<UserLibrary />}
         />
 
       </Routes>
