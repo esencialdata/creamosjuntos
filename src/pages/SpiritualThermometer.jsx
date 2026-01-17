@@ -7,6 +7,9 @@ const SpiritualThermometer = () => {
     const [stats, setStats] = useState({
         topVerses: [],
         topTopics: [],
+        topVerses: [],
+        topTopics: [],
+        topEvents: [],
         dailyPulse: []
     });
     const [loading, setLoading] = useState(true);
@@ -200,6 +203,42 @@ const SpiritualThermometer = () => {
                                         alignItems: 'center',
                                         padding: '0.75rem 0',
                                         borderBottom: index < stats.topTopics.length - 1 ? '1px solid var(--color-border)' : 'none'
+                                    }}>
+                                        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                                            <span style={{
+                                                fontWeight: 'bold',
+                                                color: 'var(--color-accent)',
+                                                width: '20px'
+                                            }}>{index + 1}.</span>
+                                            <span style={{ fontSize: '0.9rem' }}>{item.name}</span>
+                                        </div>
+                                        <span style={{
+                                            background: 'rgba(0,0,0,0.05)',
+                                            padding: '2px 8px',
+                                            borderRadius: '10px',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 'bold'
+                                        }}>{item.count}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </Card>
+
+                    {/* Top Events */}
+                    <Card>
+                        <SectionHeader title="Eventos de mayor interés" icon="📅" />
+                        {stats.topEvents.length === 0 ? (
+                            <p style={{ color: 'var(--color-text-secondary)', fontStyle: 'italic' }}>No hay datos suficientes aún.</p>
+                        ) : (
+                            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                {stats.topEvents.map((item, index) => (
+                                    <li key={index} style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        padding: '0.75rem 0',
+                                        borderBottom: index < stats.topEvents.length - 1 ? '1px solid var(--color-border)' : 'none'
                                     }}>
                                         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                                             <span style={{

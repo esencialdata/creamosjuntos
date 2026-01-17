@@ -233,6 +233,7 @@ export const getCommunityStats = async () => {
         const stats = {
             topVerses: {},
             topTopics: {},
+            topEvents: {},
             dailyPulse: {
                 "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 0, "Sun": 0
             }
@@ -257,6 +258,9 @@ export const getCommunityStats = async () => {
             } else if (data.itemType === 'topic') {
                 const key = data.title || data.itemID;
                 stats.topTopics[key] = (stats.topTopics[key] || 0) + 1;
+            } else if (data.itemType === 'event') {
+                const key = data.title || data.itemID;
+                stats.topEvents[key] = (stats.topEvents[key] || 0) + 1;
             }
         });
 
@@ -271,11 +275,12 @@ export const getCommunityStats = async () => {
         return {
             topVerses: sortAndSlice(stats.topVerses),
             topTopics: sortAndSlice(stats.topTopics),
+            topEvents: sortAndSlice(stats.topEvents),
             dailyPulse: Object.entries(stats.dailyPulse).map(([day, count]) => ({ day, count }))
         };
 
     } catch (error) {
         console.error("Error getting community stats:", error);
-        return { topVerses: [], topTopics: [], dailyPulse: [] };
+        return { topVerses: [], topTopics: [], topEvents: [], dailyPulse: [] };
     }
 };
