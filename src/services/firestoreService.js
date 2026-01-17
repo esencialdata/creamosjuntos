@@ -281,6 +281,6 @@ export const getCommunityStats = async () => {
 
     } catch (error) {
         console.error("Error getting community stats:", error);
-        return { topVerses: [], topTopics: [], topEvents: [], dailyPulse: [] };
+        throw error; // Propagate error to UI to show missing index link message capability
     }
 };

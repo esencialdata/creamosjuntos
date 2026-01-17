@@ -7,18 +7,23 @@ const SpiritualThermometer = () => {
     const [stats, setStats] = useState({
         topVerses: [],
         topTopics: [],
-        topVerses: [],
-        topTopics: [],
         topEvents: [],
         dailyPulse: []
     });
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchStats = async () => {
-            const data = await getCommunityStats();
-            setStats(data);
-            setLoading(false);
+            try {
+                const data = await getCommunityStats();
+                setStats(data);
+            } catch (err) {
+                console.error("Dashboard Error:", err);
+                setError(err.message || "Error al cargar datos");
+            } finally {
+                setLoading(false);
+            }
         };
         fetchStats();
     }, []);
@@ -94,6 +99,20 @@ const SpiritualThermometer = () => {
             <SimpleLayout>
                 <div style={{ textAlign: 'center', padding: '4rem' }}>
                     <p>Cargando datos de la comunidad...</p>
+                </div>
+            </SimpleLayout>
+        );
+    }
+
+    if (error) {
+        return (
+            <SimpleLayout>
+                <div style={{ textAlign: 'center', padding: '4rem', color: '#ef4444' }}>
+                    <p>⚠️ Error cargando el termómetro:</p>
+                    <pre style={{ marginTop: '1rem', whiteSpace: 'pre-wrap', fontSize: '0.9rem' }}>{error}</pre>
+                    <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#666' }}>
+                        Nota para el desarrollador: Si es un error de índice de Firestore, revisa la consola del navegador para el enlace de creación.
+                    </p>
                 </div>
             </SimpleLayout>
         );
