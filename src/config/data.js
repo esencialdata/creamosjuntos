@@ -758,18 +758,36 @@ export const CONFIG = {
         }
     ],
     weeklyHabit: {
-        id: 99,
-        name: "Apliqué el Filtro Kadosh",
-        action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
-        reference: "Isaías 33:15, Job 31:1"
+        id: 4,
+        name: "Agradecí antes de pedir",
+        action: "Ser conscientes de lo que ya tenemos, reconocer la provisión actual para activar la fe de que lo faltante vendrá; orar desde la abundancia y no desde la queja.",
+        reference: "Filipenses 4:6, Colosenses 4:2"
     },
     currentWeek: getCurrentWeekId(), // "ABRE TUS OJOS" starts Jan 7
     habits: [
         {
-            id: 1,
-            name: "Fui impecable con mis palabras",
-            action: "Ser prudentes con nuestras palabras, no herir, no lastimar, cumplir con nuestra palabra, ser congruentes",
-            reference: "Efesios 4:29, Proverbios 21:23"
+            id: 4,
+            name: "Agradecí antes de pedir",
+            action: "Ser conscientes de lo que ya tenemos, reconocer la provisión actual para activar la fe de que lo faltante vendrá; orar desde la abundancia y no desde la queja.",
+            reference: "Filipenses 4:6, Colosenses 4:2"
+        },
+        {
+            id: 5,
+            name: "Medité y analicé la cita del día",
+            action: "Comprender su aplicación personal y comprometerme a convertirla en obras concretas; ser hacedor y no solo oidor.",
+            reference: "Josué 1:8, Santiago 1:22"
+        },
+        {
+            id: 99,
+            name: "Apliqué el Filtro Kadosh",
+            action: "Separar lo que vemos, oímos y a quién y qué dejamos entrar a nuestra vida",
+            reference: "Isaías 33:15, Job 31:1"
+        },
+        {
+            id: 3,
+            name: "Escribí en mi mente y en mi corazón la sabiduría de Dios",
+            action: "Escribe con lapiz en un cuaderno una cita bíblica, el escribirlo a mano crea conexiones en nuestra mente",
+            reference: "Proverbios 3:3, Proverbios 7:3"
         },
         {
             id: 2,
@@ -778,10 +796,10 @@ export const CONFIG = {
             reference: "Salmo 5:3, Salmo 55:17"
         },
         {
-            id: 3,
-            name: "Escribí en mi mente y en mi corazón la sabiduría de Dios",
-            action: "Escribe con lapiz en un cuaderno una cita bíblica, el escribirlo a mano crea conexiones en nuestra mente",
-            reference: "Proverbios 3:3, Proverbios 7:3"
+            id: 1,
+            name: "Fui impecable con mis palabras",
+            action: "Ser prudentes con nuestras palabras, no herir, no lastimar, cumplir con nuestra palabra, ser congruentes",
+            reference: "Efesios 4:29, Proverbios 21:23"
         }
     ],
     schedule: [

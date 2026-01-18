@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
 import Favorites from './pages/Favorites';
+import Backstage from './pages/Backstage';
 
 import './index.css';
 
@@ -92,6 +93,10 @@ function App() {
         <Route
           path="/favoritos"
           element={<Favorites />}
+        />
+        <Route
+          path="/servicio"
+          element={<Backstage />}
         />
 
       </Routes>
