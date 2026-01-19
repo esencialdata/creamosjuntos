@@ -211,10 +211,12 @@ const getCurrentWeekId = () => {
     const week4Start = new Date(2026, 0, 1);   // Jan 1
     const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
     const week6Start = new Date(2026, 0, 12);  // Jan 12 (Midnight launch for Theme 7 - Identidad Activa)
+    const week7Start = new Date(2026, 0, 19);  // Jan 19
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week7Start) return 7;
     if (now >= week6Start) return 6;
     if (now >= week5Start) return 5;
     if (now >= week4Start) return 4;
@@ -753,6 +755,83 @@ export const CONFIG = {
                     body: "La Paz no es un sentimiento; es el EFECTO de vivir en Justicia (ajustado a la Ley de Dios).",
                     citation: "Y el efecto de la justicia será paz; y la labor de justicia, reposo y seguridad para siempre.",
                     reference: "Isaías 32:17 (RVA)"
+                }
+            ]
+        },
+        {
+            id: 9,
+            weekId: 7,
+            title: "ARQUITECTURA DEL LOGRO",
+            description: "La disciplina es el puente entre tu intención y tu resultado.",
+            themeStyles: {
+                bg: '#F8FAFC', // Slate 50 (Light)
+                textPrimary: '#0F172A', // Slate 900
+                textSecondary: '#475569', // Slate 600
+                accent: '#0284C7', // Sky 600
+                cardBorder: '1px solid #E2E8F0', // Slate 200
+                cardShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")",
+                backgroundSize: '200px'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Por qué la Motivación No Basta?",
+                    subtitle: "La disciplina es el puente entre tu intención y tu resultado.",
+                    imageUrl: "/arquitectura_logro.png",
+                    footerText: "Principios de Sabiduría Bíblica y Neurociencia."
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Problema",
+                    title: "La Trampa de \"Tener Ganas\"",
+                    body: "Esperar a \"sentirte inspirado\" para actuar es una estrategia fallida. La emoción es inestable; la disciplina es permanente. Tu cerebro siempre buscará el camino de menor resistencia. Debes entrenarlo para lo difícil.",
+                    citation: "El hombre de doble ánimo es inconstante en todos sus caminos.",
+                    reference: "Santiago 1:8"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Ley Universal",
+                    title: "El Principio de la Siembra",
+                    body: "En la Ley de Dios entendemos que el éxito no es un evento mágico, sino un proceso acumulativo. No se cosecha el mismo día que se siembra. La consistencia vence a la intensidad.",
+                    citation: "No nos cansemos, pues, de hacer bien; que a su tiempo segaremos, si no hubiéremos desmayado.",
+                    reference: "Gálatas 6:9"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Modelo: José",
+                    title: "Gestión en la Oscuridad",
+                    body: "Antes de gobernar un imperio, José administró una cárcel. No esperó a tener un cargo público para mostrar excelencia; transformó un entorno hostil mediante el orden y el servicio. Si eres fiel en el anonimato, serás efectivo en la visibilidad.",
+                    citation: "Y el mayordomo de la cárcel entregó en mano de José todos los presos... y todo lo que hacían allí, él lo hacía.",
+                    reference: "Génesis 39:22"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Ciencia y Espíritu",
+                    title: "Recableando tu Mente",
+                    body: "La neurociencia confirma que la repetición crea nuevos caminos mentales. La Biblia llama a esto Dominio Propio: la capacidad de someter el impulso inmediato por un bien mayor.",
+                    citation: "La disciplina no es restricción, es libertad: te libera de ser esclavo de tus propios caprichos.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "action",
+                    title: "El Poder de lo Pequeño",
+                    subtitle: "¿Quieres alcanzar una meta grande? No intentes correr el maratón hoy.",
+                    steps: [
+                        "Define un objetivo claro.",
+                        "Establece una rutina mínima.",
+                        "Repite hasta que sea automático."
+                    ],
+                    citation: "Porque ¿quién menospreció el día de las pequeñeces?",
+                    reference: "Zacarías 4:10"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Conclusión",
+                    title: "La Meta Final",
+                    body: "La autodisciplina duele hoy, pero el arrepentimiento de no haberlo intentado duele para siempre. Corremos por una recompensa que no se corrompe. Sé constante. Dios honra la perseverancia.",
+                    citation: "Y todo aquel que lucha, de todo se abstiene... para recibir una corona corruptible; mas nosotros, incorruptible.",
+                    reference: "1 Corintios 9:25"
                 }
             ]
         }
