@@ -124,7 +124,7 @@ export const VERSES_POOL = [
         text: "Y me ha dicho: Bástate mi gracia; porque mi potencia en la flaqueza se perfecciona...",
         reference: "2 Corintios 12:9",
         likes: 0,
-        comment: "Tu debilidad no es un obstáculo para Dios, es el escenario perfecto para que Su poder brille; Su gracia es suficiente para sostenerte hoy."
+        comment: "Tu debilidad no es una limitante, sino el escenario necesario donde tu rendición permite que el poder de Dios actúe con total autoridad y perfección en tu vida."
     },
     {
         text: "No nos cansemos, pues, de hacer bien; que á su tiempo segaremos, si no hubiéremos desmayado.",
