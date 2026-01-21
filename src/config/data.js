@@ -851,7 +851,7 @@ export const CONFIG = {
             slides: [
                 {
                     type: "cover",
-                    title: "TU CUERPO ¿REALMENTE LO VES COMO UN SANTUARIO?",
+                    title: "¿Realmente ves tu cuerpo como un santuario?",
                     subtitle: "Protocolo de Santidad (Tu Cuerpo)",
                     imageUrl: "/cuerpo_santuario_light.png",
                     footerText: "La santidad empieza en lo que permites entrar a tu sistema."
