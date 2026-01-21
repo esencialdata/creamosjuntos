@@ -834,6 +834,81 @@ export const CONFIG = {
                     reference: "1 Corintios 9:25"
                 }
             ]
+        },
+        {
+            id: 10,
+            weekId: 7,
+            title: "PROTOCOLO DE SANTIDAD",
+            description: "Tu cuerpo no es tuyo, es territorio santo. Defiéndelo.",
+            themeStyles: {
+                bg: '#F8FAFC', // Slate 50 (Light)
+                textPrimary: '#0F172A', // Slate 900 (Dark)
+                textSecondary: '#475569', // Slate 600
+                accent: '#D97706', // Amber 600 (Darker gold for contrast)
+                cardBorder: '1px solid #E2E8F0',
+                cardShadow: '0 20px 25px -5px rgba(217, 119, 6, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "TU CUERPO ¿REALMENTE LO VES COMO UN SANTUARIO?",
+                    subtitle: "Protocolo de Santidad (Tu Cuerpo)",
+                    imageUrl: "/cuerpo_santuario_light.png",
+                    footerText: "La santidad empieza en lo que permites entrar a tu sistema."
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Premisa Doctrinal",
+                    title: "EL MANUAL DEL FABRICANTE",
+                    body: "Si compras un auto de alta gama, no le pones combustible barato porque arruinas el motor. Tu cuerpo es la máquina más compleja del universo, diseñada por Dios. Él dejó instrucciones precisas (Levítico 11) no para restringirte, sino para asegurar tu máximo rendimiento espiritual y físico.",
+                    citation: "Porque yo soy Jehová vuestro Dios; vosotros por tanto os santificaréis, y seréis santos, porque yo soy santo.",
+                    reference: "Levítico 11:44 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Bioética Divina",
+                    title: "DISEÑO INTELIGENTE: LIMPIOS VS. INMUNDOS",
+                    body: "La distinción bíblica entre animales limpios e inmundos no es ritualismo vacío; es biología preventiva. Los animales 'inmundos' (cerdo, mariscos, carroñeros) suelen cumplir la función ecológica de 'filtros' o 'aspiradoras' de toxinas en la naturaleza. Dios, en su amor, te prohíbe consumir los filtros del planeta.\n\nLa obediencia a la Ley de Dios es la primera medicina preventiva.",
+                    citation: "Sed santos, porque yo soy santo.",
+                    reference: "1 Pedro 1:16"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Magnificación en el NT",
+                    title: "LA ACTUALIZACIÓN: DE TABERNÁCULO A TEMPLO",
+                    body: "En el Antiguo Pacto, Dios habitaba en un templo de piedra. En el Nuevo Pacto, TÚ eres la dirección postal de Dios en la tierra. Contaminar la 'casa' con alimentos prohibidos o vicios (tabaco, alcohol, drogas) es un ataque directo contra el Inquilino Divino.",
+                    citation: "¿No sabéis que sois templo de Dios, y que el Espíritu de Dios mora en vosotros? Si alguno violare el templo de Dios, Dios destruirá al tal...",
+                    reference: "1 Corintios 3:16-17 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Desafío de Identidad",
+                    title: "DANIEL: LA VALENTÍA DE SER DIFERENTE",
+                    body: "En Babilonia, la comida del rey era la norma cultural. Daniel entendió que aceptar esa dieta era perder su identidad. Dijo NO a los manjares contaminados, no por capricho, sino por lealtad.\n\nResultado: Dios le dio 10 veces más sabiduría que a los que comieron de todo.",
+                    citation: "Y Daniel propuso en su corazón de no contaminarse en la ración de la comida del rey, ni en el vino de su beber...",
+                    reference: "Daniel 1:8 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Profecía y Advertencia",
+                    title: "SANTIDAD HASTA EL FINAL",
+                    body: "Muchos enseñan que 'todo se puede comer', pero la profecía bíblica advierte que, al regreso de Cristo, la distinción seguirá vigente. Dios juzgará la desobediencia deliberada.",
+                    citation: "Los que se santifican y se purifican... comiendo carne de puerco, y abominación, y ratón; juntamente serán talados, dice Jehová.",
+                    reference: "Isaías 66:17 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "COMER ES UN ACTO DE ADORACIÓN",
+                    subtitle: "Cada vez que te sientas a la mesa, tomas una decisión teológica: ¿Satisfaces tus gustos o honras a tu Diseñador?",
+                    steps: [
+                        "Revisa tu alacena bajo la luz de Levítico 11.",
+                        "Elimina lo que contamina tu Templo (vicios, comida chatarra y alimentos inmundos).",
+                        "Ora antes de comer, agradeciendo por alimentos que sí bendicen tu cuerpo."
+                    ],
+                    citation: "Tu cuerpo es territorio santo. Defiéndelo.",
+                    reference: "Cierre"
+                }
+            ]
         }
     ],
     weeklyHabit: {
