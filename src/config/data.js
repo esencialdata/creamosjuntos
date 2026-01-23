@@ -142,7 +142,7 @@ export const VERSES_POOL = [
         text: "Estando confiado de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo;",
         reference: "Filipenses 1:6",
         likes: 0,
-        comment: "Dios termina lo que empieza. Tu santificación es un proyecto en curso que Él se ha comprometido a completar hasta el regreso de Cristo."
+        comment: "Dios termina lo que empieza. Tu santificación es un proyecto en curso que Él se ha comprometido a darte las herramientas necesarias para completar hasta el regreso de Cristo."
     },
     {
         text: "Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús:",
