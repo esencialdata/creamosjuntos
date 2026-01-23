@@ -6,6 +6,8 @@ import Backstage from './pages/Backstage'
 import PWAInstallBanner from './components/PWAInstallBanner'
 import { initializeDefaultData } from './services/firestoreService'
 
+import AnalyticsPage from './pages/AnalyticsPage'
+
 const ServiceApp = () => {
     useEffect(() => {
         initializeDefaultData();
@@ -17,6 +19,7 @@ const ServiceApp = () => {
             <Router>
                 <Routes>
                     <Route path="/" element={<Backstage />} />
+                    <Route path="/analytics" element={<AnalyticsPage />} />
                 </Routes>
             </Router>
         </StrictMode>
