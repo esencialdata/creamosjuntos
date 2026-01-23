@@ -1115,8 +1115,8 @@ export const CONFIG = {
                     theme: "Si caíste fue porque te enalteciste",
                     objective: "La grey identificará como la soberbia de la vida los puede apartar de Dios, previniéndose para evitarlo.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Gerardo Mier" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 }
             ]
