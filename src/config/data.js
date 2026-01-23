@@ -1091,7 +1091,7 @@ export const CONFIG = {
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
+                        { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
