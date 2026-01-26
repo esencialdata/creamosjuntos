@@ -978,7 +978,7 @@ export const CONFIG = {
                     title: "RECUPERA TU DISEÑO ORIGINAL",
                     subtitle: "Si no paras voluntariamente, tu cuerpo o tu mente te pararán obligatoriamente.",
                     steps: [
-                        "Prepara tus asuntos el viernes (Día de preparación).",
+                        "Prepara tus asuntos antes de la puesta del medio día del viernes.",
                         "Desconecta lo digital.",
                         "Conecta con la Palabra y la familia."
                     ],
