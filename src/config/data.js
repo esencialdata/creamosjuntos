@@ -212,10 +212,12 @@ const getCurrentWeekId = () => {
     const week5Start = new Date(2026, 0, 7);   // Jan 7 (Midnight launch for Theme 5)
     const week6Start = new Date(2026, 0, 12);  // Jan 12 (Midnight launch for Theme 7 - Identidad Activa)
     const week7Start = new Date(2026, 0, 19);  // Jan 19
+    const week8Start = new Date(2026, 0, 26);  // Jan 26
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week8Start) return 8;
     if (now >= week7Start) return 7;
     if (now >= week6Start) return 6;
     if (now >= week5Start) return 5;
@@ -907,6 +909,81 @@ export const CONFIG = {
                     ],
                     citation: "Tu cuerpo es territorio santo. Defiéndelo.",
                     reference: "Cierre"
+                }
+            ]
+        },
+        {
+            id: 11,
+            weekId: 8,
+            title: "INGENIERÍA DEL DESCANSO",
+            description: "¿Y si descansar no es perder el tiempo? La tecnología espiritual para evitar el colapso.",
+            themeStyles: {
+                bg: '#F8FAFC', // Slate 50 (Light)
+                textPrimary: '#0F172A', // Slate 900 (Dark)
+                textSecondary: '#475569', // Slate 600
+                accent: '#059669', // Emerald 600 (Green for battery/energy)
+                cardBorder: '1px solid #E2E8F0',
+                cardShadow: '0 20px 25px -5px rgba(5, 150, 105, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Y SI DESCANSAR NO ES PERDER EL TIEMPO?",
+                    subtitle: "Ingeniería del Descanso (El Sábado)",
+                    imageUrl: "/bateria_descanso.png",
+                    footerText: "No es una sugerencia. Es ingeniería divina."
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Origen",
+                    title: "DIOS NO DESCANSÓ POR FATIGA",
+                    body: "El Creador del universo no se cansa (Isaías 40:28). Sin embargo, en el Génesis, detuvo su obra. ¿Por qué?\\n\\nDios instituyó el Sábado no porque Él lo necesitara, sino porque sabía que tú perderías tu humanidad si no parabas.",
+                    citation: "Y bendijo Dios al día séptimo, y santificólo, porque en él reposó de toda su obra...",
+                    reference: "Génesis 2:3 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Mandamiento",
+                    title: "EL ÚNICO MANDAMIENTO QUE EMPIEZA CON \"ACUÉRDATE\"",
+                    body: "De los 10 Mandamientos, solo el cuarto comienza con la palabra Zakar (recordar). Dios sabía que, en tu afán por producir y ganar dinero, este sería el primero que olvidarías.\\n\\nEl Sábado es tu declaración de libertad: No eres un esclavo de tu trabajo.",
+                    citation: "Acordarte has del día del reposo, para santificarlo. Seis días trabajarás...",
+                    reference: "Éxodo 20:8-9 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Perspectiva de Cristo",
+                    title: "NO ES UNA CARGA, ES UN REGALO",
+                    body: "Muchos ven el Sábado como una lista de prohibiciones. Jesús corrigió ese error y reveló el verdadero diseño.\\n\\nEl Sábado fue diseñado como un santuario en el tiempo para sanarte, restaurarte y reconectarte con tu identidad de hijo, no de empleado.",
+                    citation: "El sábado por causa del hombre es hecho; no el hombre por causa del sábado.",
+                    reference: "Marcos 2:27 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Ciencia y Diseño",
+                    title: "TU CEREBRO NECESITA EL \"MODO SHABAT\"",
+                    body: "La neurociencia confirma que el cerebro humano necesita periodos de desconexión total para activar la Red Neuronal por Defecto (DMN).\\n\\nSin este reposo sagrado, no hay:\\n• Consolidación de memoria.\\n• Regulación emocional.\\n• Creatividad profunda.\\n\\nGuardar el mandamiento es higiene mental prescrita por tu Fabricante.",
+                    citation: "Higiene Mental Divina",
+                    reference: "Neurociencia"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Profecía y Esperanza",
+                    title: "UN ANTICIPO DE LO ETERNO",
+                    body: "El descanso físico semanal es solo una sombra de una realidad superior: la redención final en el Reino de Dios. Cada vez que guardas el Sábado, estás profetizando con tu conducta que crees en el Reino venidero de Paz.",
+                    citation: "Por tanto, queda un reposo para el pueblo de Dios.",
+                    reference: "Hebreos 4:9 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "RECUPERA TU DISEÑO ORIGINAL",
+                    subtitle: "Si no paras voluntariamente, tu cuerpo o tu mente te pararán obligatoriamente.",
+                    steps: [
+                        "Prepara tus asuntos el viernes (Día de preparación).",
+                        "Desconecta lo digital.",
+                        "Conecta con la Palabra y la familia."
+                    ],
+                    citation: "La obediencia trae descanso.",
+                    reference: "¡Feliz Sábado!"
                 }
             ]
         }
