@@ -145,7 +145,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                             </p>
                         )}
                         {slide.body && (
-                            <div style={{ fontFamily: styles.fontSans, fontSize: '0.95rem', lineHeight: 1.6, color: styles.textPrimary, marginBottom: '2rem' }}>
+                            <div style={{ fontFamily: styles.fontSans, fontSize: '0.95rem', lineHeight: 1.6, color: styles.textPrimary, marginBottom: '2rem', whiteSpace: 'pre-line' }}>
                                 {slide.body}
                             </div>
                         )}

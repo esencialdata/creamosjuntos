@@ -937,7 +937,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "El Origen",
                     title: "DIOS NO DESCANSÓ POR FATIGA",
-                    body: "El Creador del universo no se cansa (Isaías 40:28). Sin embargo, en el Génesis, detuvo su obra. ¿Por qué?\\n\\nDios instituyó el Sábado no porque Él lo necesitara, sino porque sabía que tú perderías tu humanidad si no parabas.",
+                    body: "El Creador del universo no se cansa (Isaías 40:28). Sin embargo, en el Génesis, detuvo su obra. ¿Por qué?\n\nDios instituyó el Sábado no porque Él lo necesitara, sino porque sabía que tú perderías tu humanidad si no parabas.",
                     citation: "Y bendijo Dios al día séptimo, y santificólo, porque en él reposó de toda su obra...",
                     reference: "Génesis 2:3 (RVA)"
                 },
@@ -945,7 +945,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "El Mandamiento",
                     title: "EL ÚNICO MANDAMIENTO QUE EMPIEZA CON \"ACUÉRDATE\"",
-                    body: "De los 10 Mandamientos, solo el cuarto comienza con la palabra Zakar (recordar). Dios sabía que, en tu afán por producir y ganar dinero, este sería el primero que olvidarías.\\n\\nEl Sábado es tu declaración de libertad: No eres un esclavo de tu trabajo.",
+                    body: "De los 10 Mandamientos, solo el cuarto comienza con la palabra Zakar (recordar). Dios sabía que, en tu afán por producir y ganar dinero, este sería el primero que olvidarías.\n\nEl Sábado es tu declaración de libertad: No eres un esclavo de tu trabajo.",
                     citation: "Acordarte has del día del reposo, para santificarlo. Seis días trabajarás...",
                     reference: "Éxodo 20:8-9 (RVA)"
                 },
@@ -953,7 +953,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "La Perspectiva de Cristo",
                     title: "NO ES UNA CARGA, ES UN REGALO",
-                    body: "Muchos ven el Sábado como una lista de prohibiciones. Jesús corrigió ese error y reveló el verdadero diseño.\\n\\nEl Sábado fue diseñado como un santuario en el tiempo para sanarte, restaurarte y reconectarte con tu identidad de hijo, no de empleado.",
+                    body: "Muchos ven el Sábado como una lista de prohibiciones. Jesús corrigió ese error y reveló el verdadero diseño.\n\nEl Sábado fue diseñado como un santuario en el tiempo para sanarte, restaurarte y reconectarte con tu identidad de hijo, no de empleado.",
                     citation: "El sábado por causa del hombre es hecho; no el hombre por causa del sábado.",
                     reference: "Marcos 2:27 (RVA)"
                 },
@@ -961,7 +961,7 @@ export const CONFIG = {
                     type: "diagnostic",
                     label: "Ciencia y Diseño",
                     title: "TU CEREBRO NECESITA EL \"MODO SHABAT\"",
-                    body: "La neurociencia confirma que el cerebro humano necesita periodos de desconexión total para activar la Red Neuronal por Defecto (DMN).\\n\\nSin este reposo sagrado, no hay:\\n• Consolidación de memoria.\\n• Regulación emocional.\\n• Creatividad profunda.\\n\\nGuardar el mandamiento es higiene mental prescrita por tu Fabricante.",
+                    body: "La neurociencia confirma que el cerebro humano necesita periodos de desconexión total para activar la Red Neuronal por Defecto (DMN).\n\nSin este reposo sagrado, no hay:\n• Consolidación de memoria.\n• Regulación emocional.\n• Creatividad profunda.\n\nGuardar el mandamiento es higiene mental prescrita por tu Fabricante.",
                     citation: "Higiene Mental Divina",
                     reference: "Neurociencia"
                 },
