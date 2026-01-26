@@ -928,7 +928,7 @@ export const CONFIG = {
             slides: [
                 {
                     type: "cover",
-                    title: "¿Y SI DESCANSAR NO ES PERDER EL TIEMPO?",
+                    title: "EL SÁBADO: ¿OBLIGACIÓN O REGALO?",
                     subtitle: "Ingeniería del Descanso (El Sábado)",
                     imageUrl: "/bateria_descanso.png",
                     footerText: "No es una sugerencia. Es ingeniería divina."
