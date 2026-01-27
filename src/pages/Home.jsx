@@ -74,10 +74,10 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (
                     <section>
                         <h3 style={{
-                            fontSize: '1.25rem',
-                            fontWeight: '600',
-                            marginBottom: '1rem',
-                            color: 'var(--color-text-primary)'
+                            fontSize: '0.875rem',
+                            textTransform: 'uppercase',
+                            marginBottom: 'var(--spacing-sm)',
+                            color: 'var(--color-accent)'
                         }}>
                             Para escuchar
                         </h3>
