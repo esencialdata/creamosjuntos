@@ -74,12 +74,12 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (
                     <section>
                         <h3 style={{
-                            fontSize: '1.1rem',
+                            fontSize: '1.25rem',
                             fontWeight: '600',
-                            marginBottom: '0.75rem',
+                            marginBottom: '1rem',
                             color: 'var(--color-text-primary)'
                         }}>
-                            Tu Dosis Semanal
+                            Para escuchar
                         </h3>
                         {CONFIG.audioCapsules.map(capsule => (
                             <AudioCapsuleCard key={capsule.id} capsule={capsule} />
