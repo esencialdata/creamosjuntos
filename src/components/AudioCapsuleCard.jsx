@@ -7,7 +7,7 @@ const AudioCapsuleCard = ({ capsule }) => {
     const { isBookmarked, toggleBookmark } = useBookmarks();
     const [saved, setSaved] = useState(isBookmarked(capsule.id));
 
-    const isCurrent = currentTrack?.url === capsule.audioUrl;
+    const isCurrent = currentTrack?.audioUrl === capsule.audioUrl;
     const isActive = isCurrent && isPlaying;
 
     const handlePlay = () => {

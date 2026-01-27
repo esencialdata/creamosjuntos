@@ -9,6 +9,9 @@ export const GlobalPlayerProvider = ({ children }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+
     // Use a ref to hold the audio object.
     const audioRef = useRef(null);
 
@@ -27,20 +30,29 @@ export const GlobalPlayerProvider = ({ children }) => {
             console.error("Audio Playback Error:", e);
             console.error("Audio Source:", audio.src);
             setIsPlaying(false);
-            alert("Hubo un error al reproducir el audio. Por favor verifica tu conexión.");
         };
         const handleCanPlay = () => {
             console.log("Audio can play");
+        };
+        const handleTimeUpdate = () => {
+            setCurrentTime(audio.currentTime);
+        };
+        const handleLoadedMetadata = () => {
+            setDuration(audio.duration);
         };
 
         audio.addEventListener('ended', handleEnded);
         audio.addEventListener('error', handleError);
         audio.addEventListener('canplay', handleCanPlay);
+        audio.addEventListener('timeupdate', handleTimeUpdate);
+        audio.addEventListener('loadedmetadata', handleLoadedMetadata);
 
         return () => {
             audio.removeEventListener('ended', handleEnded);
             audio.removeEventListener('error', handleError);
             audio.removeEventListener('canplay', handleCanPlay);
+            audio.removeEventListener('timeupdate', handleTimeUpdate);
+            audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
             audio.pause();
         };
     }, []);
@@ -100,6 +112,14 @@ export const GlobalPlayerProvider = ({ children }) => {
         }
     };
 
+    const seek = (time) => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.currentTime = time;
+            setCurrentTime(time);
+        }
+    };
+
     const closePlayer = () => {
         const audio = audioRef.current;
         if (audio) {
@@ -116,8 +136,11 @@ export const GlobalPlayerProvider = ({ children }) => {
             currentTrack,
             isPlaying,
             isVisible,
+            duration,
+            currentTime,
             playTrack,
             togglePlay,
+            seek,
             closePlayer
         }}>
             {children}
