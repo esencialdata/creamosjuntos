@@ -228,6 +228,16 @@ const getCurrentWeekId = () => {
 };
 
 export const CONFIG = {
+    audioCapsules: [
+        {
+            id: 1,
+            weekId: 7,
+            title: "El Mito de la Fuerza de Voluntad",
+            duration: "3:45",
+            audioUrl: "/ELMITO-DE-LA-FUERZA-DE-VOLUNTAD.mp3",
+            color: "#2563EB" // Primary Brand Color
+        }
+    ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     themes: [
 

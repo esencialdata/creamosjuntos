@@ -5,6 +5,7 @@ import WeeklyTheme from '../components/WeeklyTheme';
 import WeeklyHabit from '../components/WeeklyHabit';
 import SermonList from '../components/SermonList';
 import TempleGrowth from '../components/TempleGrowth';
+import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
 import { subscribeToSchedule } from '../services/firestoreService';
@@ -68,6 +69,23 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                         <WeeklyTheme key={theme.id} theme={theme} />
                     ));
                 })()}
+
+                {/* Tu Dosis Semanal Section */}
+                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (
+                    <section>
+                        <h3 style={{
+                            fontSize: '1.1rem',
+                            fontWeight: '600',
+                            marginBottom: '0.75rem',
+                            color: 'var(--color-text-primary)'
+                        }}>
+                            Tu Dosis Semanal
+                        </h3>
+                        {CONFIG.audioCapsules.map(capsule => (
+                            <AudioCapsuleCard key={capsule.id} capsule={capsule} />
+                        ))}
+                    </section>
+                )}
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}

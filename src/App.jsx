@@ -12,6 +12,8 @@ import { initializeDefaultData } from './services/firestoreService';
 import { getLocalTodayDate } from './utils/dateUtils';
 
 import PWAInstallBanner from './components/PWAInstallBanner';
+import StickyBottomPlayer from './components/StickyBottomPlayer';
+import { GlobalPlayerProvider } from './context/GlobalPlayerContext';
 
 import AutoRefresh from './components/AutoRefresh';
 
@@ -63,44 +65,47 @@ function App() {
   };
 
   return (
-    <Router>
-      <AutoRefresh />
-      <PWAInstallBanner />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              toggleHabit={toggleHabit}
-              isHabitCompletedToday={isHabitCompletedToday}
-              brickCount={getBrickCount()}
-            />
-          }
-        />
-        <Route
-          path="/habitos"
-          element={
-            <Habits
-              toggleHabit={toggleHabit}
-              isHabitCompletedToday={isHabitCompletedToday}
-            />
-          }
-        />
-        <Route
-          path="/recursos"
-          element={<Library />}
-        />
-        <Route
-          path="/favoritos"
-          element={<Favorites />}
-        />
-        <Route
-          path="/servicio"
-          element={<Backstage />}
-        />
+    <GlobalPlayerProvider>
+      <Router>
+        <AutoRefresh />
+        <PWAInstallBanner />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                toggleHabit={toggleHabit}
+                isHabitCompletedToday={isHabitCompletedToday}
+                brickCount={getBrickCount()}
+              />
+            }
+          />
+          <Route
+            path="/habitos"
+            element={
+              <Habits
+                toggleHabit={toggleHabit}
+                isHabitCompletedToday={isHabitCompletedToday}
+              />
+            }
+          />
+          <Route
+            path="/recursos"
+            element={<Library />}
+          />
+          <Route
+            path="/favoritos"
+            element={<Favorites />}
+          />
+          <Route
+            path="/servicio"
+            element={<Backstage />}
+          />
 
-      </Routes>
-    </Router>
+        </Routes>
+        <StickyBottomPlayer />
+      </Router>
+    </GlobalPlayerProvider>
   );
 }
 

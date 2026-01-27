@@ -25,6 +25,18 @@
   --spacing-lg: 4rem;
 
   --container-width: 600px;
+  --bottom-nav-height: 0px;
+  /* Adjust if a bottom navigation bar exists */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 * {
