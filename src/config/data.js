@@ -237,6 +237,7 @@ const getCurrentWeekId = () => {
 };
 
 export const CONFIG = {
+    // Deployment trigger
     audioCapsules: [
         {
             id: 1,
