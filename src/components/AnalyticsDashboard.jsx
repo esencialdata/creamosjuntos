@@ -66,12 +66,17 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
 
     // 2. Data Aggregation (Slides)
     const aggregatedSlides = useMemo(() => {
-        // Get valid theme titles for filtering
-        const validThemeTitles = CONFIG.themes ? CONFIG.themes.map(t => t.title) : [];
+        // Get valid theme titles for filtering (normalized)
+        const validThemeTitles = CONFIG.themes
+            ? CONFIG.themes.map(t => t.title.trim().toLowerCase())
+            : [];
 
         if (isLive && stats.topTopics) {
             return stats.topTopics
-                .filter(topic => validThemeTitles.includes(topic.name)) // STRICT FILTER: Only show official themes
+                .filter(topic => {
+                    const topicName = (topic.name || '').trim().toLowerCase();
+                    return validThemeTitles.includes(topicName);
+                }) // STRICT FILTER: Only show official themes (case insensitive)
                 .map(topic => ({
                     id: topic.name,
                     title: topic.name,
