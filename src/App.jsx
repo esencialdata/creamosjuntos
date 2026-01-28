@@ -16,6 +16,7 @@ import StickyBottomPlayer from './components/StickyBottomPlayer';
 import { GlobalPlayerProvider } from './context/GlobalPlayerContext';
 
 import AutoRefresh from './components/AutoRefresh';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   // State for tracking completed habits: Array of { id: number, date: string (ISO date part) }
@@ -119,6 +120,7 @@ function App() {
         </Routes>
         <StickyBottomPlayer />
       </Router>
+      <Analytics />
     </GlobalPlayerProvider>
   );
 }
