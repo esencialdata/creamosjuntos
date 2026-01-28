@@ -8,12 +8,12 @@ const DailyVerse = ({ verse }) => {
     const [isAnimating, setIsAnimating] = useState(false);
 
     const isLiked = isBookmarked(verse.reference);
-
     const handleShare = async () => {
         const textToShare = `"${verse.text}" — ${verse.reference}. Creamos Juntos`;
-        await shareContent('Cita del día - Creamos Juntos', textToShare, window.location.href);
+        const currentHash = window.location.hash.split('?')[0]; // Get base hash path (e.g. #/)
+        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=daily-verse`;
+        await shareContent('Cita del día - Creamos Juntos', textToShare, shareUrl);
     };
-
     const handleHeart = async () => {
         // Trigger animation
         setIsAnimating(true);
@@ -37,7 +37,7 @@ const DailyVerse = ({ verse }) => {
     };
 
     return (
-        <section style={{ marginBottom: 'var(--spacing-lg)', textAlign: 'center', position: 'relative' }}>
+        <section id="daily-verse" style={{ marginBottom: 'var(--spacing-lg)', textAlign: 'center', position: 'relative' }}>
             <h2 style={{
                 fontSize: '0.875rem',
                 textTransform: 'uppercase',

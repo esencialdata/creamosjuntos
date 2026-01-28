@@ -31,6 +31,20 @@ function App() {
 
   useEffect(() => {
     initializeDefaultData();
+
+    // Handle hash scrolling on page load
+    const hash = window.location.hash;
+    if (hash && hash.includes('?anchor=')) {
+      setTimeout(() => {
+        const id = hash.split('?anchor=')[1];
+        if (id) {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }, 800); // Increased delay for slower renders
+    }
   }, []);
 
   useEffect(() => {

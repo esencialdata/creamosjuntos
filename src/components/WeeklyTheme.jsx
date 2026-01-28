@@ -15,13 +15,11 @@ const WeeklyTheme = ({ theme = {} }) => {
     const { isBookmarked, toggleBookmark } = useBookmarks();
 
     const handleShare = async () => {
-        // Track the share attempt in Firestore
-        await toggleThemeShare(theme.title, true);
-
+        const currentHash = window.location.hash.split('?')[0];
+        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=weekly-theme`;
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
-        await shareContent(theme.title, textToShare, window.location.href);
+        await shareContent(theme.title, textToShare, shareUrl);
     };
-
     // If no slides define, fallback to simple view (safety check)
     if (!theme.slides || !theme.slides.length) return null;
 
@@ -316,7 +314,7 @@ const WeeklyTheme = ({ theme = {} }) => {
 
 
     return (
-        <section style={{ position: 'relative', marginBottom: 'var(--spacing-md)' }}>
+        <section id="weekly-theme" style={{ position: 'relative', marginBottom: 'var(--spacing-md)' }}>
             <Swiper
                 modules={[Pagination]}
                 spaceBetween={20}

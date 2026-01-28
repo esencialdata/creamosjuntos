@@ -29,20 +29,22 @@ const AudioCapsuleCard = ({ capsule }) => {
 
     const handleShare = async (e) => {
         e.stopPropagation();
+        const currentHash = window.location.hash.split('?')[0];
+        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=capsule-${capsule.id}`;
+
         if (navigator.share) {
             try {
                 await navigator.share({
                     title: capsule.title,
                     text: `Escucha "${capsule.title}" en Creamos Juntos`,
-                    url: window.location.href, // Or deep link if available
+                    url: shareUrl,
                 });
             } catch (error) {
                 console.log('Error sharing:', error);
             }
         } else {
-            // Fallback: Copy to clipboard
             try {
-                await navigator.clipboard.writeText(`${capsule.title} - ${window.location.href}`);
+                await navigator.clipboard.writeText(`${capsule.title} - ${shareUrl}`);
                 alert('Enlace copiado al portapapeles');
             } catch (err) {
                 console.error('Failed to copy text: ', err);
@@ -51,7 +53,7 @@ const AudioCapsuleCard = ({ capsule }) => {
     };
 
     return (
-        <div style={{
+        <div id={`capsule-${capsule.id}`} style={{
             backgroundColor: 'var(--color-surface)',
             borderRadius: '12px',
             padding: '1rem',

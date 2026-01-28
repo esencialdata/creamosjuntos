@@ -214,9 +214,18 @@ const getCurrentWeekId = () => {
     const week7Start = new Date(2026, 0, 19);  // Jan 19
     const week8Start = new Date(2026, 0, 26);  // Jan 26
 
+    const week9Start = new Date(2026, 1, 2);   // Feb 2
+    const week10Start = new Date(2026, 1, 9);  // Feb 9
+    const week11Start = new Date(2026, 1, 16); // Feb 16
+    const week12Start = new Date(2026, 1, 23); // Feb 23
+
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week12Start) return 15;
+    if (now >= week11Start) return 14;
+    if (now >= week10Start) return 13;
+    if (now >= week9Start) return 12;
     if (now >= week8Start) return 8;
     if (now >= week7Start) return 7;
     if (now >= week6Start) return 6;
@@ -996,6 +1005,126 @@ export const CONFIG = {
                     reference: "¡Feliz Sábado!"
                 }
             ]
+        },
+        {
+            id: 12,
+            weekId: 12,
+            title: "ABSTENCIÓN DEL MAL",
+            description: "El rechazo a vicios, hábitos y costumbres que apartan de Dios.",
+            themeStyles: {
+                bg: '#18181B', // Zinc 950
+                textPrimary: '#F4F4F5', // Zinc 100
+                textSecondary: '#A1A1AA', // Zinc 400
+                accent: '#DC2626', // Red 600
+                cardBorder: '1px solid #27272A',
+                cardShadow: '0 20px 25px -5px rgba(220, 38, 38, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "ABSTENCIÓN DEL MAL",
+                    subtitle: "El rechazo a vicios, hábitos y costumbres que apartan de Dios.",
+                    footerText: "Virtudes del Corredor Cristiano"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Definición",
+                    title: "¿QUÉ ES ABSTENERSE?",
+                    body: "No es solo evitar lo prohibido, es rechazar activamente todo lo que contamina el templo del Espíritu Santo.",
+                    citation: "Absteneos de toda especie de mal.",
+                    reference: "1 Tesalonicenses 5:22"
+                }
+            ]
+        },
+        {
+            id: 13,
+            weekId: 13,
+            title: "APRENDER DE DIOS",
+            description: "Nuevos hábitos de aprendizaje, lectura, asistencia activa, Enseñar.",
+            themeStyles: {
+                bg: '#F0F9FF', // Sky 50
+                textPrimary: '#0C4A6E', // Sky 900
+                textSecondary: '#0369A1', // Sky 700
+                accent: '#0EA5E9', // Sky 500
+                cardBorder: '1px solid #BAE6FD',
+                cardShadow: '0 20px 25px -5px rgba(14, 165, 233, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "APRENDER DE DIOS",
+                    subtitle: "Nuevos hábitos de aprendizaje: Lectura, Asistencia Activa, Enseñar.",
+                    footerText: "Virtudes del Corredor Cristiano"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Hábito",
+                    title: "LA DISCIPLINA DEL ESTUDIANTE",
+                    body: "Un discípulo es, por definición, un aprendiz. No podemos parecer a quien no conocemos.",
+                    citation: "Llevad mi yugo sobre vosotros, y aprended de mí...",
+                    reference: "Mateo 11:29"
+                }
+            ]
+        },
+        {
+            id: 14,
+            weekId: 14,
+            title: "CREAR CONSCIENCIA",
+            description: "Raíz de amargura, Apegos, El Espíritu de Dios y el del hombre.",
+            themeStyles: {
+                bg: '#FFF7ED', // Orange 50
+                textPrimary: '#7C2D12', // Orange 900
+                textSecondary: '#C2410C', // Orange 700
+                accent: '#F97316', // Orange 500
+                cardBorder: '1px solid #FFEDD5',
+                cardShadow: '0 20px 25px -5px rgba(249, 115, 22, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "CREAR CONSCIENCIA",
+                    subtitle: "Identificando la raíz de amargura y los apegos que nos detienen.",
+                    footerText: "Virtudes del Corredor Cristiano"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Diagnóstico",
+                    title: "EL ESPÍRITU HUMANO VS DIVINO",
+                    body: "La consciencia despierta es capaz de distinguir entre una emoción carnal (amargura) y la dirección del Espíritu.",
+                    citation: "Mirad bien, no sea que alguno deje de alcanzar la gracia de Dios; que brotando alguna raíz de amargura, os estorbe...",
+                    reference: "Hebreos 12:15"
+                }
+            ]
+        },
+        {
+            id: 15,
+            weekId: 15,
+            title: "CORREGIR",
+            description: "Disciplina, Constancia, La salvación, El amor aplicado.",
+            themeStyles: {
+                bg: '#F5F3FF', // Violet 50
+                textPrimary: '#4C1D95', // Violet 900
+                textSecondary: '#6D28D9', // Violet 700
+                accent: '#8B5CF6', // Violet 500
+                cardBorder: '1px solid #DDD6FE',
+                cardShadow: '0 20px 25px -5px rgba(139, 92, 246, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "CORREGIR",
+                    subtitle: "Disciplina, Constancia, La salvación y El amor aplicado.",
+                    footerText: "Virtudes del Corredor Cristiano"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Acción",
+                    title: "LA DISCIPLINA QUE SALVA",
+                    body: "La corrección no es castigo, es dirección. El corredor corrige su postura para llegar a la meta.",
+                    citation: "El que tiene en poco la disciplina menosprecia su alma.",
+                    reference: "Proverbios 15:32"
+                }
+            ]
         }
     ],
     weeklyHabit: {
@@ -1046,38 +1175,38 @@ export const CONFIG = {
     schedule: [
         {
             id: 1,
-            week: "Semana del 2 al 3 Ene",
+            week: "Semana del 6 al 7 Feb",
             events: [
                 {
                     id: "w1_e1",
-                    date: "Viernes 02 Ene",
+                    date: "Viernes 06 Feb",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Predicación", name: "Yahir López" }
+                        { role: "Superintendente", name: "Yahir López" },
+                        { role: "Predicación", name: "Predicador Designado" }
                     ]
                 },
                 {
                     id: "w1_e2",
-                    date: "Sábado 03 Ene",
+                    date: "Sábado 07 Feb",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "El libro de Apocalipsis",
-                    objective: "La grey será capaz de sustentar la creencia verdadera acerca del inicio del año y sus aplicaciones.",
+                    theme: "La sexta plaga",
+                    objective: "La grey será capaz sustentar ante propios y extraños que la búsqueda del bien no limita la satisfacción de nuestras necesidades materiales.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Mizraim Montiel (El libro de Apocalipsis)" },
-                        { role: "Predicación", name: "Absalón Perusquía (El año nuevo, usos y costumbres en la vida de la Iglesia)" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Mizraim Montiel (La sexta plaga)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La Iglesia de Dios nos ofrece la prosperidad)" }
                     ]
                 },
                 {
                     id: "w1_e3",
-                    date: "Sábado 03 Ene",
+                    date: "Sábado 07 Feb",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Los magos de oriente y la visita al hijo de Dios",
-                    objective: "Desechar creencias mundanas sobre este suceso y entender la verdad bíblica de su trascendencia.",
+                    theme: "La reunión familiar",
+                    objective: "La grey aceptará los beneficios de reunir a la familia, aun entre semana o cualquier día, para fortalecer la espiritualidad de la Iglesia.",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Aarón Espinosa" }
@@ -1087,38 +1216,38 @@ export const CONFIG = {
         },
         {
             id: 2,
-            week: "Semana del 9 al 10 Ene",
+            week: "Semana del 13 al 14 Feb",
             events: [
                 {
                     id: "w2_e1",
-                    date: "Viernes 09 Ene",
+                    date: "Viernes 13 Feb",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Predicador Designado" }
                     ]
                 },
                 {
                     id: "w2_e2",
-                    date: "Sábado 10 Ene",
+                    date: "Sábado 14 Feb",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La primera plaga",
-                    objective: "La grey identificará y se comprometerá a realizar actividades que muestren su fe y decisión de alcanzar las promesas de Dios",
+                    theme: "La séptima plaga",
+                    objective: "La grey identificará las diferencias que existen entre el amor como una concepción de la carne y el amor que vence al mundo y viene del Espíritu de Dios.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Yahir López (La primera plaga)" },
-                        { role: "Predicación", name: "Aarón Espinosa (¿Qué debo hacer para ganar la vida eterna?)" }
+                        { role: "Superintendente", name: "Mizraim Montiel" },
+                        { role: "Lección", name: "Gerardo Mier (La séptima plaga)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Aplicación del amor...)" }
                     ]
                 },
                 {
                     id: "w2_e3",
-                    date: "Sábado 10 Ene",
+                    date: "Sábado 14 Feb",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Nuestra Contribución a la obra de Dios",
-                    objective: "La grey se comprometerá a realizar acciones que apoyen el desarrollo y crecimiento de la Iglesia.",
+                    theme: "Las semillas del sembrador",
+                    objective: "La grey se comprometerá a realizar acciones que den seguimiento a conocidos y familiares que han sido tocados o serán tocados por la Palabra de Dios.",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Absalón Perusquía" }
@@ -1128,123 +1257,82 @@ export const CONFIG = {
         },
         {
             id: 3,
-            week: "Semana del 16 al 17 Ene",
+            week: "Semana del 20 al 21 Feb",
             events: [
                 {
                     id: "w3_e1",
-                    date: "Viernes 16 Ene",
+                    date: "Viernes 20 Feb",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Predicación", name: "Yahir López" }
+                        { role: "Superintendente", name: "Yahir López" },
+                        { role: "Predicación", name: "Predicador Designado" }
                     ]
                 },
                 {
                     id: "w3_e2",
-                    date: "Sábado 17 Ene",
+                    date: "Sábado 21 Feb",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La segunda y tercera plaga",
-                    objective: "La grey comprometerá su participación unida en todo lo que tenga que ver con el amor de Dios hacia su Iglesia",
+                    theme: "El reino Milenial",
+                    objective: "La grey comprometerá su participación unidos para que la Iglesia sea un ejemplo de armonía que elimine prejuicios y malos entendidos.",
                     details: [
-                        { role: "Superintendente", name: "Mizraim Montiel" },
-                        { role: "Lección", name: "Gerardo Mier (La segunda y tercera plaga)" },
-                        { role: "Predicación", name: "Absalón Perusquía (Mejores son dos que uno)" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Lección", name: "Mizraim Montiel (El reino Milenial)" },
+                        { role: "Predicación", name: "Aarón Espinosa (La raíz de amargura)" }
                     ]
                 },
                 {
                     id: "w3_e3",
-                    date: "Sábado 17 Ene",
+                    date: "Sábado 21 Feb",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "El valor del sacrificio de Cristo en la vida del hombre",
-                    objective: "La grey identificará y se comprometerá a corresponder siguiendo las pisadas del maestro, propuestas por el expositor de la palabra.",
+                    theme: "Desapego a las cosas pasadas",
+                    objective: "La grey identificará los cambios positivos que ha realizado, se comprometerá a mantenerse en la mejora continua, orientado por las palabras del predicador.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Aarón Espinosa" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Absalón Perusquía" }
                     ]
                 }
             ]
         },
         {
             id: 4,
-            week: "Semana del 23 al 24 Ene",
+            week: "Semana del 27 al 28 Feb",
             events: [
                 {
                     id: "w4_e1",
-                    date: "Viernes 23 Ene",
+                    date: "Viernes 27 Feb",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Esdras Martínez" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Predicación", name: "Predicador Designado" }
                     ]
                 },
                 {
                     id: "w4_e2",
-                    date: "Sábado 24 Ene",
+                    date: "Sábado 28 Feb",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La cuarta plaga",
-                    objective: "La grey mostrará con acciones la forma en que el amor de Dios no hace acepción de personas para la salvación",
+                    theme: "La herencia de los santos",
+                    objective: "La grey se comprometerá a vigilar el orden en todas las actividades que apoyen los cultos de nuestro Dios.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Lección", name: "Absalón Perusquía (La cuarta plaga)" },
-                        { role: "Predicación", name: "Aarón Espinosa (Dios acepta a todos)" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Mizraim Montiel (La herencia de los santos)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La disciplina en Dios)" }
                     ]
                 },
                 {
                     id: "w4_e3",
-                    date: "Sábado 24 Ene",
+                    date: "Sábado 28 Feb",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Si caíste fue porque te enalteciste",
-                    objective: "La grey identificará como la soberbia de la vida los puede apartar de Dios, previniéndose para evitarlo.",
+                    theme: "Mi paz os dejo, mi paz os doy",
+                    objective: "La grey identificará la armonía en todos sus caminos y la seguridad en sus decisiones como la consecuencia correspondiente a seguir los pasos del Maestro.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Esdras Martínez" }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 5,
-            week: "Semana del 30 al 31 Ene",
-            events: [
-                {
-                    id: "w5_e1",
-                    date: "Viernes 30 Ene",
-                    type: "Recibimiento",
-                    time: "7:00 PM",
-                    details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Predicación", name: "Yahir López" }
-                    ]
-                },
-                {
-                    id: "w5_e2",
-                    date: "Sábado 31 Ene",
-                    type: "Culto Matutino",
-                    time: "10:00 AM",
-                    theme: "La quinta plaga",
-                    objective: "La grey encontrará formas para evitar caer en esos ejemplos dolorosos para quien los hace.",
-                    details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Mizraim Montiel (La quinta plaga)" },
-                        { role: "Predicación", name: "Aarón Espinosa (Los cinco ayes de Isaías 5)" }
-                    ]
-                },
-                {
-                    id: "w5_e3",
-                    date: "Sábado 31 Ene",
-                    type: "Culto Vespertino",
-                    time: "4:00 PM",
-                    theme: "Las tentaciones de Jesús",
-                    objective: "La grey reconocerá la manera de rechazar la tentación y tomar el ejemplo del Maestro",
-                    details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Predicación", name: "Yahir López" }
+                        { role: "Superintendente", name: "Mizraim Montiel" },
+                        { role: "Predicación", name: "Gerardo Mier" }
                     ]
                 }
             ]
