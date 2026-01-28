@@ -16,7 +16,8 @@ const WeeklyTheme = ({ theme = {} }) => {
 
     const handleShare = async () => {
         const currentHash = window.location.hash.split('?')[0];
-        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=weekly-theme`;
+        const anchorId = theme.id ? `weekly-theme-${theme.id}` : 'weekly-theme';
+        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=${anchorId}`;
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, shareUrl);
     };

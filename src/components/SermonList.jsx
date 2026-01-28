@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useBookmarks } from '../hooks/useBookmarks';
+import { shareContent } from '../utils/share';
 
 
 const SermonList = ({ schedule }) => {
@@ -125,7 +126,7 @@ const SermonList = ({ schedule }) => {
                     const saved = isBookmarked(event.id);
 
                     return (
-                        <div key={event.id} className="card" style={{
+                        <div key={event.id} id={`sermon-${event.id}`} className="card" style={{
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
@@ -173,50 +174,95 @@ const SermonList = ({ schedule }) => {
 
 
 
-                            {/* Interest Button (Heart) */}
-                            <button
-                                onClick={() => handleInterestClick(event)}
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    padding: '0.5rem',
-                                    transition: 'transform 0.1s'
-                                }}
-                            >
-                                <div style={{
-                                    backgroundColor: 'transparent',
-                                    borderRadius: '50%',
-                                    marginBottom: '0.25rem',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    transition: 'all 0.3s ease'
-                                }}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill={saved ? "#EF4444" : "none"} // Red-500 if saved
-                                        stroke={saved ? "#EF4444" : "#9CA3AF"} // Gray-400 if not
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        style={{ width: '1.75rem', height: '1.75rem' }}
-                                    >
-                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                                    </svg>
-                                </div>
-                                <span style={{
-                                    fontSize: '0.75rem',
-                                    fontWeight: '700', // Slightly bold
-                                    color: saved ? '#EF4444' : '#9CA3AF'
-                                }}>
-                                    Me interesa
-                                </span>
-                            </button>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                {/* Share Button */}
+                                <button
+                                    onClick={() => {
+                                        const currentHash = window.location.hash.split('?')[0];
+                                        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=sermon-${event.id}`;
+                                        const preacherDetail = event.details && event.details.find(d => d.role === "Predicación");
+                                        const preacherText = preacherDetail ? preacherDetail.name : "";
+                                        const titleMatch = preacherText.match(/\(([^)]+)\)/);
+                                        const displayTitle = titleMatch ? titleMatch[1] : (event.theme || "Tema Especial");
+
+                                        shareContent('Predicación Creamos Juntos', `${displayTitle} - ${event.date}`, shareUrl);
+                                    }}
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: '0.5rem'
+                                    }}
+                                >
+                                    <div style={{
+                                        backgroundColor: 'transparent',
+                                        borderRadius: '50%',
+                                        marginBottom: '0.25rem',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <circle cx="18" cy="5" r="3"></circle>
+                                            <circle cx="6" cy="12" r="3"></circle>
+                                            <circle cx="18" cy="19" r="3"></circle>
+                                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                        </svg>
+                                    </div>
+                                    <span style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--color-text-secondary)' }}>
+                                        Compartir
+                                    </span>
+                                </button>
+
+                                {/* Interest Button (Heart) */}
+                                <button
+                                    onClick={() => handleInterestClick(event)}
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: '0.5rem',
+                                        transition: 'transform 0.1s'
+                                    }}
+                                >
+                                    <div style={{
+                                        backgroundColor: 'transparent',
+                                        borderRadius: '50%',
+                                        marginBottom: '0.25rem',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        transition: 'all 0.3s ease'
+                                    }}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill={saved ? "#EF4444" : "none"} // Red-500 if saved
+                                            stroke={saved ? "#EF4444" : "#9CA3AF"} // Gray-400 if not
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            style={{ width: '1.75rem', height: '1.75rem' }}
+                                        >
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                        </svg>
+                                    </div>
+                                    <span style={{
+                                        fontSize: '0.75rem',
+                                        fontWeight: '700', // Slightly bold
+                                        color: saved ? '#EF4444' : '#9CA3AF'
+                                    }}>
+                                        Me interesa
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     );
                 })}

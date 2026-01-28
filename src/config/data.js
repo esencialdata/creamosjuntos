@@ -245,6 +245,14 @@ export const CONFIG = {
             duration: "3:45",
             audioUrl: "/ELMITO-DE-LA-FUERZA-DE-VOLUNTAD.mp3",
             color: "#2563EB" // Primary Brand Color
+        },
+        {
+            id: 2,
+            weekId: 8,
+            title: "El Mito de la Disciplina",
+            duration: "4:12",
+            audioUrl: "/EL-MITO-DE-LA-DISCIPLINA.mp3",
+            color: "#0f172a" // Navy Blue
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
@@ -1125,7 +1133,84 @@ export const CONFIG = {
                     reference: "Proverbios 15:32"
                 }
             ]
+        },
+        {
+            id: 16,
+            weekId: 8,
+            title: "EL MITO DE LA DISCIPLINA",
+            description: "¿Por qué te agota tanto \"portarte bien\"? (Psicología, Teología y el fin de la actuación)",
+            themeStyles: {
+                bg: '#f8f5f0', // Creamy beige background from the image
+                textPrimary: '#2c332c', // Dark pine green for text (from the silhouette/leaves)
+                textSecondary: '#6b7a6b', // Muted green for secondary text
+                accent: '#ff4d4d', // Vibrant red from the brain glow
+                cardBorder: '1px solid #e8e4db',
+                cardShadow: '0 10px 15px -3px rgba(107, 122, 107, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿POR QUÉ TE AGOTA TANTO \"PORTARTE BIEN\"?",
+                    subtitle: "(Psicología, Teología y el fin de la actuación)",
+                    imageUrl: "/portarnosbien.png",
+                    footerText: "Desliza para entender el peso de tu máscara ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Problema",
+                    title: "TU CEREBRO DETESTA LA CONTRADICCIÓN",
+                    body: "La ciencia lo llama Disonancia Cognitiva. Si tu identidad interna es \"Soy impaciente\" pero te obligas a actuar con paciencia, tu cerebro entra en estrés. Luchar contra tu propia autoimagen consume enormes cantidades de energía mental.\n\nPor eso te cansas. Por eso, eventualmente, explotas. No te falta fe; te sobra contradicción.",
+                    citation: "Porque cual es su pensamiento en su alma, tal es él.",
+                    reference: "Proverbios 23:7 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Diagnóstico Bíblico",
+                    title: "HIPOCRESÍA = ACTUACIÓN",
+                    body: "Jesús usó la palabra griega hypokrités para los fariseos. No significaba solo \"falso\", significaba \"Actor de Teatro\".\n\nEl problema de vivir actuando una santidad que no sientes, es que eventualmente el telón baja. Nadie puede actuar un personaje las 24 horas del día sin quebrarse.",
+                    citation: "¡Ay de vosotros... hipócritas! porque limpiáis lo que está de fuera del vaso... mas de dentro están llenos de robo y de injusticia.",
+                    reference: "Mateo 23:25 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Evidencia Bíblica",
+                    title: "EL ACTOR SIEMPRE BAJA EL TELÓN",
+                    body: "El problema de vivir actuando una santidad que no sientes (fuerza de voluntad), es que nadie puede sostener el personaje las 24 horas.\n\nJesús fue radical al respecto: No pidió mejores actores, pidió un cambio de esencia.",
+                    citation: "¡Ay de vosotros... hipócritas! porque limpiáis lo que está de fuera del vaso y del plato; mas de dentro están llenos de robo y de injusticia.",
+                    reference: "Mateo 23:25 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Solución",
+                    title: "CAMBIO DE ESPECIE, NO DE MAQUILLAJE",
+                    body: "La Biblia no te pide que \"mejores\" tu viejo yo. Te pide que te despojes de él. Un manzano no hace muecas de esfuerzo para dar manzanas. Las da porque es su naturaleza.\n\nCuando tu identidad cambia (Nuevo Hombre), la obediencia deja de ser una actuación agotadora y se convierte en un fruto natural.",
+                    citation: "Obedecemos porque somos hijos; no para llegar a serlo.",
+                    reference: "Concepto Clave"
+                },
+                {
+                    type: "diagnostic",
+                    label: "La Práctica",
+                    title: "DE LA PRESIÓN A LA IDENTIDAD",
+                    body: "❌ Enfoque en Conducta (Agotador): \"Tengo que aguantarme las ganas de gritar.\" (Resultado: Rebote y culpa)\n\n✅ Enfoque en Identidad (Natural): \"Yo no soy el tipo de hombre que grita. No es mi naturaleza.\" (Resultado: Coherencia y Paz)\n\nNeurociencia: Tu cerebro siempre ajustará tus acciones para que coincidan con quien TÚ crees que eres.",
+                    citation: "Tu cerebro siempre ajustará tus acciones para que coincidan con quien TÚ crees que eres.",
+                    reference: "Neurociencia"
+                },
+                {
+                    type: "action",
+                    title: "DEJA DE ACTUAR. EMPIEZA A SER.",
+                    subtitle: "Escucha también \"El mito de la fuerza de voluntad\"",
+                    steps: [
+                        "La verdadera libertad no es tener una voluntad de hierro para sostener la máscara.",
+                        "Es tener una identidad tan clara en Cristo, que el pecado te resulte extraño, ajeno y repulsivo.",
+                        "Deja de actuar. Empieza a ser."
+                    ],
+                    citation: "🎙️ Escucha también \"El mito de la fuerza de voluntad\"",
+                    reference: "Podcast"
+                }
+            ]
         }
+
+
     ],
     weeklyHabit: {
         id: 4,
