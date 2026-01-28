@@ -281,6 +281,11 @@ export const getCommunityStats = async () => {
 
     } catch (error) {
         console.error("Error getting community stats:", error);
-        throw error; // Propagate error to UI to show missing index link message capability
+        // Throw a user-friendly error that can be handled by the UI
+        let message = "No se pudieron cargar los datos de la comunidad.";
+        if (error.code === 'failed-precondition' || error.message?.includes('index')) {
+            message = "Falta un índice en Firestore para esta consulta. Por favor, verifica la consola de Firebase.";
+        }
+        throw new Error(message);
     }
 };
