@@ -246,14 +246,6 @@ export const CONFIG = {
             duration: "3:45",
             audioUrl: "/ELMITO-DE-LA-FUERZA-DE-VOLUNTAD.mp3",
             color: "#2563EB" // Primary Brand Color
-        },
-        {
-            id: 2,
-            weekId: 8,
-            title: "El Mito de la Disciplina",
-            duration: "4:12",
-            audioUrl: "/EL-MITO-DE-LA-DISCIPLINA.mp3",
-            color: "#0f172a" // Navy Blue
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
@@ -1138,7 +1130,7 @@ export const CONFIG = {
         {
             id: 16,
             weekId: 8,
-            title: "EL MITO DE LA DISCIPLINA",
+            title: "EL MITO DE LA FUERZA DE VOLUNTAD",
             description: "¿Por qué te agota tanto \"portarte bien\"? (Psicología, Teología y el fin de la actuación)",
             themeStyles: {
                 bg: '#f8f5f0', // Creamy beige background from the image
