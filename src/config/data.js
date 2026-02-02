@@ -1082,9 +1082,94 @@ export const CONFIG = {
                     reference: "Podcast"
                 }
             ]
+        },
+        {
+            id: 12,
+            weekId: 12,
+            title: "DIAGNÓSTICO PARA EL DESBLOQUEO ESPIRITUAL",
+            description: "Mover al usuario de la 'queja pasiva' a la 'corrección activa'.",
+            themeStyles: {
+                bg: '#0F172A',
+                textPrimary: '#f5f5f5',
+                textSecondary: '#a3a3a3',
+                accent: '#ef4444',
+                cardBorder: '1px solid #333',
+                cardShadow: '0 8px 24px -4px rgba(239, 68, 68, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿POR QUÉ NO LLEGA LO QUE ESPERAS?",
+                    subtitle: "Cuando el cielo guarda silencio, el problema no siempre es el tiempo... a veces es el 'tapón'.",
+                    videoUrl: "/respuesta_opt.mp4",
+                    footerText: "Desliza para hacer el diagnóstico ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MISTERIO DEL BLOQUEO",
+                    title: "NO ES SILENCIO, ES UN AVISO",
+                    body: `A veces pensamos que Dios se olvidó, pero a menudo Él está esperando que tú quites un estorbo legal.
+
+Si la bendición no fluye, no le grites a la llave... busca dónde está la obstrucción en la tubería.`,
+                    citation: "Vuestras iniquidades han estorbado estas cosas; y vuestros pecados han apartado de vosotros el bien.",
+                    reference: "Jeremías 5:25 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL PELIGRO OCULTO (EL YERRO)",
+                    title: "LO QUE NO VES, TAMBIÉN CUENTA",
+                    body: `La ignorancia no anula la consecuencia.
+
+En la Ley de Dios, un 'yerro' (error por ignorancia o descuido) bloquea la comunión tanto como un pecado voluntario. Si sigues chocando con la misma pared, quizás hay algo que estás haciendo mal sin darte cuenta.`,
+                    citation: "La ignorancia no anula la consecuencia.",
+                    reference: "Principio Legal"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA ORACIÓN INTELIGENTE",
+                    title: "CAMBIA TU PETICIÓN",
+                    body: `Deja de pedir: 'Señor, dame esto...' Empieza a pedir: 'Señor, muéstrame qué me impide recibirlo...'
+
+Necesitas el Escáner Divino para ver tus puntos ciegos.`,
+                    citation: "Enséñame tú lo que yo no veo: Que si hice mal, no lo haré más.",
+                    reference: "Job 34:32 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "TU REACCIÓN DEFINE TU FUTURO",
+                    title: "CUANDO DIOS TE MUESTRE LA FALLA...",
+                    question: "Tienes dos opciones:",
+                    options: [
+                        "❌ Modo Saúl: Justificarte ('Es culpa de otros', 'No es para tanto'). Resultado: Bloqueo permanente.",
+                        "✅ Modo Daniel: Corregir ('He pecado, voy a cambiar'). Resultado: Desbloqueo y flujo de bendición."
+                    ],
+                    citation: "El que encubre sus pecados, no prosperará.",
+                    reference: "Proverbios 28:13 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL PROPÓSITO: SER TEMPLO",
+                    title: "REPARAR PARA RECIBIR",
+                    body: `Dios no te da lo que pides, sino lo que puedes sostener.
+
+El proceso de corrección es una reestructuración. Dios te está convirtiendo en un Templo firme para que, cuando la bendición llegue, no te destruya, sino que permanezca.`,
+                    citation: "Dios no te da lo que pides, sino lo que puedes sostener.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "action",
+                    title: "ACTIVA EL DESBLOQUEO HOY",
+                    subtitle: "No te quejes por lo que falta. Trabaja en lo que sobra (el error).",
+                    steps: [
+                        "Ora con Job 34:32.",
+                        "No te justifiques.",
+                        "Corrige la falla."
+                    ],
+                    citation: "¿Listo para el examen?",
+                    reference: "2 Corintios 7:2"
+                }
+            ]
         }
-
-
     ],
     weeklyHabit: {
         id: 4,
