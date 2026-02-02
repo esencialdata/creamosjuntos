@@ -222,10 +222,10 @@ const getCurrentWeekId = () => {
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
-    if (now >= week12Start) return 15;
-    if (now >= week11Start) return 14;
-    if (now >= week10Start) return 13;
-    if (now >= week9Start) return 12;
+    if (now >= week12Start) return 12;
+    if (now >= week11Start) return 11;
+    if (now >= week10Start) return 10;
+    if (now >= week9Start) return 9;
     if (now >= week8Start) return 8;
     if (now >= week7Start) return 7;
     if (now >= week6Start) return 6;
@@ -1084,17 +1084,17 @@ export const CONFIG = {
             ]
         },
         {
-            id: 12,
-            weekId: 12,
+            id: 9,
+            weekId: 9,
             title: "DIAGNÓSTICO PARA EL DESBLOQUEO ESPIRITUAL",
             description: "Mover al usuario de la 'queja pasiva' a la 'corrección activa'.",
             themeStyles: {
                 bg: '#0F172A',
                 textPrimary: '#f5f5f5',
                 textSecondary: '#a3a3a3',
-                accent: '#ef4444',
-                cardBorder: '1px solid #333',
-                cardShadow: '0 8px 24px -4px rgba(239, 68, 68, 0.15)'
+                accent: '#60A5FA', // Blue 400
+                cardBorder: '1px solid #1e293b', // Slate-800
+                cardShadow: '0 8px 24px -4px rgba(96, 165, 250, 0.15)'
             },
             slides: [
                 {
