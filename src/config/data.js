@@ -252,7 +252,7 @@ export const CONFIG = {
             weekId: 9,
             title: "2. La Paradoja del Estilo de Vida",
             duration: "3:58",
-            audioUrl: "/laparadoja.mp3",
+            audioUrl: "/laparadoja-de.mp3",
             color: "#60A5FA" // Matches Week 9 theme accent
         }
     ],
