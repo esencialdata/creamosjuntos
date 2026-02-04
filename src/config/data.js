@@ -246,6 +246,14 @@ export const CONFIG = {
             duration: "3:45",
             audioUrl: "/ELMITO-DE-LA-FUERZA-DE-VOLUNTAD.mp3",
             color: "#2563EB" // Primary Brand Color
+        },
+        {
+            id: 2,
+            weekId: 9,
+            title: "La Paradoja del Estilo de Vida",
+            duration: "3:58",
+            audioUrl: "/e1b.mp3",
+            color: "#60A5FA" // Matches Week 9 theme accent
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
