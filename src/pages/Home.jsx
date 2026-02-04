@@ -23,6 +23,48 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
         const unsubscribe = subscribeToSchedule((data) => {
             if (data) setSchedule(data);
         });
+
+        // Handle Anchor Scrolling for Shared Links
+        const getAnchor = () => {
+            const url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+            if (searchParams.get('anchor')) return searchParams.get('anchor');
+
+            if (url.hash.includes('?')) {
+                const parts = url.hash.split('?');
+                if (parts[1]) {
+                    const hashParams = new URLSearchParams(parts[1]);
+                    return hashParams.get('anchor');
+                }
+            }
+            return null;
+        };
+
+        const anchor = getAnchor();
+        if (anchor) {
+            setTimeout(() => {
+                const element = document.getElementById(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Highlight effect
+                    const originalTransition = element.style.transition;
+                    const originalBorderColor = element.style.borderColor;
+                    const originalBoxShadow = element.style.boxShadow;
+
+                    element.style.transition = 'all 0.5s ease';
+                    element.style.borderColor = 'var(--color-primary)';
+                    element.style.boxShadow = '0 0 0 2px var(--color-primary-light, rgba(37, 99, 235, 0.2))';
+
+                    setTimeout(() => {
+                        element.style.borderColor = originalBorderColor;
+                        element.style.boxShadow = originalBoxShadow;
+                        element.style.transition = originalTransition;
+                    }, 2000);
+                }
+            }, 500);
+        }
+
         return () => unsubscribe();
     }, []);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import WeeklyTheme from '../components/WeeklyTheme';
 import { CONFIG, VERSES_POOL } from '../config/data';
@@ -10,6 +10,46 @@ const Library = () => {
     const [activeTab, setActiveTab] = useState('themes');
     const [selectedTheme, setSelectedTheme] = useState(null);
     const { toggleBookmark, isBookmarked } = useBookmarks();
+
+    useEffect(() => {
+        const getAnchor = () => {
+            const url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+            if (searchParams.get('anchor')) return searchParams.get('anchor');
+
+            // Check hash part if using HashRouter or combined
+            if (url.hash.includes('?')) {
+                const parts = url.hash.split('?');
+                if (parts[1]) {
+                    const hashParams = new URLSearchParams(parts[1]);
+                    return hashParams.get('anchor');
+                }
+            }
+            return null;
+        };
+
+        const anchor = getAnchor();
+        if (anchor) {
+            setActiveTab('verses');
+            setTimeout(() => {
+                const element = document.getElementById(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Optional highlight effect
+                    const originalTransition = element.style.transition;
+                    const originalBg = element.style.backgroundColor;
+
+                    element.style.transition = 'background-color 0.5s ease';
+                    element.style.backgroundColor = 'var(--color-primary-light, rgba(37, 99, 235, 0.1))';
+
+                    setTimeout(() => {
+                        element.style.backgroundColor = originalBg;
+                        element.style.transition = originalTransition;
+                    }, 2000);
+                }
+            }, 500);
+        }
+    }, []);
 
     // Filter verses to only show those released up to today
     const now = new Date();
