@@ -20,15 +20,15 @@ export default defineConfig({
         scope: '/',
         icons: [
           {
-            src: 'logo_app_w.svg',
+            src: 'apple-icon.png',
             sizes: '192x192',
-            type: 'image/svg+xml',
+            type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: 'logo_app_w.svg',
+            src: 'apple-icon.png',
             sizes: '512x512',
-            type: 'image/svg+xml',
+            type: 'image/png',
             purpose: 'any maskable'
           }
         ]
