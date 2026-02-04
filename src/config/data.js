@@ -242,7 +242,7 @@ export const CONFIG = {
         {
             id: 1,
             weekId: 7,
-            title: "El Mito de la Fuerza de Voluntad",
+            title: "1. El Mito de la Fuerza de Voluntad",
             duration: "3:45",
             audioUrl: "/ELMITO-DE-LA-FUERZA-DE-VOLUNTAD.mp3",
             color: "#2563EB" // Primary Brand Color
@@ -250,7 +250,7 @@ export const CONFIG = {
         {
             id: 2,
             weekId: 9,
-            title: "La Paradoja del Estilo de Vida",
+            title: "2. La Paradoja del Estilo de Vida",
             duration: "3:58",
             audioUrl: "/e1b.mp3",
             color: "#60A5FA" // Matches Week 9 theme accent
