@@ -99,7 +99,11 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 {/* Render ALL themes for the current week, newest first */}
                 {(() => {
                     const currentWeekThemes = CONFIG.themes
-                        .filter(t => t.weekId === CONFIG.currentWeek)
+                        .filter(t => {
+                            if (t.weekId !== CONFIG.currentWeek) return false;
+                            if (t.availableFrom && new Date() < new Date(t.availableFrom)) return false;
+                            return true;
+                        })
                         .reverse(); // Show newest (highest ID) first
 
                     if (currentWeekThemes.length === 0) {

@@ -1177,6 +1177,88 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "2 Corintios 7:2"
                 }
             ]
+        },
+        {
+            id: 17,
+            weekId: 9,
+            availableFrom: "2026-02-05T00:00:00", // Scheduled for Thursday
+            title: "LA PARADOJA DEL ESTILO DE VIDA",
+            description: "Objetivo: Romper el mito de 'ver para creer' y establecer la ley de 'ser para tener'.",
+            themeStyles: {
+                bg: '#F9FAFB',
+                textPrimary: '#111827',
+                textSecondary: '#4B5563',
+                accent: '#0F172A',
+                cardBorder: '1px solid #E5E7EB',
+                cardShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+                fontSerif: '"Playfair Display", serif',
+                fontSans: '"Inter", sans-serif'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Esperas el ÉXITO para cambiar tus HÁBITOS?",
+                    subtitle: "Por qué tu orden está invertido y cómo la Biblia lo corrige.",
+                    visual: "🌓", // Placeholder for split image (Waiting/Acting)
+                    footerText: "Desliza para entender la mecánica de la fe ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MARCO LEGAL (AT)",
+                    title: "LA LEY DE LA IDENTIDAD",
+                    body: "En el Tabernáculo, el sacerdote no se vestía de lino porque ya había ministrado. Se vestía para poder ministrar.\n\nLa Lección: La investidura (identidad) siempre precede a la función (acción). No trabajas para ser escogido; trabajas porque ya lo eres.",
+                    citation: "Y harás vestidos sagrados á Aarón... para honra y hermosura.",
+                    reference: "Éxodo 28:2 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA MAGNIFICACIÓN (NT)",
+                    title: "LA FE ES MATERIA PRIMA",
+                    body: "El mundo dice: 'Ver para creer'. El Reino dice: 'Creer es la sustancia de lo que verás'.\n\nInsight: Si esperas el resultado para sentirte seguro, no estás usando fe, estás usando vista. Tu certeza interna es el molde del milagro externo.",
+                    citation: "ES pues la fe la sustancia de las cosas que se esperan, la demostración de las cosas que no se ven.",
+                    reference: "Hebreos 11:1 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SOPORTE DOCTRINAL (IDI)",
+                    title: "LA OBEDIENCIA ACTIVA EL BENEFICIO",
+                    body: "No obedecemos porque ya fuimos bendecidos, obedecemos para asegurar la bendición.\n\nCreemos que para asegurar los beneficios del plan Divino... cada individuo debe creer... y obedecer la doctrina.\n\nAplicación: La doctrina no es una meta; es el camino. Adoptar el estilo de vida del Reino hoy es lo que activa las promesas de Dios mañana.",
+                    citation: "Punto de Fe No. 9",
+                    reference: "Doctrina IDI"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EVIDENCIA (EL ATLETA)",
+                    title: "LA CORONA NO HACE AL CAMPEÓN",
+                    body: "El atleta no se abstiene de todo después de ganar la medalla. Vive en disciplina mucho antes de pisar el estadio.\n\nVerdad: Su disciplina no es el resultado de la victoria. Es la causa de ella. ¿Vives hoy como el vencedor que quieres ser?",
+                    citation: "Y todo aquel que lucha, de todo se abstiene...",
+                    reference: "1 Corintios 9:25 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "¿CÓMO APLICARLO HOY?",
+                    subtitle: "La Regla del Agricultor (Marcos 4:26-29)",
+                    steps: [
+                        "Siembra sin ver: Actúa con disciplina hoy, aunque no veas fruto inmediato.",
+                        "Confía en el misterio: La semilla crece mientras 'duermes' (tu identidad trabaja en silencio).",
+                        "No fuerces la espiga: Deja que el proceso ('hierba, espiga, grano') fluya.",
+                        "Reto: Haz hoy una cosa que haría tu 'yo' del futuro."
+                    ],
+                    citation: "Siembra hoy tu futuro.",
+                    reference: "Práctica"
+                },
+                {
+                    type: "action",
+                    title: "TÚ DECIDES EL ORDEN",
+                    subtitle: "Corrección de Paradigma",
+                    steps: [
+                        "❌ Error: 'Cuando tenga, haré. Y cuando haga, seré.'",
+                        "✅ Verdad: 'Soy (Identidad) → Hago (Conducta) → Tengo (Resultado).'"
+                    ],
+                    citation: "Comparte si conoces a alguien esperando el 'momento perfecto'.",
+                    reference: "Cierre"
+                }
+            ]
         }
     ],
     weeklyHabit: {
