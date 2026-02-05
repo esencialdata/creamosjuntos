@@ -185,6 +185,193 @@ export const VERSES_POOL = [
         reference: "Apocalipsis 21:4",
         likes: 0,
         comment: "Nuestra esperanza final es real: un futuro donde el sufrimiento será erradicado para siempre y Dios mismo consolará personalmente a su pueblo."
+    },
+    // --- NUEVO SET (FEBRERO/MARZO - CICLO 3) ---
+    {
+        text: "Acordarte has del día del reposo, para santificarlo.",
+        reference: "Éxodo 20:8",
+        likes: 0,
+        comment: "El sábado no es una sugerencia, es un monumento en el tiempo; santificarlo es reconocer la soberanía del Creador sobre nuestra agenda y nuestra vida."
+    },
+    {
+        text: "Y amarás á Jehová tu Dios de todo tu corazón, y de toda tu alma, y con todo tu poder.",
+        reference: "Deuteronomio 6:5",
+        likes: 0,
+        comment: "La verdadera adoración no admite rivales ni entregas a medias; Dios exige la totalidad de nuestro afecto, intelecto y voluntad."
+    },
+    {
+        text: "Pon tu delicia en Jehová, Y él te dará las peticiones de tu corazón.",
+        reference: "Salmos 37:4",
+        likes: 0,
+        comment: "Cuando lo que más disfrutas es a Dios mismo, tus deseos se alinean con los suyos; entonces, lo que pides es lo que Él ya quería darte."
+    },
+    {
+        text: "Crea en mí, oh Dios, un corazón limpio; Y renueva un espíritu recto dentro de mí.",
+        reference: "Salmos 51:10",
+        likes: 0,
+        comment: "La verdadera transformación no es externa, es interna. Solo Dios tiene la capacidad de cirugía espiritual para extirpar la suciedad y poner un motor nuevo."
+    },
+    {
+        text: "¿Con qué limpiará el joven su camino? Con guardar tu palabra.",
+        reference: "Salmos 119:9",
+        likes: 0,
+        comment: "En una cultura que bombardea con impureza, la única herramienta efectiva de limpieza y dirección para la juventud es la obediencia estricta a la Escritura."
+    },
+    {
+        text: "Mucha paz tienen los que aman tu ley; Y no hay para ellos tropiezo.",
+        reference: "Salmos 119:165",
+        likes: 0,
+        comment: "La paz no es ausencia de conflictos, sino resultado de amar la Ley de Dios; quien vive bajo reglas divinas camina con una estabilidad que el mundo no entiende."
+    },
+    {
+        text: "Sobre toda cosa guardada guarda tu corazón; Porque de él mana la vida.",
+        reference: "Proverbios 4:23",
+        likes: 0,
+        comment: "Tu vida interna es la fuente de todo lo demás. Si el pozo se contamina, todo lo que salga de ti (palabras, decisiones, actos) estará sucio."
+    },
+    {
+        text: "La blanda respuesta quita la ira: Mas la palabra áspera hace subir el furor.",
+        reference: "Proverbios 15:1",
+        likes: 0,
+        comment: "El control de la lengua es una de las mayores muestras de fuerza; apagar el fuego con mansedumbre requiere más carácter que encenderlo con gritos."
+    },
+    {
+        text: "Encomienda á Jehová tus obras, Y tus pensamientos serán afirmados.",
+        reference: "Proverbios 16:3",
+        likes: 0,
+        comment: "La estabilidad mental (\"pensamientos afirmados\") viene cuando soltamos la ansiedad por los resultados y dejamos la ejecución de nuestros planes en manos de Dios."
+    },
+    {
+        text: "El que encubre sus pecados, no prosperará: Mas el que los confiesa y se aparta, alcanzará misericordia.",
+        reference: "Proverbios 28:13",
+        likes: 0,
+        comment: "Dios no bendice la hipocresía. La fórmula para avanzar espiritual y materialmente es simple y dolorosa: admitir el error y dejarlo definitivamente."
+    },
+    {
+        text: "El fin de todo el discurso oído es este: Teme á Dios, y guarda sus mandamientos; porque esto es el todo del hombre.",
+        reference: "Eclesiastés 12:13",
+        likes: 0,
+        comment: "Al final de la vida, cuando se cae el telón, lo único que define el éxito humano no es el dinero ni la fama, sino la reverencia y la obediencia."
+    },
+    {
+        text: "Mas él herido fué por nuestras rebeliones, molido por nuestros pecados: el castigo de nuestra paz sobre él; y por su llaga fuimos nosotros curados.",
+        reference: "Isaías 53:5",
+        likes: 0,
+        comment: "La sanidad y la paz que disfrutamos tienen un precio altísimo que no pagamos nosotros; nunca miremos la cruz sin recordar el costo de nuestra libertad."
+    },
+    {
+        text: "Mas vuestras iniquidades han hecho división entre vosotros y vuestro Dios, y vuestros pecados han hecho ocultar su rostro de vosotros, para no oír.",
+        reference: "Isaías 59:2",
+        likes: 0,
+        comment: "Dios no es sordo, pero el pecado levanta un muro de aislamiento. Si sientes a Dios lejos, revisa si hay ladrillos de desobediencia que tú mismo has puesto."
+    },
+    {
+        text: "He aquí, todas las almas son mías; como el alma del padre, así el alma del hijo es mía: el alma que pecare, esa morirá.",
+        reference: "Ezequiel 18:4",
+        likes: 0,
+        comment: "La responsabilidad es individual e intransferible. Nadie se salva por la fe de sus padres ni se condena por los errores de ellos; tú respondes por ti."
+    },
+    {
+        text: "Y muchos de los que duermen en el polvo de la tierra serán despertados, unos para vida eterna, y otros para vergüenza y confusión perpetua.",
+        reference: "Daniel 12:2",
+        likes: 0,
+        comment: "La muerte es un sueño temporal, no el final absoluto. La resurrección es la gran esperanza, pero también la gran advertencia de que habrá rendición de cuentas."
+    },
+    {
+        text: "Mi pueblo fué talado, porque le faltó sabiduría...",
+        reference: "Oseas 4:6",
+        likes: 0,
+        comment: "La ignorancia bíblica no es una excusa, es una sentencia de muerte. El creyente tiene la obligación de estudiar para no ser destruido por el error."
+    },
+    {
+        text: "Y Jesús le dijo: Escrito está: No con solo el pan vivirá el hombre, mas con toda palabra que sale de la boca de Dios.",
+        reference: "Mateo 4:4",
+        likes: 0,
+        comment: "Alimentar el cuerpo y matar de hambre al espíritu es suicidio lento. La Biblia es tan vital para tu supervivencia como la comida diaria."
+    },
+    {
+        text: "Vosotros sois la sal de la tierra: y si la sal se desvaneciere ¿con qué será salada? no vale más para nada, sino para ser echada fuera y hollada de los hombres.",
+        reference: "Mateo 5:13",
+        likes: 0,
+        comment: "Si un cristiano pierde su esencia distintiva y se vuelve igual al mundo, se vuelve inútil para el Reino. Nuestra función es preservar y dar sabor, no diluirnos."
+    },
+    {
+        text: "No penséis que he venido para abrogar la ley ó los profetas: no he venido para abrogar, sino á cumplir.",
+        reference: "Mateo 5:17",
+        likes: 0,
+        comment: "Cristo no vino a eliminar la instrucción moral de Dios, sino a llenarla de significado completo; la gracia no anula la Ley, la establece en el corazón."
+    },
+    {
+        text: "Porque donde estuviere vuestro tesoro, allí estará vuestro corazón.",
+        reference: "Mateo 6:21",
+        likes: 0,
+        comment: "Si quieres saber qué es lo que realmente amas, mira dónde gastas tu tiempo, tu dinero y tu energía. El corazón siempre sigue a la inversión."
+    },
+    {
+        text: "El hombre bueno del buen tesoro de su corazón saca lo bueno; y el hombre malo del mal tesoro de su corazón saca lo malo; porque de la abundancia del corazón habla su boca.",
+        reference: "Lucas 6:45",
+        likes: 0,
+        comment: "Las palabras no son accidentes; son muestras del inventario interno. Si lo que sale de tu boca es tóxico, es porque el almacén del corazón necesita limpieza."
+    },
+    {
+        text: "Y conoceréis la verdad, y la verdad os libertará.",
+        reference: "Juan 8:32",
+        likes: 0,
+        comment: "La libertad no se encuentra haciendo lo que uno quiere, sino entendiendo la realidad como Dios la define. La mentira esclaviza; solo la verdad rompe cadenas."
+    },
+    {
+        text: "Y en ningún otro hay salud; porque no hay otro nombre debajo del cielo, dado á los hombres, en que podamos ser salvos.",
+        reference: "Hechos 4:12",
+        likes: 0,
+        comment: "El exclusivismo de Cristo es absoluto. No hay múltiples caminos a Dios, hay una sola Puerta y una sola Llave."
+    },
+    {
+        text: "Es menester obedecer á Dios antes que á los hombres.",
+        reference: "Hechos 5:29",
+        likes: 0,
+        comment: "Cuando la cultura, el gobierno o la familia chocan con la Ley de Dios, la lealtad del creyente ya está decidida de antemano. La obediencia divina es prioridad suprema."
+    },
+    {
+        text: "Por cuanto todos pecaron, y están destituidos de la gloria de Dios;",
+        reference: "Romanos 3:23",
+        likes: 0,
+        comment: "El diagnóstico es universal: nadie es \"bastante bueno\" por sí mismo. Entender nuestra quiebra moral es el primer paso indispensable para valorar la gracia."
+    },
+    {
+        text: "ASI que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo, santo, agradable á Dios, que es vuestro racional culto.",
+        reference: "Romanos 12:1",
+        likes: 0,
+        comment: "La adoración verdadera no sucede solo en el templo los sábados, sucede el lunes por la mañana cuando decides vivir santamente con tu propio cuerpo."
+    },
+    {
+        text: "¿O ignoráis que vuestro cuerpo es templo del Espíritu Santo, el cual está en vosotros, el cual tenéis de Dios, y que no sois vuestros?",
+        reference: "1 Corintios 6:19",
+        likes: 0,
+        comment: "Tu cuerpo no es propiedad privada para usarlo como quieras; es propiedad alquilada y sagrada, la residencia física de la presencia divina."
+    },
+    {
+        text: "Porque por fe andamos, no por vista;",
+        reference: "2 Corintios 5:7",
+        likes: 0,
+        comment: "La vida cristiana a menudo contradice los sentidos. Avanzamos basándonos en lo que Dios dijo, no en cómo se ven las circunstancias en este momento."
+    },
+    {
+        text: "No os engañéis: Dios no puede ser burlado: que todo lo que el hombre sembrare, eso también segará.",
+        reference: "Gálatas 6:7",
+        likes: 0,
+        comment: "La ley de la siembra y la cosecha es inviolable. No puedes plantar desobediencia y esperar cosechar bendición; tarde o temprano, los frutos aparecen."
+    },
+    {
+        text: "Airaos, y no pequéis; no se ponga el sol sobre vuestro enojo;",
+        reference: "Efesios 4:26",
+        likes: 0,
+        comment: "Sentir enojo es humano; alimentarlo hasta que se vuelva rencor es pecado. Resuelve los conflictos rápido, antes de que el día termine y la amargura eche raíz."
+    },
+    {
+        text: "Mas sed hacedores de la palabra, y no tan solamente oidores, engañándoos á vosotros mismos.",
+        reference: "Santiago 1:22",
+        likes: 0,
+        comment: "Saber mucha Biblia y no practicarla es la forma más sutil de autoengaño. La teología que no se traduce en conducta es estéril."
     }
 ];
 
