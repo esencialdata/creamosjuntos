@@ -158,6 +158,21 @@ export const toggleThemeShare = async (themeTitle, shouldAdd) => {
     }
 };
 
+export const toggleCapsuleLike = async (capsuleId, shouldAdd) => {
+    // Uses the same central 'stats' document
+    // Structure: { capsule_likes: { [id]: count } }
+    try {
+        const docRef = doc(db, "appData", "stats");
+        await setDoc(docRef, {
+            capsule_likes: {
+                [capsuleId]: increment(shouldAdd ? 1 : -1)
+            }
+        }, { merge: true });
+    } catch (error) {
+        console.error("Error toggling capsule like:", error);
+    }
+};
+
 export const getThemeStats = async () => {
     try {
         const docRef = doc(db, "appData", "stats");
@@ -234,10 +249,22 @@ export const getCommunityStats = async () => {
             topVerses: {},
             topTopics: {},
             topEvents: {},
+            topCapsules: {}, // For Audio Capsules
             dailyPulse: {
                 "Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 0, "Sun": 0
-            }
+            },
+            capsule_likes: {} // From global stats
         };
+
+        // 1. Fetch Global Stats for Likes (Verses, Themes, Capsules)
+        try {
+            const globalStats = await getThemeStats();
+            if (globalStats.capsule_likes) {
+                stats.capsule_likes = globalStats.capsule_likes;
+            }
+        } catch (e) {
+            console.warn("Could not fetch global stats", e);
+        }
 
         const daysMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -261,6 +288,13 @@ export const getCommunityStats = async () => {
             } else if (data.itemType === 'event') {
                 const key = data.title || data.itemID;
                 stats.topEvents[key] = (stats.topEvents[key] || 0) + 1;
+            } else if (data.itemType === 'capsule') {
+                const key = data.title || data.itemID;
+                // Just count saves here from bookmarks
+                // We will merge with likes later in the UI or here if needed
+                // But structure expects {name, count} usually for "topX" lists
+                // We'll trust the Dashboard to merge separate "Saves" vs "Likes"
+                stats.topCapsules[key] = (stats.topCapsules[key] || 0) + 1;
             }
         });
 
@@ -276,7 +310,9 @@ export const getCommunityStats = async () => {
             topVerses: sortAndSlice(stats.topVerses),
             topTopics: sortAndSlice(stats.topTopics),
             topEvents: sortAndSlice(stats.topEvents),
-            dailyPulse: Object.entries(stats.dailyPulse).map(([day, count]) => ({ day, count }))
+            topCapsulesBookmarks: sortAndSlice(stats.topCapsules), // Explicitly named bookmarks/saves
+            dailyPulse: Object.entries(stats.dailyPulse).map(([day, count]) => ({ day, count })),
+            capsuleLikes: stats.capsule_likes // Pass raw object { [id]: count }
         };
 
     } catch (error) {

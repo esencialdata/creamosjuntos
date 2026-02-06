@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useGlobalPlayer } from '../context/GlobalPlayerContext';
 import { useBookmarks } from '../hooks/useBookmarks';
+import { toggleCapsuleLike } from '../services/firestoreService';
 
 const AudioCapsuleCard = ({ capsule }) => {
     const { playTrack, currentTrack, isPlaying } = useGlobalPlayer();
     const { isBookmarked, toggleBookmark } = useBookmarks();
     const [saved, setSaved] = useState(isBookmarked(capsule.id));
+    const [liked, setLiked] = useState(false); // Local only for session as we don't auth users fully for likes yet
 
     const isCurrent = currentTrack?.audioUrl === capsule.audioUrl;
     const isActive = isCurrent && isPlaying;
@@ -50,6 +52,12 @@ const AudioCapsuleCard = ({ capsule }) => {
                 console.error('Failed to copy text: ', err);
             }
         }
+    };
+
+    const handleLike = async (e) => {
+        e.stopPropagation();
+        setLiked(!liked);
+        await toggleCapsuleLike(capsule.id, !liked);
     };
 
     return (
@@ -162,6 +170,35 @@ const AudioCapsuleCard = ({ capsule }) => {
                             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                         </svg>
+
+                    </button>
+
+                    {/* Like Button */}
+                    <button
+                        onClick={handleLike}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: '4px',
+                            color: liked ? '#EF4444' : 'var(--color-text-secondary)',
+                            transition: 'transform 0.1s'
+                        }}
+                        title={liked ? "Ya no me gusta" : "Me gusta"}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill={liked ? "currentColor" : "none"}
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
                     </button>
 
                     {/* Save Button */}
@@ -172,21 +209,22 @@ const AudioCapsuleCard = ({ capsule }) => {
                             border: 'none',
                             cursor: 'pointer',
                             padding: '4px',
-                            color: saved ? '#EF4444' : 'var(--color-border)' // Red or Gray
+                            color: saved ? '#2563EB' : 'var(--color-text-secondary)'
                         }}
                         title={saved ? "Quitar de favoritos" : "Guardar"}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
                             viewBox="0 0 24 24"
                             fill={saved ? "currentColor" : "none"}
-                            stroke={saved ? "currentColor" : "currentColor"}
+                            stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            style={{ width: '20px', height: '20px', color: saved ? '#EF4444' : '#9CA3AF' }}
                         >
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                         </svg>
                     </button>
                 </div>
@@ -199,7 +237,7 @@ const AudioCapsuleCard = ({ capsule }) => {
                 }
                 `}
             </style>
-        </div>
+        </div >
     );
 };
 

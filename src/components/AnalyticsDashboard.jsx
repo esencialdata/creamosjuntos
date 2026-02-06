@@ -3,7 +3,7 @@ import { CONFIG, VERSES_POOL } from '../config/data';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
 
 const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
-    const [viewMode, setViewMode] = useState('sermons'); // 'sermons' | 'slides' | 'verses'
+    const [viewMode, setViewMode] = useState('sermons'); // 'sermons' | 'slides' | 'verses' | 'audios'
     const [sortBy, setSortBy] = useState('impact_desc');
 
     // Determine max value for chart scaling (Pulse)
@@ -122,18 +122,55 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
         }));
     }, [stats, isLive]);
 
-    // 4. Sorting
+    // 4. Data Aggregation (Audios)
+    const aggregatedAudios = useMemo(() => {
+        if (!CONFIG.audioCapsules) return [];
+
+        return CONFIG.audioCapsules.map(capsule => {
+            // Likes from global stats object
+            const likes = stats.capsuleLikes?.[capsule.id] || 0;
+
+            // Saves from topCapsulesBookmarks array (which is [{name: "Title", count: X}, ...])
+            // Note: The bookmark aggregation uses Title or ID as key. AudioCapsuleCard saves with itemID.
+            // But getCommunityStats logic for 'capsule' used (data.title || data.itemID) as key.
+            // We need to check both.
+            let saves = 0;
+            if (stats.topCapsulesBookmarks) {
+                const matchTitle = stats.topCapsulesBookmarks.find(i => i.name === capsule.title);
+                const matchId = stats.topCapsulesBookmarks.find(i => i.name == capsule.id); // Loose equality for number/string id
+                saves = (matchTitle?.count || 0) + (matchId?.count || 0);
+            }
+
+            return {
+                id: `a-${capsule.id}`,
+                title: capsule.title,
+                duration: capsule.duration,
+                likes: likes,
+                saves: saves,
+                totalImpact: likes + saves,
+                type: 'audio'
+            };
+        }).filter(item => item.totalImpact > 0 || isLive); // Show if live even if 0, or stick to filter > 0? Let's just filter > 0 to keep it clean unless requested otherwise.
+
+    }, [stats, isLive]);
+
+    // 5. Sorting
     const sortedData = useMemo(() => {
         let data = [];
         if (viewMode === 'sermons') data = [...aggregatedSermons];
         else if (viewMode === 'slides') data = [...aggregatedSlides];
         else if (viewMode === 'verses') data = [...aggregatedVerses];
+        else if (viewMode === 'audios') data = [...aggregatedAudios];
 
         if (viewMode === 'sermons') {
             if (sortBy === 'date') data.sort((a, b) => b.parsedDate - a.parsedDate);
             else if (sortBy === 'impact_desc') data.sort((a, b) => b.lights - a.lights);
         } else if (viewMode === 'slides') {
             data.sort((a, b) => b.lights - a.lights);
+        } else if (viewMode === 'audios') {
+            if (sortBy === 'saves') data.sort((a, b) => b.saves - a.saves);
+            else if (sortBy === 'likes') data.sort((a, b) => b.likes - a.likes);
+            else data.sort((a, b) => b.totalImpact - a.totalImpact); // Default impact
         } else {
             data.sort((a, b) => b.likes - a.likes);
         }
@@ -150,7 +187,8 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                     {[
                         { id: 'sermons', label: 'Predicaciones' },
                         { id: 'slides', label: 'Carruseles' },
-                        { id: 'verses', label: 'Citas' }
+                        { id: 'verses', label: 'Citas' },
+                        { id: 'audios', label: 'Audios' }
                     ].map(tab => (
                         <button
                             key={tab.id}
@@ -224,7 +262,8 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                 <div style={{
                     background: viewMode === 'verses' ? 'linear-gradient(135deg, #065f46 0%, #059669 100%)' :
                         viewMode === 'slides' ? 'linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)' :
-                            'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)',
+                            viewMode === 'audios' ? 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)' :
+                                'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)',
                     borderRadius: '16px',
                     padding: '1.5rem',
                     color: 'white',
@@ -239,10 +278,10 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                         </p>
                         <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '0.5rem' }}>
                             <span style={{ fontSize: '2.5rem', fontWeight: '800', color: '#FCD34D' }}>
-                                {viewMode === 'verses' ? topItem.likes : topItem.lights}
+                                {viewMode === 'verses' ? topItem.likes : (viewMode === 'audios' ? topItem.totalImpact : topItem.lights)}
                             </span>
                             <span style={{ fontSize: '1rem', fontWeight: '500', opacity: 0.9 }}>
-                                {viewMode === 'verses' ? 'me gusta' : 'reacciones'}
+                                {viewMode === 'verses' ? 'me gusta' : viewMode === 'audios' ? 'impacto total' : 'reacciones'}
                             </span>
                         </div>
                         <h4 style={{ fontSize: '1.25rem', fontWeight: '600', lineHeight: 1.3 }}>
@@ -266,6 +305,8 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                     <option value="impact_asc">Menor Impacto</option>
                     {viewMode === 'slides' && <option value="shares">Más Compartidos</option>}
                     {viewMode === 'slides' && <option value="saves">Más Guardados</option>}
+                    {viewMode === 'audios' && <option value="likes">Más Gustados</option>}
+                    {viewMode === 'audios' && <option value="saves">Más Guardados</option>}
                     {viewMode === 'sermons' && <option value="date">Más Recientes</option>}
                 </select>
             </div>
@@ -296,6 +337,12 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                                 )}
                                 {viewMode === 'verses' && (
                                     <span title="Me Gusta">❤️ <strong>{item.likes}</strong></span>
+                                )}
+                                {viewMode === 'audios' && (
+                                    <>
+                                        <span title="Me Gusta">❤️ <strong>{item.likes}</strong></span>
+                                        <span title="Guardados">💾 <strong>{item.saves}</strong></span>
+                                    </>
                                 )}
                             </div>
                         </div>
