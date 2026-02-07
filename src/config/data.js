@@ -431,7 +431,7 @@ export const CONFIG = {
             weekId: 7,
             title: "1. El Mito de la Fuerza de Voluntad",
             duration: "3:45",
-            audioUrl: "/ELMITO-DE-LA-FUERZA.mp3",
+            audioUrl: "/ELMITO-DE-LA-FUERZA-de-voluntad.mp3",
             color: "#2563EB" // Primary Brand Color
         },
         {
