@@ -6,8 +6,20 @@ import { toggleCapsuleLike } from '../services/firestoreService';
 const AudioCapsuleCard = ({ capsule }) => {
     const { playTrack, currentTrack, isPlaying } = useGlobalPlayer();
     const { isBookmarked, toggleBookmark } = useBookmarks();
-    const [saved, setSaved] = useState(isBookmarked(capsule.id));
-    const [liked, setLiked] = useState(false); // Local only for session as we don't auth users fully for likes yet
+
+    // Derived state for saved (sync with hook)
+    const [saved, setSaved] = useState(false);
+
+    // Initialize liked state from localStorage
+    const [liked, setLiked] = useState(() => {
+        const storedLikes = JSON.parse(localStorage.getItem('audio_likes') || '{}');
+        return !!storedLikes[capsule.id];
+    });
+
+    // Effect to sync saved state when bookmarks change
+    React.useEffect(() => {
+        setSaved(isBookmarked(capsule.id));
+    }, [isBookmarked, capsule.id]);
 
     const isCurrent = currentTrack?.audioUrl === capsule.audioUrl;
     const isActive = isCurrent && isPlaying;
@@ -56,8 +68,24 @@ const AudioCapsuleCard = ({ capsule }) => {
 
     const handleLike = async (e) => {
         e.stopPropagation();
-        setLiked(!liked);
-        await toggleCapsuleLike(capsule.id, !liked);
+
+        // Prevent spamming if already in that state (optimistic UI handles verify, but just in case)
+        // actually we want to toggle.
+
+        const newLikedState = !liked;
+        setLiked(newLikedState);
+
+        // Update LocalStorage
+        const storedLikes = JSON.parse(localStorage.getItem('audio_likes') || '{}');
+        if (newLikedState) {
+            storedLikes[capsule.id] = true;
+        } else {
+            delete storedLikes[capsule.id];
+        }
+        localStorage.setItem('audio_likes', JSON.stringify(storedLikes));
+
+        // Update Firestore
+        await toggleCapsuleLike(capsule.id, newLikedState);
     };
 
     return (
