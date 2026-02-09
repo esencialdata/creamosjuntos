@@ -1446,6 +1446,81 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Cierre"
                 }
             ]
+        },
+        {
+            id: 18,
+            weekId: 10,
+            availableFrom: "2026-02-09T00:00:00",
+            title: "EL FRENO INVISIBLE",
+            description: "A veces el enemigo no está afuera, sino oculto adentro.",
+            themeStyles: {
+                bg: '#FFFFFF',
+                textPrimary: '#1F2937',
+                textSecondary: '#4B5563',
+                accent: '#059669',
+                cardBorder: '1px solid #E5E7EB',
+                cardShadow: '0 8px 16px -4px rgba(5, 150, 105, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Por qué sientes que no avanzas?",
+                    subtitle: "A veces el enemigo no está afuera, sino oculto adentro.",
+                    videoUrl: "/ancla_error_opt.mp4",
+                    footerText: "Desliza para autoevaluarte ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Problema",
+                    title: "El \"Síndrome de Adán\"",
+                    body: "El instinto humano ante el error es siempre el mismo desde el Edén:\n\nEsconderse: \"Oí tu voz... y escondíme\" (Génesis 3:10).\n\nCulpar a otro: \"La mujer que me diste...\" / \"La serpiente me engañó...\".",
+                    citation: "Mientras busques un culpable fuera de ti, pierdes el poder de cambiar tu realidad.",
+                    reference: "Génesis 3:12"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Diagnóstico",
+                    title: "La Regla de Medición",
+                    body: "Para corregir tu vida, necesitas objetividad, no sentimientos. ¿Qué es el pecado? \"El pecado es transgresión de la ley\" (1 Juan 3:4, RVA).",
+                    citation: "La Ley de Dios no es para condenarte, es el espejo que te muestra exactamente dónde está la mancha que te impide brillar.",
+                    reference: "1 Juan 3:4 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "El Versículo Clave",
+                    title: "La Ley de la Prosperidad",
+                    body: "\"El que encubre sus pecados, no prosperará: Mas el que los confiesa y se aparta, alcanzará misericordia.\"\n\nNota: Prosperar bíblicamente implica tener éxito en la misión de vida. El pecado oculto es el ancla que lo impide.",
+                    citation: "El pecado oculto es el ancla que impide tu prosperidad.",
+                    reference: "Proverbios 28:13 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Paso 1: Confesar",
+                    title: "Homologeo: \"Decir lo Mismo\"",
+                    body: "La confesión bíblica no es dar excusas. Es llamar al error por su nombre bíblico.\n\n❌ No digas: \"Tuve un desliz\".\n✅ Di: \"Transgredí el mandamiento\".",
+                    citation: "Dios perdona pecados confesados, no excusas justificadas.",
+                    reference: "Salmo 32:3-5"
+                },
+                {
+                    type: "diagnostic",
+                    label: "Paso 2: Apartarse",
+                    title: "La Verdadera Metanoia",
+                    body: "El arrepentimiento incompleto es solo remordimiento. La fórmula bíblica es: Confesión + Cambio de Conducta = Misericordia.\n\nSi robabas, no solo pidas perdón: trabaja y restituye (Efesios 4:28).",
+                    citation: "Apartarse significa crear un nuevo hábito de justicia donde antes había un hábito de pecado.",
+                    reference: "Efesios 4:28"
+                },
+                {
+                    type: "action",
+                    title: "Tu Reto Semanal",
+                    subtitle: "Deja de mirar a los lados buscando culpables.",
+                    steps: [
+                        "Mírate en el espejo de la Palabra (RVA).",
+                        "Confiesa el error y diseña un plan para no repetirlo."
+                    ],
+                    citation: "\"Si confesamos nuestros pecados, él es fiel y justo para perdonar...\"",
+                    reference: "1 Juan 1:9"
+                }
+            ]
         }
     ],
     weeklyHabit: {
