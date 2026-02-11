@@ -447,7 +447,7 @@ export const CONFIG = {
             weekId: 10,
             title: "3. Por qué haces lo que aborreces (Psicología oculta)",
             duration: "04:25",
-            audioUrl: "/e3v1.mp3",
+            audioUrl: "/episode3.mp3",
             color: "#475569" // Slate 600 - Neutral/Cool to avoid clashing with blues
         }
     ],
