@@ -1560,7 +1560,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         {
             id: 3,
             name: "Escribí en mi mente y en mi corazón la sabiduría de Dios",
-            action: "Escribe con lapiz en un cuaderno una cita bíblica, el escribirlo a mano crea conexiones en nuestra mente",
+            action: "Escribe con lápiz en un cuaderno una cita bíblica, el escribirlo a mano crea conexiones en nuestra mente",
             reference: "Proverbios 3:3, Proverbios 7:3"
         },
         {
