@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 .vercel
 public/e2.wav
+public/*.pkf
