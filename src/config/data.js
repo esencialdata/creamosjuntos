@@ -257,7 +257,7 @@ export const VERSES_POOL = [
         text: "Mas él herido fué por nuestras rebeliones, molido por nuestros pecados: el castigo de nuestra paz sobre él; y por su llaga fuimos nosotros curados.",
         reference: "Isaías 53:5",
         likes: 0,
-        comment: "La sanidad y la paz que disfrutamos tienen un precio altísimo que no pagamos nosotros; nunca miremos la cruz sin recordar el costo de nuestra libertad."
+        comment: "La sanidad y la paz que disfrutamos tienen un precio altísimo que no pagamos nosotros; nunca miremos nuestra vida sin recordar y valorar el costo de nuestra libertad."
     },
     {
         text: "Mas vuestras iniquidades han hecho división entre vosotros y vuestro Dios, y vuestros pecados han hecho ocultar su rostro de vosotros, para no oír.",
@@ -441,6 +441,14 @@ export const CONFIG = {
             duration: "3:58",
             audioUrl: "/laparadoja-de.mp3",
             color: "#60A5FA" // Matches Week 9 theme accent
+        },
+        {
+            id: 3,
+            weekId: 10,
+            title: "3. Por qué haces lo que aborreces (Psicología oculta)",
+            duration: "04:25",
+            audioUrl: "/e3v1.mp3",
+            color: "#475569" // Slate 600 - Neutral/Cool to avoid clashing with blues
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
