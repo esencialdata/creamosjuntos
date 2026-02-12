@@ -1529,6 +1529,88 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "1 Juan 1:9"
                 }
             ]
+        },
+        {
+            id: 19,
+            weekId: 10,
+            availableFrom: "2026-02-12T00:00:00", // Scheduled for Thursday
+            title: "LA INTENCIÓN OCULTA",
+            description: "Existe una razón secreta por la que repites lo que dices odiar.",
+            themeStyles: {
+                bg: '#0F172A', // Dark Navy/Black
+                textPrimary: '#F8FAFC', // White/Off-white
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#D4AF37', // Gold/Beige
+                cardBorder: '1px solid #1E293B',
+                cardShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.5)',
+                fontSerif: '"Playfair Display", serif'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "TU FRACASO NO ES UN ACCIDENTE.",
+                    subtitle: "Existe una razón secreta por la que repites lo que dices odiar.",
+                    imageUrl: "/intencion_oculta.png",
+                    footerText: "Desliza para descubrir tu Intención Oculta ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL AUTOENGAÑO",
+                    title: "Deja de decir \"tropecé con la misma piedra\".",
+                    body: "Si tropiezas con la misma piedra 100 veces, no es mala suerte. Es que esa piedra te sirve de escondite.\n\nLa Base Bíblica: Jeremías 8:5 (RVA) describe esta conducta humana como aquellos que \"abrazaron el engaño, y no han querido volverse\".\n\nExplicación: En el fondo, mantienes el problema porque \"abrazas\" la recompensa secreta que te da: Seguridad, Comodidad o una Excusa.",
+                    citation: "\"Abrazaron el engaño, y no han querido volverse.\"",
+                    reference: "Jeremías 8:5 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LAS EXCUSAS \"VÁLIDAS\"",
+                    title: "¿Qué \"gana\" tu cerebro al fallar?",
+                    body: "El Principio: En Lucas 14:18 (RVA), las personas rechazaron un llamado importante usando excusas socialmente aceptables: \"compré una hacienda\", \"me he casado\".\n\nEjemplo A: El \"Indeciso Eterno\"\nLa Excusa: \"Necesito pensarlo más.\" → La Ganancia: Evitar el riesgo de equivocarse.\n\nEjemplo B: El \"Trabajador Compulsivo\"\nLa Excusa: \"Lo hago por mi familia.\" → La Ganancia: Usar el trabajo como escudo para no enfrentar el vacío de su hogar.",
+                    citation: "Excusas socialmente aceptables para rechazar el llamado.",
+                    reference: "Lucas 14:18 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA RAÍZ DEL PROBLEMA",
+                    title: "No es tu entorno, es tu Deseo.",
+                    body: "La Metáfora: La palabra \"cebado\" alude a la carnada. El pez no muerde el anzuelo por error; lo muerde porque desea la carnada.\n\nAplicación: Tú no caes en el viejo hábito por accidente; caes porque una parte de ti todavía desea la recompensa secreta que te ofrece.",
+                    citation: "Sino que cada uno es tentado, cuando de su propia concupiscencia es atraído y cebado.",
+                    reference: "Santiago 1:14 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL COSTO DE SANAR",
+                    title: "Tu dolor es tu armadura.",
+                    body: "La Pregunta Incómoda: En Juan 5:6 (RVA), Jesús le preguntó a un hombre que llevaba 38 años paralizado: \"¿Quieres ser sano?\". Parecía obvio, pero no lo era. Si sanaba, perdía su medio de vida y sus excusas.\n\nTexto: A veces, sanar da miedo.\nSi dejas de ser \"la víctima\", tendrás que ser \"el responsable\".\nMuchos prefieren una esclavitud conocida que una libertad que exige responsabilidad.",
+                    citation: "¿Quieres ser sano?",
+                    reference: "Juan 5:6 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "LA HERRAMIENTA: Cambia la pregunta.",
+                    subtitle: "El Mandato: \"Escudriñemos nuestros caminos, y busquemos...\" (Lamentaciones 3:40, RVA).",
+                    steps: [
+                        "Cuando falles, no te preguntes \"¿Por qué soy así?\" (Eso solo genera culpa estéril).",
+                        "La Pregunta de Poder: Pregunta: \"¿Para qué estoy haciendo esto?\"",
+                        "¿Para qué pospongo esto? (¿Para evitar críticas?)",
+                        "Resultado: Al hacer consciente la ganancia, el hábito pierde su poder sobre ti."
+                    ],
+                    citation: "Escudriñar es buscar la intención profunda.",
+                    reference: "Lamentaciones 3:40"
+                },
+                {
+                    type: "action",
+                    title: "EL AUTOENGAÑO TIENE FECHA DE CADUCIDAD.",
+                    subtitle: "La verdad os hará libres.",
+                    steps: [
+                        "Puedes convencer a tu entorno de tus \"buenas razones\", pero en tu interior sabes que no quieres pagar el precio.",
+                        "La Verdad: La Escritura dice: \"Todos los caminos del hombre son limpios en su opinión: Mas Jehová pesa los espíritus\" (Prov 16:2).",
+                        "Reflexión Final: La verdadera transformación comienza cuando tienes la valentía de ser brutalmente honesto contigo mismo y con tu Creador."
+                    ],
+                    citation: "🎙️ En el Episodio 3 del Podcast, profundizamos en cómo desmantelar estas trampas mentales.",
+                    reference: "Cierre / CTA"
+                }
+            ]
         }
     ],
     weeklyHabit: {
