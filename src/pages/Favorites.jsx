@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import { useBookmarks } from '../hooks/useBookmarks';
 import { shareContent } from '../utils/share';
 import WeeklyTheme from '../components/WeeklyTheme';
+import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import { CONFIG } from '../config/data';
 
 const Favorites = () => {
@@ -15,7 +16,7 @@ const Favorites = () => {
 
     const verses = allBookmarks.filter(item => item.itemType === 'quote');
     const topics = allBookmarks.filter(item => item.itemType === 'topic');
-    const events = allBookmarks.filter(item => item.itemType === 'event');
+    const capsules = allBookmarks.filter(item => item.itemType === 'capsule');
 
     const handleShare = async (text) => {
         await shareContent('Biblioteca personal - Creamos Juntos', text, window.location.href);
@@ -40,40 +41,6 @@ const Favorites = () => {
             <p style={{ fontSize: '0.9rem' }}>
                 Marca "Me interesa" en los eventos o el corazón en versículos para verlos aquí.
             </p>
-        </div>
-    );
-
-    const EventCard = ({ item }) => (
-        <div style={{
-            background: 'var(--color-bg-secondary)',
-            borderRadius: '12px',
-            padding: '1.5rem',
-            marginBottom: '1rem',
-            border: '1px solid var(--color-border)',
-            borderLeft: '4px solid var(--color-accent)'
-        }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div>
-                    <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-text-secondary)', display: 'block', marginBottom: '0.25rem' }}>
-                        {item.contentPreview}
-                    </span>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--color-text-primary)' }}>
-                        {item.title}
-                    </h3>
-                    {item.objective && (
-                        <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginTop: '0.5rem', lineHeight: '1.4' }}>
-                            {item.objective}
-                        </p>
-                    )}
-                </div>
-                <button
-                    onClick={() => toggleBookmark(item)}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', padding: '0.25rem' }}
-                    title="Eliminar de mis intereses"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                </button>
-            </div>
         </div>
     );
 
@@ -248,13 +215,13 @@ const Favorites = () => {
                         Temas
                     </button>
                     <button
-                        onClick={() => setActiveTab('events')}
+                        onClick={() => setActiveTab('audios')}
                         style={{
                             padding: '1rem 1.5rem',
                             background: 'none',
                             border: 'none',
-                            borderBottom: activeTab === 'events' ? '2px solid var(--color-accent)' : '2px solid transparent',
-                            color: activeTab === 'events' ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
+                            borderBottom: activeTab === 'audios' ? '2px solid var(--color-accent)' : '2px solid transparent',
+                            color: activeTab === 'audios' ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
                             fontFamily: 'var(--font-sans)',
                             fontWeight: 600,
                             cursor: 'pointer',
@@ -262,7 +229,7 @@ const Favorites = () => {
                             transition: 'all 0.2s'
                         }}
                     >
-                        Eventos
+                        Audios
                     </button>
                 </div>
 
@@ -299,14 +266,14 @@ const Favorites = () => {
                         </div>
                     )}
 
-                    {activeTab === 'events' && (
+                    {activeTab === 'audios' && (
                         <div>
-                            {events.length === 0 ? (
+                            {capsules.length === 0 ? (
                                 <EmptyState />
                             ) : (
-                                <div>
-                                    {events.map(item => (
-                                        <EventCard key={item.itemID} item={item} />
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+                                    {capsules.map(item => (
+                                        <AudioCapsuleCard key={item.itemID} capsule={item} />
                                     ))}
                                 </div>
                             )}

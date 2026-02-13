@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import DailyVerse from '../components/DailyVerse';
 import WeeklyTheme from '../components/WeeklyTheme';
@@ -15,6 +16,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
     const [streak, setStreak] = useState(null);
     const [schedule, setSchedule] = useState([]);
     const { isInstallable, install } = usePWAInstall();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const currentStreak = updateStreak();
@@ -117,21 +119,44 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 })()}
 
                 {/* Tu Dosis Semanal Section */}
-                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (
-                    <section>
-                        <h3 style={{
-                            fontSize: '0.875rem',
-                            textTransform: 'uppercase',
-                            marginBottom: 'var(--spacing-sm)',
-                            color: 'var(--color-accent)'
-                        }}>
-                            Para escuchar
-                        </h3>
-                        {CONFIG.audioCapsules.map(capsule => (
-                            <AudioCapsuleCard key={capsule.id} capsule={capsule} />
-                        ))}
-                    </section>
-                )}
+                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (() => {
+                    const latestAudios = CONFIG.audioCapsules.slice(-3);
+                    return (
+                        <section>
+                            <h3 style={{
+                                fontSize: '0.875rem',
+                                textTransform: 'uppercase',
+                                marginBottom: 'var(--spacing-sm)',
+                                color: 'var(--color-accent)'
+                            }}>
+                                Para escuchar
+                            </h3>
+                            {latestAudios.map(capsule => (
+                                <AudioCapsuleCard key={capsule.id} capsule={capsule} />
+                            ))}
+                            {CONFIG.audioCapsules.length > 3 && (
+                                <button
+                                    onClick={() => navigate('/recursos?anchor=audios-tab')}
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.75rem',
+                                        backgroundColor: 'transparent',
+                                        color: 'var(--color-primary)',
+                                        border: '1px solid var(--color-primary)',
+                                        borderRadius: '8px',
+                                        fontWeight: '600',
+                                        cursor: 'pointer',
+                                        fontSize: '0.9rem',
+                                        marginTop: 'var(--spacing-xs)',
+                                        transition: 'all 0.2s ease'
+                                    }}
+                                >
+                                    Ver todos los audios →
+                                </button>
+                            )}
+                        </section>
+                    );
+                })()}
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}

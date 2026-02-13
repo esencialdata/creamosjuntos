@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import WeeklyTheme from '../components/WeeklyTheme';
+import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import { CONFIG, VERSES_POOL } from '../config/data';
 import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
@@ -29,7 +30,9 @@ const Library = () => {
         };
 
         const anchor = getAnchor();
-        if (anchor) {
+        if (anchor === 'audios-tab') {
+            setActiveTab('audios');
+        } else if (anchor) {
             setActiveTab('verses');
             setTimeout(() => {
                 const element = document.getElementById(anchor);
@@ -49,6 +52,7 @@ const Library = () => {
                 }
             }, 500);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Filter verses to only show those released up to today
@@ -74,36 +78,28 @@ const Library = () => {
                     borderBottom: '1px solid var(--color-border)',
                     marginBottom: 'var(--spacing-lg)'
                 }}>
-                    <button
-                        onClick={() => setActiveTab('themes')}
-                        style={{
-                            padding: 'var(--spacing-sm) var(--spacing-md)',
-                            background: 'none',
-                            border: 'none',
-                            borderBottom: activeTab === 'themes' ? '2px solid var(--color-primary)' : '2px solid transparent',
-                            color: activeTab === 'themes' ? 'var(--color-primary)' : 'var(--color-text-secondary)',
-                            fontWeight: activeTab === 'themes' ? 700 : 400,
-                            cursor: 'pointer',
-                            fontSize: '1rem'
-                        }}
-                    >
-                        Temas Semanales
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('verses')}
-                        style={{
-                            padding: 'var(--spacing-sm) var(--spacing-md)',
-                            background: 'none',
-                            border: 'none',
-                            borderBottom: activeTab === 'verses' ? '2px solid var(--color-primary)' : '2px solid transparent',
-                            color: activeTab === 'verses' ? 'var(--color-primary)' : 'var(--color-text-secondary)',
-                            fontWeight: activeTab === 'verses' ? 700 : 400,
-                            cursor: 'pointer',
-                            fontSize: '1rem'
-                        }}
-                    >
-                        Citas Bíblicas
-                    </button>
+                    {[
+                        { id: 'themes', label: 'Temas' },
+                        { id: 'verses', label: 'Citas Bíblicas' },
+                        { id: 'audios', label: 'Audios' }
+                    ].map(tab => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            style={{
+                                padding: 'var(--spacing-sm) var(--spacing-md)',
+                                background: 'none',
+                                border: 'none',
+                                borderBottom: activeTab === tab.id ? '2px solid var(--color-primary)' : '2px solid transparent',
+                                color: activeTab === tab.id ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                                fontWeight: activeTab === tab.id ? 700 : 400,
+                                cursor: 'pointer',
+                                fontSize: '0.9rem'
+                            }}
+                        >
+                            {tab.label}
+                        </button>
+                    ))}
                 </div>
 
                 {/* Content */}
@@ -369,6 +365,20 @@ const Library = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                )}
+
+                {activeTab === 'audios' && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+                        {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 ? (
+                            CONFIG.audioCapsules.map(capsule => (
+                                <AudioCapsuleCard key={capsule.id} capsule={capsule} />
+                            ))
+                        ) : (
+                            <p style={{ color: 'var(--color-text-secondary)', textAlign: 'center', padding: 'var(--spacing-lg)' }}>
+                                Aún no hay audios disponibles.
+                            </p>
+                        )}
                     </div>
                 )}
 

@@ -18,7 +18,7 @@ const AudioCapsuleCard = ({ capsule }) => {
 
     // Effect to sync saved state when bookmarks change
     React.useEffect(() => {
-        setSaved(isBookmarked(capsule.id));
+        setSaved(isBookmarked(`audio-${capsule.id}`));
     }, [isBookmarked, capsule.id]);
 
     const isCurrent = currentTrack?.audioUrl === capsule.audioUrl;
@@ -31,7 +31,7 @@ const AudioCapsuleCard = ({ capsule }) => {
     const handleSave = async (e) => {
         e.stopPropagation();
         const itemToSave = {
-            itemID: capsule.id,
+            itemID: `audio-${capsule.id}`,
             itemType: 'capsule',
             title: capsule.title,
             contentPreview: capsule.duration,
