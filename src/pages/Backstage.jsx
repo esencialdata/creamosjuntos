@@ -17,12 +17,28 @@ const MINISTERIAL_EVENTS_2026 = [
         alimentos: 'Tierra Nueva'
     },
     {
+        id: '2026-02-15',
+        dateISO: '2026-02-15',
+        sede: 'Cortazar',
+        temario: ['Taller de Superintendencia con identidad propia de la Iglesia de Dios (Israelita)'],
+        responsable: 'Representación Regional: Diác. Esdras Martínez',
+        alimentos: 'Cortazar'
+    },
+    {
         id: '2026-03-15',
         dateISO: '2026-03-15',
         sede: 'La Labor',
         temario: ['Reino Eternal', 'Nueva Jerusalén'],
         responsable: 'Administración General',
         alimentos: 'La Labor'
+    },
+    {
+        id: '2026-04-19',
+        dateISO: '2026-04-19',
+        sede: 'Cortazar',
+        temario: ['Taller de Impartición de Escuelas Sabáticas'],
+        responsable: 'Representación Regional: Diác. Esdras Martínez',
+        alimentos: 'San Juan del Río'
     },
     {
         id: '2026-05-17',
@@ -33,6 +49,17 @@ const MINISTERIAL_EVENTS_2026 = [
         alimentos: 'Irapuato'
     },
     {
+        id: '2026-06-21',
+        dateISO: '2026-06-21',
+        sede: 'Cortazar',
+        temario: [
+            'Taller de Elaboración de Temas Bíblicos (homilética)',
+            'Curso de búsqueda de información confiable para apoyo en la enseñanza bíblica'
+        ],
+        responsable: 'Representación Regional: Ayu. Aarón Espinosa',
+        alimentos: 'León'
+    },
+    {
         id: '2026-07-19',
         dateISO: '2026-07-19',
         sede: 'La Labor',
@@ -41,13 +68,59 @@ const MINISTERIAL_EVENTS_2026 = [
         alimentos: 'Campo David'
     },
     {
+        id: '2026-08-16',
+        dateISO: '2026-08-16',
+        sede: 'Cortazar',
+        temario: ['Hermenéutica', 'Taller de Análisis Doctrinal de la Iglesia de Dios (Israelita)'],
+        responsable: 'Representación Regional: Diác. Esdras Martínez',
+        alimentos: 'La Luz'
+    },
+    {
         id: '2026-09-20',
         dateISO: '2026-09-20',
         sede: 'La Labor',
-        temario: ['Los siete sellos, primera parte: 1-4 (cuatro caballos)'],
+        temario: ['Los siete sellos, primera parte: 1-4 (cuatro caballos)', 'Los siete sellos, segunda parte: 5-7'],
         responsable: 'Administración General',
         alimentos: 'Tierra Nueva'
+    },
+    {
+        id: '2026-10-18',
+        dateISO: '2026-10-18',
+        sede: 'Cortazar',
+        temario: ['Lectura Efectiva'],
+        responsable: 'Representación Regional: Diác. Semei Tiburcio',
+        alimentos: 'Celaya'
+    },
+    {
+        id: '2026-11-22',
+        dateISO: '2026-11-22',
+        sede: 'La Labor',
+        temario: ['Las siete trompetas, primera parte: 1-4', 'Las siete trompetas, segunda parte: 5-7'],
+        responsable: 'Administración General',
+        alimentos: 'La Labor'
+    },
+    {
+        id: '2026-12-20',
+        dateISO: '2026-12-20',
+        sede: 'Cortazar',
+        temario: ['Ética Ministerial'],
+        responsable: 'Representación Regional: Min. Julio Silva',
+        alimentos: 'San Luis Potosí'
     }
+];
+
+const MINISTERIAL_TUESDAY_STUDIES_2026 = [
+    { month: 'Febrero', topic: 'Curso preparación ministerial', facilitator: 'Dpto. Educativo Regional' },
+    { month: 'Marzo', topic: 'Administración de localidades I y II', facilitator: 'Ayu. Samuel Arias' },
+    { month: 'Abril', topic: 'Funciones y Responsabilidades I y II: Manual de Ceremonias y Manual del Obrero Efectivo', facilitator: 'Diác. Esdras Martínez' },
+    { month: 'Mayo', topic: 'Acuerdos conciliares', facilitator: 'Diác. Esdras Martínez' },
+    { month: 'Junio', topic: 'Estatuto orgánico / Código de sanciones y delitos', facilitator: 'Diác. Esdras Martínez' },
+    { month: 'Julio', topic: 'Burnout Ministerial / Consejería básica', facilitator: 'Dpto. Educativo Regional (profesional)' },
+    { month: 'Agosto', topic: 'Inteligencia Emocional / Resolución de conflictos', facilitator: 'Dpto. Educativo Regional (profesional)' },
+    { month: 'Septiembre', topic: 'Orientación Matrimonial / Orientación Familiar', facilitator: 'Dpto. Educativo Regional (profesional)' },
+    { month: 'Octubre', topic: 'Profecía I y II', facilitator: 'Min. Rafael Arias' },
+    { month: 'Noviembre', topic: 'Doctrina I y II', facilitator: 'Min. Rafael Arias' },
+    { month: 'Diciembre', topic: 'Se cancelan los estudios por actividades comerciales', facilitator: 'Programación regional' }
 ];
 
 const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, eventDate }) => {
@@ -410,24 +483,20 @@ const Backstage = () => {
                             }}>Próximos Eventos</h3>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>28 Feb</span>
-                                    <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Servicio Unificado (3 Localidades)</span>
-                                </li>
-                                <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>14 Mar</span>
-                                    <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Bautizos</span>
-                                </li>
-                                <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>01 Abr</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>31 Mar</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Pascua</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>22 May</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>21 May</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Pentecostés</span>
                                 </li>
                                 <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
-                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>22 Sep</span>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>25 Sep</span>
                                     <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Cabañas</span>
+                                </li>
+                                <li style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center' }}>
+                                    <span style={{ backgroundColor: '#fff', border: '1px solid #dbeafe', color: '#2563eb', padding: '4px 8px', borderRadius: '4px', marginRight: '0.8rem', fontSize: '0.9rem', width: '80px', textAlign: 'center', fontWeight: 'bold' }}>Local</span>
+                                    <span style={{ fontSize: '1rem', color: '#1e3a8a' }}>Bautismos por localidad</span>
                                 </li>
                             </ul>
                         </div>
@@ -445,7 +514,19 @@ const Backstage = () => {
                             <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', border: '1px solid #dbeafe' }}>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                     <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • Recordatorio: Confirmar asistencia a las reuniones antes del jueves.
+                                        • Asistencia objetivo: 100%.
+                                    </li>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • 50% reunión ministerial mensual (tercer domingo de mes).
+                                    </li>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • 20% estudio de escuela sabática (lunes - Churubusco / Adm. Gral.).
+                                    </li>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • 20% capacitación ministerial (último jueves de mes).
+                                    </li>
+                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
+                                        • 10% preparación ministerial (martes 8:00 p. m.).
                                     </li>
                                 </ul>
                             </div>
@@ -591,6 +672,54 @@ const Backstage = () => {
                                         );
                                     })}
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <section style={{
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '12px',
+                    padding: '1.5rem',
+                    marginBottom: '2rem',
+                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
+                }}>
+                    <div style={{ marginBottom: '1rem' }}>
+                        <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem' }}>Temas de Estudio Martes 2026</h3>
+                        <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
+                            Programa mensual de capacitación ministerial regional.
+                        </p>
+                    </div>
+
+                    <div style={{ display: 'grid', gap: '0.8rem' }}>
+                        {MINISTERIAL_TUESDAY_STUDIES_2026.map((item) => (
+                            <div key={item.month} style={{
+                                border: '1px solid #e2e8f0',
+                                borderRadius: '10px',
+                                padding: '0.9rem 1rem',
+                                backgroundColor: item.month === 'Diciembre' ? '#fff7ed' : '#f8fafc'
+                            }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                                    <span style={{
+                                        fontSize: '0.78rem',
+                                        fontWeight: '700',
+                                        letterSpacing: '0.06em',
+                                        textTransform: 'uppercase',
+                                        color: '#1e3a8a',
+                                        background: '#dbeafe',
+                                        borderRadius: '999px',
+                                        padding: '2px 9px'
+                                    }}>
+                                        {item.month}
+                                    </span>
+                                    <span style={{ fontSize: '0.82rem', color: '#334155', fontWeight: 600 }}>
+                                        {item.facilitator}
+                                    </span>
+                                </div>
+                                <p style={{ margin: '0.65rem 0 0 0', color: '#1f2937', fontSize: '0.95rem', lineHeight: 1.35 }}>
+                                    {item.topic}
+                                </p>
                             </div>
                         ))}
                     </div>

@@ -1611,6 +1611,86 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Cierre / CTA"
                 }
             ]
+        },
+        {
+            id: 20,
+            weekId: 11,
+            availableFrom: "2026-02-16T00:00:00",
+            title: "EL ALIMENTO QUE NO SE VE",
+            description: "El pan no basta para vivir.",
+            themeStyles: {
+                bg: '#F7F4EC',
+                textPrimary: '#1F2937',
+                textSecondary: '#6B7280',
+                accent: '#B45309',
+                cardBorder: '1px solid #E5E7EB',
+                cardShadow: '0 10px 22px -10px rgba(180, 83, 9, 0.18)',
+                fontSerif: '"Playfair Display", serif'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "EL PAN NO BASTA PARA VIVIR.",
+                    subtitle: "La ciencia de la supervivencia espiritual.",
+                    imageUrl: "/hala-portada.jpg",
+                    footerText: "Desliza y alimenta lo invisible ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA CRISIS DEL DESIERTO",
+                    title: "PAN PARA EL CUERPO. PALABRA PARA LA EXISTENCIA.",
+                    body: "El cuerpo pide pan. Pero el espíritu necesita sustancia.\n\nEl pan sostiene tu biología; la Palabra sostiene tu existencia.",
+                    citation: "\"No con solo el pan vivirá el hombre...\"",
+                    reference: "Lucas 4:4 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ORIGEN DE LA LEY",
+                    title: "EL MANÁ FUE UNA LECCIÓN",
+                    body: "Dios permitió el hambre física para revelar una dependencia mayor.\n\nEl hambre fue el escenario. La lección fue: depender de toda palabra que sale de Dios.",
+                    citation: "\"...el hombre no vivirá de solo pan, mas de todo lo que sale de la boca de Jehová...\"",
+                    reference: "Deuteronomio 8:3 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "AUTORIDAD",
+                    title: "¿POR QUÉ TODA PALABRA?",
+                    body: "Punto de Fe IDI #1: La Biblia es la única regla de fe e infalible.\n\nSi la Palabra creó el universo, esa misma Palabra sostiene tu propósito hoy.",
+                    citation: "No es inspiración opcional. Es base legal de vida.",
+                    reference: "Génesis 1 / Doctrina IDI"
+                },
+                {
+                    type: "diagnostic",
+                    label: "BIOLOGÍA VS ETERNIDAD",
+                    title: "DOS ALIMENTOS, DOS RESULTADOS",
+                    body: "Pan: energía temporal (glucosa). Se acaba.\n\nPalabra: dirección eterna (Verdad). Permanece.",
+                    citation: "Quien solo alimenta su cuerpo, muere de hambre por dentro.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "action",
+                    title: "¿CÓMO SE COME LA PALABRA?",
+                    subtitle: "Hazlo hoy, no mañana.",
+                    steps: [
+                        "Lee: No por rutina, por necesidad.",
+                        "Cree: La fe es la digestión de la promesa.",
+                        "Obedece: Ahí la Palabra se convierte en conducta."
+                    ],
+                    citation: "El pan de ayer no alimenta hoy.",
+                    reference: "Práctica diaria"
+                },
+                {
+                    type: "action",
+                    title: "VIVE POR LA PALABRA",
+                    subtitle: "Jesús venció citando Escritura, no comiendo pan.",
+                    steps: [
+                        "Tu victoria no depende de tus recursos.",
+                        "Depende de lo que Dios ya escribió."
+                    ],
+                    citation: "Haz una pausa hoy: lee, cree y obedece la Palabra.",
+                    reference: "Cierre"
+                }
+            ]
         }
     ],
     weeklyHabit: {
