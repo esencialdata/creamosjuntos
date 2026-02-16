@@ -532,7 +532,7 @@ const Backstage = () => {
                     backgroundColor: '#ffffff',
                     border: '1px solid #e5e7eb',
                     borderRadius: '12px',
-                    padding: '1.5rem',
+                    padding: 'clamp(1rem, 3vw, 1.5rem)',
                     marginBottom: '2rem',
                     boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)',
                     order: 2
@@ -547,7 +547,7 @@ const Backstage = () => {
                     <div style={{
                         display: 'grid',
                         gap: '0.75rem',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
                         marginBottom: '1rem'
                     }}>
                         <select
@@ -628,18 +628,19 @@ const Backstage = () => {
                                                 <summary style={{
                                                     listStyle: 'none',
                                                     cursor: 'pointer',
-                                                    padding: '0.85rem 1rem',
+                                                    padding: '0.85rem 0.9rem',
                                                     display: 'flex',
                                                     justifyContent: 'space-between',
-                                                    gap: '1rem',
-                                                    alignItems: 'center'
+                                                    gap: '0.75rem',
+                                                    alignItems: 'flex-start',
+                                                    flexWrap: 'wrap'
                                                 }}>
-                                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
-                                                        <span style={{ fontWeight: '700', color: '#1e3a8a', minWidth: '98px' }}>{eventDateLabel}</span>
+                                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', flex: '1 1 220px', minWidth: 0 }}>
+                                                        <span style={{ fontWeight: '700', color: '#1e3a8a', whiteSpace: 'nowrap' }}>{eventDateLabel}</span>
                                                         <span style={{ background: '#dbeafe', color: '#1d4ed8', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>{event.sede}</span>
                                                         <span style={{ background: '#ecfeff', color: '#0f766e', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>Alimentos: {event.alimentos}</span>
                                                     </div>
-                                                    <span style={{ color: '#334155', fontSize: '0.82rem', fontWeight: '600', whiteSpace: 'nowrap' }}>
+                                                    <span style={{ color: '#334155', fontSize: '0.82rem', fontWeight: '600', whiteSpace: 'normal', lineHeight: 1.25, flex: '1 1 180px', minWidth: 0 }}>
                                                         {event.responsable}
                                                     </span>
                                                 </summary>
@@ -653,7 +654,7 @@ const Backstage = () => {
                                                     </p>
                                                     <ul style={{ margin: 0, paddingLeft: '1rem', color: '#1f2937' }}>
                                                         {event.temario.map(topic => (
-                                                            <li key={topic} style={{ marginBottom: '0.35rem', fontSize: '0.92rem', lineHeight: 1.35 }}>{topic}</li>
+                                                            <li key={topic} style={{ marginBottom: '0.35rem', fontSize: '0.92rem', lineHeight: 1.35, overflowWrap: 'anywhere' }}>{topic}</li>
                                                         ))}
                                                     </ul>
                                                 </div>
