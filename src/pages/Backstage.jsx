@@ -443,7 +443,7 @@ const Backstage = () => {
 
             {/* Main Content */
             }
-            <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
+            <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem', display: 'flex', flexDirection: 'column' }}>
 
                 {/* Hero / Info Card */}
                 <div style={{
@@ -514,19 +514,7 @@ const Backstage = () => {
                             <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', border: '1px solid #dbeafe' }}>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                     <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • Asistencia objetivo: 100%.
-                                    </li>
-                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • 50% reunión ministerial mensual (tercer domingo de mes).
-                                    </li>
-                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • 20% estudio de escuela sabática (lunes - Churubusco / Adm. Gral.).
-                                    </li>
-                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • 20% capacitación ministerial (último jueves de mes).
-                                    </li>
-                                    <li style={{ marginBottom: '0.5rem', fontSize: '0.95rem', color: '#334155' }}>
-                                        • 10% preparación ministerial (martes 8:00 p. m.).
+                                        • Sin avisos semanales por el momento.
                                     </li>
                                 </ul>
                             </div>
@@ -546,7 +534,8 @@ const Backstage = () => {
                     borderRadius: '12px',
                     padding: '1.5rem',
                     marginBottom: '2rem',
-                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
+                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)',
+                    order: 2
                 }}>
                     <div style={{ marginBottom: '1rem' }}>
                         <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem' }}>Agenda Ministerial 2026</h3>
@@ -683,7 +672,8 @@ const Backstage = () => {
                     borderRadius: '12px',
                     padding: '1.5rem',
                     marginBottom: '2rem',
-                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
+                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)',
+                    order: 3
                 }}>
                     <div style={{ marginBottom: '1rem' }}>
                         <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem' }}>Temas de Estudio Martes 2026</h3>
@@ -725,7 +715,7 @@ const Backstage = () => {
                     </div>
                 </section>
 
-                <div style={{ display: 'grid', gap: '2rem' }}>
+                <div style={{ display: 'grid', gap: '2rem', order: 1 }}>
                     {/* Schedule Grid */}
                     {schedule && schedule.map(week => (
                         <div key={week.id}>
