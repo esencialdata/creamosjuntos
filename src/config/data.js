@@ -1632,7 +1632,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "cover",
                     title: "EL PAN NO BASTA PARA VIVIR.",
                     subtitle: "La ciencia de la supervivencia espiritual.",
-                    imageUrl: "/hala-portada.jpg",
+                    imageUrl: "/pan.jpg",
                     footerText: "Desliza y alimenta lo invisible ➡️"
                 },
                 {
