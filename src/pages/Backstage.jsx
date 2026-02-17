@@ -246,6 +246,7 @@ const Backstage = () => {
     const [agendaMonthFilter, setAgendaMonthFilter] = useState('all');
     const [agendaSedeFilter, setAgendaSedeFilter] = useState('all');
     const [agendaSearch, setAgendaSearch] = useState('');
+    const [showAgenda2026, setShowAgenda2026] = useState(false);
 
     const agendaMonthOptions = useMemo(() => {
         const monthMap = new Map();
@@ -534,187 +535,216 @@ const Backstage = () => {
                     borderRadius: '12px',
                     padding: 'clamp(1rem, 3vw, 1.5rem)',
                     marginBottom: '2rem',
+                    marginTop: '4rem',
                     boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)',
-                    order: 2
+                    order: 2,
+                    transition: 'all 0.3s ease'
                 }}>
-                    <div style={{ marginBottom: '1rem' }}>
-                        <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem' }}>Agenda Ministerial 2026</h3>
-                        <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
-                            Consulta por mes, sede o tema. Expande cada evento para ver temario y logística.
-                        </p>
-                    </div>
+                    <div
+                        onClick={() => setShowAgenda2026(!showAgenda2026)}
+                        style={{
+                            marginBottom: showAgenda2026 ? '1.5rem' : '0',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <div>
+                            <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                📅 Agenda Ministerial 2026
+                            </h3>
+                            {!showAgenda2026 && (
+                                <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
+                                    Toca para ver el calendario anual completo
+                                </p>
+                            )}
+                            {showAgenda2026 && (
+                                <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
+                                    Consulta por mes, sede o tema.
+                                </p>
+                            )}
+                        </div>
 
-                    <div style={{
-                        display: 'grid',
-                        gap: '0.75rem',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                        marginBottom: '1rem'
-                    }}>
-                        <select
-                            value={agendaMonthFilter}
-                            onChange={(e) => setAgendaMonthFilter(e.target.value)}
-                            aria-label="Filtrar agenda por mes"
-                            style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
-                        >
-                            <option value="all">Todos los meses</option>
-                            {agendaMonthOptions.map(month => (
-                                <option key={month.value} value={month.value}>{month.label}</option>
-                            ))}
-                        </select>
-
-                        <select
-                            value={agendaSedeFilter}
-                            onChange={(e) => setAgendaSedeFilter(e.target.value)}
-                            aria-label="Filtrar agenda por sede"
-                            style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
-                        >
-                            <option value="all">Todas las sedes</option>
-                            {agendaSedeOptions.map(sede => (
-                                <option key={sede} value={sede}>{sede}</option>
-                            ))}
-                        </select>
-
-                        <input
-                            type="search"
-                            value={agendaSearch}
-                            onChange={(e) => setAgendaSearch(e.target.value)}
-                            placeholder="Buscar por tema, responsable o alimentos"
-                            aria-label="Buscar en agenda ministerial"
-                            style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
-                        />
-                    </div>
-
-                    <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: '#475569' }}>
-                        {filteredMinisterialEvents.length} evento(s) encontrado(s)
-                    </div>
-
-                    {Object.keys(groupedMinisterialEvents).length === 0 && (
                         <div style={{
-                            border: '1px dashed #cbd5e1',
-                            borderRadius: '10px',
-                            padding: '1rem',
-                            textAlign: 'center',
-                            color: '#64748b',
-                            fontSize: '0.9rem'
+                            transform: showAgenda2026 ? 'rotate(180deg)' : 'rotate(0deg)',
+                            transition: 'transform 0.3s',
+                            color: '#1e3a8a',
+                            fontSize: '1.5rem'
                         }}>
-                            No hay eventos con los filtros seleccionados.
+                            ▼
+                        </div>
+                    </div>
+
+                    {showAgenda2026 && (
+                        <div style={{ animation: 'fadeIn 0.3s ease-in-out' }}>
+                            <div style={{
+                                display: 'grid',
+                                gap: '0.75rem',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+                                marginBottom: '1rem'
+                            }}>
+                                <select
+                                    value={agendaMonthFilter}
+                                    onChange={(e) => setAgendaMonthFilter(e.target.value)}
+                                    aria-label="Filtrar agenda por mes"
+                                    style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
+                                >
+                                    <option value="all">Todos los meses</option>
+                                    {agendaMonthOptions.map(month => (
+                                        <option key={month.value} value={month.value}>{month.label}</option>
+                                    ))}
+                                </select>
+
+                                <select
+                                    value={agendaSedeFilter}
+                                    onChange={(e) => setAgendaSedeFilter(e.target.value)}
+                                    aria-label="Filtrar agenda por sede"
+                                    style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
+                                >
+                                    <option value="all">Todas las sedes</option>
+                                    {agendaSedeOptions.map(sede => (
+                                        <option key={sede} value={sede}>{sede}</option>
+                                    ))}
+                                </select>
+
+                                <input
+                                    type="search"
+                                    value={agendaSearch}
+                                    onChange={(e) => setAgendaSearch(e.target.value)}
+                                    placeholder="Buscar por tema, responsable o alimentos"
+                                    aria-label="Buscar en agenda ministerial"
+                                    style={{ padding: '0.65rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.9rem' }}
+                                />
+                            </div>
+
+                            <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: '#475569' }}>
+                                {filteredMinisterialEvents.length} evento(s) encontrado(s)
+                            </div>
+
+                            {Object.keys(groupedMinisterialEvents).length === 0 && (
+                                <div style={{
+                                    border: '1px dashed #cbd5e1',
+                                    borderRadius: '10px',
+                                    padding: '1rem',
+                                    textAlign: 'center',
+                                    color: '#64748b',
+                                    fontSize: '0.9rem'
+                                }}>
+                                    No hay eventos con los filtros seleccionados.
+                                </div>
+                            )}
+
+                            <div style={{ display: 'grid', gap: '1rem' }}>
+                                {Object.values(groupedMinisterialEvents).map(group => (
+                                    <div key={group.monthLabel}>
+                                        <h4 style={{
+                                            margin: '0 0 0.5rem 0',
+                                            fontSize: '0.85rem',
+                                            fontWeight: '700',
+                                            letterSpacing: '0.06em',
+                                            textTransform: 'uppercase',
+                                            color: '#334155'
+                                        }}>
+                                            {group.monthLabel}
+                                        </h4>
+
+                                        <div style={{ display: 'grid', gap: '0.6rem' }}>
+                                            {group.events.map(event => {
+                                                const eventDateLabel = new Date(`${event.dateISO}T00:00:00`).toLocaleDateString('es-MX', {
+                                                    day: '2-digit',
+                                                    month: 'short',
+                                                    year: 'numeric'
+                                                });
+
+                                                return (
+                                                    <details key={event.id} style={{ border: '1px solid #e2e8f0', borderRadius: '10px', background: '#f8fafc' }}>
+                                                        <summary style={{
+                                                            listStyle: 'none',
+                                                            cursor: 'pointer',
+                                                            padding: '0.85rem 0.9rem',
+                                                            display: 'flex',
+                                                            justifyContent: 'space-between',
+                                                            gap: '0.75rem',
+                                                            alignItems: 'flex-start',
+                                                            flexWrap: 'wrap'
+                                                        }}>
+                                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', flex: '1 1 220px', minWidth: 0 }}>
+                                                                <span style={{ fontWeight: '700', color: '#1e3a8a', whiteSpace: 'nowrap' }}>{eventDateLabel}</span>
+                                                                <span style={{ background: '#dbeafe', color: '#1d4ed8', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>{event.sede}</span>
+                                                                <span style={{ background: '#ecfeff', color: '#0f766e', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>Alimentos: {event.alimentos}</span>
+                                                            </div>
+                                                            <span style={{ color: '#334155', fontSize: '0.82rem', fontWeight: '600', whiteSpace: 'normal', lineHeight: 1.25, flex: '1 1 180px', minWidth: 0 }}>
+                                                                {event.responsable}
+                                                            </span>
+                                                        </summary>
+
+                                                        <div style={{
+                                                            padding: '0 1rem 0.9rem 1rem',
+                                                            borderTop: '1px solid #e2e8f0'
+                                                        }}>
+                                                            <p style={{ margin: '0.7rem 0 0.4rem 0', fontSize: '0.82rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                                                                Temario
+                                                            </p>
+                                                            <ul style={{ margin: 0, paddingLeft: '1rem', color: '#1f2937' }}>
+                                                                {event.temario.map(topic => (
+                                                                    <li key={topic} style={{ marginBottom: '0.35rem', fontSize: '0.92rem', lineHeight: 1.35, overflowWrap: 'anywhere' }}>{topic}</li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    </details>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid #e2e8f0' }}>
+                                <div style={{ marginBottom: '1rem' }}>
+                                    <h3 style={{ fontSize: '1.1rem', color: '#1e3a8a', marginBottom: '0.4rem', fontWeight: '700' }}>📚 Temas de Estudio Martes 2026</h3>
+                                    <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
+                                        Programa mensual de capacitación ministerial regional.
+                                    </p>
+                                </div>
+
+                                <div style={{ display: 'grid', gap: '0.8rem' }}>
+                                    {MINISTERIAL_TUESDAY_STUDIES_2026.map((item) => (
+                                        <div key={item.month} style={{
+                                            border: '1px solid #e2e8f0',
+                                            borderRadius: '10px',
+                                            padding: '0.9rem 1rem',
+                                            backgroundColor: item.month === 'Diciembre' ? '#fff7ed' : '#f8fafc'
+                                        }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                                                <span style={{
+                                                    fontSize: '0.78rem',
+                                                    fontWeight: '700',
+                                                    letterSpacing: '0.06em',
+                                                    textTransform: 'uppercase',
+                                                    color: '#1e3a8a',
+                                                    background: '#dbeafe',
+                                                    borderRadius: '999px',
+                                                    padding: '2px 9px'
+                                                }}>
+                                                    {item.month}
+                                                </span>
+                                                <span style={{ fontSize: '0.82rem', color: '#334155', fontWeight: 600 }}>
+                                                    {item.facilitator}
+                                                </span>
+                                            </div>
+                                            <p style={{ margin: '0.65rem 0 0 0', color: '#1f2937', fontSize: '0.95rem', lineHeight: 1.35 }}>
+                                                {item.topic}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     )}
-
-                    <div style={{ display: 'grid', gap: '1rem' }}>
-                        {Object.values(groupedMinisterialEvents).map(group => (
-                            <div key={group.monthLabel}>
-                                <h4 style={{
-                                    margin: '0 0 0.5rem 0',
-                                    fontSize: '0.85rem',
-                                    fontWeight: '700',
-                                    letterSpacing: '0.06em',
-                                    textTransform: 'uppercase',
-                                    color: '#334155'
-                                }}>
-                                    {group.monthLabel}
-                                </h4>
-
-                                <div style={{ display: 'grid', gap: '0.6rem' }}>
-                                    {group.events.map(event => {
-                                        const eventDateLabel = new Date(`${event.dateISO}T00:00:00`).toLocaleDateString('es-MX', {
-                                            day: '2-digit',
-                                            month: 'short',
-                                            year: 'numeric'
-                                        });
-
-                                        return (
-                                            <details key={event.id} style={{ border: '1px solid #e2e8f0', borderRadius: '10px', background: '#f8fafc' }}>
-                                                <summary style={{
-                                                    listStyle: 'none',
-                                                    cursor: 'pointer',
-                                                    padding: '0.85rem 0.9rem',
-                                                    display: 'flex',
-                                                    justifyContent: 'space-between',
-                                                    gap: '0.75rem',
-                                                    alignItems: 'flex-start',
-                                                    flexWrap: 'wrap'
-                                                }}>
-                                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', flex: '1 1 220px', minWidth: 0 }}>
-                                                        <span style={{ fontWeight: '700', color: '#1e3a8a', whiteSpace: 'nowrap' }}>{eventDateLabel}</span>
-                                                        <span style={{ background: '#dbeafe', color: '#1d4ed8', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>{event.sede}</span>
-                                                        <span style={{ background: '#ecfeff', color: '#0f766e', borderRadius: '999px', padding: '2px 8px', fontSize: '0.78rem', fontWeight: '600' }}>Alimentos: {event.alimentos}</span>
-                                                    </div>
-                                                    <span style={{ color: '#334155', fontSize: '0.82rem', fontWeight: '600', whiteSpace: 'normal', lineHeight: 1.25, flex: '1 1 180px', minWidth: 0 }}>
-                                                        {event.responsable}
-                                                    </span>
-                                                </summary>
-
-                                                <div style={{
-                                                    padding: '0 1rem 0.9rem 1rem',
-                                                    borderTop: '1px solid #e2e8f0'
-                                                }}>
-                                                    <p style={{ margin: '0.7rem 0 0.4rem 0', fontSize: '0.82rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                                                        Temario
-                                                    </p>
-                                                    <ul style={{ margin: 0, paddingLeft: '1rem', color: '#1f2937' }}>
-                                                        {event.temario.map(topic => (
-                                                            <li key={topic} style={{ marginBottom: '0.35rem', fontSize: '0.92rem', lineHeight: 1.35, overflowWrap: 'anywhere' }}>{topic}</li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            </details>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </section>
 
-                <section style={{
-                    backgroundColor: '#ffffff',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '12px',
-                    padding: '1.5rem',
-                    marginBottom: '2rem',
-                    boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)',
-                    order: 3
-                }}>
-                    <div style={{ marginBottom: '1rem' }}>
-                        <h3 style={{ fontSize: '1.2rem', color: '#1e3a8a', marginBottom: '0.4rem' }}>Temas de Estudio Martes 2026</h3>
-                        <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
-                            Programa mensual de capacitación ministerial regional.
-                        </p>
-                    </div>
 
-                    <div style={{ display: 'grid', gap: '0.8rem' }}>
-                        {MINISTERIAL_TUESDAY_STUDIES_2026.map((item) => (
-                            <div key={item.month} style={{
-                                border: '1px solid #e2e8f0',
-                                borderRadius: '10px',
-                                padding: '0.9rem 1rem',
-                                backgroundColor: item.month === 'Diciembre' ? '#fff7ed' : '#f8fafc'
-                            }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                                    <span style={{
-                                        fontSize: '0.78rem',
-                                        fontWeight: '700',
-                                        letterSpacing: '0.06em',
-                                        textTransform: 'uppercase',
-                                        color: '#1e3a8a',
-                                        background: '#dbeafe',
-                                        borderRadius: '999px',
-                                        padding: '2px 9px'
-                                    }}>
-                                        {item.month}
-                                    </span>
-                                    <span style={{ fontSize: '0.82rem', color: '#334155', fontWeight: 600 }}>
-                                        {item.facilitator}
-                                    </span>
-                                </div>
-                                <p style={{ margin: '0.65rem 0 0 0', color: '#1f2937', fontSize: '0.95rem', lineHeight: 1.35 }}>
-                                    {item.topic}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 <div style={{ display: 'grid', gap: '2rem', order: 1 }}>
                     {/* Schedule Grid */}
