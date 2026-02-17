@@ -291,9 +291,9 @@ export const VERSES_POOL = [
     },
     {
         text: "Vosotros sois la sal de la tierra: y si la sal se desvaneciere ¿con qué será salada? no vale más para nada, sino para ser echada fuera y hollada de los hombres.",
-        reference: "Mateo 5:13",
+        reference: "Mateo 5:13 (RVA)",
         likes: 0,
-        comment: "Si un cristiano pierde su esencia distintiva y se vuelve igual al mundo, se vuelve inútil para el Reino. Nuestra función es preservar y dar sabor, no diluirnos."
+        comment: "Como sal del pacto (Lev. 2:13), ejercemos la santidad para preservar al mundo de su corrupción moral."
     },
     {
         text: "No penséis que he venido para abrogar la ley ó los profetas: no he venido para abrogar, sino á cumplir.",
