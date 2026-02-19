@@ -456,7 +456,6 @@ export const CONFIG = {
             title: "4. Cibernética (Sistema de Navegación)",
             duration: "03:45",
             audioUrl: "/cibernetica.mp3",
-            shareText: "En este audio hablamos de instalar el sistema de navegación de Dios en nuestra mente.",
             color: "#10B981" // Emerald 500 - distinct from others
         }
     ],
