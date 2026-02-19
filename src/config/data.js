@@ -455,7 +455,7 @@ export const CONFIG = {
             weekId: 11,
             title: "4. Cibernética (Sistema de Navegación)",
             duration: "03:45",
-            audioUrl: "/cibernetica.mp3",
+            audioUrl: "/cibernetica2.mp3",
             color: "#10B981" // Emerald 500 - distinct from others
         }
     ],
