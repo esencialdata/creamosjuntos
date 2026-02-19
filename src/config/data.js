@@ -449,6 +449,14 @@ export const CONFIG = {
             duration: "04:25",
             audioUrl: "/loqueodiamos.mp3",
             color: "#475569" // Slate 600 - Neutral/Cool to avoid clashing with blues
+        },
+        {
+            id: 4,
+            weekId: 11,
+            title: "4. Cibernética",
+            duration: "03:45",
+            audioUrl: "/cibernetica.mp3",
+            color: "#10B981" // Emerald 500 - distinct from others
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load

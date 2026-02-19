@@ -120,7 +120,8 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
 
                 {/* Tu Dosis Semanal Section */}
                 {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (() => {
-                    const latestAudios = CONFIG.audioCapsules.slice(-3);
+                    // Create a copy, reverse it to show newest first, then take top 3
+                    const latestAudios = [...CONFIG.audioCapsules].reverse().slice(0, 3);
                     return (
                         <section>
                             <h3 style={{
