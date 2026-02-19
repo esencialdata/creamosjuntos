@@ -453,7 +453,7 @@ export const CONFIG = {
         {
             id: 4,
             weekId: 11,
-            title: "4. Cibernética",
+            title: "4. Cibernética (Sistema de Navegación)",
             duration: "03:45",
             audioUrl: "/cibernetica.mp3",
             shareText: "En este audio hablamos de instalar el sistema de navegación de Dios en nuestra mente.",
