@@ -50,7 +50,7 @@ const AudioCapsuleCard = ({ capsule }) => {
             try {
                 await navigator.share({
                     title: capsule.title,
-                    text: `Escucha "${capsule.title}" en Creamos Juntos`,
+                    text: capsule.shareText || `Escucha "${capsule.title}" en Creamos Juntos`,
                     url: shareUrl,
                 });
             } catch (error) {
