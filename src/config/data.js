@@ -1699,6 +1699,84 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Cierre"
                 }
             ]
+        },
+        {
+            id: 21,
+            weekId: 11,
+            availableFrom: "2026-02-19T00:00:00", // Scheduled for Thursday
+            title: "LA GEOMETRÍA DEL DESVÍO",
+            description: "Por qué un error de 1 grado hoy te lleva a un continente diferente mañana.",
+            themeStyles: {
+                bg: '#FFFFFF', // Fondo blanco puro
+                textPrimary: '#000000', // Tinta negra
+                textSecondary: '#333333',
+                accent: '#1A1A1A',
+                cardBorder: '1px solid #E5E5E5',
+                cardShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.1)',
+                fontSerif: '"Playfair Display", serif'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "LA GEOMETRÍA DEL DESVÍO.",
+                    subtitle: "Por qué un error de 1 grado hoy te lleva a un continente diferente mañana.",
+                    videoUrl: "/cibernetica_opt.mp4",
+                    footerText: "Un análisis sobre Cibernética y Sabiduría Correctiva ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MITO DE LA RECTITUD",
+                    title: "No existen las trayectorias perfectas.",
+                    body: "En la navegación real, el barco nunca está \"en el camino\"; siempre se está \"saliendo del camino\" debido a corrientes invisibles.\n\nEl Concepto: La inteligencia no consiste en no desviarse, sino en la velocidad con la que detectas que ya te desviaste.",
+                    citation: "Haced sendas derechas para vuestros pies",
+                    reference: "Hebreos 12:13 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ERROR COMO COMBUSTIBLE",
+                    title: "El Sabio procesa datos, el Necio procesa culpas.",
+                    body: "La Cibernética enseña que el error es retroalimentación positiva. Es la señal necesaria para saber cuánto hay que girar el timón.\n\nLa Diferencia:\n* La baja inteligencia se castiga por fallar.\n* La alta inteligencia usa el fallo para recalibrar.",
+                    citation: "El hijo sabio recibe la corrección del padre",
+                    reference: "Proverbios 13:1 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL EFECTO DEL GRADO ÚNICO",
+                    title: "La entropía de la negligencia.",
+                    body: "Un desvío de apenas 1 grado parece insignificante en la costa. Pero después de 100 millas, te deja a kilómetros del puerto seguro.\n\nReflexión: Los grandes naufragios espirituales y profesionales rara vez son choques frontales; son acumulaciones de pequeños desvíos no corregidos.",
+                    citation: "Pequeños desvíos no corregidos son la causa.",
+                    reference: "Reflexión"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA RESPONSABILIDAD DEL PILOTO",
+                    title: "Dios da el viento, tú mueves el timón.",
+                    body: "Muchos esperan que \"el viento de la Gracia\" los lleve solos al puerto. Pero la Gracia es el combustible, no el sistema de navegación. La Sabiduría es tu responsabilidad como piloto.\n\nConcepto: Pilotar es un acto de voluntad técnica, no un sentimiento emocional.",
+                    citation: "La Sabiduría es tu responsabilidad como piloto.",
+                    reference: "Concepto"
+                },
+                {
+                    type: "action",
+                    title: "El Protocolo de Observación.",
+                    subtitle: "LA AUDITORÍA DEL OCASO",
+                    steps: [
+                        "Un buen timonel no espera a chocar contra las rocas para mirar el mapa. Revisa su posición cada vez que el sol cambia de lugar.",
+                        "Práctica: ¿Cuándo fue la última vez que comparaste tu ruta actual con el Estándar?"
+                    ],
+                    citation: "Escudriñemos nuestros caminos, y busquemos, y volvámonos á Jehová",
+                    reference: "Lamentaciones 3:40 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "EL TIMÓN NO SE MUEVE SOLO.",
+                    subtitle: "CIERRE",
+                    steps: [
+                        "Dejar de corregir es empezar a naufragar. La inteligencia espiritual es la capacidad de volver al rumbo, una y otra vez, hasta llegar al puerto."
+                    ],
+                    citation: "🎙️ Profundiza en la Cibernética Espiritual en el Episodio 4 del Podcast.",
+                    reference: "Llamado a la Acción"
+                }
+            ]
         }
     ],
     weeklyHabit: {
