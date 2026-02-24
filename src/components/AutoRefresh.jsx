@@ -32,7 +32,7 @@ function AutoRefresh() {
                         if (resp) {
                             // console.log('SW update found!');
                         }
-                    } catch (e) {
+                    } catch {
                         // Silently fail if update check fails (e.g. network error)
                         // console.error('SW update check failed', e);
                     }

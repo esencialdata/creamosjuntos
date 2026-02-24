@@ -21,6 +21,10 @@ const AudioCapsuleCard = ({ capsule }) => {
         setSaved(isBookmarked(`audio-${capsule.id}`));
     }, [isBookmarked, capsule.id]);
 
+    const randomHeights = React.useMemo(() => {
+        return [...Array(15)].map(() => Math.max(20, Math.random() * 100));
+    }, []);
+
     const isCurrent = currentTrack?.audioUrl === capsule.audioUrl;
     const isActive = isCurrent && isPlaying;
 
@@ -152,10 +156,10 @@ const AudioCapsuleCard = ({ capsule }) => {
                     marginTop: '4px',
                     opacity: 0.6
                 }}>
-                    {[...Array(15)].map((_, i) => (
+                    {randomHeights.map((height, i) => (
                         <div key={i} style={{
                             width: '3px',
-                            height: `${Math.max(20, Math.random() * 100)}%`, // Random height 20-100%
+                            height: `${height}%`, // Random height 20-100% computed once
                             backgroundColor: isActive ? 'var(--color-primary)' : 'var(--color-text-secondary)',
                             borderRadius: '2px',
                             animation: isActive ? `wave 1s ease-in-out infinite ${i * 0.1}s` : 'none'

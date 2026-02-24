@@ -22,7 +22,7 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
             let year = 2026;
             if (month >= 10) year = 2025;
             return new Date(year, month, day).getTime();
-        } catch (e) { return 0; }
+        } catch { return 0; }
     }
 
     // 1. Data Aggregation (Sermons)
@@ -175,7 +175,7 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
             data.sort((a, b) => b.likes - a.likes);
         }
         return data;
-    }, [aggregatedSermons, aggregatedSlides, aggregatedVerses, viewMode, sortBy]);
+    }, [aggregatedSermons, aggregatedSlides, aggregatedVerses, aggregatedAudios, viewMode, sortBy]);
 
     const topItem = sortedData.length > 0 ? sortedData[0] : null;
 
@@ -313,7 +313,7 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
 
             {/* LIST */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {sortedData.map((item, idx) => (
+                {sortedData.map(item => (
                     <div key={item.id} style={{
                         display: 'flex', alignItems: 'center', gap: '12px', padding: '12px',
                         backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #F1F5F9'
