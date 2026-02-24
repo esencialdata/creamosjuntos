@@ -332,8 +332,8 @@ export const VERSES_POOL = [
         comment: "Cuando la cultura, el gobierno o la familia chocan con la Ley de Dios, la lealtad del creyente ya está decidida de antemano. La obediencia divina es prioridad suprema."
     },
     {
-        text: "Por cuanto todos pecaron, y están destituidos de la gloria de Dios;",
-        reference: "Romanos 3:23",
+        text: "Ahora pues, Jehová, tú eres nuestro padre; nosotros barro, y tú el que nos formaste; así que obra de tus manos somos todos nosotros.",
+        reference: "Isaías 64:8 (RVA)",
         likes: 0,
         comment: "El diagnóstico es universal: nadie es \"bastante bueno\" por sí mismo. Entender nuestra quiebra moral es el primer paso indispensable para valorar la gracia."
     },
