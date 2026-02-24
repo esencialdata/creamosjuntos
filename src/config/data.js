@@ -1777,6 +1777,74 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Llamado a la Acción"
                 }
             ]
+        },
+        {
+            id: 22,
+            weekId: 12,
+            availableFrom: "2026-02-24T00:00:00",
+            title: "EL PODER QUE REALMENTE TRANSFORMA TU VIDA",
+            description: "El mensaje de Cristo es la medicina que el alma necesita para su restauración total.",
+            themeStyles: {
+                bg: '#0F172A',
+                textPrimary: '#F8FAFC',
+                textSecondary: '#94A3B8',
+                accent: '#38BDF8',
+                cardBorder: '1px solid #1E293B',
+                cardShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.5)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "EL PODER QUE REALMENTE TRANSFORMA TU VIDA",
+                    subtitle: "\"No me avergüenzo del evangelio: porque es potencia de Dios...\"",
+                    imageUrl: "/portada_potencia.jpg",
+                    footerText: "Desliza para descubrir el poder ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL LLAMADO AL CAMBIO",
+                    title: "No importa cuán profunda sea la mancha, hay una potencia capaz de borrarla.",
+                    body: "El evangelio no solo enjuaga; transforma la naturaleza misma de nuestras faltas purificándolas por completo.",
+                    citation: "\"Venid luego... y estemos á cuenta: si vuestros pecados fueren como la grana, como la nieve serán emblanquecidos...\"",
+                    reference: "Isaías 1:18"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ORIGEN DE LA SALUD",
+                    title: "El mensaje de Cristo es la medicina que el alma necesita para su restauración total.",
+                    body: "No hay sanidad real sin tratar la raíz del problema. La salvación y la salud van de la mano a través del evangelio.",
+                    citation: "\"Porque es potencia de Dios para salud á todo aquel que cree...\"",
+                    reference: "Romanos 1:16"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA POTENCIA EN ACCIÓN",
+                    title: "La fe en el mensaje de Cristo produce una metamorfosis completa en el creyente.",
+                    body: "No es una simple mejora o un parcho nuevo, es una restitución completa hacia una nueva identidad en Cristo.",
+                    citation: "\"De modo que si alguno está en Cristo, nueva criatura es: las cosas viejas pasaron; he aquí todas son hechas nuevas.\"",
+                    reference: "2 Corintios 5:17"
+                },
+                {
+                    type: "diagnostic",
+                    label: "MEDICINA INTEGRAL",
+                    title: "La Palabra de Dios no solo instruye, sino que vivifica y restaura integralmente.",
+                    body: "La verdadera medicina divina no separa el espíritu del cuerpo; actúa sobre todas las áreas de la vida del ser humano de forma integral.",
+                    citation: "\"Hijo mío, está atento á mis palabras... Porque son vida á los que las hallan, y medicina á toda su carne.\"",
+                    reference: "Proverbios 4:20, 22"
+                },
+                {
+                    type: "action",
+                    title: "CIERRE / LLAMADO A LA ACCIÓN",
+                    subtitle: "¿Buscas un cambio real y duradero? Permite que la potencia de Dios actúe en ti hoy.",
+                    steps: [
+                        "Reconoce tu necesidad de ser transformado por el Creador.",
+                        "Expón tu vida a la Palabra que limpia y purifica.",
+                        "Camina en la fe de que todas las cosas son hechas nuevas."
+                    ],
+                    citation: "\"La ley de Jehová es perfecta, que vuelve el alma\"",
+                    reference: "Salmos 19:1"
+                }
+            ]
         }
     ],
     weeklyHabit: {
