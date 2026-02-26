@@ -457,6 +457,15 @@ export const CONFIG = {
             duration: "03:45",
             audioUrl: "/cibernetica2.mp3",
             color: "#10B981" // Emerald 500 - distinct from others
+        },
+        {
+            id: 5,
+            weekId: 12, // Assuming week 12 for the next one, can be updated later if needed
+            title: "5. El Protocolo de 1 Día",
+            subtitle: "Protocolo de Acción / Anti-Visión vs. Visión",
+            duration: "07:01",
+            audioUrl: "/escogelavida.mp3",
+            color: "#38BDF8" // Sky 400 - Matches Week 12 theme accent
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load

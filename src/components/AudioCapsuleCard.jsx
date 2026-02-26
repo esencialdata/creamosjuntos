@@ -147,6 +147,19 @@ const AudioCapsuleCard = ({ capsule }) => {
                     {capsule.title}
                 </h4>
 
+                {capsule.subtitle && (
+                    <p style={{
+                        margin: '2px 0 0 0',
+                        fontSize: '0.8rem',
+                        color: 'var(--color-text-secondary)',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                    }}>
+                        {capsule.subtitle}
+                    </p>
+                )}
+
                 {/* Decorative Waveform */}
                 <div style={{
                     display: 'flex',
