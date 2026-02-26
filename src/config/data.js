@@ -464,7 +464,7 @@ export const CONFIG = {
             title: "5. El Protocolo de 1 Día",
             subtitle: "Protocolo de Acción / Anti-Visión vs. Visión",
             duration: "07:01",
-            audioUrl: "/escogelavida.mp3",
+            audioUrl: "/escoge-la-vida.mp3",
             color: "#38BDF8" // Sky 400 - Matches Week 12 theme accent
         }
     ],
