@@ -1874,7 +1874,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "cover",
                     title: "¿Por qué tu vida se siente fuera de control si \"no has hecho nada malo\"?",
                     subtitle: "Existe una ley invisible que destruye lo que no cultivas. Se llama Entropía y la Biblia la describió hace 3,000 años.",
-                    imageUrl: "/entropia.png",
+                    imageUrl: "/entropia.jpg",
                     footerText: "Desliza para entender esta ley ➡️"
                 },
                 {
