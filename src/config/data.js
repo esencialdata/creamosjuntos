@@ -1854,6 +1854,83 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Salmos 19:1"
                 }
             ]
+        },
+        {
+            id: 23,
+            weekId: 12,
+            availableFrom: "2026-02-27T00:00:00",
+            title: "LA LEY DEL DESCUIDO (ENTROPÍA Y DESTINO)",
+            description: "¿Por qué tu vida se siente fuera de control si \"no has hecho nada malo\"?",
+            themeStyles: {
+                bg: '#f8f5f0', // Creamy beige background from the image
+                textPrimary: '#2c332c', // Dark pine green for text (from the silhouette/leaves)
+                textSecondary: '#6b7a6b', // Muted green for secondary text
+                accent: '#ff4d4d', // Vibrant red from the brain glow
+                cardBorder: '1px solid #e8e4db',
+                cardShadow: '0 10px 15px -3px rgba(107, 122, 107, 0.1)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Por qué tu vida se siente fuera de control si \"no has hecho nada malo\"?",
+                    subtitle: "Existe una ley invisible que destruye lo que no cultivas. Se llama Entropía y la Biblia la describió hace 3,000 años.",
+                    imageUrl: "/entropia.png",
+                    footerText: "Desliza para entender esta ley ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA CIENCIA DEL DESORDEN",
+                    title: "La Segunda Ley de la Termodinámica.",
+                    body: "En un sistema cerrado, todo tiende al caos, al desgaste y al desorden si no se le inyecta energía externa.",
+                    citation: "\"Por la mucha pereza se cae la techumbre, y por la flojedad de las manos se llueve la casa.\"",
+                    reference: "Eclesiastés 10:18 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL DIAGNÓSTICO BÍBLICO",
+                    title: "El Pecado de Omisión",
+                    body: "Salomón no describe un pecado de acción, sino un pecado de omisión. La \"cerca derribada\" no fue un ataque externo, fue el resultado de la entropía espiritual.",
+                    citation: "\"Pasé por la heredad del hombre perezoso... y he aquí que por toda ella habían crecido espinas... y su cerca de piedra estaba derribada.\"",
+                    reference: "Proverbios 24:30-31 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LOS TRES CAMPOS DE BATALLA",
+                    title: "¿En qué área se está cayendo tu cerca hoy?",
+                    body: "• El Templo (Cuerpo): Sin disciplina, la fatiga y el desgaste ganan.\n• El Orden (Recursos): Sin límites, la escasez y la deuda invaden.\n• La Paz (Relaciones): Sin cultivo, el silencio y el orgullo separan.",
+                    citation: "Si hoy no inyectas energía nueva, ¿cómo se verá ese campo en 2031?",
+                    reference: "Autoexamen"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA ENERGÍA DE LA VISIÓN",
+                    title: "Rompe la entropía con el \"Orden Divino\".",
+                    body: "La ciencia llama a esto Negentropía (el proceso de importar orden). Dios lo llamó Visión.\n\nDato Científico: Escribir a mano activa la Codificación por Generación, grabando el comando en tus circuitos neuronales para vencer la inercia.",
+                    citation: "\"Escribe la visión... para que corra el que leyere en ella.\"",
+                    reference: "Habacuc 2:2 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA ELECCIÓN ES OBLIGATORIA",
+                    title: "Vida o Muerte. No hay terreno neutral.",
+                    body: "Cada decisión es un voto. O votas por la restauración de tu diseño o votas por la entropía de tu carne.",
+                    citation: "\"A los cielos y á la tierra llamo por testigos hoy... que os he puesto delante la vida y la muerte... escoge pues la vida.\"\n\n\"El que no es conmigo, contra mí es; y el que conmigo no recoge, derrama.\" (Mateo 12:30)",
+                    reference: "Deuteronomio 30:19 (RVA 1909)"
+                },
+                {
+                    type: "action",
+                    title: "DETÉN LA CAÍDA HOY",
+                    subtitle: "No esperes a que la cerca sea polvo para empezar a edificar.",
+                    steps: [
+                        "Escucha el Episodio 5 en la app.",
+                        "Haz el ejercicio de la Hoja Dividida.",
+                        "Firma tu compromiso."
+                    ],
+                    citation: "Hoy elijo la Vida.",
+                    reference: "Llamado a la Acción",
+                    buttonText: "Hoy elijo la Vida"
+                }
+            ]
         }
     ],
     weeklyHabit: {
