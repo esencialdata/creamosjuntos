@@ -405,10 +405,12 @@ const getCurrentWeekId = () => {
     const week10Start = new Date(2026, 1, 9);  // Feb 9
     const week11Start = new Date(2026, 1, 16); // Feb 16
     const week12Start = new Date(2026, 1, 23); // Feb 23
+    const week13Start = new Date(2026, 2, 2);  // Mar 2
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week13Start) return 13;
     if (now >= week12Start) return 12;
     if (now >= week11Start) return 11;
     if (now >= week10Start) return 10;
@@ -1929,6 +1931,80 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     citation: "Hoy elijo la Vida.",
                     reference: "Llamado a la Acción",
                     buttonText: "Hoy elijo la Vida"
+                }
+            ]
+        },
+        {
+            id: 24,
+            weekId: 13,
+            availableFrom: "2026-03-03T00:00:00",
+            title: "LA ARQUITECTURA DEL LOGRO",
+            description: "Análisis estructural de Josué 1:9. Cómo pasar de la instrucción a la posesión del territorio.",
+            themeStyles: {
+                bg: '#FAF8F3', // Light/Cream background
+                textPrimary: '#1A1A1A', // Dark ink
+                textSecondary: '#6B6560', // Muted 
+                accent: '#B8860B', // Gold accent
+                cardBorder: '1px solid #D6CEBE',
+                cardShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.08)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "LA ARQUITECTURA DEL LOGRO",
+                    subtitle: "Análisis estructural de Josué 1:9. Cómo pasar de la instrucción a la posesión del territorio.",
+                    imageUrl: "/arquitectura_logro.png",
+                    footerText: "Desliza para ver el análisis ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MANDATO COMO PROTOCOLO",
+                    title: "La valentía se define aquí como un imperativo legal.",
+                    body: "No es una sugerencia emocional, es el requisito técnico para la ejecución del plan divino.",
+                    citation: "\"Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes...\"",
+                    reference: "Josué 1:9"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SOPORTE NORMATIVO (AT)",
+                    title: "La eficacia del líder depende de su alineación con la Ley.",
+                    body: "La Ley no es carga, es el manual de procedimientos que garantiza el éxito.",
+                    citation: "\"Solamente esfuérzate y sé muy valiente, para cuidar de hacer conforme a toda la ley...\"",
+                    reference: "Josué 1:7"
+                },
+                {
+                    type: "diagnostic",
+                    label: "REPROGRAMACIÓN COGNITIVA",
+                    title: "Neurociencia y la meditación.",
+                    body: "La \"meditación\" (v. 8) activa la plasticidad neuronal. El enfoque persistente en la norma inhibe la respuesta de pánico de la amígdala.",
+                    citation: "\"Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él...\"",
+                    reference: "Josué 1:8"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL FACTOR DE PRESENCIA",
+                    title: "Seguridad operativa en cualquier coordenada.",
+                    body: "La omnipresencia del Creador actúa como un sistema de respaldo constante en el terreno.",
+                    citation: "\"...porque Jehová tu Dios estará contigo en dondequiera que vayas.\"",
+                    reference: "Josué 1:9"
+                },
+                {
+                    type: "diagnostic",
+                    label: "AMPLIFICACIÓN APOSTÓLICA",
+                    title: "La templanza como capacidad ejecutiva.",
+                    body: "La templanza (2 Tim. 1:7) como la capacidad ejecutiva de mantener el orden bajo presión. El miedo es una falla del sistema, no un rasgo del diseño.",
+                    citation: "\"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.\"",
+                    reference: "2 Timoteo 1:7"
+                },
+                {
+                    type: "action",
+                    title: "EJECUCIÓN FINAL",
+                    subtitle: "El resultado está garantizado por el cumplimiento del proceso.",
+                    steps: [
+                        "La conquista es una consecuencia de la disciplina normativa."
+                    ],
+                    citation: "\"Porque entonces harás prosperar tu camino, y todo te saldrá bien.\"",
+                    reference: "Josué 1:8"
                 }
             ]
         }
