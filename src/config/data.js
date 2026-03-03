@@ -1993,7 +1993,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     label: "AMPLIFICACIÓN APOSTÓLICA",
                     title: "La templanza como capacidad ejecutiva.",
                     body: "La templanza (2 Tim. 1:7) como la capacidad ejecutiva de mantener el orden bajo presión. El miedo es una falla del sistema, no un rasgo del diseño.",
-                    citation: "\"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.\"",
+                    citation: "\"Porque no nos ha dado Dios el espíritu de temor, sino el de fortaleza, y de amor, y de templanza.\"",
                     reference: "2 Timoteo 1:7"
                 },
                 {
