@@ -98,44 +98,78 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
 
                 <DailyVerse verse={CONFIG.dailyVerse} />
 
-                {/* Render ALL themes for the current week, newest first */}
+                {/* --- SECCIÓN "LO ÚLTIMO" --- */}
+                <section style={{ marginBottom: 'var(--spacing-md)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--spacing-sm)' }}>
+                        <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
+                            Lo Último
+                        </h2>
+                        <span style={{
+                            marginLeft: '0.75rem',
+                            padding: '0.2rem 0.6rem',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            color: 'var(--color-primary)',
+                            borderRadius: '12px',
+                            fontSize: '0.75rem',
+                            fontWeight: 'bold',
+                            textTransform: 'uppercase'
+                        }}>Nuevos</span>
+                    </div>
+
+                    {/* Más reciente: Tema y Audio */}
+                    {(() => {
+                        const currentWeekThemes = CONFIG.themes
+                            .filter(t => t.weekId === CONFIG.currentWeek && (!t.availableFrom || new Date() >= new Date(t.availableFrom)))
+                            .reverse();
+                        const latestTheme = currentWeekThemes.length > 0 ? currentWeekThemes[0] : CONFIG.themes[0];
+
+                        const hasAudio = CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0;
+                        const latestAudio = hasAudio ? CONFIG.audioCapsules[CONFIG.audioCapsules.length - 1] : null;
+
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
+                                <WeeklyTheme key={`latest-theme-${latestTheme.id}`} theme={latestTheme} />
+                                {latestAudio && <AudioCapsuleCard key={`latest-audio-${latestAudio.id}`} capsule={latestAudio} />}
+                            </div>
+                        );
+                    })()}
+                </section>
+
+                {/* --- TEMAS ANTERIORES DE ESTA SEMANA --- */}
                 {(() => {
                     const currentWeekThemes = CONFIG.themes
-                        .filter(t => {
-                            if (t.weekId !== CONFIG.currentWeek) return false;
-                            if (t.availableFrom && new Date() < new Date(t.availableFrom)) return false;
-                            return true;
-                        })
-                        .reverse(); // Show newest (highest ID) first
+                        .filter(t => t.weekId === CONFIG.currentWeek && (!t.availableFrom || new Date() >= new Date(t.availableFrom)))
+                        .reverse();
 
-                    if (currentWeekThemes.length === 0) {
-                        // Fallback to the very first theme if nothing matches
-                        return <WeeklyTheme key={CONFIG.themes[0].id} theme={CONFIG.themes[0]} />;
+                    if (currentWeekThemes.length > 1) {
+                        const olderThemes = currentWeekThemes.slice(1);
+                        return olderThemes.map(theme => (
+                            <div key={`older-theme-${theme.id}`} style={{ marginBottom: 'var(--spacing-md)' }}>
+                                <WeeklyTheme theme={theme} />
+                            </div>
+                        ));
                     }
-
-                    return currentWeekThemes.map(theme => (
-                        <WeeklyTheme key={theme.id} theme={theme} />
-                    ));
+                    return null;
                 })()}
 
-                {/* Tu Dosis Semanal Section */}
-                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 && (() => {
-                    // Create a copy, reverse it to show newest first, then take top 3
-                    const latestAudios = [...CONFIG.audioCapsules].reverse().slice(0, 3);
+                {/* Tu Dosis Semanal Section (AUDIOS ANTERIORES) */}
+                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 1 && (() => {
+                    // Tomamos del penúltimo hacia atrás, máximo 3
+                    const previousAudios = [...CONFIG.audioCapsules].reverse().slice(1, 4);
                     return (
-                        <section>
+                        <section style={{ marginBottom: 'var(--spacing-md)' }}>
                             <h3 style={{
                                 fontSize: '0.875rem',
                                 textTransform: 'uppercase',
                                 marginBottom: 'var(--spacing-sm)',
                                 color: 'var(--color-accent)'
                             }}>
-                                Para escuchar
+                                Escuchar anteriores
                             </h3>
-                            {latestAudios.map(capsule => (
-                                <AudioCapsuleCard key={capsule.id} capsule={capsule} />
+                            {previousAudios.map(capsule => (
+                                <AudioCapsuleCard key={`older-audio-${capsule.id}`} capsule={capsule} />
                             ))}
-                            {CONFIG.audioCapsules.length > 3 && (
+                            {CONFIG.audioCapsules.length > 4 && (
                                 <button
                                     onClick={() => navigate('/recursos?anchor=audios-tab')}
                                     style={{
