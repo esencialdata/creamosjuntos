@@ -472,7 +472,7 @@ export const CONFIG = {
         {
             id: 6,
             weekId: 13,
-            title: "6. LA GUARDIA DE LA MENTE",
+            title: "6. La Guardia de la Mente",
             subtitle: "(Protocolo de Acción / La Guardia de la Mente)",
             duration: "04:56",
             audioUrl: "/e6.mp3",
