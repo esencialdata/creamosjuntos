@@ -476,7 +476,7 @@ export const CONFIG = {
             subtitle: "(Protocolo de Acción / La Guardia de la Mente)",
             duration: "04:56",
             audioUrl: "/e6.mp3",
-            color: "#14B8A6" // Teal 500 - Strong, energetic, and distinct for Theme 13
+            color: "#64748B" // Slate 500 - Gris para combinar con el entorno oscuro
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
