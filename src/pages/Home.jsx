@@ -133,8 +133,8 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
 
                         return (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-                                <WeeklyTheme key={`latest-theme-${latestTheme.id}`} theme={latestTheme} />
                                 {latestAudio && <AudioCapsuleCard key={`latest-audio-${latestAudio.id}`} capsule={latestAudio} />}
+                                <WeeklyTheme key={`latest-theme-${latestTheme.id}`} theme={latestTheme} />
                             </div>
                         );
                     })()}
