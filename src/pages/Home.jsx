@@ -101,16 +101,21 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 {/* --- SECCIÓN "LO ÚLTIMO" --- */}
                 <section style={{ marginBottom: 'var(--spacing-md)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: 'var(--spacing-sm)' }}>
-                        <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-text-primary)' }}>
+                        <h3 style={{
+                            fontSize: '0.875rem',
+                            textTransform: 'uppercase',
+                            color: 'var(--color-accent)',
+                            margin: 0
+                        }}>
                             Lo Último
-                        </h2>
+                        </h3>
                         <span style={{
                             marginLeft: '0.75rem',
-                            padding: '0.2rem 0.6rem',
+                            padding: '0.2rem 0.5rem',
                             backgroundColor: 'rgba(37, 99, 235, 0.1)',
                             color: 'var(--color-primary)',
                             borderRadius: '12px',
-                            fontSize: '0.75rem',
+                            fontSize: '0.65rem',
                             fontWeight: 'bold',
                             textTransform: 'uppercase'
                         }}>Nuevos</span>
