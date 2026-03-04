@@ -468,6 +468,15 @@ export const CONFIG = {
             duration: "07:01",
             audioUrl: "/escoge-la-vida.mp3",
             color: "#38BDF8" // Sky 400 - Matches Week 12 theme accent
+        },
+        {
+            id: 6,
+            weekId: 13,
+            title: "6. LA GUARDIA DE LA MENTE",
+            subtitle: "(Protocolo de Acción / La Guardia de la Mente)",
+            duration: "04:56",
+            audioUrl: "/e6.mp3",
+            color: "#14B8A6" // Teal 500 - Strong, energetic, and distinct for Theme 13
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
