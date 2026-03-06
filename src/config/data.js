@@ -2016,6 +2016,86 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Josué 1:8"
                 }
             ]
+        },
+        {
+            id: 25,
+            weekId: 13,
+            availableFrom: "2026-03-05T00:00:00",
+            title: "LA GUARDIA DE LA MENTE",
+            description: "Por qué tu decisión de ayer fracasará mañana si no instalas un sistema de defensa hoy.",
+            themeStyles: {
+                bg: '#1C1C1C',
+                textPrimary: '#F5F5F5',
+                textSecondary: '#A3A3A3',
+                accent: '#E0E0E0',
+                cardBorder: '1px solid #333333',
+                cardShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.4)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "EL MURO TIENE DUEÑO, PERO REQUIERE GUARDIA.",
+                    subtitle: "Por qué tu decisión de ayer fracasará mañana si no instalas un sistema de defensa hoy.",
+                    videoUrl: "/guardas_opt.mp4",
+                    footerText: "Desliza para ver la estrategia ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA ESTRATEGIA DE NEHEMÍAS",
+                    title: "No basta con edificar.",
+                    body: "Nehemías terminó el muro, pero no se detuvo ahí. Para que la ciudad sobreviviera, activó tres roles de vigilancia constante.\n\nLa Clave: Los porteros filtran, los Levitas instruyen y los cantores cuidan la atmósfera. ¿Quién ocupa esos puestos en tu mente?",
+                    citation: "\"Y luego que el muro fué edificado... fueron señalados porteros y cantores y Levitas.\"",
+                    reference: "Nehemías 7:1 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MECANISMO DE INTERRUPCIÓN",
+                    title: "¿Por qué \"De día y de noche\"?",
+                    body: "Tu cerebro funciona por inercia. Los antiguos surcos del miedo y la pereza no desaparecen, se interrumpen.\n\nDato: La verdadera inteligencia es la capacidad de corregir el rumbo antes de que el desvío sea permanente.",
+                    citation: "\"Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él...\"",
+                    reference: "Josué 1:8 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "TU SISTEMA DE DEFENSA (ALARMAS)",
+                    title: "No confíes en tu voluntad. Confía en tu sistema.",
+                    body: "Para renovar tu entendimiento (Romanos 12:2), necesitas interrumpir tu piloto automático 4 veces al día.\n\nAcción: Configura estas 4 alarmas en tu teléfono ahora mismo. Son los \"porteros\" de tu diseño original.",
+                    citation: "La voluntad se agota, el sistema perdura.",
+                    reference: "Romanos 12:2"
+                },
+                {
+                    type: "action",
+                    title: "LAS 4 ALARMAS DE IDENTIDAD",
+                    subtitle: "Configura estas alarmas en tu dispositivo:",
+                    steps: [
+                        "08:00 AM - Identidad: ¿Quién decidiste ser hoy delante de Dios? (El Levita inyecta la verdad).",
+                        "12:00 PM - Vigilancia: ¿Está tu cerca en pie o has cedido a la inercia? (El Portero filtra el pensamiento).",
+                        "04:00 PM - Propósito: ¿Lo que haces ahora sirve a tu visión? (El Portero corrige el rumbo).",
+                        "08:00 PM - Gratitud: ¿En qué viste la mano del Alfarero hoy? (El Cantor cambia la atmósfera)."
+                    ],
+                    citation: "Interrumpe la inercia 4 veces al día.",
+                    reference: "Plan de Acción"
+                },
+                {
+                    type: "diagnostic",
+                    label: "ATAR LA LEY A TUS DEDOS",
+                    title: "Hazlo visible. Hazlo real.",
+                    body: "En la antigüedad, Dios ordenó poner Su ley como \"frontales entre los ojos\". Hoy, tus alarmas son esos recordatorios que fuerzan a tu cerebro a regresar al orden.",
+                    citation: "\"Y las atarás por señal en tu mano, y estarán por frontales entre tus ojos.\"",
+                    reference: "Deuteronomio 6:8 (RVA 1909)"
+                },
+                {
+                    type: "action",
+                    title: "ACTIVA TU GUARDIA.",
+                    subtitle: "En el Episodio 6 hablamos de neurociencia y la ley bíblica detrás de cada alarma. No dejes tu mente sin porteros.",
+                    steps: [
+                        "Escucha \"La Guardia de la Mente\" en la app."
+                    ],
+                    citation: "🎙️ Episodio 6",
+                    reference: "Llamado a la Acción",
+                    buttonText: "Configurar Alarmas"
+                }
+            ]
         }
     ],
     weeklyHabit: {
