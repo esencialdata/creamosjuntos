@@ -2146,40 +2146,40 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
     schedule: [
         {
             id: 1,
-            week: "Semana del 6 al 7 Feb",
+            week: "Semana del 6 al 7 Mar",
             events: [
                 {
                     id: "w1_e1",
-                    date: "Viernes 06 Feb",
+                    date: "Viernes 06 Mar",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Predicador Designado" }
+                        { role: "Predicación", name: "Gerardo Mier" }
                     ]
                 },
                 {
                     id: "w1_e2",
-                    date: "Sábado 07 Feb",
+                    date: "Sábado 07 Mar",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La sexta plaga",
-                    objective: "La grey será capaz sustentar ante propios y extraños que la búsqueda del bien no limita la satisfacción de nuestras necesidades materiales.",
+                    theme: "Los habitantes de Milenio 1ª. Parte",
+                    objective: "La grey obtendrá los argumentos que apoyan el conocimiento de la existencia de Cristo en el principio.",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Mizraim Montiel (La sexta plaga)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La Iglesia de Dios nos ofrece la prosperidad)" }
+                        { role: "Lección", name: "Aarón Espinosa (Los habitantes de Milenio 1ª. Parte)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La preexistencia de Cristo)" }
                     ]
                 },
                 {
                     id: "w1_e3",
-                    date: "Sábado 07 Feb",
+                    date: "Sábado 07 Mar",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "La reunión familiar",
-                    objective: "La grey aceptará los beneficios de reunir a la familia, aun entre semana o cualquier día, para fortalecer la espiritualidad de la Iglesia.",
+                    theme: "Yo soy el camino, la verdad y la vida.",
+                    objective: "La grey identificará conceptos que puede aplicar en su vida, que provienen de las enseñanzas de Cristo.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 }
@@ -2187,38 +2187,38 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 2,
-            week: "Semana del 13 al 14 Feb",
+            week: "Semana del 13 al 14 Mar",
             events: [
                 {
                     id: "w2_e1",
-                    date: "Viernes 13 Feb",
+                    date: "Viernes 13 Mar",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Predicador Designado" }
+                        { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w2_e2",
-                    date: "Sábado 14 Feb",
+                    date: "Sábado 14 Mar",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La séptima plaga",
-                    objective: "La grey identificará las diferencias que existen entre el amor como una concepción de la carne y el amor que vence al mundo y viene del Espíritu de Dios.",
+                    theme: "Los habitantes de milenio 2ª parte",
+                    objective: "La grey identificará las diferentes forma sen que se integran los miembros, reconociendo la manera de dar seguimiento a su permanencia y comprometiéndose a llamar a los ausentes.",
                     details: [
-                        { role: "Superintendente", name: "Mizraim Montiel" },
-                        { role: "Lección", name: "Gerardo Mier (La séptima plaga)" },
-                        { role: "Predicación", name: "Aarón Espinosa (Aplicación del amor...)" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Lección", name: "Gerardo Mier (Los habitantes de milenio 2ª parte)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Parábola del sembrador)" }
                     ]
                 },
                 {
                     id: "w2_e3",
-                    date: "Sábado 14 Feb",
+                    date: "Sábado 14 Mar",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Las semillas del sembrador",
-                    objective: "La grey se comprometerá a realizar acciones que den seguimiento a conocidos y familiares que han sido tocados o serán tocados por la Palabra de Dios.",
+                    theme: "¿Por qué era necesario que Cristo Muriera?",
+                    objective: "La grey reconocerá su compromiso con el sacrificio de Cristo y el valor de su muerte para nosotros",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Absalón Perusquía" }
@@ -2228,82 +2228,70 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 3,
-            week: "Semana del 20 al 21 Feb",
+            week: "Semana del 20 al 21 Mar",
             events: [
                 {
                     id: "w3_e1",
-                    date: "Viernes 20 Feb",
+                    date: "Viernes 20 Mar",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Predicador Designado" }
+                        { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w3_e2",
-                    date: "Sábado 21 Feb",
+                    date: "Sábado 21 Mar",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "El reino Milenial",
-                    objective: "La grey comprometerá su participación unidos para que la Iglesia sea un ejemplo de armonía que elimine prejuicios y malos entendidos.",
+                    theme: "CEREMONIA BAUTIZOS",
+                    objective: "Para evitar algún imprevisto debido a que el lugar es un poco difícil de acceso para los baños, la lección se dará el siguiente sábado.",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Lección", name: "Mizraim Montiel (El reino Milenial)" },
-                        { role: "Predicación", name: "Aarón Espinosa (La raíz de amargura)" }
-                    ]
-                },
-                {
-                    id: "w3_e3",
-                    date: "Sábado 21 Feb",
-                    type: "Culto Vespertino",
-                    time: "4:00 PM",
-                    theme: "Desapego a las cosas pasadas",
-                    objective: "La grey identificará los cambios positivos que ha realizado, se comprometerá a mantenerse en la mejora continua, orientado por las palabras del predicador.",
-                    details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Absalón Perusquía" }
+                        { role: "Superintendencia y alabanzas", name: "Absalón Perusquía" },
+                        { role: "Predicación previa", name: "Ministro Julio Silva" },
+                        { role: "Predicación", name: "Aarón Espinosa (Fortalecimiento)" }
                     ]
                 }
             ]
         },
         {
             id: 4,
-            week: "Semana del 27 al 28 Feb",
+            week: "Semana del 27 al 28 Mar",
             events: [
                 {
                     id: "w4_e1",
-                    date: "Viernes 27 Feb",
+                    date: "Viernes 27 Mar",
                     type: "Recibimiento",
                     time: "7:00 PM",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Predicador Designado" }
+                        { role: "Predicación", name: "Yahir López" }
                     ]
                 },
                 {
                     id: "w4_e2",
-                    date: "Sábado 28 Feb",
+                    date: "Sábado 28 Mar",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La herencia de los santos",
-                    objective: "La grey se comprometerá a vigilar el orden en todas las actividades que apoyen los cultos de nuestro Dios.",
+                    theme: "La renovación de la flora y la fauna en el milenio",
+                    objective: "La grey se comprometerá a realizar previo a la fiesta de la pascua un análisis y compromiso de mejora delante de Dios",
                     details: [
                         { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Mizraim Montiel (La herencia de los santos)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La disciplina en Dios)" }
+                        { role: "Lección", name: "Aarón Espinosa (La renovación de la flora y la fauna en el milenio)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La santificación y confesión delante de Dios)" }
                     ]
                 },
                 {
                     id: "w4_e3",
-                    date: "Sábado 28 Feb",
+                    date: "Sábado 28 Mar",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Mi paz os dejo, mi paz os doy",
-                    objective: "La grey identificará la armonía en todos sus caminos y la seguridad en sus decisiones como la consecuencia correspondiente a seguir los pasos del Maestro.",
+                    theme: "La ley de Dios en el milenio",
+                    objective: "La grey identificará la trascendencia de la Ley de Dios y que será utilizada en el Reino milenial.",
                     details: [
-                        { role: "Superintendente", name: "Mizraim Montiel" },
-                        { role: "Predicación", name: "Gerardo Mier" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Predicación", name: "Gerardo Mier (Lección pendiente. La ley de Dios en el milenio)" }
                     ]
                 }
             ]
