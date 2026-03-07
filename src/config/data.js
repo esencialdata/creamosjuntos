@@ -372,6 +372,193 @@ export const VERSES_POOL = [
         reference: "Santiago 1:22",
         likes: 0,
         comment: "Saber mucha Biblia y no practicarla es la forma más sutil de autoengaño. La teología que no se traduce en conducta es estéril."
+    },
+    // --- NUEVO SET (MARZO/ABRIL - CICLO 4) ---
+    {
+        text: "En el principio crió Dios los cielos y la tierra.",
+        reference: "Génesis 1:1",
+        likes: 0,
+        comment: "El fundamento de toda fe y doctrina reside en reconocer a Dios como el Creador absoluto; sin esta premisa, cualquier otra enseñanza carece de autoridad."
+    },
+    {
+        text: "Yo soy el Dios Todopoderoso; anda delante de mí, y sé perfecto.",
+        reference: "Génesis 17:1",
+        likes: 0,
+        comment: "La omnipotencia de Dios exige una respuesta humana correspondiente: una vida de integridad y rectitud moral ante Sus ojos."
+    },
+    {
+        text: "Jehová es mi fortaleza, y mi cántico, Y ha sido mi salud.",
+        reference: "Éxodo 15:2",
+        likes: 0,
+        comment: "La verdadera seguridad del creyente no se fundamenta en su capacidad de resistencia, sino en la intervención directa de Dios como su escudo y salvador."
+    },
+    {
+        text: "Porque yo soy Jehová vuestro Dios; vosotros por tanto os santificaréis, y seréis santos, porque yo soy santo.",
+        reference: "Levítico 11:44",
+        likes: 0,
+        comment: "La santidad no es una sugerencia optativa; es el estándar innegociable exigido a quienes portan el nombre del Dios Santo."
+    },
+    {
+        text: "No te vengarás, ni guardarás ira á los hijos de tu pueblo, mas amarás á tu prójimo como á ti mismo: Jehová.",
+        reference: "Levítico 19:18",
+        likes: 0,
+        comment: "El amor al prójimo es una ordenanza legal desde la antigüedad; no tolerar el rencor es una demostración de sumisión al carácter de Dios."
+    },
+    {
+        text: "Dios no es hombre, para que mienta; Ni hijo de hombre para que se arrepienta.",
+        reference: "Números 23:19",
+        likes: 0,
+        comment: "La inmutabilidad de Dios es la garantía de Sus promesas y de Sus juicios. Su palabra es absoluta y no está sujeta a las fluctuaciones humanas."
+    },
+    {
+        text: "Ahora pues, Israel, ¿qué pide Jehová tu Dios de ti, sino que temas á Jehová tu Dios, que andes en todos sus caminos, y que lo ames, y sirvas á Jehová tu Dios con todo tu corazón, y con toda tu alma.",
+        reference: "Deuteronomio 10:12",
+        likes: 0,
+        comment: "El requerimiento divino es integral. Involucra la reverencia (temor), la conducta (caminos), el afecto (amor) y la obediencia activa (servicio)."
+    },
+    {
+        text: "Y si mal os parece servir á Jehová, escogeos hoy á quién sirváis... que yo y mi casa serviremos á Jehová.",
+        reference: "Josué 24:15",
+        likes: 0,
+        comment: "La neutralidad espiritual no existe. La lealtad a Dios requiere una decisión pública, firme y continua frente a las alternativas idolátricas del entorno."
+    },
+    {
+        text: "Ciertamente el obedecer es mejor que los sacrificios; y el prestar atención que el sebo de los carneros.",
+        reference: "1 Samuel 15:22",
+        likes: 0,
+        comment: "El activismo religioso jamás podrá sustituir la sumisión directa a los mandamientos de Dios. La obediencia es la adoración suprema."
+    },
+    {
+        text: "Y tú, Salomón, hijo mío, reconoce al Dios de tu padre, y sírvele con corazón perfecto y con ánimo voluntario.",
+        reference: "1 Crónicas 28:9",
+        likes: 0,
+        comment: "El servicio a Dios pierde su valor si se realiza por obligación o con intenciones divididas; demanda voluntariedad y lealtad absoluta."
+    },
+    {
+        text: "No os entristezcáis, porque el gozo de Jehová es vuestra fortaleza.",
+        reference: "Nehemías 8:10",
+        likes: 0,
+        comment: "La vitalidad para sostener el servicio y la obediencia no proviene del estoicismo humano, sino del gozo espiritual que otorga la comunión con Dios."
+    },
+    {
+        text: "Los cielos cuentan la gloria de Dios, Y la expansión denuncia la obra de sus manos.",
+        reference: "Salmos 19:1",
+        likes: 0,
+        comment: "La creación misma es un testimonio irrefutable e incesante del diseño y la majestad divina, dejando a la humanidad sin excusa para ignorar a su Creador."
+    },
+    {
+        text: "El ángel de Jehová acampa en derredor de los que le temen, Y los defiende.",
+        reference: "Salmos 34:7",
+        likes: 0,
+        comment: "La protección divina está condicionada al temor reverente; quienes honran a Dios viven bajo una custodia celestial activa."
+    },
+    {
+        text: "Los sacrificios de Dios son el espíritu quebrantado: Al corazón contrito y humillado no despreciarás tú, oh Dios.",
+        reference: "Salmos 51:17",
+        likes: 0,
+        comment: "El arrepentimiento genuino implica la destrucción del orgullo personal. Dios restaura únicamente a quienes reconocen su insuficiencia moral."
+    },
+    {
+        text: "En mi corazón he guardado tus dichos, Para no pecar contra ti.",
+        reference: "Salmos 119:11",
+        likes: 0,
+        comment: "La retención intelectual de la Escritura es el mecanismo defensivo principal contra la infracción de la Ley divina."
+    },
+    {
+        text: "El principio de la sabiduría es el temor de Jehová: Los insensatos desprecian la sabiduría y la enseñanza.",
+        reference: "Proverbios 1:7",
+        likes: 0,
+        comment: "El conocimiento académico carece de verdadero valor si no está cimentado en el respeto profundo a los principios y estatutos de Dios."
+    },
+    {
+        text: "Venid luego, dirá Jehová, y estemos á cuenta: si vuestros pecados fueren como la grana, como la nieve serán emblanquecidos.",
+        reference: "Isaías 1:18",
+        likes: 0,
+        comment: "Dios ofrece un diálogo racional de redención. Ninguna mancha moral es tan profunda que la intervención divina no pueda purificarla completamente."
+    },
+    {
+        text: "Cuando pasares por las aguas, yo seré contigo; y por los ríos, no te anegarán.",
+        reference: "Isaías 43:2",
+        likes: 0,
+        comment: "La pertenencia a Dios no exime al creyente de atravesar crisis severas, pero garantiza su supervivencia y sostenimiento durante las mismas."
+    },
+    {
+        text: "Bendito el varón que se fía en Jehová, y cuya confianza es Jehová.",
+        reference: "Jeremías 17:7",
+        likes: 0,
+        comment: "La bendición no es un accidente geográfico o financiero, es la consecuencia directa de anclar la esperanza existencial únicamente en el Todopoderoso."
+    },
+    {
+        text: "Porque yo Jehová, no me mudo; y así vosotros, hijos de Jacob, no habéis sido consumidos.",
+        reference: "Malaquías 3:6",
+        likes: 0,
+        comment: "La preservación del pueblo de Dios no se debe a su propia fidelidad, sino a la consistencia inalterable del carácter divino."
+    },
+    {
+        text: "Así alumbre vuestra luz delante de los hombres, para que vean vuestras obras buenas, y glorifiquen á vuestro Padre que está en los cielos.",
+        reference: "Mateo 5:16",
+        likes: 0,
+        comment: "La fe debe ser visible a través de la conducta moral y la obediencia legal; la santidad práctica es el argumento más fuerte del Evangelio."
+    },
+    {
+        text: "No todo el que me dice: Señor, Señor, entrará en el reino de los cielos: mas el que hiciere la voluntad de mi Padre que está en los cielos.",
+        reference: "Mateo 7:21",
+        likes: 0,
+        comment: "La confesión verbal carece de validez sin el respaldo de la obediencia estricta a la voluntad de Dios revelada en Sus mandamientos."
+    },
+    {
+        text: "Porque ¿qué aprovechará al hombre, si granjeare todo el mundo, y pierde su alma?",
+        reference: "Marcos 8:36",
+        likes: 0,
+        comment: "El éxito temporal carece de sentido frente al cálculo de la eternidad. Ningún logro humano justifica el compromiso de la integridad espiritual."
+    },
+    {
+        text: "Y decía á todos: Si alguno quiere venir en pos de mí, niéguese á sí mismo, y tome su cruz cada día, y sígame.",
+        reference: "Lucas 9:23",
+        likes: 0,
+        comment: "El discipulado cristiano no es una adhesión pasiva; exige una renuncia diaria al gobierno personal y una disposición continua al sacrificio."
+    },
+    {
+        text: "En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios.",
+        reference: "Juan 1:1",
+        likes: 0,
+        comment: "La preexistencia y la divinidad de Cristo son doctrinas fundamentales; el Mesías no es un mero profeta, sino la expresión eterna de Dios."
+    },
+    {
+        text: "Jesús le dice: Yo soy el camino, y la verdad, y la vida: nadie viene al Padre, sino por mí.",
+        reference: "Juan 14:6",
+        likes: 0,
+        comment: "La exclusividad de la salvación en Cristo anula cualquier sistema alternativo de redención; la reconciliación requiere pasar forzosamente por Su sacrificio."
+    },
+    {
+        text: "Mas Dios encarece su caridad para con nosotros, porque siendo aún pecadores, Cristo murió por nosotros.",
+        reference: "Romanos 5:8",
+        likes: 0,
+        comment: "El mérito humano no fue el detonante de la redención. La intervención de Dios sucedió en nuestro peor estado moral, evidenciando la magnitud de Su gracia."
+    },
+    {
+        text: "Con Cristo estoy juntamente crucificado, y vivo, no ya yo, mas vive Cristo en mí.",
+        reference: "Gálatas 2:20",
+        likes: 0,
+        comment: "El nuevo nacimiento exige la ejecución de la naturaleza anterior. El creyente debe operar ahora bajo el señorío y la vitalidad de Cristo."
+    },
+    {
+        text: "Poned la mira en las cosas de arriba, no en las de la tierra.",
+        reference: "Colosenses 3:2",
+        likes: 0,
+        comment: "La mentalidad del creyente debe estar calibrada hacia los propósitos eternos; la obsesión por lo temporal es un desvío de su verdadera ciudadanía."
+    },
+    {
+        text: "Porque hay un solo Dios, y un solo mediador entre Dios y los hombres, Jesucristo hombre.",
+        reference: "1 Timoteo 2:5",
+        likes: 0,
+        comment: "El monopolio de la intercesión pertenece exclusivamente a Jesucristo. Queda invalidada la apelación a cualquier otra entidad o mediador espiritual."
+    },
+    {
+        text: "Mirad cuál caridad nos ha dado el Padre, que seamos llamados hijos de Dios.",
+        reference: "1 Juan 3:1",
+        likes: 0,
+        comment: "La adopción divina es un estatus legal y espiritual transformador; otorga identidad y demanda un comportamiento acorde al linaje del Padre."
     }
 ];
 
