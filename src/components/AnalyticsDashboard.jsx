@@ -72,26 +72,29 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
         // Iterate ONLY over the official configuration. 
         // We do NOT iterate over the raw stats to prevents "pollution" from other data types.
         return CONFIG.themes.map(theme => {
-            let count = 0;
+            let saves = 0;
+            let shares = 0;
 
-            if (isLive && stats.topTopics) {
-                // Find matching stat in the live data
-                // We normalize both sides to ensure matches work despite casing/spacing
-                const match = stats.topTopics.find(t =>
-                    (t.name || '').trim().toLowerCase() === theme.title.trim().toLowerCase()
-                );
-                count = match ? match.count : 0;
+            if (isLive) {
+                if (stats.topTopics) {
+                    const match = stats.topTopics.find(t =>
+                        (t.name || '').trim().toLowerCase() === theme.title.trim().toLowerCase()
+                    );
+                    saves = match ? match.count : 0;
+                }
+                // themeShares comes from global stats mapped in getCommunityStats
+                shares = stats.themeShares?.[theme.title] || 0;
             } else {
-                // Fallback for non-live or specific field stats
-                count = (stats.theme_saves?.[theme.title] || 0) +
-                    (stats.theme_shares?.[theme.title] || 0) +
-                    (stats.theme_lights?.[theme.title] || 0);
+                saves = stats.theme_saves?.[theme.title] || 0;
+                shares = stats.theme_shares?.[theme.title] || 0;
             }
 
             return {
                 id: `t-${theme.id}`,
                 title: theme.title,
-                lights: count, // Using 'lights' generic bucket for the primary metric
+                saves: saves,
+                shares: shares,
+                lights: saves + shares, // Using 'lights' generic bucket for the primary metric
                 type: 'slide'
             };
         }).filter(item => item.lights > 0); // Only show items that have interaction
@@ -166,7 +169,9 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
             if (sortBy === 'date') data.sort((a, b) => b.parsedDate - a.parsedDate);
             else if (sortBy === 'impact_desc') data.sort((a, b) => b.lights - a.lights);
         } else if (viewMode === 'slides') {
-            data.sort((a, b) => b.lights - a.lights);
+            if (sortBy === 'shares') data.sort((a, b) => b.shares - a.shares);
+            else if (sortBy === 'saves') data.sort((a, b) => b.saves - a.saves);
+            else data.sort((a, b) => b.lights - a.lights); // Default metric
         } else if (viewMode === 'audios') {
             if (sortBy === 'saves') data.sort((a, b) => b.saves - a.saves);
             else if (sortBy === 'likes') data.sort((a, b) => b.likes - a.likes);
@@ -330,7 +335,7 @@ const AnalyticsDashboard = ({ stats = {}, isLive = false }) => {
                                 )}
                                 {viewMode === 'slides' && (
                                     <>
-                                        <span title="Reacciones">💡 <strong>{item.lights}</strong></span>
+                                        <span title="Impacto Total">💡 <strong>{item.lights}</strong></span>
                                         <span title="Compartidos">↗️ <strong>{item.shares}</strong></span>
                                         <span title="Guardados">💾 <strong>{item.saves}</strong></span>
                                     </>

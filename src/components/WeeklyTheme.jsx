@@ -20,6 +20,7 @@ const WeeklyTheme = ({ theme = {} }) => {
         const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=${anchorId}`;
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, shareUrl);
+        await toggleThemeShare(theme.title, true);
     };
     // If no slides define, fallback to simple view (safety check)
     if (!theme.slides || !theme.slides.length) return null;

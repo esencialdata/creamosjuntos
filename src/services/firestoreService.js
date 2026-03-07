@@ -262,6 +262,9 @@ export const getCommunityStats = async () => {
             if (globalStats.capsule_likes) {
                 stats.capsule_likes = globalStats.capsule_likes;
             }
+            if (globalStats.theme_shares) {
+                stats.theme_shares = globalStats.theme_shares;
+            }
         } catch (e) {
             console.warn("Could not fetch global stats", e);
         }
@@ -312,7 +315,8 @@ export const getCommunityStats = async () => {
             topEvents: sortAndSlice(stats.topEvents),
             topCapsulesBookmarks: sortAndSlice(stats.topCapsules), // Explicitly named bookmarks/saves
             dailyPulse: Object.entries(stats.dailyPulse).map(([day, count]) => ({ day, count })),
-            capsuleLikes: stats.capsule_likes // Pass raw object { [id]: count }
+            capsuleLikes: stats.capsule_likes, // Pass raw object { [id]: count }
+            themeShares: stats.theme_shares // Pass raw object { [title]: count }
         };
 
     } catch (error) {
