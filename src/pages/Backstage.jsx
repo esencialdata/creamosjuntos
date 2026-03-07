@@ -423,7 +423,26 @@ const Backstage = () => {
                     <img src={logoHeader} alt="Campo David" style={{ height: '72px' }} />
 
                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-
+                        <button
+                            onClick={() => {
+                                if (window.confirm('¿Estás seguro de sincronizar la base de datos con los roles guardados en el código? Esto actualizará las asignaciones para todos.')) {
+                                    initializeDefaultData().then(() => alert('✅ Roles sincronizados exitosamente con la base de datos.'));
+                                }
+                            }}
+                            title="Sincronizar Roles (Admin)"
+                            style={{
+                                background: '#f0fdf4',
+                                border: '1px solid #bbf7d0',
+                                color: '#166534',
+                                padding: '0.4rem 1rem',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                fontSize: '0.8rem',
+                                fontWeight: '600'
+                            }}
+                        >
+                            Sincronizar
+                        </button>
                         <button
                             onClick={handleLogout}
                             style={{

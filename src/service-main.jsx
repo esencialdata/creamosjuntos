@@ -4,15 +4,10 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 import Backstage from './pages/Backstage'
 import PWAInstallBanner from './components/PWAInstallBanner'
-import { initializeDefaultData } from './services/firestoreService'
 
 import AnalyticsPage from './pages/AnalyticsPage'
 
 const ServiceApp = () => {
-    useEffect(() => {
-        initializeDefaultData();
-    }, []);
-
     return (
         <StrictMode>
             <PWAInstallBanner />
