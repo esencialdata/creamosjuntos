@@ -593,10 +593,12 @@ const getCurrentWeekId = () => {
     const week11Start = new Date(2026, 1, 16); // Feb 16
     const week12Start = new Date(2026, 1, 23); // Feb 23
     const week13Start = new Date(2026, 2, 2);  // Mar 2
+    const week14Start = new Date(2026, 2, 9);  // Mar 9
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week14Start) return 14;
     if (now >= week13Start) return 13;
     if (now >= week12Start) return 12;
     if (now >= week11Start) return 11;
@@ -2281,6 +2283,82 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     citation: "🎙️ Episodio 6",
                     reference: "Llamado a la Acción",
                     buttonText: "Configurar Alarmas"
+                }
+            ]
+        },
+        {
+            id: 26,
+            weekId: 14,
+            availableFrom: "2026-03-09T00:00:00",
+            title: "PERSISTENCIA: MÁS QUE UNA VIRTUD, UNA LEY",
+            description: "Por qué el bien siempre rinde dividendos si no abandonas el campo.",
+            themeStyles: {
+                bg: '#FAFAFA',
+                textPrimary: '#171717',
+                textSecondary: '#525252',
+                accent: '#0284C7',
+                cardBorder: '1px solid #E5E5E5',
+                cardShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.05)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "PERSISTENCIA: MÁS QUE UNA VIRTUD, UNA LEY.",
+                    subtitle: "Por qué el bien siempre rinde dividendos si no abandonas el campo.",
+                    videoUrl: "/persistencia_opt.mp4",
+                    footerText: "Gálatas 6:9 (RVA) ➡️"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL FUNDAMENTO JURÍDICO (AT)",
+                    title: "LA LEY DE LA SIEMBRA",
+                    body: "En el diseño original, la bendición no es un azar, sino una respuesta legal a la ejecución del estatuto.\n\nPrincipio: El \"tiempo de Dios\" es la fase de maduración de tu obediencia.",
+                    citation: "\"Si anduviereis en mis decretos y guardareis mis mandamientos... yo daré vuestra lluvia en su tiempo, y la tierra rendirá su tributo\"",
+                    reference: "Levítico 26:3-4 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ESTÁNDAR MAESTRO (NT)",
+                    title: "EL MODELO OPERATIVO",
+                    body: "El Mesías no solo cumplió la ley, sino que la magnificó mediante la acción ininterrumpida, incluso bajo la máxima presión.\n\nPremisa: El bien es una labor técnica que requiere resistencia sistémica.",
+                    citation: "\"Jesús de Nazareth... el cual anduvo haciendo bienes... porque Dios era con él\"",
+                    reference: "Hechos 10:38 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA EVIDENCIA BIOLÓGICA (CIENCIA)",
+                    title: "NEUROCIENCIA DE LA VOLUNTAD",
+                    body: "El \"cansancio\" del que habla el texto es una respuesta de la dopamina ante la falta de resultados inmediatos.\n\nDato Científico: La Gratificación Aplazada (estudiada en Stanford) demuestra que la capacidad de la corteza prefrontal para resistir la fatiga predice el éxito y la integridad a largo plazo.",
+                    citation: "\"No desmayar\" es entrenar tu cerebro para valorar la cosecha futura sobre el alivio presente.",
+                    reference: "Neurociencia"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL RIESGO DE LA INTERRUPCIÓN",
+                    title: "EL COSTO DEL DESMAYO",
+                    body: "La historia de Israel en el desierto es la crónica de una cosecha perdida por falta de persistencia. Estuvieron a días de la promesa, pero el desmayo mental anuló su derecho legal a la tierra.",
+                    citation: "El terreno no falla; lo que falla es la permanencia del sembrador.",
+                    reference: "Historia Bíblica"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA GARANTÍA DEL RESULTADO",
+                    title: "LA PROMESA JURÍDICA",
+                    body: "La única variable que puede detener tu siega no es el enemigo ni el clima, sino tu propia decisión de retirarte antes del tiempo designado.",
+                    citation: "\"No nos cansemos, pues, de hacer bien; que á su tiempo segaremos, si no hubiéremos desmayado\"",
+                    reference: "Gálatas 6:9 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "TOMA EL CONTROL DE TU SIEMBRA",
+                    subtitle: "Acción Inmediata:",
+                    steps: [
+                        "Identifica el área donde sientes ganas de abandonar y sométela a la Ley de Dios.",
+                        "Reprograma tu enfoque: deja de mirar el campo vacío y confía en la semilla depositada.",
+                        "Persiste: Asegura tu cosecha hoy mismo mediante un acto concreto de bien."
+                    ],
+                    citation: "Comparte este contenido si decides no rendirte hoy.",
+                    reference: "Reflexión Final"
                 }
             ]
         }
