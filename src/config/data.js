@@ -670,7 +670,7 @@ export const CONFIG = {
         {
             id: 7,
             weekId: 14,
-            title: "El ecosistema del cambio",
+            title: "7. El ecosistema del cambio",
             duration: "04:57",
             audioUrl: "/e7.mp3",
             color: "#0284C7" // Matches Week 14 theme accent
