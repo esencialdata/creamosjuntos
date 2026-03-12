@@ -666,6 +666,14 @@ export const CONFIG = {
             duration: "04:56",
             audioUrl: "/e6.mp3",
             color: "#64748B" // Slate 500 - Gris para combinar con el entorno oscuro
+        },
+        {
+            id: 7,
+            weekId: 14,
+            title: "7. El Ecosistema del Cambio",
+            duration: "04:50",
+            audioUrl: "/el-ecosistema-del-cambio.mp3",
+            color: "#0284C7" // Matches Week 14 theme accent
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
