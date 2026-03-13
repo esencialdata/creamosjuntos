@@ -1634,7 +1634,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "diagnostic",
                     label: "LA MAGNIFICACIÓN (NT)",
                     title: "LA FE ES MATERIA PRIMA",
-                    body: "El mundo dice: 'Ver para creer'. El Reino dice: 'Creer es la sustancia de lo que verás'.\n\nInsight: Si esperas el resultado para sentirte seguro, no estás usando fe, estás usando vista. Tu certeza interna es el molde del milagro externo.",
+                    body: "El mundo dice: 'Ver para creer'. El Reino dice: 'Creer es la sustancia de lo que verás'.\n\nClave: Si esperas el resultado para sentirte seguro, no estás usando fe, estás usando vista. Tu certeza interna es el molde del milagro externo.",
                     citation: "ES pues la fe la sustancia de las cosas que se esperan, la demostración de las cosas que no se ven.",
                     reference: "Hebreos 11:1 (RVA)"
                 },
@@ -2367,6 +2367,81 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     ],
                     citation: "Comparte este contenido si decides no rendirte hoy.",
                     reference: "Reflexión Final"
+                }
+            ]
+        },
+        {
+            id: 27,
+            weekId: 14,
+            availableFrom: "2026-03-13T00:00:00",
+            title: "LA GRAVEDAD DEL \"NOSOTROS\"",
+            description: "Tu visión no muere por falta de potencial, muere por exceso de ruido en el entorno.",
+            themeStyles: {
+                bg: '#0F172A', // Slate 900
+                textPrimary: '#F8FAFC', // Slate 50
+                textSecondary: '#94A3B8', // Slate 400
+                accent: '#38BDF8', // Sky 400
+                cardBorder: '1px solid #1E293B',
+                cardShadow: '0 20px 25px -5px rgba(56, 189, 248, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "TU CÍRCULO ES TU TECHO.",
+                    subtitle: "LA GRAVEDAD DEL \"NOSOTROS\"",
+                    imageUrl: "/pendulo.jpeg",
+                    footerText: "Puedes tener el mejor motor, pero no puedes correr a máxima velocidad si el aire que te rodea es demasiado denso."
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL EFECTO DE PROXIMIDAD",
+                    title: "La influencia es química, no solo social.",
+                    body: "En el diseño bíblico, el entorno no es algo que \"tienes\", es algo que te \"compone\". Las influencias negativas no restan velocidad; alteran tu naturaleza.\n\nClave: La palabra \"corromper\" implica un cambio estructural. El ecosistema equivocado degrada tu visión hasta volverla irreconocible.",
+                    citation: "No erréis: las malas conversaciones corrompen las buenas costumbres.",
+                    reference: "1 Corintios 15:33 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "NEUROPSICOLOGÍA APLICADA",
+                    title: "EL ESPEJO SOCIAL",
+                    subtitle: "¿Quién te está prestando su lente?",
+                    body: "Gracias a las neuronas espejo, tu cerebro está programado para la \"sincronización\". Inconscientemente, adoptas el ritmo, el vocabulario y los niveles de tolerancia de tu entorno para mantener la pertenencia.\n\nDato: Si tu entorno normaliza la negligencia, tu cerebro verá la disciplina como una amenaza a la seguridad del grupo. Cambiar de entorno es, ante todo, una decisión de eficiencia mental.",
+                    citation: "Cambiar de entorno no es drama social, es ingeniería cognitiva.",
+                    reference: "Neuropsicología"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL FILTRO CONTRA LA CONFUSIÓN",
+                    title: "Identifica el \"Ruido de Babilonia\".",
+                    body: "Babilonia no solo es un lugar, es un sistema de valores que premia la inercia y castiga la intencionalidad.\n\nReflexión: \"Salir\" es un acto de soberanía. Es dejar de buscar aprobación en un sistema que está diseñado para mantenerte pequeño.",
+                    citation: "Salid de en medio de ella, pueblo mío, y salvad cada uno su vida...",
+                    reference: "Jeremías 51:45 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LÍMITES: DISEÑO, NO AISLAMIENTO",
+                    title: "El privilegio del acceso.",
+                    body: "No se trata de ser un ermitaño, sino de ser un arquitecto. Tú decides quién tiene permiso para sentarse a la mesa de tu toma de decisiones.\n\nRegla de Oro: Se puede tener el corazón abierto para servir a todos, pero los oídos cerrados para la influencia de muchos.",
+                    citation: "La selección estratégica es el mayor acto de amor hacia tu propósito.",
+                    reference: "Diseño Relacional"
+                },
+                {
+                    type: "action",
+                    title: "Haz el inventario de tu \"Cuerpo de Apoyo\".",
+                    subtitle: "LA AUDITORÍA DE LAS 5 VOCES",
+                    steps: [
+                        "Los Motivadores: ¿Quiénes celebran tus victorias sin envidia?",
+                        "Los Desafiantes: ¿Quiénes te obligan a subir el estándar?",
+                        "Los Protectores: ¿Quiénes custodian tu cerca cuando tú estás cansado?"
+                    ],
+                    citation: "Así que el cuerpo no es un solo miembro, sino muchos.",
+                    reference: "1 Corintios 12:14 (RVA 1909)"
+                },
+                {
+                    type: "cover",
+                    title: "PROTEGE EL OXÍGENO DE TU VISIÓN.",
+                    subtitle: "Tu nueva vida no necesita aprobación, necesita el ecosistema correcto para respirar.",
+                    footerText: "Acción: Escucha el Episodio 7: \"El Ecosistema del Cambio\". CTA: \"Seleccionar mi Entorno\"."
                 }
             ]
         }
