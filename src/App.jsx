@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { useNotifications } from './hooks/useNotifications';
 import Home from './pages/Home';
 import Habits from './pages/Habits';
 import Library from './pages/Library';
@@ -12,6 +13,7 @@ import { initializeDefaultData } from './services/firestoreService';
 import { getLocalTodayDate } from './utils/dateUtils';
 
 import PWAInstallBanner from './components/PWAInstallBanner';
+import NotificationBanner from './components/NotificationBanner';
 import StickyBottomPlayer from './components/StickyBottomPlayer';
 import { GlobalPlayerProvider } from './context/GlobalPlayerContext';
 
@@ -79,11 +81,31 @@ function App() {
     return completedHabits.length;
   };
 
+  const { permission, requestPermission, isSupported: notifSupported } = useNotifications();
+
+  // Mostrar banner de notificaciones si el permiso no se ha decidido aún
+  const showNotifBanner = notifSupported && permission === 'default';
+
+  const handleDismissNotif = useCallback(() => {
+    // Marcar que el usuario lo descartó manualmente (no volver a preguntar en esta sesión)
+    sessionStorage.setItem('notif_dismissed', '1');
+  }, []);
+
+  const notifDismissed = typeof sessionStorage !== 'undefined' && sessionStorage.getItem('notif_dismissed');
+
   return (
     <GlobalPlayerProvider>
       <Router>
         <AutoRefresh />
         <PWAInstallBanner />
+
+        {/* Banner de notificaciones push */}
+        {showNotifBanner && !notifDismissed && (
+          <NotificationBanner
+            onAccept={requestPermission}
+            onDismiss={handleDismissNotif}
+          />
+        )}
         <Routes>
           <Route
             path="/"

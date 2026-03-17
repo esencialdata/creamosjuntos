@@ -5,6 +5,8 @@ import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
 import logoHeader from '../assets/logo_header.png';
 
+const NOTIFY_SECRET = import.meta.env.VITE_NOTIFY_SECRET || '';
+
 const ACCESS_CODE = "hemeaqui";
 
 const MINISTERIAL_EVENTS_2026 = [
@@ -235,7 +237,177 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, event
 
 // AnalyticsDashboard moved to src/components/AnalyticsDashboard.jsx
 
+// Componente para enviar notificaciones push desde el admin
+const NotificationPanel = () => {
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    const [url, setUrl] = useState('/');
+    const [status, setStatus] = useState(null); // null | 'sending' | 'success' | 'error'
+    const [result, setResult] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleSend = async (e) => {
+        e.preventDefault();
+        if (!title.trim() || !body.trim()) return;
+
+        if (!NOTIFY_SECRET) {
+            setStatus('error');
+            setResult({ error: 'VITE_NOTIFY_SECRET no está configurado en .env' });
+            return;
+        }
+
+        setStatus('sending');
+        try {
+            const res = await fetch('/api/notify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: title.trim(), body: body.trim(), url: url.trim(), secret: NOTIFY_SECRET }),
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setStatus('success');
+                setResult(data);
+                setTitle('');
+                setBody('');
+                setUrl('/');
+            } else {
+                setStatus('error');
+                setResult(data);
+            }
+        } catch (err) {
+            setStatus('error');
+            setResult({ error: err.message });
+        }
+    };
+
+    return (
+        <div style={{
+            backgroundColor: '#fff',
+            border: '1px solid #e5e7eb',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            marginTop: '0',
+        }}>
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                style={{
+                    width: '100%',
+                    padding: '1rem 1.25rem',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    textAlign: 'left',
+                }}
+            >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ fontSize: '1.25rem' }}>🔔</span>
+                    <div>
+                        <p style={{ margin: 0, fontWeight: '700', color: '#1f2937', fontSize: '1rem' }}>
+                            Enviar Notificación Push
+                        </p>
+                        <p style={{ margin: 0, fontSize: '0.8rem', color: '#6b7280' }}>
+                            Notifica a todos los usuarios de la app
+                        </p>
+                    </div>
+                </div>
+                <span style={{
+                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.3s',
+                    color: '#1e3a8a',
+                    fontSize: '1.2rem',
+                }}>▼</span>
+            </button>
+
+            {isOpen && (
+                <div style={{ padding: '0 1.25rem 1.25rem', borderTop: '1px solid #f3f4f6' }}>
+                    <form onSubmit={handleSend} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', paddingTop: '1rem' }}>
+                        <div>
+                            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '600', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>
+                                Título *
+                            </label>
+                            <input
+                                type="text"
+                                value={title}
+                                onChange={e => setTitle(e.target.value)}
+                                placeholder="Ej: Nueva prédica disponible"
+                                maxLength={50}
+                                required
+                                style={{ width: '100%', padding: '0.6rem 0.75rem', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '0.95rem', boxSizing: 'border-box', outline: 'none' }}
+                            />
+                        </div>
+
+                        <div>
+                            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '600', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>
+                                Mensaje *
+                            </label>
+                            <textarea
+                                value={body}
+                                onChange={e => setBody(e.target.value)}
+                                placeholder="Ej: Ya está disponible el sermón del domingo..."
+                                maxLength={150}
+                                required
+                                rows={2}
+                                style={{ width: '100%', padding: '0.6rem 0.75rem', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '0.95rem', boxSizing: 'border-box', resize: 'vertical', outline: 'none', fontFamily: 'inherit' }}
+                            />
+                        </div>
+
+                        <div>
+                            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '600', color: '#374151', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>
+                                URL destino al tocar
+                            </label>
+                            <input
+                                type="text"
+                                value={url}
+                                onChange={e => setUrl(e.target.value)}
+                                placeholder="/#/recursos"
+                                style={{ width: '100%', padding: '0.6rem 0.75rem', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '0.95rem', boxSizing: 'border-box', outline: 'none' }}
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={status === 'sending' || !title.trim() || !body.trim()}
+                            style={{
+                                padding: '0.7rem 1.5rem',
+                                background: status === 'sending' ? '#9ca3af' : 'linear-gradient(135deg, #1e3a8a, #2563eb)',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '8px',
+                                fontWeight: '700',
+                                fontSize: '0.9rem',
+                                cursor: status === 'sending' ? 'wait' : 'pointer',
+                                letterSpacing: '0.5px',
+                                alignSelf: 'flex-start',
+                                transition: 'background 0.2s',
+                            }}
+                        >
+                            {status === 'sending' ? '⏳ Enviando...' : '📤 Enviar a todos'}
+                        </button>
+
+                        {status === 'success' && (
+                            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '0.75rem 1rem', color: '#166534', fontSize: '0.9rem' }}>
+                                ✅ Notificación enviada a <strong>{result?.sent || 0}</strong> de {result?.total || 0} dispositivos
+                                {result?.removed > 0 && ` (${result.removed} tokens inválidos eliminados)`}
+                            </div>
+                        )}
+
+                        {status === 'error' && (
+                            <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '8px', padding: '0.75rem 1rem', color: '#991b1b', fontSize: '0.85rem' }}>
+                                ❌ Error: {result?.error || 'Algo salió mal'}
+                            </div>
+                        )}
+                    </form>
+                </div>
+            )}
+        </div>
+    );
+};
+
 const Backstage = () => {
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [inputCode, setInputCode] = useState('');
     const [error, setError] = useState(false);
@@ -874,6 +1046,11 @@ const Backstage = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Panel de Notificaciones Push */}
+            <div className="container" style={{ maxWidth: '800px', margin: '2rem auto', padding: '0 1rem' }}>
+                <NotificationPanel />
             </div>
 
             {/* Archive Section */}
