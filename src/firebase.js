@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { getMessaging } from "firebase/messaging";
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDP5f7i4UHobWLe6mEPm0rxr7q_Ws7U6sA",
     authDomain: "campo-david.firebaseapp.com",
     projectId: "campo-david",
     storageBucket: "campo-david.firebasestorage.app",
