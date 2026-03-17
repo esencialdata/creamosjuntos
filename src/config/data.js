@@ -2449,8 +2449,8 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
             id: 28,
             weekId: 14,
             availableFrom: "2026-03-17T00:00:00",
-            title: "¿SABÍAS QUE EL MIEDO 'SECUESTRA' TU CEREBRO?",
-            description: "La ciencia lo descubrió hace poco, pero la Biblia reveló el antídoto hace miles de años.",
+            title: "EL BLOQUEO INVISIBLE: ¿POR QUÉ TU MENTE SE PARALIZA?",
+            description: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años.",
             themeStyles: {
                 bg: '#000000', // Black background for dramatic effect
                 textPrimary: '#F8FAFC',
@@ -2462,8 +2462,8 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
             slides: [
                 {
                     type: "cover",
-                    title: "¿SABÍAS QUE EL MIEDO \"SECUESTRA\" TU CEREBRO Y TE IMPIDE OBEDECER A DIOS?",
-                    subtitle: "La ciencia lo descubrió hace poco, pero la Biblia reveló el antídoto hace miles de años.",
+                    title: "EL BLOQUEO INVISIBLE: ¿POR QUÉ TU MENTE SE PARALIZA JUSTO CUANDO DEBES ACTUAR POR FE?",
+                    subtitle: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años.",
                     imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for brain
                     footerText: "Desliza para conocerlo ➡️"
                 },
@@ -2471,39 +2471,39 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "diagnostic",
                     label: "EL DIAGNÓSTICO",
                     title: "EL \"ESPÍRITU DE TEMOR\" NO VIENE DE DIOS",
-                    body: "Pablo advierte a Timoteo que la cobardía constante no es un rasgo de personalidad, es un estado que paraliza tu fe y te desconecta del propósito divino.",
+                    body: "Pablo advierte a Timoteo que vivir dominado por el miedo constante no es un rasgo inofensivo de personalidad; es un estado que paraliza tu fe y te desconecta del propósito divino.",
                     citation: "\"Porque no nos ha dado Dios el espíritu de temor...\"",
                     reference: "2ª Timoteo 1:7 (RV1909)"
                 },
                 {
                     type: "diagnostic",
                     label: "EL MARCO LEGAL",
-                    title: "LA LEY DE LA GUERRA",
-                    body: "Dios legisló contra el miedo paralizante. Ceder al pánico frente a un mandato de Dios es dudar de que Jehová pelea a tu lado.",
-                    citation: "Antes de la batalla ordenó: \"No desmaye vuestro corazón, no temáis, ni os azoréis\".",
+                    title: "LA LEY DE LA GUERRA (Deuteronomio 20)",
+                    body: "Dios legisló contra el miedo paralizante. Antes de la batalla, ordenó: \"No desmaye vuestro corazón, no temáis, ni os azoréis\".",
+                    citation: "Ceder al pánico frente a un mandato de Dios es dudar de que Jehová pelea a tu lado.",
                     reference: "Deuteronomio 20"
                 },
                 {
                     type: "diagnostic",
                     label: "LA CIENCIA",
                     title: "LA NEUROBIOLOGÍA DE LA \"TEMPLANZA\"",
-                    body: "El Dr. Joseph LeDoux (neurocientífico) demostró que el miedo activa la amígdala, apagando tu lógica.\n\n¿El antídoto? El Córtex Prefrontal, el centro del autocontrol. Cuando lo activas, literalmente frena el miedo.\nLa ciencia lo llama función ejecutiva; la Biblia lo llama Templanza.",
-                    citation: "El diseño de Dios está respaldado por tu biología.",
+                    body: "El Dr. Joseph LeDoux (neurocientífico) demostró que el miedo irracional activa la amígdala, apagando tu lógica.\n\n¿El antídoto? El Córtex Prefrontal, el centro del autocontrol. Cuando lo activas, literalmente frena el miedo.",
+                    citation: "La ciencia lo llama función ejecutiva; la Biblia lo llama Templanza.",
                     reference: "Neurociencia"
                 },
                 {
                     type: "diagnostic",
                     label: "EL EQUIPAMIENTO",
-                    title: "LAS 3 ARMAS DEL ESPÍRITU SANTO",
+                    title: "LAS 3 ARMAS DEL ESPÍRITU SANTO (Punto de Fe 6)",
                     body: "Dios no te deja indefenso ante tu biología caída. Él te da:\n\n1. Fortaleza: Poder para actuar aunque haya duda.\n2. Amor: La motivación suprema que echa fuera el temor.\n3. Templanza: Dominio propio para no reaccionar impulsivamente.",
-                    citation: "Punto de Fe #6",
-                    reference: "El Equipamiento"
+                    citation: "El Equipamiento Divino",
+                    reference: "Punto de Fe 6"
                 },
                 {
                     type: "diagnostic",
                     label: "STORYTELLING",
-                    title: "10 ESPÍAS VS. JOSUÉ Y CALEB",
-                    body: "Frente a los gigantes (Números 13), 10 espías sufrieron un secuestro emocional y se vieron como \"langostas\". Se paralizaron.\n\nJosué y Caleb activaron su templanza: no negaron al gigante, pero decidieron enfocarse en la grandeza de Jehová.",
+                    title: "LA TRAMPA DE LOS 10 ESPÍAS VS. JOSUÉ Y CALEB",
+                    body: "Frente a los gigantes (Números 13), 10 espías sufrieron un bloqueo emocional y se vieron como \"langostas\". Se paralizaron.\n\nJosué y Caleb activaron su templanza: no negaron al gigante, pero decidieron enfocarse en la grandeza de Jehová.",
                     citation: "El miedo magnifica al gigante; la fe magnifica a Dios.",
                     reference: "Números 13"
                 },
