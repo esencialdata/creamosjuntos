@@ -300,7 +300,7 @@ const FCMDiagnostic = () => {
                 }
             }
 
-            log('Registrando firebase-messaging-sw.js con apiKey real...');
+            log(`Registrando firebase-messaging-sw.js con apiKey: ${FIREBASE_API_KEY.slice(0, 8)}... (${FIREBASE_API_KEY.length} chars)`);
             let swReg;
             try {
                 swReg = await navigator.serviceWorker.register(`/firebase-messaging-sw.js?apiKey=${FIREBASE_API_KEY}`, { scope: '/' });
