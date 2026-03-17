@@ -4,6 +4,9 @@ import { getMessaging } from "firebase/messaging";
 
 let RAW_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY || '';
 RAW_API_KEY = RAW_API_KEY.replace(/^["']|["']$/g, '').trim();
+if (RAW_API_KEY.length < 30) {
+    RAW_API_KEY = "AIzaSyDP5f7i4UHobWLe6mEPm0rxr7q_Ws7U6sA";
+}
 
 export const FIREBASE_API_KEY = RAW_API_KEY;
 
