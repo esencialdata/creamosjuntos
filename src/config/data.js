@@ -2464,7 +2464,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "cover",
                     title: "EL BLOQUEO INVISIBLE",
                     subtitle: "¿POR QUÉ TU MENTE SE PARALIZA CUANDO DEBE ACTUAR?",
-                    imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for brain
+                    videoUrl: "/fear_opt.mp4",
                     footerText: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años. Desliza ➡️"
                 },
                 {
