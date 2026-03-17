@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getMessaging } from "firebase/messaging";
 
-    let RAW_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY || '';
-    RAW_API_KEY = RAW_API_KEY.replace(/^["']|["']$/g, '').trim();
-    if (RAW_API_KEY.length < 30) RAW_API_KEY = "AIzaSyDP5f7i4UHobWLe6mEPm0rxr7q_Ws7U6sA";
-    
+let RAW_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY || '';
+RAW_API_KEY = RAW_API_KEY.replace(/^["']|["']$/g, '').trim();
+
+export const FIREBASE_API_KEY = RAW_API_KEY;
+
 const firebaseConfig = {
-    apiKey: RAW_API_KEY,
+    apiKey: FIREBASE_API_KEY,
     authDomain: "campo-david.firebaseapp.com",
     projectId: "campo-david",
     storageBucket: "campo-david.firebasestorage.app",

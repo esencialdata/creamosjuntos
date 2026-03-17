@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { CONFIG, VERSES_POOL } from '../config/data';
 import { subscribeToSchedule, updateEventStatus, initializeDefaultData } from '../services/firestoreService';
+import { db, FIREBASE_API_KEY } from '../firebase';
 import { generateGoogleCalendarLink } from '../utils/calendarUtils';
 import { PAST_SCHEDULES } from '../config/schedule_archive';
 import logoHeader from '../assets/logo_header.png';
@@ -299,10 +300,10 @@ const FCMDiagnostic = () => {
                 }
             }
 
-            log('Registrando firebase-messaging-sw.js...');
+            log('Registrando firebase-messaging-sw.js con apiKey real...');
             let swReg;
             try {
-                swReg = await navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: '/' });
+                swReg = await navigator.serviceWorker.register(`/firebase-messaging-sw.js?apiKey=${FIREBASE_API_KEY}`, { scope: '/' });
                 log(`✅ SW registrado: ${swReg.scope}`, 'ok');
             } catch (swErr) {
                 log(`⚠️ SW no registrado: ${swErr.message} — usando SW activo`, 'warn');

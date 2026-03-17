@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { getToken, isSupported } from 'firebase/messaging';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { db, getAppMessaging } from '../firebase';
+import { db, getAppMessaging, FIREBASE_API_KEY } from '../firebase';
 
 // Hardcodeando la VAPID KEY pública ya que Vercel está truncando la variable de entorno a 25 caracteres
 let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BCofhAK2IA6yGwynWyj6-o2Y-7ApN7CqXy2CFQ6hVwXmmgMy6OM32jY9rXopq-xJXhAQiTt7KETt0q7mDkk5vPs';
@@ -43,10 +43,10 @@ export function useNotifications() {
                 console.log('[FCM] Iniciando auto-registro de token...');
                 const messaging = getAppMessaging();
 
-                // Registrar el SW de FCM explícitamente (separado del SW de Workbox)
+                // Registrar el SW de FCM explícitamente y pasamos la API KEY por url parameter
                 let swReg;
                 try {
-                    swReg = await navigator.serviceWorker.register('/firebase-messaging-sw.js', {
+                    swReg = await navigator.serviceWorker.register(`/firebase-messaging-sw.js?apiKey=${FIREBASE_API_KEY}`, {
                         scope: '/',
                     });
                     console.log('[FCM] SW de FCM registrado:', swReg.scope);
@@ -118,10 +118,12 @@ export function useNotifications() {
             }
 
             // 2. Inicializar messaging y obtener token
+            let swReg = await navigator.serviceWorker.register(`/firebase-messaging-sw.js?apiKey=${FIREBASE_API_KEY}`, { scope: '/' });
+
             const messaging = getAppMessaging();
             const token = await getToken(messaging, {
                 vapidKey: VAPID_KEY,
-                serviceWorkerRegistration: await navigator.serviceWorker.ready,
+                serviceWorkerRegistration: swReg,
             });
 
             if (token) {
