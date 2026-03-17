@@ -2449,8 +2449,8 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
             id: 28,
             weekId: 14,
             availableFrom: "2026-03-17T00:00:00",
-            title: "EL BLOQUEO INVISIBLE: ¿POR QUÉ TU MENTE SE PARALIZA?",
-            description: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años.",
+            title: "EL BLOQUEO INVISIBLE",
+            description: "¿Por qué tu mente se paraliza cuando debe actuar?",
             themeStyles: {
                 bg: '#000000', // Black background for dramatic effect
                 textPrimary: '#F8FAFC',
@@ -2462,10 +2462,10 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
             slides: [
                 {
                     type: "cover",
-                    title: "EL BLOQUEO INVISIBLE: ¿POR QUÉ TU MENTE SE PARALIZA JUSTO CUANDO DEBES ACTUAR POR FE?",
-                    subtitle: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años.",
+                    title: "EL BLOQUEO INVISIBLE",
+                    subtitle: "¿POR QUÉ TU MENTE SE PARALIZA CUANDO DEBE ACTUAR?",
                     imageUrl: "https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for brain
-                    footerText: "Desliza para conocerlo ➡️"
+                    footerText: "La ciencia descubrió este mecanismo hace poco, pero la Biblia reveló el antídoto hace miles de años. Desliza ➡️"
                 },
                 {
                     type: "diagnostic",
