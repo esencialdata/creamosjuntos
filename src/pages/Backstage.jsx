@@ -237,6 +237,111 @@ const RoleManager = ({ status, onConfirm, onSOS, role, name, calendarLink, event
 
 // AnalyticsDashboard moved to src/components/AnalyticsDashboard.jsx
 
+// Componente de diagnóstico FCM para ver logs en el celular sin DevTools
+const FCMDiagnostic = () => {
+    const [logs, setLogs] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [running, setRunning] = useState(false);
+
+    const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+
+    const runDiagnostic = async () => {
+        setRunning(true);
+        const log = (msg, type = 'info') => setLogs(prev => [...prev, { msg, type, ts: new Date().toLocaleTimeString() }]);
+        setLogs([]);
+
+        try {
+            log(`Permiso de notificaciones: ${Notification.permission}`, Notification.permission === 'granted' ? 'ok' : 'warn');
+            log(`VAPID_KEY configurada: ${VAPID_KEY ? '✅ ' + VAPID_KEY.slice(0, 10) + '...' : '❌ FALTA'}`, VAPID_KEY ? 'ok' : 'error');
+
+            const { isSupported } = await import('firebase/messaging');
+            const supported = await isSupported();
+            log(`FCM soportado: ${supported ? '✅' : '❌'}`, supported ? 'ok' : 'error');
+
+            if (!supported || Notification.permission !== 'granted' || !VAPID_KEY) {
+                log('⛔ No se puede continuar', 'error');
+                return;
+            }
+
+            log('Registrando firebase-messaging-sw.js...');
+            let swReg;
+            try {
+                swReg = await navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: '/' });
+                log(`✅ SW registrado: ${swReg.scope}`, 'ok');
+            } catch (swErr) {
+                log(`⚠️ SW no registrado: ${swErr.message} — usando SW activo`, 'warn');
+                swReg = await navigator.serviceWorker.ready;
+            }
+
+            const { getToken } = await import('firebase/messaging');
+            const { getAppMessaging } = await import('../firebase');
+            const messaging = getAppMessaging();
+            log('Pidiendo token FCM...');
+            const token = await getToken(messaging, { vapidKey: VAPID_KEY, serviceWorkerRegistration: swReg });
+
+            if (token) {
+                log(`✅ Token: ${token.slice(0, 25)}...`, 'ok');
+
+                // Guardar en Firestore
+                const { doc, setDoc, serverTimestamp } = await import('firebase/firestore');
+                const { db } = await import('../firebase');
+                const tokenId = token.slice(-20);
+                await setDoc(doc(db, 'fcm_tokens', tokenId), {
+                    token,
+                    updatedAt: serverTimestamp(),
+                    userAgent: navigator.userAgent,
+                }, { merge: true });
+                log('✅ Token guardado en Firestore', 'ok');
+            } else {
+                log('❌ getToken devolvió null', 'error');
+            }
+        } catch (err) {
+            log(`❌ Error: ${err.message}`, 'error');
+        } finally {
+            setRunning(false);
+        }
+    };
+
+    const colors = { info: '#94a3b8', ok: '#4ade80', warn: '#fbbf24', error: '#f87171' };
+
+    return (
+        <div style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', overflow: 'hidden', marginTop: '0' }}>
+            <button onClick={() => setIsOpen(!isOpen)} style={{ width: '100%', padding: '1rem 1.25rem', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ fontSize: '1.25rem' }}>🔧</span>
+                    <div>
+                        <p style={{ margin: 0, fontWeight: '700', color: '#1f2937', fontSize: '1rem' }}>Diagnóstico de Notificaciones</p>
+                        <p style={{ margin: 0, fontSize: '0.8rem', color: '#6b7280' }}>Verifica el registro de tokens FCM</p>
+                    </div>
+                </div>
+                <span style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s', color: '#1e3a8a', fontSize: '1.2rem' }}>▼</span>
+            </button>
+
+            {isOpen && (
+                <div style={{ padding: '0 1.25rem 1.25rem', borderTop: '1px solid #f3f4f6' }}>
+                    <button
+                        onClick={runDiagnostic}
+                        disabled={running}
+                        style={{ marginTop: '1rem', width: '100%', padding: '0.7rem', background: running ? '#94a3b8' : '#1e3a8a', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: running ? 'wait' : 'pointer', fontSize: '0.9rem' }}
+                    >
+                        {running ? '⏳ Ejecutando...' : '▶ Ejecutar diagnóstico'}
+                    </button>
+
+                    {logs.length > 0 && (
+                        <div style={{ marginTop: '0.75rem', backgroundColor: '#0f172a', borderRadius: '8px', padding: '0.75rem', fontFamily: 'monospace', fontSize: '0.75rem', maxHeight: '300px', overflowY: 'auto' }}>
+                            {logs.map((l, i) => (
+                                <div key={i} style={{ color: colors[l.type] || '#94a3b8', marginBottom: '0.25rem' }}>
+                                    <span style={{ opacity: 0.5 }}>[{l.ts}] </span>{l.msg}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+};
+
 // Componente para enviar notificaciones push desde el admin
 const NotificationPanel = () => {
     const [title, setTitle] = useState('');
@@ -1046,6 +1151,11 @@ const Backstage = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Panel de Diagnóstico FCM */}
+            <div className="container" style={{ maxWidth: '800px', margin: '0 auto 1rem', padding: '0 1rem' }}>
+                <FCMDiagnostic />
             </div>
 
             {/* Panel de Notificaciones Push */}
