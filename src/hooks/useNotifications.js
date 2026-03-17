@@ -29,7 +29,7 @@ export function useNotifications() {
     }, []);
 
     // Auto re-registro silencioso: si el permiso ya está concedido, obtener y guardar el token
-    // Esto cubre el caso donde el usuario ya aceptó pero el token no quedó en Firestore
+    // Registramos el FCM Service Worker explícitamente para evitar conflictos con Workbox
     useEffect(() => {
         if (!fcmSupported) return;
         if (!VAPID_KEY) return;
@@ -37,18 +37,35 @@ export function useNotifications() {
 
         const autoRegister = async () => {
             try {
+                console.log('[FCM] Iniciando auto-registro de token...');
                 const messaging = getAppMessaging();
-                const swReg = await navigator.serviceWorker.ready;
+
+                // Registrar el SW de FCM explícitamente (separado del SW de Workbox)
+                let swReg;
+                try {
+                    swReg = await navigator.serviceWorker.register('/firebase-messaging-sw.js', {
+                        scope: '/',
+                    });
+                    console.log('[FCM] SW de FCM registrado:', swReg.scope);
+                } catch (swErr) {
+                    console.warn('[FCM] No se pudo registrar SW de FCM, usando el activo:', swErr);
+                    swReg = await navigator.serviceWorker.ready;
+                }
+
                 const token = await getToken(messaging, {
                     vapidKey: VAPID_KEY,
                     serviceWorkerRegistration: swReg,
                 });
+
+                console.log('[FCM] Token obtenido:', token ? token.slice(0, 20) + '...' : 'null');
+
                 if (token) {
                     await saveTokenToFirestore(token);
+                } else {
+                    console.warn('[FCM] getToken devolvió null — verifica VAPID key y permisos');
                 }
             } catch (err) {
-                // Silencioso — no mostrar error al usuario
-                console.warn('[FCM] Auto-registro silencioso falló:', err);
+                console.error('[FCM] Auto-registro falló:', err);
             }
         };
 
