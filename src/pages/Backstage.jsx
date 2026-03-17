@@ -242,8 +242,18 @@ const FCMDiagnostic = () => {
     const [logs, setLogs] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [running, setRunning] = useState(false);
+    const [notifPerm, setNotifPerm] = useState(
+        typeof Notification !== 'undefined' ? Notification.permission : 'unsupported'
+    );
 
     const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+
+    // Este handler debe ser síncrono (sin awaits previos) para que iOS muestre el diálogo
+    const handleRequestPermission = () => {
+        Notification.requestPermission().then(result => {
+            setNotifPerm(result);
+        });
+    };
 
     const runDiagnostic = async () => {
         setRunning(true);
@@ -258,9 +268,29 @@ const FCMDiagnostic = () => {
             const supported = await isSupported();
             log(`FCM soportado: ${supported ? '✅' : '❌'}`, supported ? 'ok' : 'error');
 
-            if (!supported || Notification.permission !== 'granted' || !VAPID_KEY) {
-                log('⛔ No se puede continuar', 'error');
+            if (!supported) {
+                log('⛔ FCM no está soportado en este dispositivo/navegador', 'error');
                 return;
+            }
+
+            if (!VAPID_KEY) {
+                log('⛔ Falta VITE_FIREBASE_VAPID_KEY', 'error');
+                return;
+            }
+
+            if (Notification.permission === 'denied') {
+                log('⛔ Permiso DENEGADO — ve a Ajustes del navegador y activa notificaciones manualmente', 'error');
+                return;
+            }
+
+            if (Notification.permission === 'default') {
+                log('📬 Solicitando permiso al usuario...', 'info');
+                const result = await Notification.requestPermission();
+                log(`Resultado: ${result}`, result === 'granted' ? 'ok' : 'error');
+                if (result !== 'granted') {
+                    log('⛔ Permiso no concedido. Acepta cuando el navegador lo pida.', 'error');
+                    return;
+                }
             }
 
             log('Registrando firebase-messaging-sw.js...');
@@ -319,10 +349,28 @@ const FCMDiagnostic = () => {
 
             {isOpen && (
                 <div style={{ padding: '0 1.25rem 1.25rem', borderTop: '1px solid #f3f4f6' }}>
+
+                    {/* Estado actual del permiso */}
+                    <div style={{ marginTop: '1rem', padding: '0.6rem 0.8rem', borderRadius: '8px', background: notifPerm === 'granted' ? '#f0fdf4' : '#fef3c7', border: `1px solid ${notifPerm === 'granted' ? '#bbf7d0' : '#fde68a'}` }}>
+                        <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: '600', color: notifPerm === 'granted' ? '#166534' : '#92400e' }}>
+                            {notifPerm === 'granted' ? '✅ Permiso concedido' : notifPerm === 'denied' ? '❌ Permiso denegado — actívalo en Ajustes del navegador' : `⚠️ Permiso pendiente (${notifPerm})`}
+                        </p>
+                    </div>
+
+                    {/* Botón para solicitar permiso — llama directo sin awaits internos */}
+                    {notifPerm !== 'granted' && notifPerm !== 'denied' && (
+                        <button
+                            onClick={handleRequestPermission}
+                            style={{ marginTop: '0.75rem', width: '100%', padding: '0.7rem', background: '#d97706', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: 'pointer', fontSize: '0.9rem' }}
+                        >
+                            🔔 Solicitar permiso de notificaciones
+                        </button>
+                    )}
+
                     <button
                         onClick={runDiagnostic}
                         disabled={running}
-                        style={{ marginTop: '1rem', width: '100%', padding: '0.7rem', background: running ? '#94a3b8' : '#1e3a8a', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: running ? 'wait' : 'pointer', fontSize: '0.9rem' }}
+                        style={{ marginTop: '0.5rem', width: '100%', padding: '0.7rem', background: running ? '#94a3b8' : '#1e3a8a', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: running ? 'wait' : 'pointer', fontSize: '0.9rem' }}
                     >
                         {running ? '⏳ Ejecutando...' : '▶ Ejecutar diagnóstico'}
                     </button>
