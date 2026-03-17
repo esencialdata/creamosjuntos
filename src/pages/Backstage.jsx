@@ -346,7 +346,7 @@ const NotificationPanel = () => {
                             <textarea
                                 value={body}
                                 onChange={e => setBody(e.target.value)}
-                                placeholder="Ej: Ya está disponible el sermón del domingo..."
+                                placeholder="Ej: Ya está disponible el nuevo contenido de la semana..."
                                 maxLength={150}
                                 required
                                 rows={2}

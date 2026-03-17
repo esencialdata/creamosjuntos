@@ -81,7 +81,7 @@ export default function NotificationBanner({ onAccept, onDismiss }) {
                         fontSize: '0.78rem',
                         lineHeight: '1.3',
                     }}>
-                        Recibe avisos de nuevos contenidos y sermones
+                        Recibe avisos de nuevos contenidos
                     </p>
                 )}
             </div>
