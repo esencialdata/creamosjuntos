@@ -3,8 +3,9 @@ import { getToken, isSupported } from 'firebase/messaging';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db, getAppMessaging } from '../firebase';
 
-let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || '';
-// Limpia cualquier caracter que no sea Base64URL válido
+// Hardcodeando la VAPID KEY pública ya que Vercel está truncando la variable de entorno a 25 caracteres
+let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BCofhAK2IA6yGwynWyj6-o2Y-7ApN7CqXy2CFQ6hVwXmmgMy6OM32jY9rXopq-xJXhAQiTt7KETt0q7mDkk5vPs';
+// Limpia cualquier caracter que no sea Base64URL válido, por si viene de Vercel
 const VAPID_KEY = RAW_VAPID_KEY.replace(/[^a-zA-Z0-9\-_=]/g, '');
 
 /**

@@ -246,8 +246,13 @@ const FCMDiagnostic = () => {
         typeof Notification !== 'undefined' ? Notification.permission : 'unsupported'
     );
 
-    let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || '';
-    const VAPID_KEY = RAW_VAPID_KEY.replace(/^["']|["']$/g, '').trim();
+    // Hardcodeando la VAPID KEY pública como fallback
+    let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || 'BCofhAK2IA6yGwynWyj6-o2Y-7ApN7CqXy2CFQ6hVwXmmgMy6OM32jY9rXopq-xJXhAQiTt7KETt0q7mDkk5vPs';
+    // Si Vercel inyecta una truncada (ej. 25 chars), forzamos la de 87 chars real
+    if (RAW_VAPID_KEY.length < 50) {
+        RAW_VAPID_KEY = 'BCofhAK2IA6yGwynWyj6-o2Y-7ApN7CqXy2CFQ6hVwXmmgMy6OM32jY9rXopq-xJXhAQiTt7KETt0q7mDkk5vPs';
+    }
+    const VAPID_KEY = RAW_VAPID_KEY.replace(/[^a-zA-Z0-9\-_=]/g, '');
 
     // Este handler debe ser síncrono (sin awaits previos) para que iOS muestre el diálogo
     const handleRequestPermission = () => {
@@ -263,7 +268,7 @@ const FCMDiagnostic = () => {
 
         try {
             log(`Permiso de notificaciones: ${Notification.permission}`, Notification.permission === 'granted' ? 'ok' : 'warn');
-            log(`VAPID_KEY configurada: ${VAPID_KEY ? '✅ ' + VAPID_KEY.slice(0, 10) + '...' : '❌ FALTA'}`, VAPID_KEY ? 'ok' : 'error');
+            log(`VAPID_KEY presente: ${VAPID_KEY ? '✅ (Longitud: ' + VAPID_KEY.length + ' chars)' : '❌ FALTA'}`, VAPID_KEY ? 'ok' : 'error');
 
             const { isSupported } = await import('firebase/messaging');
             const supported = await isSupported();
