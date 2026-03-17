@@ -246,7 +246,8 @@ const FCMDiagnostic = () => {
         typeof Notification !== 'undefined' ? Notification.permission : 'unsupported'
     );
 
-    const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+    let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || '';
+    const VAPID_KEY = RAW_VAPID_KEY.replace(/^["']|["']$/g, '').trim();
 
     // Este handler debe ser síncrono (sin awaits previos) para que iOS muestre el diálogo
     const handleRequestPermission = () => {
