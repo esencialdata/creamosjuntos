@@ -28,6 +28,34 @@ export function useNotifications() {
         isSupported().then(setFcmSupported).catch(() => setFcmSupported(false));
     }, []);
 
+    // Auto re-registro silencioso: si el permiso ya está concedido, obtener y guardar el token
+    // Esto cubre el caso donde el usuario ya aceptó pero el token no quedó en Firestore
+    useEffect(() => {
+        if (!fcmSupported) return;
+        if (!VAPID_KEY) return;
+        if (Notification.permission !== 'granted') return;
+
+        const autoRegister = async () => {
+            try {
+                const messaging = getAppMessaging();
+                const swReg = await navigator.serviceWorker.ready;
+                const token = await getToken(messaging, {
+                    vapidKey: VAPID_KEY,
+                    serviceWorkerRegistration: swReg,
+                });
+                if (token) {
+                    await saveTokenToFirestore(token);
+                }
+            } catch (err) {
+                // Silencioso — no mostrar error al usuario
+                console.warn('[FCM] Auto-registro silencioso falló:', err);
+            }
+        };
+
+        autoRegister();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fcmSupported]);
+
     const saveTokenToFirestore = async (token) => {
         try {
             // Guardamos el token con un ID único basado en el propio token
