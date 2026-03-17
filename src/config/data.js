@@ -2454,12 +2454,12 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
             title: "EL BLOQUEO INVISIBLE",
             description: "¿Por qué tu mente se paraliza cuando debe actuar?",
             themeStyles: {
-                bg: '#000000', // Black background for dramatic effect
-                textPrimary: '#F8FAFC',
-                textSecondary: '#94A3B8',
-                accent: '#EAB308', // Yellow 500 for the "light/glowing" part
-                cardBorder: '1px solid #1E293B',
-                cardShadow: '0 20px 25px -5px rgba(234, 179, 8, 0.15)'
+                bg: '#FFFFFF', // White background
+                textPrimary: '#1E293B',
+                textSecondary: '#64748B',
+                accent: '#EAB308', // Yellow 500
+                cardBorder: '1px solid #E2E8F0',
+                cardShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
             },
             slides: [
                 {
