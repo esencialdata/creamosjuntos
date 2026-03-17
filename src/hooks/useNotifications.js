@@ -4,8 +4,8 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db, getAppMessaging } from '../firebase';
 
 let RAW_VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY || '';
-// Limpia comillas dobles, simples y espacios que a veces se cuelan en Vercel
-const VAPID_KEY = RAW_VAPID_KEY.replace(/^["']|["']$/g, '').trim();
+// Limpia cualquier caracter que no sea Base64URL válido
+const VAPID_KEY = RAW_VAPID_KEY.replace(/[^a-zA-Z0-9\-_=]/g, '');
 
 /**
  * Hook para manejar notificaciones push con FCM.
