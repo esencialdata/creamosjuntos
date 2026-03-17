@@ -594,10 +594,12 @@ const getCurrentWeekId = () => {
     const week12Start = new Date(2026, 1, 23); // Feb 23
     const week13Start = new Date(2026, 2, 2);  // Mar 2
     const week14Start = new Date(2026, 2, 9);  // Mar 9
+    const week15Start = new Date(2026, 2, 16); // Mar 16
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week15Start) return 15;
     if (now >= week14Start) return 14;
     if (now >= week13Start) return 13;
     if (now >= week12Start) return 12;
@@ -2447,7 +2449,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 28,
-            weekId: 14,
+            weekId: 15,
             availableFrom: "2026-03-17T00:00:00",
             title: "EL BLOQUEO INVISIBLE",
             description: "¿Por qué tu mente se paraliza cuando debe actuar?",
