@@ -5,9 +5,12 @@ importScripts('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js
 importScripts('https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js');
 
 // NOTA: La apiKey de Firebase es pública por diseño (se protege con reglas de Firestore/Storage)
-// Los Service Workers no tienen acceso a variables de entorno de Vite
+// Los Service Workers no tienen acceso a variables de entorno, la recibimos vía URL parameters
+const urlParams = new URL(location).searchParams;
+const apiKey = urlParams.get('apiKey') || 'AIzaSyByUNZrR7s8pRsDwlezVcgwGBWFrQtL7bY';
+
 firebase.initializeApp({
-    apiKey: 'AIzaSyDP5f7i4UHobWLe6mEPm0rxr7q_Ws7U6sA',
+    apiKey: apiKey,
     authDomain: 'campo-david.firebaseapp.com',
     projectId: 'campo-david',
     storageBucket: 'campo-david.firebasestorage.app',
@@ -15,7 +18,7 @@ firebase.initializeApp({
     appId: '1:548361706376:web:7ea804514d4e07fee6783d'
 });
 
-console.log('[FCM SW] Firebase inicializado en Service Worker');
+console.log('[FCM SW] Firebase inicializado en Service Worker con apiKey:', apiKey ? 'OK' : 'MISSING');
 
 const messaging = firebase.messaging();
 
