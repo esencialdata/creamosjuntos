@@ -676,6 +676,14 @@ export const CONFIG = {
             duration: "04:57",
             audioUrl: "/e7.mp3",
             color: "#0284C7" // Matches Week 14 theme accent
+        },
+        {
+            id: 8,
+            weekId: 15,
+            title: "8. El fruto y la maestría de la utilidad",
+            duration: "05:53",
+            audioUrl: "/El-fruto-y-la-maestria-de-la-utilidad.mp3",
+            color: "#475569" // Slate 600
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
