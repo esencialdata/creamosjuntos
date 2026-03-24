@@ -595,10 +595,12 @@ const getCurrentWeekId = () => {
     const week13Start = new Date(2026, 2, 2);  // Mar 2
     const week14Start = new Date(2026, 2, 9);  // Mar 9
     const week15Start = new Date(2026, 2, 16); // Mar 16
+    const week16Start = new Date(2026, 2, 23); // Mar 23
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week16Start) return 16;
     if (now >= week15Start) return 15;
     if (now >= week14Start) return 14;
     if (now >= week13Start) return 13;
@@ -2528,6 +2530,85 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     ],
                     citation: "Guarda este mensaje para tu próxima batalla y compártelo con alguien que necesite fuerza hoy. 💾✈️",
                     reference: "Aplicación y Cierre"
+                }
+            ]
+        }
+        ,
+        {
+            id: 29,
+            weekId: 16,
+            availableFrom: "2026-03-24T00:00:00",
+            title: "LA TRÍADA DEL CARÁCTER",
+            description: "Lo que Dios realmente busca en ti: Justicia, Misericordia y Humildad.",
+            themeStyles: {
+                bg: '#0F1923',
+                textPrimary: '#F0EDE8',
+                textSecondary: '#A09888',
+                accent: '#C8A96E',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: '1px solid #2A3540',
+                cardShadow: '0 20px 40px -8px rgba(200, 169, 110, 0.12)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿Qué es lo que Dios \"espera\" de ti hoy?",
+                    subtitle: "MÁS ALLÁ DE LAS PALABRAS, EXISTE UN DISEÑO DE VIDA DECLARADO.",
+                    imageUrl: "/portadasendas.png",
+                    footerText: "\"No es adivinanza, Él ya te lo declaró.\" — Miqueas 6:8"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL TEXTO BASE · LA REVELACIÓN",
+                    title: "EL RESUMEN EJECUTIVO DE LA VOLUNTAD DIVINA",
+                    body: "Dios no busca sacrificios externos si el corazón está desalineado. Este versículo es el manual de conducta más directo de toda la Escritura.",
+                    citation: "Oh hombre, él te ha declarado qué sea lo bueno, y qué pida de ti Jehová: solamente hacer juicio, y amar misericordia, y humillarte ante tu Dios.",
+                    reference: "Miqueas 6:8 (RV1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PILAR 1 · HACER JUICIO",
+                    title: "MISHPAT — JUSTICIA EN ACCIÓN",
+                    body: "No es solo emitir sentencias; es actuar con rectitud y equidad en cada decisión cotidiana.\n\n📖 Marco Legal: \"Con justicia juzgarás á tu prójimo.\" — Levítico 19:15\n\n🧠 Neurociencia: Actuar con justicia activa la corteza prefrontal dorsolateral, responsable del razonamiento moral. La integridad reduce la disonancia cognitiva, permitiendo una mente en paz.",
+                    citation: "Cumple tus promesas, paga lo justo y sé equitativo. La integridad no se negocia.",
+                    reference: "Aplicación Práctica"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PILAR 2 · AMAR MISERICORDIA",
+                    title: "HESED — LEALTAD BONDADOSA",
+                    body: "No es un sentimiento pasivo; es un amor activo y comprometido como el del buen Samaritano o la misericordia de David hacia Mefiboseth (2 Samuel 9).\n\n💡 PNL y Empatía: Amar la misericordia implica reencuadrar nuestras relaciones: dejar de ver al otro como obstáculo y verlo como prójimo.\n\n🧬 Ciencia: La compasión libera oxitocina, reduce el cortisol y fortalece el sistema inmunológico. Dios diseñó la misericordia para sanar al que la da.",
+                    citation: "¿A quién puedes mostrar favor hoy sin que te lo merezca? Ahí está tu oportunidad.",
+                    reference: "Aplicación Práctica"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PILAR 3 · HUMILLARTE ANTE TU DIOS",
+                    title: "LA SINCRONÍA CON EL ETERNO",
+                    body: "Caminar con Dios reconociendo Su soberanía absoluta.\n\n✝️ Cristo: El ejemplo supremo. \"Se humilló á sí mismo, hecho obediente hasta la muerte.\" — Filipenses 2:8\n\n🧠 Neurociencia de la Humildad: Estudios sobre el \"Quiet Ego\" muestran que la humildad reduce la rumiación mental y la ansiedad por estatus, permitiendo una conexión espiritual más profunda.\n\n📌 Punto de Fe No. 16: La santificación comienza con la humildad de reconocer nuestra dependencia total de Su Gracia.",
+                    citation: "Sin Él, nada puedes hacer. Con Él, todo lo puedes. Esa es la diferencia.",
+                    reference: "Juan 15:5"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA CONEXIÓN PERFECTA · AT + NT",
+                    title: "LO MÁS GRAVE DE LA LEY",
+                    body: "Jesús confrontó a quienes cumplían lo externo pero olvidaban lo esencial:\n\n\"Habéis dejado lo que es lo más grave de la ley, es á saber, el juicio y la misericordia y la fe.\" — Mateo 23:23\n\n📊 Síntesis: Miqueas 6:8 no es una opción, es el fundamento del carácter cristiano. Si falta uno de los tres, la balanza de nuestra fe está descompensada.\n\n🔍 Evidencia: La desobediencia de Saúl (priorizó el sacrificio sobre la humildad) vs. la bendición de Josías (que hizo juicio y justicia).",
+                    citation: "La religión sin justicia, misericordia y humildad es ritualismo vacío.",
+                    reference: "Mateo 23:23"
+                },
+                {
+                    type: "action",
+                    title: "El Desafío de Hoy",
+                    subtitle: "Tres preguntas que transforman tu semana:",
+                    steps: [
+                        { label: "Juicio:", text: "¿Hay algo injusto que debas corregir en tu trato con alguien hoy?" },
+                        { label: "Misericordia:", text: "¿A quién puedes mostrar favor que no lo \"merece\"? Ahí está Hesed." },
+                        { label: "Humildad:", text: "Dedica un momento para reconocer que sin Él, absolutamente nada puedes hacer." }
+                    ],
+                    citation: "Vivir lo que Él declaró es el camino a la verdadera paz.",
+                    reference: "Miqueas 6:8"
                 }
             ]
         }
