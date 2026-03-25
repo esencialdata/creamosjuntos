@@ -689,6 +689,89 @@ export const CONFIG = {
         }
     ],
     dailyVerse: getDailyVerse(), // Dynamically selected on load
+    audioModules: [
+        {
+            id: 'mod-abre-tus-ojos',
+            title: 'Abre Tus Ojos',
+            description: 'Una serie de episodios de audio que fusionan neurociencia y principios bíblicos para transformar tus hábitos desde adentro.',
+            accentColor: '#2563EB',
+            episodes: [
+                {
+                    id: 1,
+                    title: '1. El Mito de la Fuerza de Voluntad',
+                    description: 'Por qué el "esfuerzo puro" no alcanza, y cuál es el mecanismo real que genera cambio duradero en el ser humano.',
+                    duration: '3:45',
+                    audioUrl: '/ELMITO-DE-LA-FUERZA-de-voluntad.mp3',
+                    color: '#2563EB',
+                    releaseDate: '2026-01-07'
+                },
+                {
+                    id: 2,
+                    title: '2. La Paradoja del Estilo de Vida',
+                    description: 'Exploramos la tensión entre lo que queremos ser y lo que hacemos cada día, y cómo resolverla con intención.',
+                    duration: '3:58',
+                    audioUrl: '/laparadoja-de.mp3',
+                    color: '#60A5FA',
+                    releaseDate: '2026-02-09'
+                },
+                {
+                    id: 3,
+                    title: '3. Por qué haces lo que aborreces',
+                    description: 'La psicología oculta detrás de los comportamientos que no quieres repetir, explicada desde la Biblia y la ciencia.',
+                    duration: '4:25',
+                    audioUrl: '/loqueodiamos.mp3',
+                    color: '#475569',
+                    releaseDate: '2026-02-16'
+                },
+                {
+                    id: 4,
+                    title: '4. Cibernética: Tu Sistema de Navegación',
+                    description: 'Cómo el cerebro usa la retroalimentación para corregir el rumbo, y cómo alinearlo con tu visión espiritual.',
+                    duration: '3:45',
+                    audioUrl: '/cibernetica2.mp3',
+                    color: '#10B981',
+                    releaseDate: '2026-02-23'
+                },
+                {
+                    id: 5,
+                    title: '5. El Protocolo de 1 Día',
+                    description: 'Anti-Visión vs. Visión: el protocolo práctico para tomar decisiones con perspectiva eterna desde el día a día.',
+                    duration: '7:01',
+                    audioUrl: '/escoge-la-vida.mp3',
+                    color: '#38BDF8',
+                    releaseDate: '2026-03-02'
+                },
+                {
+                    id: 6,
+                    title: '6. La Guardia de la Mente',
+                    description: 'Protocolo de acción para proteger el pensamiento: cómo filtrar lo que entra a tu mente con principios bíblicos.',
+                    duration: '4:56',
+                    audioUrl: '/e6.mp3',
+                    color: '#64748B',
+                    releaseDate: '2026-03-09'
+                },
+                {
+                    id: 7,
+                    title: '7. El Ecosistema del Cambio',
+                    description: 'Tu entorno y tus relaciones son el ecosistema donde vive (o muere) tu nueva identidad. Aprende a protegerlos.',
+                    duration: '4:57',
+                    audioUrl: '/e7.mp3',
+                    color: '#0284C7',
+                    releaseDate: '2026-03-16'
+                },
+                {
+                    id: 8,
+                    title: '8. El Fruto y la Maestría de la Utilidad',
+                    description: 'La etapa final: cómo el fruto espiritual no es un accidente, sino el resultado de un diseño intencional de vida.',
+                    duration: '5:53',
+                    audioUrl: '/El-fruto-y-la-maestria-de-la-utilidad.mp3',
+                    color: '#475569',
+                    releaseDate: '2026-03-23'
+                }
+            ]
+        }
+    ],
+
     themes: [
 
 

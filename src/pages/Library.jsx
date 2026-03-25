@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import WeeklyTheme from '../components/WeeklyTheme';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
+import AudioModuleCard from '../components/AudioModuleCard';
+import AudioModuleDetail from '../components/AudioModuleDetail';
 import { CONFIG, VERSES_POOL } from '../config/data';
 import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
@@ -9,6 +11,7 @@ import { useBookmarks } from '../hooks/useBookmarks';
 
 const Library = () => {
     const [activeTab, setActiveTab] = useState('themes');
+    const [selectedModule, setSelectedModule] = useState(null);
     const [selectedTheme, setSelectedTheme] = useState(null);
     const { toggleBookmark, isBookmarked } = useBookmarks();
 
@@ -369,15 +372,28 @@ const Library = () => {
                 )}
 
                 {activeTab === 'audios' && (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
-                        {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0 ? (
-                            CONFIG.audioCapsules.map(capsule => (
-                                <AudioCapsuleCard key={capsule.id} capsule={capsule} />
-                            ))
+                    <div>
+                        {selectedModule ? (
+                            <AudioModuleDetail
+                                module={selectedModule}
+                                onBack={() => setSelectedModule(null)}
+                            />
                         ) : (
-                            <p style={{ color: 'var(--color-text-secondary)', textAlign: 'center', padding: 'var(--spacing-lg)' }}>
-                                Aún no hay audios disponibles.
-                            </p>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
+                                {CONFIG.audioModules && CONFIG.audioModules.length > 0 ? (
+                                    CONFIG.audioModules.map(mod => (
+                                        <AudioModuleCard
+                                            key={mod.id}
+                                            module={mod}
+                                            onClick={() => setSelectedModule(mod)}
+                                        />
+                                    ))
+                                ) : (
+                                    <p style={{ color: 'var(--color-text-secondary)', textAlign: 'center', padding: 'var(--spacing-lg)' }}>
+                                        Aún no hay programas disponibles.
+                                    </p>
+                                )}
+                            </div>
                         )}
                     </div>
                 )}
