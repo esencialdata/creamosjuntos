@@ -69,13 +69,48 @@ const AudioModuleDetail = ({ module, onBack }) => {
                     {module.title}
                 </h2>
                 <p style={{
-                    margin: 0,
+                    margin: '0 0 1rem 0',
                     fontSize: '0.88rem',
                     color: 'var(--color-text-secondary)',
                     lineHeight: 1.6,
                 }}>
                     {module.description}
                 </p>
+
+                {/* Share series button */}
+                <button
+                    onClick={async () => {
+                        const text = `🎧 "${module.title}"\n${module.description}`;
+                        const url = window.location.href;
+                        if (navigator.share) {
+                            try { await navigator.share({ title: module.title, text, url }); }
+                            catch (e) { /* cancelled */ }
+                        } else {
+                            await navigator.clipboard.writeText(`${text}\n${url}`);
+                            alert('Enlace copiado al portapapeles');
+                        }
+                    }}
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        background: accent,
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '20px',
+                        padding: '6px 16px',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                    </svg>
+                    Compartir serie
+                </button>
             </div>
 
             {/* Episode list */}

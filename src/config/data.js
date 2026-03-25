@@ -692,7 +692,7 @@ export const CONFIG = {
     audioModules: [
         {
             id: 'mod-abre-tus-ojos',
-            title: 'Abre Tus Ojos',
+            title: 'INQUEBRANTABLE: 8 Días para Tomar el Gobierno de tu Vida',
             description: 'Una serie de episodios de audio que fusionan neurociencia y principios bíblicos para transformar tus hábitos desde adentro.',
             accentColor: '#2563EB',
             episodes: [
