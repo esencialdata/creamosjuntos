@@ -596,10 +596,12 @@ const getCurrentWeekId = () => {
     const week14Start = new Date(2026, 2, 9);  // Mar 9
     const week15Start = new Date(2026, 2, 16); // Mar 16
     const week16Start = new Date(2026, 2, 23); // Mar 23
+    const week17Start = new Date(2026, 2, 27); // Mar 27
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week17Start) return 17;
     if (now >= week16Start) return 16;
     if (now >= week15Start) return 15;
     if (now >= week14Start) return 14;
@@ -2692,6 +2694,85 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     ],
                     citation: "Vivir lo que Él declaró es el camino a la verdadera paz.",
                     reference: "Miqueas 6:8"
+                }
+            ]
+        }
+        ,
+        {
+            id: 30,
+            weekId: 17,
+            availableFrom: "2026-03-27T00:00:00",
+            title: "RESILIENCIA EN LA RUEDA",
+            description: "\u00bfPor qu\u00e9 el Alfarero permite el Quebranto? Un an\u00e1lisis b\u00edblico y cient\u00edfico sobre el proceso de restauraci\u00f3n.",
+            themeStyles: {
+                bg: '#1A1008',
+                textPrimary: '#F5EFE6',
+                textSecondary: '#A89070',
+                accent: '#C87941',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: '1px solid #3A2A18',
+                cardShadow: '0 20px 40px -8px rgba(200, 121, 65, 0.15)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "Resiliencia en la Rueda: \u00bfPor qu\u00e9 el Alfarero permite el Quebranto?",
+                    subtitle: "UN AN\u00c1LISIS B\u00cdBLICO Y CIENT\u00cdFICO SOBRE EL PROCESO DE RESTAURACI\u00d3N.",
+                    visual: "\uD83C\uDFFA",
+                    footerText: "\"Y torn\u00f3 y h\u00edzolo otro vaso\u2026\" \u2014 Jerem\u00edas 18:4"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL TEXTO BASE \u00b7 JER 18:4",
+                    title: "EL MOMENTO DEL QUEBRANTAMIENTO",
+                    body: "El quebranto ocurre en la mano del Alfarero. No es un accidente fuera de control: es el momento en que el material revela que necesita ser procesado de nuevo para alcanzar su mejor forma.",
+                    citation: "Y el vaso que \u00e9l hac\u00eda de barro se quebr\u00f3 en la mano del alfarero; y torn\u00f3 y h\u00edzolo otro vaso, seg\u00fan que al alfarero pareci\u00f3 mejor hacerlo.",
+                    reference: "Jerem\u00edas 18:4 (RV1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MARCO LEGAL \u00b7 AT + NT",
+                    title: "DEL DEFECTO A LA UTILIDAD",
+                    body: "\uD83D\uDCD6 Ley (AT): Bajo el sistema lev\u00edtico, lo que ten\u00eda defecto era apartado (Lev\u00edtico 21:18\u201321). La Ley exig\u00eda perfecci\u00f3n en el sacrificio y el servicio.\n\n\u271d\ufe0f Magnificaci\u00f3n (NT): Cristo no anula la exigencia de perfecci\u00f3n, sino que la hace posible a trav\u00e9s del proceso. Pablo dice que tenemos \"este tesoro en vasos de barro\" (2 Corintios 4:7): el quebranto del \u201chombre viejo\u201d es necesario para que se manifieste la vida de Jes\u00fas.",
+                    citation: "La perfecci\u00f3n no se anula; ahora se alcanza a trav\u00e9s del proceso del Alfarero.",
+                    reference: "Lev\u00edtico 21 \u00b7 2 Corintios 4:7"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SOPORTE CIENT\u00cdFICO \u00b7 NEUROCIENCIA",
+                    title: "CRECIMIENTO POST-TRAUM\u00c1TICO",
+                    body: "\uD83E\uDDE0 Los investigadores Richard Tedeschi y Lawrence Calhoun (1996) acu\u00f1aron el t\u00e9rmino Crecimiento Post-traum\u00e1tico. Cient\u00edficamente se comprueba que tras un evento de \u201cquebrantamiento\u201d, el cerebro puede desarrollar niveles de resiliencia y esquemas de pensamiento m\u00e1s complejos que los previos a la crisis.\n\n\uD83C\uDFFA Conexi\u00f3n: La presi\u00f3n de la \u201cRueda\u201d (pruebas) es el est\u00edmulo biol\u00f3gico y espiritual necesario para la reconfiguraci\u00f3n del car\u00e1cter.",
+                    citation: "La rueda del Alfarero y la neurociencia confirman lo mismo: el quebranto precede al crecimiento real.",
+                    reference: "Tedeschi & Calhoun, 1996"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EVIDENCIA CONDUCTUAL \u00b7 AT",
+                    title: "SA\u00daL VS. PEDRO",
+                    body: "\u274c Sa\u00fal (Resistencia): Cuando fue confrontado, su barro se endureci\u00f3 en la justificaci\u00f3n (1 Samuel 15:24). Al no ser moldeable, el proceso se detuvo y fue desechado.\n\n\u2705 Pedro (Sumisi\u00f3n): Tras su ca\u00edda, el quebranto produjo arrepentimiento (Mateo 26:75). Su disposici\u00f3n permiti\u00f3 que el Alfarero lo pusiera de nuevo en la rueda para convertirlo en columna de la Iglesia.",
+                    citation: "La diferencia no fue el quebranto, sino la respuesta al quebranto.",
+                    reference: "1 Samuel 15 \u00b7 Mateo 26:75"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL PROP\u00d3SITO \u00b7 TEOLOG\u00cdA PR\u00c1CTICA",
+                    title: "\u00bfPOR QU\u00c9 PERMITE EL QUEBRANTO?",
+                    body: "El Alfarero permite el quebranto para eliminar burbujas de aire (orgullo) o impurezas (pecado) que har\u00edan que la vasija estallara despu\u00e9s en el horno \u2014las pruebas mayores.\n\n\uD83C\uDFFA El fin no es el quebranto, sino el \u201cotro vaso\u201d que el Alfarero considera mejor. La rueda no es el castigo; es la garant\u00eda de que el Alfarero no ha terminado contigo.",
+                    citation: "No eres un vaso roto. Eres un vaso en proceso.",
+                    reference: "Jerem\u00edas 18:4"
+                },
+                {
+                    type: "action",
+                    title: "Aplicaci\u00f3n Pr\u00e1ctica",
+                    subtitle: "Tres movimientos para esta semana:",
+                    steps: [
+                        { label: "Identificaci\u00f3n:", text: "Reconoce el \u00e1rea de tu vida que hoy est\u00e1 bajo presi\u00f3n. \u00bfD\u00f3nde est\u00e1 la rueda girando?" },
+                        { label: "Disposici\u00f3n:", text: "Evita la rigidez de Sa\u00fal; mant\u00e9n la \u201chumedad\u201d del barro mediante el arrepentimiento constante." },
+                        { label: "Perspectiva:", text: "El proceso en la rueda es la garant\u00eda de que el Alfarero no ha terminado contigo." }
+                    ],
+                    citation: "Tu quebrantamiento no es el final. Es el taller del Alfarero.",
+                    reference: "Jerem\u00edas 18:4"
                 }
             ]
         }
