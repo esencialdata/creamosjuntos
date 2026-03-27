@@ -2719,7 +2719,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "cover",
                     title: "Resiliencia en la Rueda: \u00bfPor qu\u00e9 el Alfarero permite el Quebranto?",
                     subtitle: "UN AN\u00c1LISIS B\u00cdBLICO Y CIENT\u00cdFICO SOBRE EL PROCESO DE RESTAURACI\u00d3N.",
-                    visual: "\uD83C\uDFFA",
+                    videoUrl: "/alfarero_opt.mp4",
                     footerText: "\"Y torn\u00f3 y h\u00edzolo otro vaso\u2026\" \u2014 Jerem\u00edas 18:4"
                 },
                 {
