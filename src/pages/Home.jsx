@@ -7,6 +7,7 @@ import WeeklyHabit from '../components/WeeklyHabit';
 import SermonList from '../components/SermonList';
 import TempleGrowth from '../components/TempleGrowth';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
+import AudioModuleCard from '../components/AudioModuleCard';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
 import { subscribeToSchedule } from '../services/firestoreService';
@@ -157,46 +158,26 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                     return null;
                 })()}
 
-                {/* Tu Dosis Semanal Section (AUDIOS ANTERIORES) */}
-                {CONFIG.audioCapsules && CONFIG.audioCapsules.length > 1 && (() => {
-                    // Tomamos del penúltimo hacia atrás, máximo 3
-                    const previousAudios = [...CONFIG.audioCapsules].reverse().slice(1, 4);
-                    return (
-                        <section style={{ marginBottom: 'var(--spacing-md)' }}>
-                            <h3 style={{
-                                fontSize: '0.875rem',
-                                textTransform: 'uppercase',
-                                marginBottom: 'var(--spacing-sm)',
-                                color: 'var(--color-accent)'
-                            }}>
-                                Escuchar anteriores
-                            </h3>
-                            {previousAudios.map(capsule => (
-                                <AudioCapsuleCard key={`older-audio-${capsule.id}`} capsule={capsule} />
-                            ))}
-                            {CONFIG.audioCapsules.length > 4 && (
-                                <button
-                                    onClick={() => navigate('/recursos?anchor=audios-tab')}
-                                    style={{
-                                        width: '100%',
-                                        padding: '0.75rem',
-                                        backgroundColor: 'transparent',
-                                        color: 'var(--color-primary)',
-                                        border: '1px solid var(--color-primary)',
-                                        borderRadius: '8px',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                        fontSize: '0.9rem',
-                                        marginTop: 'var(--spacing-xs)',
-                                        transition: 'all 0.2s ease'
-                                    }}
-                                >
-                                    Ver todos los audios →
-                                </button>
-                            )}
-                        </section>
-                    );
-                })()}
+                {/* Tu Dosis Semanal Section (MÓDULOS DE AUDIO / SERIES) */}
+                {CONFIG.audioModules && CONFIG.audioModules.length > 0 && (
+                    <section style={{ marginBottom: 'var(--spacing-md)' }}>
+                        <h3 style={{
+                            fontSize: '0.875rem',
+                            textTransform: 'uppercase',
+                            marginBottom: 'var(--spacing-sm)',
+                            color: 'var(--color-accent)'
+                        }}>
+                            Series de Audio
+                        </h3>
+                        {CONFIG.audioModules.map(mod => (
+                            <AudioModuleCard 
+                                key={`module-${mod.id}`} 
+                                module={mod} 
+                                onClick={() => navigate('/recursos?anchor=audios-tab', { state: { openModule: mod.id } })}
+                            />
+                        ))}
+                    </section>
+                )}
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}

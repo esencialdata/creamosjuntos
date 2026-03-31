@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import WeeklyTheme from '../components/WeeklyTheme';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
@@ -14,6 +15,7 @@ const Library = () => {
     const [selectedModule, setSelectedModule] = useState(null);
     const [selectedTheme, setSelectedTheme] = useState(null);
     const { toggleBookmark, isBookmarked } = useBookmarks();
+    const location = useLocation();
 
     useEffect(() => {
         const getAnchor = () => {
@@ -33,7 +35,12 @@ const Library = () => {
         };
 
         const anchor = getAnchor();
-        if (anchor === 'audios-tab') {
+        
+        if (location.state?.openModule) {
+            setActiveTab('audios');
+            const mod = CONFIG.audioModules?.find(m => m.id === location.state.openModule);
+            if (mod) setSelectedModule(mod);
+        } else if (anchor === 'audios-tab') {
             setActiveTab('audios');
         } else if (anchor) {
             setActiveTab('verses');
