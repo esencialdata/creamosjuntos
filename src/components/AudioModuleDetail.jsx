@@ -30,6 +30,22 @@ const AudioModuleDetail = ({ module, onBack }) => {
             </button>
 
             {/* Module header */}
+            {module.coverImageUrl && (
+                <div style={{
+                    width: '100%',
+                    height: '180px',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    marginBottom: '1rem',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                }}>
+                    <img 
+                        src={module.coverImageUrl} 
+                        alt={module.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                </div>
+            )}
             <div style={{
                 background: `linear-gradient(135deg, ${accent}15 0%, ${accent}30 100%)`,
                 borderRadius: '16px',

@@ -697,6 +697,7 @@ export const CONFIG = {
         {
             id: 'mod-abre-tus-ojos',
             title: 'INQUEBRANTABLE: 8 Días para Tomar el Gobierno de tu Vida',
+            coverImageUrl: '/portada_inquebrantable_opt.jpg',
             description: 'El protocolo definitivo para desmantelar la inercia del fracaso y restaurar la autoridad de tu diseño original. 8 episodios de audio diseñados para limpiar tu estructura interna, elevar tus estándares y convertirte en el administrador soberano de tu propósito y tu fruto.',
             accentColor: '#2563EB',
             episodes: [
