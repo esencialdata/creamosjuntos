@@ -597,10 +597,12 @@ const getCurrentWeekId = () => {
     const week15Start = new Date(2026, 2, 16); // Mar 16
     const week16Start = new Date(2026, 2, 23); // Mar 23
     const week17Start = new Date(2026, 2, 27); // Mar 27
+    const week18Start = new Date(2026, 2, 30); // Mar 30
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week18Start) return 18;
     if (now >= week17Start) return 17;
     if (now >= week16Start) return 16;
     if (now >= week15Start) return 15;
@@ -2773,6 +2775,83 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     ],
                     citation: "Tu quebrantamiento no es el final. Es el taller del Alfarero.",
                     reference: "Jerem\u00edas 18:4"
+                }
+            ]
+        },
+        {
+            id: 31,
+            weekId: 18,
+            title: "¿ESTÁ TU CORAZÓN LISTO PARA EL MEMORIAL?",
+            description: "3 pasos esenciales para la santificación antes de la Cena del Señor.",
+            themeStyles: {
+                bg: '#FAFAF9',
+                textPrimary: '#292524',
+                textSecondary: '#78716C',
+                accent: '#991B1B',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: '1px solid #E7E5E4',
+                cardShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.05)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿ESTÁ TU CORAZÓN LISTO PARA EL MEMORIAL?",
+                    subtitle: "3 PASOS ESENCIALES PARA LA SANTIFICACIÓN.",
+                    imageUrl: "/pascua_opt.jpg",
+                    footerText: "No te presentes vacío; prepárate para la reconciliación."
+                },
+                {
+                    type: "diagnostic",
+                    label: "PASO 1 · AUTOEXAMEN",
+                    title: "EL MANDATO DEL AUTOEXAMEN",
+                    body: "La Pascua no es solo un rito; es un memorial de vida. Participar indignamente conlleva responsabilidad sobre el cuerpo y la sangre del Señor.\n\nPrincipio: La santidad comienza con la honestidad brutal frente al espejo de la Palabra.",
+                    citation: "Por tanto, examínese cada uno a sí mismo, y entonces coma del pan y beba de la copa.",
+                    reference: "1ª Corintios 11:28 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PASO 2 · CONFESIÓN",
+                    title: "LA CONFESIÓN COMO PUERTA DE LIMPIEZA",
+                    body: "Confesar es \"decir lo mismo que Dios\" sobre nuestra conducta. No ocultes tu falta; la transparencia con el Creador activa la justicia divina.\n\n🧠 Neurociencia aplicada: Verbalizar o escribir nuestras faltas reduce la carga de cortisol (estrés) y permite al cerebro procesar el cambio conductual con mayor claridad (corteza prefrontal).",
+                    citation: "Si confesamos nuestros pecados, El es fiel y justo para perdonarnos los pecados y para limpiarnos de toda maldad.",
+                    reference: "1ª Juan 1:9 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "LIMPIANDO LA LEVADURA",
+                    subtitle: "En el AT, se eliminaba físicamente la levadura; hoy eliminamos la malicia.",
+                    steps: [
+                        { label: "Identifica:", text: "Hábitos, vicios o sentimientos que degradan el Templo del Espíritu Santo." },
+                        { label: "Acciona:", text: "¿Qué \"levadura\" (orgullo, ira, envidia) vas a sacar hoy de tu casa espiritual?" }
+                    ],
+                    citation: "Limpiad la levadura vieja para que seáis masa nueva... nuestra Pascua, que es Cristo, ha sido sacrificado.",
+                    reference: "1ª Corintios 5:7 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PASO 3 · RESTITUCIÓN",
+                    title: "EL PODER DE LA RESTITUCIÓN",
+                    body: "El arrepentimiento bíblico incluye restitución en todo lo posible. Si hay pleitos o deudas morales con tu prójimo, resuélvelos antes de la fiesta.\n\n⚖️ La Ley en Acción: La fe sin obediencia a la doctrina es vana. La paz con Dios requiere buscar la paz con los hombres.",
+                    citation: "Si en algo he defraudado a alguno, se lo restituiré cuadruplicado.",
+                    reference: "Lucas 19:8 (RVA)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA META",
+                    title: "EL COMPROMISO DE MEJORA",
+                    body: "No solo dejes lo malo, abraza lo bueno. Propón un cambio específico: Más oración, mejor alimentación o mayor humildad.\n\n🧬 PNL Conductual: Sustituye un anclaje negativo (el pecado recurrente) por una nueva ruta de acción (la obediencia). La repetición consciente crea nuevos circuitos de santidad.",
+                    citation: "Habiendo sido libertados del pecado, os habéis hecho siervos de la justicia.",
+                    reference: "Romanos 6:18 (RVA)"
+                },
+                {
+                    type: "action",
+                    title: "HOY ES EL TIEMPO DE PREPARACIÓN",
+                    subtitle: "Entra a la Pascua con una conciencia purificada.",
+                    steps: [
+                        { label: "Reflexiona:", text: "Haz un repaso de tu estado espiritual ante la presencia de Dios." },
+                        { label: "Pacto:", text: "Guarda esto como guía para tu oración nocturna. ¿Estás listo para renovar tu pacto?" }
+                    ]
                 }
             ]
         }
