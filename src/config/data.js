@@ -531,7 +531,7 @@ export const VERSES_POOL = [
         comment: "La exclusividad de la salvación en Cristo anula cualquier sistema alternativo de redención; la reconciliación requiere pasar forzosamente por Su sacrificio."
     },
     {
-        text: "Mas Dios encarece su caridad para con nosotros, porque siendo aún pecadores, Cristo murió por nosotros.",
+        text: "Mas Dios encarece su amor para con nosotros, porque siendo aún pecadores, Cristo murió por nosotros.",
         reference: "Romanos 5:8",
         likes: 0,
         comment: "El mérito humano no fue el detonante de la redención. La intervención de Dios sucedió en nuestro peor estado moral, evidenciando la magnitud de Su gracia."
@@ -555,7 +555,7 @@ export const VERSES_POOL = [
         comment: "El monopolio de la intercesión pertenece exclusivamente a Jesucristo. Queda invalidada la apelación a cualquier otra entidad o mediador espiritual."
     },
     {
-        text: "Mirad cuál caridad nos ha dado el Padre, que seamos llamados hijos de Dios.",
+        text: "Mirad cuál amor nos ha dado el Padre, que seamos llamados hijos de Dios.",
         reference: "1 Juan 3:1",
         likes: 0,
         comment: "La adopción divina es un estatus legal y espiritual transformador; otorga identidad y demanda un comportamiento acorde al linaje del Padre."

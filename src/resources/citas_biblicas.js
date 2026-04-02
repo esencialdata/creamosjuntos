@@ -2,10 +2,10 @@ export const CITAS_HISTORIAL = {
     // 2025
     diciembre: [
         {
-            text: "La caridad es sufrida, es benigna; la caridad no tiene envidia, la caridad no hace sinrazón, no se ensancha;",
+            text: "El amor es sufrido, es benigno; el amor no tiene envidia, el amor no hace sinrazón, no se ensancha;",
             reference: "1 Corintios 13:4",
             likes: 0,
-            comment: "La verdadera caridad (amor) no se mide por emociones, sino por la paciencia, la humildad y la manera en que tratamos a los demás aun cuando creemos que no lo merecen."
+            comment: "El verdadero amor no se mide por emociones, sino por la paciencia, la humildad y la manera en que tratamos a los demás aun cuando creemos que no lo merecen."
         },
         {
             text: "Porque de tal manera amó Dios al mundo, que ha dado á su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
@@ -50,7 +50,7 @@ export const CITAS_HISTORIAL = {
             comment: "La vida cristiana no es solo “creer en Dios”, es dejar que Cristo sea el centro real de tu vida diaria."
         },
         {
-            text: "Mas el fruto del Espíritu es: caridad, gozo, paz, tolerancia, benignidad, bondad, fe,",
+            text: "Mas el fruto del Espíritu es: amor, gozo, paz, tolerancia, benignidad, bondad, fe,",
             reference: "Gálatas 5:22",
             likes: 0,
             comment: "La evidencia de la obra del Espíritu no son solo dones espectaculares, sino un carácter transformado en amor, paciencia y bondad."
