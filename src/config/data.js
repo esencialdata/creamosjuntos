@@ -598,10 +598,12 @@ const getCurrentWeekId = () => {
     const week16Start = new Date(2026, 2, 23); // Mar 23
     const week17Start = new Date(2026, 2, 27); // Mar 27
     const week18Start = new Date(2026, 2, 30); // Mar 30
+    const week19Start = new Date(2026, 3, 2);  // Apr 2
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week19Start) return 19;
     if (now >= week18Start) return 18;
     if (now >= week17Start) return 17;
     if (now >= week16Start) return 16;
@@ -2853,6 +2855,110 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                         { label: "Reflexiona:", text: "Haz un repaso de tu estado espiritual ante la presencia de Dios." },
                         { label: "Pacto:", text: "Guarda esto como guía para tu oración nocturna. ¿Estás listo para renovar tu pacto?" }
                     ]
+                }
+            ]
+        },
+        {
+            id: 32,
+            weekId: 19,
+            title: "RADIOGRAFÍA DE UNA INJUSTICIA JURÍDICA",
+            description: "Análisis de las violaciones legales en el juicio de Jesús.",
+            themeStyles: {
+                bg: '#FDFAF5',
+                textPrimary: '#1C1917',
+                textSecondary: '#57534E',
+                accent: '#92400E',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: '1px solid #E7E5E0',
+                cardShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.08)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "El Crimen Jurídico\ndel Gólgota",
+                    subtitle: "¿Fue legal la condena de Jesús? Analizamos los argumentos que demuestran la nulidad absoluta de este proceso.",
+                    footerText: "Radiografía de una Injusticia Jurídica",
+                    citation: "¿Quién declarará su generación? Porque fue quitado de la tierra de los vivientes; por la rebelión de mi pueblo fue herido.",
+                    reference: "Isaías 53:8"
+                },
+                {
+                    type: "diagnostic",
+                    label: "FUNDAMENTO · NULIDAD",
+                    title: "LA NULIDAD DEL PROCESO",
+                    body: "Todo juicio justo debe seguir principios de verdad y debido proceso. En el enjuiciamiento de Jesús, cada garantía de protección al acusado fue sistemáticamente violada."
+                },
+                {
+                    type: "diagnostic",
+                    label: "PRINCIPIO LEGAL · 01",
+                    title: "GARANTÍAS DE VERDAD Y JUSTICIA",
+                    body: "El marco legal divino establece requisitos estrictos para la validez de un testimonio y la integridad de un juez.",
+                    citations: [
+                        { text: "No admitirás falso rumor... no pondrás tu mano con el impío para ser testigo falso.", reference: "Éxodo 23:1" },
+                        { text: "No se tomará en cuenta a un solo testigo contra ninguno en cualquier delito... en el dicho de dos o tres testigos se resolverá el asunto.", reference: "Deuteronomio 19:15" }
+                    ]
+                },
+                {
+                    type: "diagnostic",
+                    label: "VIOLACIÓN · 01",
+                    title: "EL VICIO DE LA NOCTURNIDAD",
+                    body: "La ley prohibía los juicios criminales nocturnos. El arresto y la audiencia inicial bajo sombras invalidaron el procedimiento desde su origen.",
+                    citations: [
+                        { text: "Y los que prendieron a Jesús le llevaron al sumo sacerdote Caifás, adonde estaban reunidos los escribas y los ancianos.", reference: "Mateo 26:57" },
+                        { text: "Entonces le escupieron en el rostro, y le dieron de puñetazos; y otros le abofeteaban...", reference: "Mateo 26:75" }
+                    ]
+                },
+                {
+                    type: "diagnostic",
+                    label: "VIOLACIÓN · 02",
+                    title: "TESTIGOS FALSOS Y CONTRADICTORIOS",
+                    body: "El tribunal buscó activamente testimonios falsos. La falta de concordancia entre los declarantes debió dictar la libertad inmediata del acusado.",
+                    citations: [
+                        { text: "Y los principales sacerdotes y los ancianos y todo el concilio buscaban falso testimonio contra Jesús, para entregarle a la muerte.", reference: "Mateo 26:59" },
+                        { text: "Y levantándose algunos, daban falso testimonio contra él, diciendo... Pero ni aun así concordaban en el testimonio.", reference: "Marcos 14:56" }
+                    ]
+                },
+                {
+                    type: "diagnostic",
+                    label: "VIOLACIÓN · 03",
+                    title: "COACCIÓN AL ACUSADO",
+                    body: "Ante la ausencia de pruebas, se forzó a Jesús a declarar bajo juramento para extraer una frase que sirviera de condena, violando el principio de defensa.",
+                    citation: "Entonces el sumo sacerdote le dijo: Te conjuro por el Dios viviente, que nos digas si eres tú el Cristo, el Hijo de Dios.",
+                    reference: "Mateo 26:63"
+                },
+                {
+                    type: "diagnostic",
+                    label: "VIOLACIÓN · 04",
+                    title: "INEXISTENCIA DE DELITO",
+                    body: "Tras la investigación oficial (Cognitio), la autoridad civil emitió un veredicto formal de absolución al no hallar ninguna falta legal.",
+                    citation: "Les dijo Pilato: Yo no hallo en él ningún delito.",
+                    reference: "Juan 18:38"
+                },
+                {
+                    type: "diagnostic",
+                    label: "VIOLACIÓN · 05",
+                    title: "PREVARICACIÓN DE LA AUTORIDAD",
+                    body: "Se dictó una sentencia de muerte no por justicia, sino por presión política y temor social. El juez actuó en contra de su propia resolución de inocencia.",
+                    citation: "Viendo Pilato que nada adelantaba, sino que se hacía más alboroto, tomó agua y se lavó las manos delante del pueblo, diciendo: Inocente soy yo de la sangre de este justo.",
+                    reference: "Mateo 27:24"
+                },
+                {
+                    type: "diagnostic",
+                    label: "TEOLOGÍA · CONCLUSIÓN",
+                    title: "LA PERFECCIÓN DEL CORDERO",
+                    body: "La incapacidad de los tribunales humanos para hallar un crimen real ratificó la pureza de la víctima. La injusticia del hombre cumplió la justicia de Dios.",
+                    citations: [
+                        { text: "El cual no hizo pecado, ni se halló engaño en su boca; quien cuando le maldecían, no respondía con maldición.", reference: "1 Pedro 2:22-23" },
+                        { text: "Al que no conoció pecado, por nosotros lo hizo pecado, para que nosotros fuésemos hechos justicia de Dios en él.", reference: "2 Corintios 5:21" }
+                    ]
+                },
+                {
+                    type: "cover",
+                    title: "La Ley de los hombres fue corrompida, pero el plan de Dios se cumplió con exactitud.",
+                    subtitle: "El juicio fue injusto, pero el sacrificio fue perfecto para nuestra redención.",
+                    footerText: "Síntesis Final · Radiografía Jurídica",
+                    citation: "Mas él herido fue por nuestras rebeliones, molido por nuestros pecados; el castigo de nuestra paz sobre él, y por su llaga fuimos nosotros curados.",
+                    reference: "Isaías 53:5"
                 }
             ]
         }

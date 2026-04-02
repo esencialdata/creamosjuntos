@@ -93,7 +93,13 @@ const WeeklyTheme = ({ theme = {} }) => {
                             </div>
                         )}
 
-                        <div style={{ marginBottom: '2rem', maxWidth: '90%' }}>
+                        <div style={{ marginBottom: '2rem', maxWidth: '90%', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+                            {slide.citation && (
+                                <blockquote style={{ borderLeft: `3px solid ${styles.accent}`, paddingLeft: '1rem', fontStyle: 'italic', fontFamily: styles.fontSerif, color: styles.textSecondary, fontSize: '0.85rem', textAlign: 'left', margin: 0 }}>
+                                    "{slide.citation}"
+                                    <div style={{ fontSize: '0.75rem', marginTop: '0.4rem', fontStyle: 'normal', fontWeight: 600, color: styles.accent }}>— {slide.reference}</div>
+                                </blockquote>
+                            )}
                             <p style={{ fontFamily: styles.fontSerif, fontSize: '0.9rem', fontStyle: 'italic', color: styles.accent }}>
                                 {slide.footerText}
                             </p>
@@ -170,7 +176,17 @@ const WeeklyTheme = ({ theme = {} }) => {
                                 ))}
                             </ul>
                         )}
-                        {slide.citation && (
+                        {slide.citations && slide.citations.length > 0 && (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                {slide.citations.map((c, i) => (
+                                    <blockquote key={i} style={{ borderLeft: `3px solid ${styles.accent}`, paddingLeft: '1rem', fontStyle: 'italic', fontFamily: styles.fontSerif, color: styles.textSecondary, fontSize: '0.9rem', margin: 0 }}>
+                                        "{c.text}"
+                                        <div style={{ fontSize: '0.8rem', marginTop: '0.5rem', fontStyle: 'normal', fontWeight: 600, color: styles.accent }}>— {c.reference}</div>
+                                    </blockquote>
+                                ))}
+                            </div>
+                        )}
+                        {!slide.citations && slide.citation && (
                             <blockquote style={{ borderLeft: `3px solid ${styles.accent}`, paddingLeft: '1rem', fontStyle: 'italic', fontFamily: styles.fontSerif, color: styles.textSecondary, fontSize: '0.9rem' }}>
                                 "{slide.citation}"
                                 <div style={{ fontSize: '0.8rem', marginTop: '0.5rem', fontStyle: 'normal', fontWeight: 600 }}>— {slide.reference}</div>
