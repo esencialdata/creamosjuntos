@@ -2961,6 +2961,84 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Isaías 53:5"
                 }
             ]
+        },
+        {
+            id: 33,
+            weekId: 19,
+            availableFrom: "2026-04-07T00:00:00",
+            title: "LA RAÍZ INVISIBLE DEL ESTANCAMIENTO",
+            description: "¿Por qué tus metas se estancan aunque te esfuerzas al máximo? Un secuestro neurológico y espiritual que opera en silencio.",
+            themeStyles: {
+                bg: '#0C1220',
+                textPrimary: '#F0F4F8',
+                textSecondary: '#8B9DC3',
+                accent: '#E2B14C',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: '1px solid #1E2D45',
+                cardShadow: '0 20px 40px -8px rgba(226, 177, 76, 0.12)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "¿POR QUÉ TUS METAS SE ESTANCAN\nAUNQUE TE ESFUERZAS AL MÁXIMO?",
+                    subtitle: "No es falta de talento, ni falta de tiempo. Podría ser un secuestro neurológico y espiritual que opera en silencio.",
+                    imageUrl: "/portada-raiz.png",
+                    footerText: "👉 Desliza para entender y desactivar este bloqueo."
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL DIAGNÓSTICO BÍBLICO",
+                    title: "EL ENEMIGO INVISIBLE",
+                    body: "Miles de años antes de los escáneres cerebrales, la Escritura diagnosticó la causa del estancamiento.\n\nLas raíces crecen en la oscuridad. No las ves, pero absorben tu energía vital y te impiden avanzar hacia tu propósito.",
+                    citation: "Mirando bien que ninguno se aparte de la gracia de Dios, que ninguna raíz de amargura brotando os impida...",
+                    reference: "Hebreos 12:15 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SOPORTE CIENTÍFICO · NEUROCIENCIA",
+                    title: "LA CIENCIA DEL ESTANCAMIENTO",
+                    body: "La neurociencia demuestra que albergar resentimiento hiperactiva tu amígdala (el centro de alarma del cerebro) y te inunda de cortisol.\n\nEsto \"apaga\" literalmente tu corteza prefrontal, el área encargada de planificar a largo plazo, tomar decisiones lógicas y alcanzar objetivos.\n\nEl rencor destruye biológicamente tu capacidad de construir un futuro.",
+                    citation: "El resentimiento no es solo un problema emocional; es un sabotaje neurológico a tu capacidad de avanzar.",
+                    reference: "Neurobiología del estrés"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL MARCO LEGAL · AT",
+                    title: "NO ES UNA \"EMOCIÓN\", ES UNA INFRACCIÓN",
+                    body: "Ante la Ley divina, la amargura es idolatría a tu propio dolor.\n\nEn Deuteronomio 29:18 (RVA 1909), Dios establece jurisprudencia contra la rebelión del corazón, llamándola una \"raíz que eche veneno y ajenjo\".\n\nAlbergar amargura es decidir que la ofensa que te hicieron es más grande que el mandato de Dios de perdonar.",
+                    citation: "No sea que haya entre vosotros... raíz que eche veneno y ajenjo.",
+                    reference: "Deuteronomio 29:18 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ESTÁNDAR DE CRISTO · NT",
+                    title: "EL ESTÁNDAR DE CRISTO",
+                    body: "Cristo magnificó esta ley. En el Sermón del Monte (Mateo 5), dejó claro que el enojo y el rencor retenidos paralizan tu comunión con Dios y te condenan con el mismo peso moral que el daño físico premeditado.\n\nNo puedes retener una ofensa y retener la bendición de Dios al mismo tiempo. Tienes que soltar una de las dos.",
+                    citation: "Cualquiera que se enojare locamente con su hermano, será culpado del juicio.",
+                    reference: "Mateo 5:22 (RVA 1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL COSTO REAL · ADVERTENCIA",
+                    title: "EL COSTO REAL Y EL EFECTO RADIACTIVO",
+                    body: "Hebreos advierte: \"y por ella muchos sean contaminados\". La amargura contagia a tu familia y a tu entorno.\n\nMira a Esaú. Permitir que el resentimiento y el impulso gobernaran su vida le costó su primogenitura. Cuando finalmente quiso heredar la bendición, fue desechado.\n\nLa amargura te hace tomar decisiones permanentes basadas en emociones temporales.",
+                    citation: "No sea que haya algún fornicario, ó profano, como Esaú, que por una satisfacción de vianda vendió su primogenitura.",
+                    reference: "Hebreos 12:16 (RVA 1909)"
+                },
+                {
+                    type: "action",
+                    title: "LA ORDEN EJECUTIVA",
+                    subtitle: "El apóstol Pablo no sugirió terapia para la ofensa, dio una orden directa:",
+                    steps: [
+                        { label: "El mandato:", text: "\"Toda amargura, y enojo, é ira, y voces, y maledicencia sea quitada de vosotros...\" — Efesios 4:31 (RVA 1909)." },
+                        { label: "No la gestiones:", text: "QUÍTALA." },
+                        { label: "El resultado:", text: "Perdonar no es darle un regalo al que te ofendió; es recuperar tu cerebro, desatar tu propósito y abrir las puertas a lo que Dios tiene para ti." }
+                    ],
+                    citation: "📥 Guarda este post y compártelo si decides arrancar esa raíz hoy.",
+                    reference: "Efesios 4:31 (RVA 1909)"
+                }
+            ]
         }
     ],
     weeklyHabit: {
