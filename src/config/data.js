@@ -3039,6 +3039,106 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     reference: "Efesios 4:31 (RVA 1909)"
                 }
             ]
+        },
+        {
+            id: 34,
+            weekId: 20,
+            availableFrom: "2026-04-14T00:00:00",
+            title: "FÍATE DE JEHOVÁ DE TODO TU CORAZÓN",
+            description: "La ley de la confianza total: cuatro mandatos que redefinen quién gobierna tu vida y quien traza tu camino.",
+            themeStyles: {
+                bg: '#FAFAFA',
+                textPrimary: '#1A1740',
+                textSecondary: '#534AB7',
+                accent: '#534AB7',
+                cardBorder: '1px solid #E8E6FC',
+                cardShadow: '0 8px 24px -4px rgba(83, 74, 183, 0.08)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "FÍATE DE JEHOVÁ\nDE TODO TU CORAZÓN",
+                    subtitle: "La ley de la confianza total: cuando dejas de gobernarte a ti mismo y dejas que Dios trace el camino.",
+                    visual: "🕊️",
+                    footerText: "Proverbios 3:5-6 · RV1909 — Desliza para entender la ley."
+                },
+                {
+                    type: "diagnostic",
+                    label: "TEXTO BASE · PROVERBIOS 3:5-6",
+                    title: "CUATRO VERBOS. CUATRO MANDATOS.",
+                    body: "\"Fíate de Jehová de todo tu corazón, y no estribes en tu prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas.\"\n\nCuatro verbos imperativales. Una sola dirección: de ti mismo hacia Jehová. Esta es la ley de la confianza.",
+                    citation: "Fíate de Jehová de todo tu corazón, y no estribes en tu prudencia.",
+                    reference: "Proverbios 3:5-6 · Reina-Valera Antigua (RV1909)"
+                },
+                {
+                    type: "diagnostic",
+                    label: "ANATOMÍA DEL TEXTO",
+                    title: "LOS CUATRO VERBOS DEL CONTRATO",
+                    body: "1. \"Fíate\" — בְּטַח (Bétaj): Confianza activa, no pasiva. Apoyo deliberado sobre una base sólida. Se usa para el guerrero que se apoya en su escudo (Sal. 91:2).\n\n2. \"No estribes\" — אַל-תִּשָּׁעֵן: No te apoyes en tu propia inteligencia. Prohibición explícita de hacer de la razón humana el árbitro final.\n\n3. \"Reconócelo\" — דָּעַת (Daat): Conocimiento íntimo de pacto. El mismo verbo de \"Adán conoció a Eva\". No es información: es relación.\n\n4. \"Enderezará\" — יְיַשֵּׁר: Acción exclusiva de Dios. Él allana, alinea, hace rectas las veredas. Tú reconoces. Él endereza.",
+                    citation: "Cuatro verbos. Cuatro mandatos. Una arquitectura espiritual perfecta.",
+                    reference: "Análisis léxico · Hebreo bíblico"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LEY DEL ANTIGUO TESTAMENTO",
+                    title: "LA ANTÍTESIS ABSOLUTA",
+                    body: "La ley de Dios establece una antítesis sin término medio: o el hombre es el árbitro de su propio destino — y recibe maldición — o Jehová lo es — y recibe bendición. Proverbios 3:5 es la aplicación práctica de esta ley.\n\nReferencias paralelas: Dt. 17:18-20 / Sal. 37:5 / Sal. 118:8-9 / Is. 30:1-3",
+                    citation: "Maldito el varón que confía en el hombre... Bienaventurado el varón que confía en Jehová, y cuya confianza es Jehová.",
+                    reference: "Jeremías 17:5,7 · RV1909"
+                },
+                {
+                    type: "diagnostic",
+                    label: "CUMPLIMIENTO EN EL NUEVO TESTAMENTO",
+                    title: "JESÚS NO SOLO LO ENSEÑÓ — LO VIVIÓ",
+                    body: "Jesús no predicó Proverbios 3:5 desde afuera. Lo encarnó. Su prudencia humana estaba siempre subyugada a la voluntad del Padre. Getsemaní fue la prueba suprema: \"No se haga mi voluntad, sino la tuya\" (Luc. 22:42).\n\nPablo lo confirma: \"Por nada estéis afanosos; antes bien, en todo... sean dadas a conocer vuestras peticiones delante de Dios.\" — Filipenses 4:6",
+                    citation: "No puede el Hijo hacer nada por sí mismo, sino lo que viere hacer al Padre... No busco mi voluntad, sino la voluntad del Padre que me envió.",
+                    reference: "Juan 5:19,30 · RV1909"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL CONTRASTE QUE NO PUEDE IGNORARSE",
+                    title: "\"NO ESTRIBES EN TU PRUDENCIA\" — EL MANDATO MÁS INCÓMODO",
+                    body: "No dice: \"complementa tu juicio con el de Dios.\" Dice: no te apoyes en él como base. La prudencia humana puede acompañar, nunca gobernar.\n\nPrudencia sin Dios: Ragüel calculó que Tobías moriría como los otros. Su lógica era perfecta. Estaba equivocado. (Tobías 7)\n\nConfianza en Jehová: Josué marchó alrededor de Jericó. Militarmente absurdo. Estratégicamente de Dios. Los muros cayeron. (Jos. 6)",
+                    citation: "Punto de Fe No. 10: la fe auténtica no negocia con la prudencia carnal como co-piloto.",
+                    reference: "Josué 6 · Tobías 7"
+                },
+                {
+                    type: "diagnostic",
+                    label: "HISTORIA BÍBLICA — EL QUE SE FIÓ Y EL QUE NO",
+                    title: "DOS REYES. UN DILEMA. DOS RESULTADOS.",
+                    body: "Ezequías (2 Reyes 18-19): Senaquerib rodea Jerusalén con 185,000 soldados. Toda prudencia militar dice: negocia o perece. Ezequías extiende la carta del enemigo delante de Jehová y ora. Esa noche, el ángel del Señor hiere al ejército asirio. Jehová enderezó su vereda.\n\nAcaz (2 Reyes 16): Mismo contexto, distinta elección. Busca a Asiria como aliado. Confía en su análisis geopolítico. Resultado: vasallaje, profanación del templo, derrota espiritual.",
+                    citation: "La diferencia entre Ezequías y Acaz no fue la inteligencia. Fue a quién le dieron el timón.",
+                    reference: "2 Reyes 18-19 / 2 Reyes 16"
+                },
+                {
+                    type: "diagnostic",
+                    label: "PUNTOS DE FE · EXPLICACIÓN APOSTÓLICA",
+                    title: "DÓNDE ANCLA LA DOCTRINA ESTE PRINCIPIO",
+                    body: "Punto de Fe No. 10 — La fe en Dios es el primer término. Sin fe activa — no teórica — es imposible agradar a Dios (Heb. 11:6). Fiarse no es sentimiento: es el primer acto del evangelio.\n\nPunto de Fe No. 4 — El Espíritu Santo guía a toda verdad (Juan 16:13). \"Reconócelo en todos tus caminos\" — es el Espíritu el que actúa en quien se ha rendido. La guía divina opera donde la prudencia humana ha cedido el trono.",
+                    citation: "El que duda es semejante a la ola del mar, impulsada por el viento. La duda es confiar en la prudencia propia antes que en la Palabra.",
+                    reference: "Santiago 1:6 · RV1909"
+                },
+                {
+                    type: "action",
+                    title: "TRES ESCENARIOS DONDE ESTA LEY SE PONE A PRUEBA HOY",
+                    subtitle: "\"En todos tus caminos\" no es metáfora — es una instrucción de cobertura total:",
+                    steps: [
+                        { label: "1. Decisión sin claridad:", text: "Cuando no ves el siguiente paso, la prudencia grita \"actúa ya.\" La ley dice: reconócelo primero. Llevar la decisión delante de Dios no es perder tiempo — es activar el mecanismo que endereza veredas." },
+                        { label: "2. Crisis que desafía la lógica:", text: "Como Ezequías, habrá momentos donde obedecer a Dios contradiga toda proyección humana. Fíate de todo corazón es la instrucción para ese momento exacto, no para los fáciles." },
+                        { label: "3. Confianza cotidiana — \"todos tus caminos\":", text: "El versículo no dice \"en las grandes decisiones.\" Dice en TODOS tus caminos. La confianza en Jehová es postura permanente, no recurso de emergencia." }
+                    ],
+                    citation: "Encomienda a Jehová tu camino, y confía en él; y él hará.",
+                    reference: "Salmos 37:5 · RV1909"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SÍNTESIS · CIERRE",
+                    title: "LA ECUACIÓN QUE DIOS NO MODIFICA",
+                    body: "Tú reconoces → Él endereza.\nTú te apoyas en tu prudencia → Tú te enredas.\nNo hay versión alternativa del contrato.\n\n¿En qué área de tu vida estás estriando en tu propia prudencia en lugar de reconocerlo a Él?",
+                    citation: "Y sin fe es imposible agradar a Dios; porque es necesario que el que se acerca a Dios crea que él existe, y que es galardonador de los que le buscan.",
+                    reference: "Hebreos 11:6 · RV1909"
+                }
+            ]
         }
     ],
     weeklyHabit: {
