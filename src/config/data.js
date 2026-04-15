@@ -3278,40 +3278,39 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
     schedule: [
         {
             id: 1,
-            week: "Semana del 6 al 7 Mar",
+            week: "Semana 1 (03 - 04 de Abril)",
             events: [
                 {
                     id: "w1_e1",
-                    date: "Viernes 06 Mar",
+                    date: "Viernes 03 Abr",
                     type: "Recibimiento",
                     time: "7:00 PM",
+                    theme: "Junto al camino",
+                    objective: "Oyen, pero no comprenden y el maligno arrebata lo recibido.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
-                        { role: "Predicación", name: "Gerardo Mier" }
+                        { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w1_e2",
-                    date: "Sábado 07 Mar",
+                    date: "Sábado 04 Abr",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "Los habitantes de Milenio 1ª. Parte",
-                    objective: "La grey obtendrá los argumentos que apoyan el conocimiento de la existencia de Cristo en el principio.",
+                    theme: "El tiempo / La fiesta de los ázimos",
+                    objective: "La Iglesia entenderá cual es la forma en que actualmente guardamos la fiesta y el motivo.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Aarón Espinosa (Los habitantes de Milenio 1ª. Parte)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La preexistencia de Cristo)" }
+                        { role: "Lección", name: "Aaron Espinosa (El tiempo)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La fiesta de los ázimos)" }
                     ]
                 },
                 {
                     id: "w1_e3",
-                    date: "Sábado 07 Mar",
+                    date: "Sábado 04 Abr",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Yo soy el camino, la verdad y la vida.",
-                    objective: "La grey identificará conceptos que puede aplicar en su vida, que provienen de las enseñanzas de Cristo.",
+                    theme: "Todo el que invocare el nombre de Dios será salvo.",
+                    objective: "Utilizar las palabras del apóstol Pablo para generar en la grey la responsabilidad de compartir la palabra de Dios.",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 }
@@ -3319,40 +3318,39 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 2,
-            week: "Semana del 13 al 14 Mar",
+            week: "Semana 2 (10 - 11 de Abril)",
             events: [
                 {
                     id: "w2_e1",
-                    date: "Viernes 13 Mar",
+                    date: "Viernes 10 Abr",
                     type: "Recibimiento",
                     time: "7:00 PM",
+                    theme: "En pedregales",
+                    objective: "Reciben con alegría, pero por no tener raíz se arranca y se pierde.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Esdras Martínez" }
+                        { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 },
                 {
                     id: "w2_e2",
-                    date: "Sábado 14 Mar",
+                    date: "Sábado 11 Abr",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "Los habitantes de milenio 2ª parte",
-                    objective: "La grey identificará las diferentes forma sen que se integran los miembros, reconociendo la manera de dar seguimiento a su permanencia y comprometiéndose a llamar a los ausentes.",
+                    theme: "El día / Dijo el necio en su corazón: no hay Dios",
+                    objective: "Presentar a la grey las respuestas mas oportunas y acertadas acerca de creer en Dios y sus grandes bendiciones.",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Lección", name: "Gerardo Mier (Los habitantes de milenio 2ª parte)" },
-                        { role: "Predicación", name: "Aarón Espinosa (Parábola del sembrador)" }
+                        { role: "Lección", name: "Gerardo Mier (El día)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Dijo el necio en su corazón: no hay Dios)" }
                     ]
                 },
                 {
                     id: "w2_e3",
-                    date: "Sábado 14 Mar",
+                    date: "Sábado 11 Abr",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "¿Por qué era necesario que Cristo Muriera?",
-                    objective: "La grey reconocerá su compromiso con el sacrificio de Cristo y el valor de su muerte para nosotros",
+                    theme: "El año nuevo judío",
+                    objective: "La iglesia sabrá cual es el origen de esta fiesta y su aplicación en nuestros días en la Iglesia de Dios.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
                 }
@@ -3360,70 +3358,80 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 3,
-            week: "Semana del 20 al 21 Mar",
+            week: "Semana 3 (17 - 18 de Abril)",
             events: [
                 {
                     id: "w3_e1",
-                    date: "Viernes 20 Mar",
+                    date: "Viernes 17 Abr",
                     type: "Recibimiento",
                     time: "7:00 PM",
+                    theme: "Entre espinas",
+                    objective: "Parecen recibir la palabra, pero los placeres del mundo los pierden.",
                     details: [
-                        { role: "Superintendente", name: "Yahir López" },
                         { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w3_e2",
-                    date: "Sábado 21 Mar",
+                    date: "Sábado 18 Abr",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "CEREMONIA BAUTIZOS",
-                    objective: "Para evitar algún imprevisto debido a que el lugar es un poco difícil de acceso para los baños, la lección se dará el siguiente sábado.",
+                    theme: "La semana / El arrepentimiento",
+                    objective: "Comprometer a la grey con el proceso que lleva a los que creen en Dios, al cambio que permanece en su vida para bendición.",
                     details: [
-                        { role: "Superintendencia y alabanzas", name: "Absalón Perusquía" },
-                        { role: "Predicación previa", name: "Ministro Julio Silva" },
-                        { role: "Predicación", name: "Aarón Espinosa (Fortalecimiento)" }
+                        { role: "Lección", name: "Gerardo Mier (La semana)" },
+                        { role: "Predicación", name: "Aarón Espinosa (El arrepentimiento)" }
+                    ]
+                },
+                {
+                    id: "w3_e3",
+                    date: "Sábado 18 Abr",
+                    type: "Culto Vespertino",
+                    time: "4:00 PM",
+                    theme: "El día del perdón",
+                    objective: "Reconocer los motivos y características de esta festividad judía en el pueblo de Dios y su Iglesia.",
+                    details: [
+                        { role: "Predicación", name: "Absalón Perusquía" }
                     ]
                 }
             ]
         },
         {
             id: 4,
-            week: "Semana del 27 al 28 Mar",
+            week: "Semana 4 (24 - 25 de Abril)",
             events: [
                 {
                     id: "w4_e1",
-                    date: "Viernes 27 Mar",
+                    date: "Viernes 24 Abr",
                     type: "Recibimiento",
                     time: "7:00 PM",
+                    theme: "Buena tierra",
+                    objective: "Oyen, entienden y aplican en su vida con grandes frutos.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Predicación", name: "Yahir López" }
+                        { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 },
                 {
                     id: "w4_e2",
-                    date: "Sábado 28 Mar",
+                    date: "Sábado 25 Abr",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La renovación de la flora y la fauna en el milenio",
-                    objective: "La grey se comprometerá a realizar previo a la fiesta de la pascua un análisis y compromiso de mejora delante de Dios",
+                    theme: "El mes / La reina Esther y la fiesta de Purim",
+                    objective: "La grey sabrá el motivo de esa conmemoración y su aplicación en este tiempo.",
                     details: [
-                        { role: "Superintendente", name: "Gerardo Mier" },
-                        { role: "Lección", name: "Aarón Espinosa (La renovación de la flora y la fauna en el milenio)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La santificación y confesión delante de Dios)" }
+                        { role: "Lección", name: "Aarón Espinosa (El mes)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La reina Esther y la fiesta de Purim)" }
                     ]
                 },
                 {
                     id: "w4_e3",
-                    date: "Sábado 28 Mar",
+                    date: "Sábado 25 Abr",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "La ley de Dios en el milenio",
-                    objective: "La grey identificará la trascendencia de la Ley de Dios y que será utilizada en el Reino milenial.",
+                    theme: "La oveja perdida",
+                    objective: "La grey se comprometerá a actuar de acuerdo a la enseñanza recibida.",
                     details: [
-                        { role: "Superintendente", name: "Absalón Perusquía" },
-                        { role: "Predicación", name: "Gerardo Mier (Lección pendiente. La ley de Dios en el milenio)" }
+                        { role: "Predicación", name: "Gerardo Mier" }
                     ]
                 }
             ]

@@ -28,3 +28,4 @@ dist-ssr
 .vercel
 public/e2.wav
 public/*.pkf
+.env*.local
