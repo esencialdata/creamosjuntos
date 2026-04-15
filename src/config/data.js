@@ -599,10 +599,14 @@ const getCurrentWeekId = () => {
     const week17Start = new Date(2026, 2, 27); // Mar 27
     const week18Start = new Date(2026, 2, 30); // Mar 30
     const week19Start = new Date(2026, 3, 2);  // Apr 2
+    const week20Start = new Date(2026, 3, 10); // Apr 10
+    const week21Start = new Date(2026, 3, 15); // Apr 15
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week21Start) return 21;
+    if (now >= week20Start) return 20;
     if (now >= week19Start) return 19;
     if (now >= week18Start) return 18;
     if (now >= week17Start) return 17;
@@ -781,6 +785,91 @@ export const CONFIG = {
 
     themes: [
 
+        // ── SEMANA 21 · Apr 15, 2026 ────────────────────────────────────────────
+        {
+            id: 21,
+            weekId: 21,
+            title: "EL CÓDIGO DE SEGURIDAD DE TU CONCIENCIA",
+            description: "Por qué la Ley de Dios es el filtro de seguridad definitivo en un mundo de 'verdades líquidas'.",
+            themeStyles: {
+                bg: '#F8F9FA',
+                textPrimary: '#1F2937',
+                textSecondary: '#6B7280',
+                accent: '#2563EB',
+                fontSerif: 'Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E5E7EB',
+                cardShadow: '0 8px 32px -4px rgba(37, 99, 235, 0.08)',
+                backgroundImage: 'radial-gradient(ellipse at top left, rgba(37, 99, 235, 0.04) 0%, transparent 60%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'El Código de Seguridad de tu Conciencia.',
+                    subtitle: 'Por qué la Ley de Dios es el filtro de seguridad definitivo en un mundo de "verdades líquidas".',
+                    imageUrl: '/portada-escudo-opt.jpg',
+                    citation: 'Mucha paz tienen los que aman tu ley; Y no hay para ellos tropiezo.',
+                    reference: 'Salmos 119:165',
+                    footerText: 'Creamos Juntos · Semana 21'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El Conflicto',
+                    title: 'La Realidad Líquida',
+                    subtitle: '"Cuando todo es relativo, nada es seguro."',
+                    body: 'Vivimos en una "modernidad líquida" donde los valores cambian según la emoción del día. Sin un código fijo, la conciencia sufre de fatiga de decisión y ansiedad ética.\n\nCada mañana, millones de personas se despiertan sin un marco de referencia claro. El resultado: ansiedad crónica, decisiones contradictorias y una identidad en constante renegociación.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El Marco Legal · Antiguo Testamento',
+                    title: 'La Constitución de la Vida',
+                    body: 'En el Sinaí, Jehová entregó un diseño de convivencia y santidad. No eran sugerencias, era la Constitución de la Vida.\n\nConcepto: La Ley del AT establece el límite inferior — lo que NO debes hacer para no destruir(te).',
+                    citation: 'Y escribió en las tablas... los diez mandamientos que Jehová os había hablado en el monte...',
+                    reference: 'Deuteronomio 10:4 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El Upgrade · Nuevo Testamento',
+                    title: 'La Magnificación del Código',
+                    body: 'Cristo no vino a borrar el código, vino a optimizarlo. Él llevó la Ley de la mano que actúa al pensamiento que origina.\n\n🔍 Clave: Si la Ley dice "no matarás", Cristo magnifica: "ni siquiera guardes rencor". El filtro de seguridad ahora protege el código fuente: tu intención.',
+                    citation: 'No penséis que he venido para abrogar la ley ó los profetas: no he venido para abrogar, sino á cumplir.',
+                    reference: 'Mateo 5:17 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Soporte Científico · Psicología Cognitiva',
+                    title: 'La Ciencia Confirma el Diseño',
+                    body: 'Estudios sobre Carga Cognitiva demuestran que tener límites morales absolutos reduce la ansiedad y fortalece la corteza prefrontal, permitiendo decisiones más rápidas y coherentes.\n\nUna vida sin reglas claras produce un estado de alerta constante (cortisol alto).\n\n📚 Fuente: The Paradox of Choice, Barry Schwartz / Neurociencia del Comportamiento Moral.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Historia de Soporte',
+                    title: 'El Daniel del Algoritmo',
+                    body: 'Daniel en Babilonia. Presión social, cambio de nombre, dieta impuesta.\n\nDaniel no sobrevivió por su fuerza, sino porque su "código de seguridad" (la Ley) estaba pre-instalado.\n\n✅ Resultado: La obediencia al código produjo una capacidad intelectual 10 veces superior.',
+                    citation: 'Y Daniel propuso en su corazón no contaminarse...',
+                    reference: 'Daniel 1:8 (RVA)'
+                },
+                {
+                    type: 'action',
+                    title: 'Arquitectura de Conducta',
+                    subtitle: '¿Cómo activar el código hoy?',
+                    steps: [
+                        { label: 'Sincronización Diaria:', text: 'Filtra tus pensamientos con la Ley. (Salmo 119:11)' },
+                        { label: 'Detección de Malware:', text: 'Si una idea contradice el código divino, deséchala — no importa cuánto "brille".' },
+                        { label: 'Integridad Sistémica:', text: 'Que lo que piensas (NT) sea coherente con lo que haces (AT).' }
+                    ]
+                },
+                {
+                    type: 'cover',
+                    title: 'El que guarda la Ley,\nla Ley lo guarda a él.',
+                    subtitle: 'La Ley de Dios no encarcela tu libertad; protege tu propósito. Es el manual del Fabricante para que tu sistema nunca colapse.',
+                    visual: '💾',
+                    citation: 'Mucha paz tienen los que aman tu ley; Y no hay para ellos tropiezo.',
+                    reference: 'Salmos 119:165',
+                    footerText: 'Deja de buscar tu propia verdad — Regresa al Código Eterno.'
+                }
+            ]
+        },
 
         {
             id: 2,
@@ -3043,7 +3132,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         {
             id: 34,
             weekId: 20,
-            availableFrom: "2026-04-14T00:00:00",
+            availableFrom: "2026-04-10T00:00:00",
             title: "FÍATE DE JEHOVÁ DE TODO TU CORAZÓN",
             description: "La ley de la confianza total: cuatro mandatos que redefinen quién gobierna tu vida y quien traza tu camino.",
             themeStyles: {
@@ -3059,7 +3148,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "cover",
                     title: "FÍATE DE JEHOVÁ\nDE TODO TU CORAZÓN",
                     subtitle: "La ley de la confianza total: cuando dejas de gobernarte a ti mismo y dejas que Dios trace el camino.",
-                    visual: "🕊️",
+                    imageUrl: "/fiate.png",
                     footerText: "Proverbios 3:5-6 · RV1909 — Desliza para entender la ley."
                 },
                 {
@@ -3074,7 +3163,7 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     type: "diagnostic",
                     label: "ANATOMÍA DEL TEXTO",
                     title: "LOS CUATRO VERBOS DEL CONTRATO",
-                    body: "1. \"Fíate\" — בְּטַח (Bétaj): Confianza activa, no pasiva. Apoyo deliberado sobre una base sólida. Se usa para el guerrero que se apoya en su escudo (Sal. 91:2).\n\n2. \"No estribes\" — אַל-תִּשָּׁעֵן: No te apoyes en tu propia inteligencia. Prohibición explícita de hacer de la razón humana el árbitro final.\n\n3. \"Reconócelo\" — דָּעַת (Daat): Conocimiento íntimo de pacto. El mismo verbo de \"Adán conoció a Eva\". No es información: es relación.\n\n4. \"Enderezará\" — יְיַשֵּׁר: Acción exclusiva de Dios. Él allana, alinea, hace rectas las veredas. Tú reconoces. Él endereza.",
+                    body: "1. \"Fíate\" — בְּטַח (Bétaj): Confianza activa, no pasiva. Apoyo deliberado sobre una base sólida. Se usa para el guerrero que se apoya en su escudo (Sal. 91:2).\n\n2. \"No estribes\" — אַל-תִּשָּׁעֵן: No te apoyes en tu propia inteligencia. Prohibición explícita de hacer de la razón humana el árbitro final.\n\n3. \"Reconócelo\" — דָּעַת (Daat): Conocimiento íntimo de pacto. No es información: es relación.\n\n4. \"Enderezará\" — יְיַשֵּׁר: Acción exclusiva de Dios. Él allana, alinea, hace rectas las veredas. Tú reconoces. Él endereza.",
                     citation: "Cuatro verbos. Cuatro mandatos. Una arquitectura espiritual perfecta.",
                     reference: "Análisis léxico · Hebreo bíblico"
                 },
