@@ -785,6 +785,113 @@ export const CONFIG = {
 
     themes: [
 
+        // ── SEMANA 21 · Sáb Apr 19, 2026 ────────────────────────────────────────
+        {
+            id: 2201,
+            weekId: 21,
+            title: "EL NOMBRE NO ES CONTRASEÑA. ES JURISDICCIÓN.",
+            description: "Invocar sin obedecer no es invocar — es presumir.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139, 105, 20, 0.05) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'EL NOMBRE\nNO ES CONTRASEÑA.\nES JURISDICCIÓN.',
+                    subtitle: 'Invocar sin obedecer no es invocar — es presumir.',
+                    imageUrl: '/portada-el-nombre-jurisdiccion.jpg',
+                    citation: 'Y todo aquel que invocare el nombre del Señor, será salvo.',
+                    reference: 'Joel 2:32 (RVA)',
+                    footerText: 'Creamos Juntos · Sábado 19 de abril'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL ERROR DE ÉPOCA',
+                    title: 'Muchos portan el nombre. Pocos viven bajo su peso.',
+                    body: 'El nombre de Jehová se convirtió en una fórmula de acceso: pronúncialo y abre puertas. Se repite en oraciones, pero no se habita en la conducta.\n\nEsto no es nuevo. La Escritura lo advierte con una escena que debería helar a cualquiera: hombres que profetizan, expulsan demonios y hacen maravillas en Su nombre — y aun así son rechazados.',
+                    citation: '"Señor, Señor, ¿no profetizamos en tu nombre... y en tu nombre hicimos muchos milagros?"',
+                    reference: 'Mateo 7:22 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'FUNDAMENTO · ANTIGUO TESTAMENTO',
+                    title: '"No tomarás el nombre de Jehová en vano."',
+                    body: 'El verbo hebreo es נָשָׂא (nasá): portar, cargar, llevar. No describe un acto de habla — describe una identidad que se carga sobre los hombros.\n\nTomar el nombre en vano no es una mala palabra dicha de prisa. Es vivir bajo Su nombre sin asumir Su carácter — llevar la etiqueta sin someterse al código.',
+                    citation: '"No tomarás el nombre de Jehová tu Dios en vano..."',
+                    reference: 'Éxodo 20:7 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'NOMBRE = DESTINO · ANTIGUO TESTAMENTO',
+                    title: 'Cuando Dios cambia el destino, cambia primero el nombre.',
+                    body: 'Abram se convirtió en Abraham — padre de multitudes. Cada vez que alguien lo llamaba, pronunciaba la promesa que él debía habitar.\n\nJacob luchó y ganó un nombre nuevo: Israel. No era solo un título honorífico. Era un nuevo código de identidad que moldearía la conducta de una nación entera.',
+                    citation: '"No se llamará más tu nombre Abram, sino que será tu nombre Abraham..."',
+                    reference: 'Génesis 17:5 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'MAGNIFICACIÓN · NUEVO TESTAMENTO',
+                    title: 'La respuesta de Cristo define qué significa realmente invocar.',
+                    body: 'Ellos invocaron. Ellos actuaron. Tenían resultados que mostrar. Y la sentencia fue definitiva: "Nunca os conocí."\n\nNo dijo: "Usaron mal las palabras". Dijo: "No existe relación de conocimiento entre nosotros." La invocación sin identidad no establece jurisdicción — la revela como vacía.',
+                    citation: '"Nunca os conocí: apartaos de mí, hacedores de maldad."',
+                    reference: 'Mateo 7:23 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA PROMESA · JOEL Y HECHOS',
+                    title: '"Todo el que invocare el nombre del Señor, será salvo."',
+                    body: 'Invocar en el texto hebreo (קָרָא, qará) incluye llamar, pero también ser llamado por ese nombre — que ese nombre te defina y te cubra.\n\nNo es solo pronunciarlo: es someterse a Su jurisdicción, obedecer Su ley, vivir bajo Su autoridad sin excepción.',
+                    citation: '"Y todo aquel que invocare el nombre del Señor, será salvo."',
+                    reference: 'Joel 2:32 / Hechos 2:21 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'HISTORIA BÍBLICA · HECHOS 19',
+                    title: 'Siete hombres. Las palabras exactas. La identidad equivocada.',
+                    body: 'Los siete hijos de Esceva eran exorcistas profesionales. Escucharon que Pablo expulsaba demonios en el nombre de Jesús y lo replicaron como si fuera una técnica de oficio.\n\nTenían el protocolo correcto. Conocían la fórmula. Lo que no tenían era la identidad que da autoridad a esa fórmula.',
+                    citation: '"Os conjuro por Jesús, el que Pablo predica."',
+                    reference: 'Hechos 19:13 (RVA)'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL VEREDICTO · HECHOS 19',
+                    title: '"A Jesús conozco, y sé quién es Pablo; pero vosotros, ¿quiénes sois?"',
+                    body: 'La pregunta no vino de los fariseos. Vino del espíritu inmundo. Incluso en el ámbito espiritual, la autoridad requiere identidad verificable.\n\nEl hombre en quien estaba el espíritu malo los hirió y venció. Huyeron desnudos y heridos. Tenían las palabras. No tenían jurisdicción.',
+                    citation: '"...los venció, de tal manera que huyeron de aquella casa desnudos y heridos."',
+                    reference: 'Hechos 19:16 (RVA)'
+                },
+                {
+                    type: 'action',
+                    title: 'PORTAR EL NOMBRE',
+                    subtitle: 'El Nombre no se pronuncia con atrevimiento — se porta con obediencia.',
+                    steps: [
+                        { label: 'Examina:', text: '¿Tu conducta porta el Nombre o solo tu vocabulario? (Éxodo 20:7)' },
+                        { label: 'Alinea:', text: 'Toda ley establecida en el AT y magnificada en el NT define la jurisdicción que reclamas al invocarle.' },
+                        { label: 'Habita:', text: 'Invocar es pertenecer — no recitar. La cobertura del Nombre es para el que vive bajo Su autoridad. (Joel 2:32)' }
+                    ],
+                    citation: '"¿Y por qué me llamáis, Señor, Señor, y no hacéis lo que yo digo?"',
+                    reference: 'Lucas 6:46 (RVA)'
+                },
+                {
+                    type: 'cover',
+                    title: 'EL NOMBRE\nNO SE INVOCA.\nSE HABITA.',
+                    subtitle: '¿Portas el Nombre viviendo bajo Su jurisdicción?\nEl peso del cielo respalda la obediencia — no la presunción.',
+                    visual: '⚖️',
+                    citation: '"Y todo aquel que invocare el nombre del Señor, será salvo."',
+                    reference: 'Joel 2:32 (RVA)',
+                    footerText: 'Comparte si esto te habló ↗'
+                }
+            ]
+        },
+
         // ── SEMANA 21 · Apr 15, 2026 ────────────────────────────────────────────
         {
             id: 21,
