@@ -785,10 +785,10 @@ export const CONFIG = {
 
     themes: [
 
-        // ── SEMANA 21 · Sáb Apr 19, 2026 ────────────────────────────────────────
+        // ── ARCHIVO (RECURSOS) · SEMANA 20 · Sáb Apr 19, 2026 ───────────────────
         {
             id: 2201,
-            weekId: 21,
+            weekId: 20,
             title: "EL NOMBRE NO ES CONTRASEÑA. ES JURISDICCIÓN.",
             description: "Invocar sin obedecer no es invocar — es presumir.",
             themeStyles: {
@@ -892,10 +892,10 @@ export const CONFIG = {
             ]
         },
 
-        // ── SEMANA 21 · Apr 15, 2026 ────────────────────────────────────────────
+        // ── ARCHIVO (RECURSOS) · SEMANA 20 · Apr 15, 2026 ───────────────────────
         {
             id: 21,
-            weekId: 21,
+            weekId: 20,
             title: "EL CÓDIGO DE SEGURIDAD DE TU CONCIENCIA",
             description: "Por qué la Ley de Dios es el filtro de seguridad definitivo en un mundo de 'verdades líquidas'.",
             themeStyles: {
@@ -974,6 +974,103 @@ export const CONFIG = {
                     citation: 'Mucha paz tienen los que aman tu ley; Y no hay para ellos tropiezo.',
                     reference: 'Salmos 119:165',
                     footerText: 'Deja de buscar tu propia verdad — Regresa al Código Eterno.'
+                }
+            ]
+        },
+        {
+            id: 2202,
+            weekId: 21,
+            availableFrom: "2026-04-21T00:00:00",
+            title: "LA HEREDAD ACTIVA",
+            description: "Dios no va a salir a buscar las vasijas por ti.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139, 105, 20, 0.05) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'LA HEREDAD\nACTIVA',
+                    subtitle: 'Dios no va a salir a buscar las vasijas por ti.',
+                    imageUrl: '/botija-portada.png',
+                    footerText: 'Creamos Juntos · Martes 21 de abril'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'GANCHO',
+                    title: 'Hay un mito letal en la fe:',
+                    body: 'Creer que "Dios proveerá" significa cruzarse de brazos.\n\nLa provisión de Dios rara vez llega como pan horneado.\nCasi siempre llega como semilla.'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'TEXTO BASE',
+                    title: '"Yo soy tu parte y tu heredad en medio de los hijos de Israel."',
+                    citations: [
+                        { text: 'Yo soy tu parte y tu heredad en medio de los hijos de Israel.', reference: 'Números 18:20' },
+                        { text: 'Tu sierva ninguna cosa tiene en casa, sino una vasija de aceite.', reference: '2 Reyes 4:2' }
+                    ]
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA PARADOJA LEVITA',
+                    title: 'A Leví no le dieron tierra.',
+                    body: 'Dios mismo sería su heredad.\n\n¿Y qué hicieron? Se pusieron a trabajar.\nSacrificios. Enseñanza. Guiar al pueblo.\n\nTener a Dios como heredad no es descanso pasivo.\nEs la plataforma más exigente que existe.'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA FE SIN OBRAS',
+                    title: '"La fe sin obras es muerta."',
+                    body: 'En Mateo 25, el siervo que enterró su talento no fue ladrón.\nFue pasivo.\nY eso fue suficiente para perderlo todo.',
+                    citation: 'La fe sin obras es muerta.',
+                    reference: 'Santiago 2:17'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA CEGUERA DE LA ESCASEZ',
+                    title: 'La viuda de 2 Reyes 4 tenía una salida frente a sus ojos.',
+                    body: 'No la veía.\n\nCuando el miedo inunda el cerebro, el Sistema Activador Reticular solo te deja ver la amenaza. Las oportunidades desaparecen del campo visual.\n\nEliseo hizo una sola pregunta:\n"¿Qué tienes?"\nY con eso le devolvió los ojos.',
+                    citation: '¿Qué tienes?',
+                    reference: '2 Reyes 4:2'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA INSTRUCCIÓN',
+                    title: '"Ve, pide prestados vasos de todos tus vecinos... no pocos."',
+                    body: 'Dios iba a multiplicar.\n\nPero ella tenía que caminar, tragar orgullo, pedir, ordenar, verter.\n\nEl milagro esperaba su obediencia activa.',
+                    citation: 'Ve, pide prestados vasos de todos tus vecinos... no pocos.',
+                    reference: '2 Reyes 4:3'
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL CLÍMAX',
+                    title: '"Y el aceite se paró."',
+                    body: 'El milagro no se detuvo porque Dios se quedara sin poder.\n\nSe detuvo porque ella se quedó sin vasijas.\n\nTu nivel de preparación marca el límite de tu bendición.',
+                    citation: 'Y el aceite se paró.',
+                    reference: '2 Reyes 4:6'
+                },
+                {
+                    type: 'action',
+                    title: 'APLICACIÓN',
+                    subtitle: 'El aceite ya existe. Las vasijas son tu responsabilidad.',
+                    steps: [
+                        { label: 'Paso 1:', text: 'Cambia el vocabulario. Deja el "no tengo nada". Identifica tu vasija.' },
+                        { label: 'Paso 2:', text: 'Sal a buscar vasijas. Oportunidades. Estudios. Tocar puertas.' },
+                        { label: '', text: 'El aceite ya existe. Las vasijas son tu responsabilidad.' }
+                    ],
+                    citation: 'Tu sierva ninguna cosa tiene en casa, sino una vasija de aceite.',
+                    reference: '2 Reyes 4:2'
+                },
+                {
+                    type: 'cover',
+                    title: 'TENER A JEHOVÁ\nPOR HEREDAD',
+                    subtitle: 'es para mentes activas y fe diligente.\n\nDios es dueño de todo el aceite.\nPero Él no va a salir a buscar las vasijas por ti.\n\nVe a casa. Empieza a verter.'
                 }
             ]
         },
