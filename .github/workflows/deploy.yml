@@ -3,6 +3,11 @@ name: Deploy to Vercel
 on:
   workflow_dispatch:
 
+env:
+  # Pin deploy target to the existing Vercel project to prevent accidental project creation.
+  VERCEL_ORG_ID: team_NIAg63vTPOq9W4G58E18ScFA
+  VERCEL_PROJECT_ID: prj_5KoSNdEIHH3r7984dVhtytkEexfl
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
