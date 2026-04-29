@@ -74,17 +74,18 @@ const WeeklyTheme = ({ theme = {} }) => {
                             </div>
                         ) : slide.imageUrl ? (
                             <div style={{
-                                margin: '2rem 0',
+                                margin: '1.5rem 0',
                                 width: '100%',
-                                height: 'auto',
+                                height: '200px',
                                 borderRadius: '12px',
                                 overflow: 'hidden',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                flexShrink: 0
                             }}>
                                 <img
                                     src={slide.imageUrl}
                                     alt={slide.title}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
                                 />
                             </div>
                         ) : slide.visual && (

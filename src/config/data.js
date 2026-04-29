@@ -785,6 +785,112 @@ export const CONFIG = {
 
     themes: [
 
+        // ── ARCHIVO (RECURSOS) · SEMANA 22 · Mié Abr 29, 2026 ───────────────────
+        {
+            id: 35,
+            weekId: 22,
+            availableFrom: "2026-04-29T00:00:00",
+            title: "LA BUENA TIERRA",
+            description: "La semilla siempre es perfecta. La variable eres tú.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#2D6A4F',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(45, 106, 79, 0.04) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'LA BUENA TIERRA\nANATOMÍA DEL CORAZÓN\nQUE FRUCTIFICA.',
+                    subtitle: 'La semilla siempre es perfecta. La variable eres tú.',
+                    visual: '🌱',
+                    imageUrl: '/portada-la-buena-tierra.jpg',
+                    citation: 'Mas el que fue sembrado en buena tierra, éste es el que oye la palabra, y la entiende; y el que lleva fruto...',
+                    reference: 'Mateo 13:23 (RV1909)',
+                    footerText: 'Creamos Juntos · Semana 22',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA PREGUNTA MÁS INCÓMODA DEL EVANGELIO',
+                    title: 'Jesús no preguntó cuántos años llevas en la fe.\nPreguntó: ¿Qué clase de tierra eres?',
+                    body: 'La parábola describe cuatro terrenos — y tres de ellos reciben la semilla. Hay respuesta. Hay un primer movimiento. Y aun así, no hay fruto permanente.\n\nEl problema no es la semilla. La semilla siempre es perfecta. El problema es el terreno que la recibe.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'DIAGNÓSTICO PREVIO · LOS TRES TERRENOS QUE FALLAN',
+                    title: 'Todos recibieron la semilla. Ninguno produjo fruto permanente.',
+                    body: '🪨 El camino endurecido: escucha y sale igual. La Palabra rebota.\n\n⛰️ El pedregoso: germina con gozo — pero no tiene raíz. Colapsa cuando llega la prueba.\n\n🌿 El espinoso: crece, pero el afán del siglo lo sofoca lentamente. Sin fruto maduro.',
+                    citation: 'Y el que fue sembrado en pedregales... al venir la aflicción o la persecución... luego tropieza.',
+                    reference: 'Mateo 13:20-21 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CONDICIÓN 1 DE 3 · LUCAS 8:15',
+                    title: 'Corazón bueno y recto.',
+                    body: 'El griego usa dos adjetivos: kalē (noble, de valor intrínseco) y agathē (íntegro, honesto, que no se engaña a sí mismo).\n\nNo es el corazón del perfecto. Es el corazón del honesto — el que cuando la Palabra lo confronta, no busca escapatoria. Recibe el diagnóstico y actúa.',
+                    citation: 'Escudriña Jehová el corazón, prueba los riñones; para dar a cada uno según su camino.',
+                    reference: 'Jeremías 17:10 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CONDICIÓN 2 DE 3 · LUCAS 8:15',
+                    title: 'Retienen la Palabra.',
+                    body: 'El verbo griego es katéchō: sujetar con fuerza, aferrar, no soltar contra la resistencia.\n\nNo es retención pasiva. Es el que agarra la Palabra y no la suelta aunque cueste. Tres movimientos: Memoria → Obediencia → Confesión.',
+                    citation: 'En mi corazón he guardado tus dichos, para no pecar contra ti.',
+                    reference: 'Salmo 119:11 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CONDICIÓN 3 DE 3 · LUCAS 8:15',
+                    title: 'Con perseverancia.',
+                    body: 'Hypomonē — literalmente: "permanecer bajo la carga". No es paciencia pasiva. Es resistencia activa.\n\nEl fruto de treinta, sesenta, ciento por uno no es un evento. Es el resultado de meses y años de semilla sembrada, regada y protegida sin audiencia, sin resultados visibles todavía.',
+                    citation: 'No nos cansemos de hacer bien; porque a su tiempo segaremos, si no desmayamos.',
+                    reference: 'Gálatas 6:9 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'MISMO MENSAJE · DOS CORAZONES · HECHOS 8',
+                    title: 'Simón el Mago y el Eunuco Etíope oyeron el mismo evangelio en el mismo capítulo.',
+                    body: 'Simón: creyó, fue bautizado — pero ofreció dinero por el Espíritu Santo. Pedro: "Tu corazón no es recto delante de Dios." (Hech. 8:21)\n\nEl Eunuco: recibió, creyó, fue bautizado — y llevó el evangelio a Etiopía. Un solo hombre: treinta, sesenta, ciento por uno.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA DIFERENCIA',
+                    title: 'No fue la predicación que escucharon.\nNo fue la intensidad de su respuesta.\nFue la condición del corazón.',
+                    body: 'El terreno que recibe la semilla lo determina todo. Dos personas pueden oír el mismo sermón, responder con el mismo entusiasmo inicial, y terminar en lugares completamente opuestos.\n\nLa variable siempre es el corazón.',
+                    citation: 'No tienes tú parte ni suerte en este negocio; porque tu corazón no es recto delante de Dios.',
+                    reference: 'Hechos 8:21 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL TERRENO SE LABRA',
+                    title: 'El suelo duro puede romperse. La roca puede removerse. Las espinas pueden arrancarse.',
+                    body: 'Dios no le habla a la tierra que ya es buena. Le habla a la que puede serlo.\n\nLa buena tierra no es un estado fijo de nacimiento — es una conquista interior que se edifica con honestidad, perseverancia y fruto verificable.',
+                    citation: 'Arad vuestro barbecho, y no sembréis entre espinas.',
+                    reference: 'Jeremías 4:3 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'TRES PREGUNTAS PARA LLEVAR',
+                    title: 'No para condenar. Para diagnosticar la profundidad real.',
+                    body: '1. ¿Soy honesto con lo que la Palabra me dice — o busco cómo evadir lo que me confronta?\n\n2. ¿Qué hago con lo que aprendo? ¿Hay distancia entre lo que sé y lo que hago?\n\n3. ¿Produzco fruto en las temporadas difíciles — o solo cuando conviene y hay audiencia?',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CIERRE',
+                    title: 'El corazón bueno y recto no es el que nunca falló.\nEs el que decidió no seguir fallando de la misma manera.',
+                    body: 'La diferencia entre el pedregal y la buena tierra no está en la calidad de la semilla. La semilla siempre es perfecta. Está en la profundidad del suelo.\n\nY la profundidad es una decisión.',
+                    citation: 'Cread en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.',
+                    reference: 'Salmo 51:10 (RV1909)',
+                },
+            ],
+        },
+
         // ── ARCHIVO (RECURSOS) · SEMANA 20 · Sáb Apr 19, 2026 ───────────────────
         {
             id: 2201,
