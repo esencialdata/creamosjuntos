@@ -601,10 +601,12 @@ const getCurrentWeekId = () => {
     const week19Start = new Date(2026, 3, 2);  // Apr 2
     const week20Start = new Date(2026, 3, 10); // Apr 10
     const week21Start = new Date(2026, 3, 15); // Apr 15
+    const week22Start = new Date(2026, 3, 29); // Apr 29
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week22Start) return 22;
     if (now >= week21Start) return 21;
     if (now >= week20Start) return 20;
     if (now >= week19Start) return 19;
