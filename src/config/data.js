@@ -602,10 +602,12 @@ const getCurrentWeekId = () => {
     const week20Start = new Date(2026, 3, 10); // Apr 10
     const week21Start = new Date(2026, 3, 15); // Apr 15
     const week22Start = new Date(2026, 3, 29); // Apr 29
+    const week23Start = new Date(2026, 4, 5);  // May 5
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week23Start) return 23;
     if (now >= week22Start) return 22;
     if (now >= week21Start) return 21;
     if (now >= week20Start) return 20;
@@ -786,6 +788,115 @@ export const CONFIG = {
     ],
 
     themes: [
+
+        // ── ARCHIVO (RECURSOS) · SEMANA 23 · Mar May 5, 2026 ────────────────────
+        {
+            id: 36,
+            weekId: 23,
+            availableFrom: "2026-05-05T00:00:00",
+            title: "SOMOS MANOS DE DIOS",
+            description: "El compromiso nace cuando sabes quién eres.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#7C4A2D',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(124, 74, 45, 0.04) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'SOMOS MANOS DE DIOS',
+                    subtitle: 'El compromiso nace cuando sabes quién eres.',
+                    visual: '🤲',
+                    citation: 'Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular.',
+                    reference: '1 Corintios 12:27 (RV1909)',
+                    footerText: 'Creamos Juntos · Semana 23',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA PREGUNTA QUE LO CAMBIA TODO',
+                    title: 'No es ¿qué debo hacer?\nNo es ¿a dónde debo ir?\nEs esta: ¿Quién soy yo?',
+                    body: 'Hay una pregunta que lo cambia todo. La mayoría pasa la vida respondiendo las otras dos — y nunca llega a esta.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CONTEXTO · Jueces 6',
+                    title: 'Israel llevaba 7 años escondido en cuevas.',
+                    body: 'No porque los vencieran en batalla. Sino porque olvidaron quién eran.\n\nEse olvido colectivo tuvo un nombre: Gedeón.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA ESCENA · Jueces 6:11',
+                    title: 'Dios lo encuentra en un lagar. Escondido. Encorvado. Con miedo.',
+                    body: 'Usando el lugar equivocado para hacer lo que podía.\n\n¿Lo conoces? Ese lagar también tiene tu forma.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA DECLARACIÓN · Jueces 6:12',
+                    title: '"Jehová está contigo, varón esforzado y valiente."',
+                    body: 'Y en ese momento — el peor momento — Dios le habla así.\n\nNo lo llamó por lo que era. Lo llamó por lo que ya era en Su diseño.',
+                    citation: 'Jehová está contigo, varón esforzado y valiente.',
+                    reference: 'Jueces 6:12 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA CRISIS · Jueces 6:15',
+                    title: '"¿Con qué salvaré yo a Israel?"',
+                    body: 'Gedeón no recibe eso con gratitud. Lo cuestiona:\n\n"Mi familia es la más pobre en Manasés, y yo el menor en la casa de mi padre."\n\nTribu equivocada. Familia equivocada. Posición equivocada.\nIdentidad construida con el peor material.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA RESPUESTA DE DIOS · Jueces 6:16',
+                    title: '"Ciertamente yo estaré contigo."',
+                    body: 'Dios no corrige la genealogía. No le asigna una tribu mejor. No le cambia el apellido.\n\nLa respuesta a la crisis de identidad siempre es presencia, no credenciales.',
+                    citation: 'Ciertamente yo estaré contigo.',
+                    reference: 'Jueces 6:16 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL ESPÍRITU QUE LO VISTIÓ · Jueces 6:34',
+                    title: 'El Espíritu de Jehová vistió a Gedeón.',
+                    body: 'En hebreo: labash — vestirse. No vino sobre él como poder ajeno. Lo vistió como prenda propia.\n\nLa misión no fue añadida desde afuera. Era suya desde antes de que lo supiera.',
+                    citation: 'El Espíritu de Jehová vistió a Gedeón.',
+                    reference: 'Jueces 6:34 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL NOMBRE NUEVO · Jueces 6:32',
+                    title: 'Jerobaal — "Contienda Baal contra él."',
+                    body: 'Entró escondido en un lagar. Salió con un nombre que declaraba que había peleado contra la opresión.\n\nLa identidad transformada produce un nombre nuevo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL PRINCIPIO',
+                    title: 'Gedeón no fue al campo de batalla porque prometió ir.\nFue porque supo quién era.',
+                    body: 'Y cuando lo supo — el lagar quedó atrás para siempre.',
+                },
+                {
+                    type: 'action',
+                    title: 'Tres preguntas para hoy',
+                    subtitle: 'No para evaluar. Para ubicarte.',
+                    steps: [
+                        '¿He resuelto quién soy — o solo qué hago?',
+                        '¿Desde qué lagar estoy sirviendo?',
+                        '¿Quién está esperando mis manos hoy?',
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CIERRE · Campo David · IDI QRO',
+                    title: '"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular."',
+                    body: 'La cabeza ya envió la señal. La pregunta no es si quieres ser mano de Dios.\n\nLa pregunta es si sabes que ya lo eres.',
+                    citation: 'Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular.',
+                    reference: '1 Corintios 12:27 (RV1909)',
+                },
+            ],
+        },
 
         // ── ARCHIVO (RECURSOS) · SEMANA 22 · Mié Abr 29, 2026 ───────────────────
         {
