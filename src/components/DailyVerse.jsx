@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useBookmarks } from '../hooks/useBookmarks';
-import { shareContent } from '../utils/share';
+import { shareContent, buildShareUrl } from '../utils/share';
 import { toggleVerseHeart } from '../services/firestoreService';
 
 const DailyVerse = ({ verse }) => {
@@ -10,8 +10,10 @@ const DailyVerse = ({ verse }) => {
     const isLiked = isBookmarked(verse.reference);
     const handleShare = async () => {
         const textToShare = `"${verse.text}" — ${verse.reference}. Creamos Juntos`;
-        const currentHash = window.location.hash.split('?')[0]; // Get base hash path (e.g. #/)
-        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=daily-verse`;
+        const shareUrl = buildShareUrl('daily-verse', {
+            title: verse.reference,
+            desc: verse.text,
+        });
         await shareContent('Cita del día - Creamos Juntos', textToShare, shareUrl);
     };
     const handleHeart = async () => {

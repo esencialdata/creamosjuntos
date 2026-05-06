@@ -4,6 +4,7 @@ import { shareContent } from '../utils/share';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { toggleThemeSave, toggleThemeShare } from '../services/firestoreService';
+import { buildShareUrl } from '../utils/share';
 
 // Import local styles for swiper
 import 'swiper/css';
@@ -15,9 +16,13 @@ const WeeklyTheme = ({ theme = {} }) => {
     const { isBookmarked, toggleBookmark } = useBookmarks();
 
     const handleShare = async () => {
-        const currentHash = window.location.hash.split('?')[0];
         const anchorId = theme.id ? `weekly-theme-${theme.id}` : 'weekly-theme';
-        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=${anchorId}`;
+        const coverSlide = theme.slides?.find(s => s.type === 'cover');
+        const shareUrl = buildShareUrl(anchorId, {
+            title: theme.title,
+            desc: theme.description,
+            image: coverSlide?.imageUrl || null,
+        });
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, shareUrl);
         await toggleThemeShare(theme.title, true);

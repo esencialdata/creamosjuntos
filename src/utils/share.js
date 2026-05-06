@@ -61,3 +61,11 @@ export const shareContent = async (title, text, url) => {
     // 4. Last Resort: Prompt
     prompt("No pudimos copiarlo automáticamente. Por favor copia este texto manualmante:", fullText);
 };
+
+export const buildShareUrl = (anchor, { title, desc, image } = {}) => {
+    const params = new URLSearchParams({ anchor });
+    if (title) params.set('title', title);
+    if (desc)  params.set('desc', desc);
+    if (image) params.set('image', image);
+    return `${window.location.origin}/api/share?${params.toString()}`;
+};

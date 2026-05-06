@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGlobalPlayer } from '../context/GlobalPlayerContext';
 import { useBookmarks } from '../hooks/useBookmarks';
 import { toggleCapsuleLike } from '../services/firestoreService';
+import { buildShareUrl } from '../utils/share';
 
 // Helper: formats 'YYYY-MM-DD' to 'DD MMM YYYY' in Spanish
 const formatReleaseDate = (dateStr) => {
@@ -61,8 +62,11 @@ const AudioCapsuleCard = ({ capsule }) => {
 
     const handleShare = async (e) => {
         e.stopPropagation();
-        const currentHash = window.location.hash.split('?')[0];
-        const shareUrl = `${window.location.origin}${window.location.pathname}${currentHash}?anchor=capsule-${capsule.id}`;
+        const shareUrl = buildShareUrl(`capsule-${capsule.id}`, {
+            title: capsule.title,
+            desc: capsule.shareText || `Escucha "${capsule.title}" en Creamos Juntos`,
+            image: capsule.imageUrl || null,
+        });
 
         if (navigator.share) {
             try {
@@ -72,7 +76,7 @@ const AudioCapsuleCard = ({ capsule }) => {
                     url: shareUrl,
                 });
             } catch (error) {
-                console.log('Error sharing:', error);
+                if (error.name !== 'AbortError') console.log('Error sharing:', error);
             }
         } else {
             try {
