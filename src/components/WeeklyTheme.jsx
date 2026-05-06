@@ -25,6 +25,196 @@ const WeeklyTheme = ({ theme = {} }) => {
     // If no slides define, fallback to simple view (safety check)
     if (!theme.slides || !theme.slides.length) return null;
 
+    const isContemplativi = theme.styleVariant === 'contemplativo';
+    const contemplaAccent = theme.themeStyles?.accent || '#7C4A2D';
+
+    const renderContemplativi = (slide) => {
+        const eyebrow = (text) => text ? (
+            <p style={{
+                fontSize: '10px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                color: contemplaAccent,
+                fontWeight: 400,
+                fontFamily: 'Inter, system-ui, sans-serif',
+                margin: '0 0 0.625rem 0',
+            }}>{text}</p>
+        ) : null;
+
+        const divider = (
+            <div style={{
+                width: '2rem',
+                height: '1px',
+                backgroundColor: contemplaAccent,
+                margin: '0.625rem 0 1rem 0',
+            }} />
+        );
+
+        const citation = (text, ref) => text ? (
+            <div style={{
+                borderLeft: `2px solid ${contemplaAccent}`,
+                paddingLeft: '1rem',
+                marginTop: 'auto',
+                paddingTop: '1rem',
+            }}>
+                <p style={{
+                    fontSize: '0.85rem',
+                    fontStyle: 'italic',
+                    lineHeight: 1.6,
+                    letterSpacing: '-0.02em',
+                    color: 'rgba(56, 56, 56, 0.7)',
+                    fontFamily: 'Lora, Georgia, serif',
+                    fontWeight: 400,
+                    margin: 0,
+                }}>"{text}"</p>
+                {ref && (
+                    <p style={{
+                        fontSize: '10px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        color: contemplaAccent,
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                        fontWeight: 400,
+                        margin: '0.375rem 0 0 0',
+                    }}>— {ref}</p>
+                )}
+            </div>
+        ) : null;
+
+        switch (slide.type) {
+            case 'cover':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                        {slide.imageUrl && (
+                            <div style={{
+                                margin: '-2rem -2rem 1.5rem -2rem',
+                                height: '220px',
+                                overflow: 'hidden',
+                                backgroundColor: '#f0ede6',
+                            }}>
+                                <img
+                                    src={slide.imageUrl}
+                                    alt={slide.title}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                                />
+                            </div>
+                        )}
+                        {eyebrow(slide.footerText)}
+                        <h1 style={{
+                            fontSize: 'clamp(1.6rem, 4vw, 2.1rem)',
+                            fontWeight: 400,
+                            lineHeight: 1.3,
+                            letterSpacing: '-0.03em',
+                            color: '#383838',
+                            fontFamily: 'Lora, Georgia, serif',
+                            margin: '0 0 0.5rem 0',
+                        }}>{slide.title}</h1>
+                        {divider}
+                        {slide.subtitle && (
+                            <p style={{
+                                fontSize: '0.95rem',
+                                lineHeight: 1.65,
+                                letterSpacing: '-0.03em',
+                                color: 'rgba(56, 56, 56, 0.7)',
+                                fontFamily: 'Lora, Georgia, serif',
+                                fontWeight: 400,
+                                margin: '0 0 1rem 0',
+                            }}>{slide.subtitle}</p>
+                        )}
+                        {citation(slide.citation, slide.reference)}
+                    </div>
+                );
+
+            case 'diagnostic':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
+                        {eyebrow(slide.label)}
+                        {divider}
+                        <h2 style={{
+                            fontSize: 'clamp(1.15rem, 3.5vw, 1.5rem)',
+                            fontWeight: 400,
+                            lineHeight: 1.35,
+                            letterSpacing: '-0.03em',
+                            color: '#383838',
+                            fontFamily: 'Lora, Georgia, serif',
+                            margin: '0 0 1.125rem 0',
+                            whiteSpace: 'pre-line',
+                        }}>{slide.title}</h2>
+                        {slide.body && (
+                            <p style={{
+                                fontSize: '0.9rem',
+                                lineHeight: 1.65,
+                                letterSpacing: '-0.03em',
+                                color: 'rgba(56, 56, 56, 0.8)',
+                                fontFamily: 'Lora, Georgia, serif',
+                                fontWeight: 400,
+                                margin: 0,
+                                whiteSpace: 'pre-line',
+                            }}>{slide.body}</p>
+                        )}
+                        {citation(slide.citation, slide.reference)}
+                    </div>
+                );
+
+            case 'action':
+                return (
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
+                        {eyebrow('Práctica')}
+                        {divider}
+                        <h2 style={{
+                            fontSize: 'clamp(1.15rem, 3.5vw, 1.5rem)',
+                            fontWeight: 400,
+                            lineHeight: 1.35,
+                            letterSpacing: '-0.03em',
+                            color: '#383838',
+                            fontFamily: 'Lora, Georgia, serif',
+                            margin: '0 0 0.75rem 0',
+                        }}>{slide.title}</h2>
+                        {slide.subtitle && (
+                            <p style={{
+                                fontSize: '0.875rem',
+                                lineHeight: 1.6,
+                                color: 'rgba(56, 56, 56, 0.65)',
+                                fontFamily: 'Inter, system-ui, sans-serif',
+                                fontWeight: 400,
+                                letterSpacing: '-0.02em',
+                                margin: '0 0 1.5rem 0',
+                            }}>{slide.subtitle}</p>
+                        )}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
+                            {slide.steps?.map((step, idx) => (
+                                <div key={idx} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                    <span style={{
+                                        fontSize: '10px',
+                                        fontFamily: 'Inter, system-ui, sans-serif',
+                                        color: contemplaAccent,
+                                        fontWeight: 400,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.12em',
+                                        marginTop: '0.25rem',
+                                        flexShrink: 0,
+                                        minWidth: '1.5rem',
+                                    }}>0{idx + 1}</span>
+                                    <p style={{
+                                        fontSize: '0.9rem',
+                                        lineHeight: 1.65,
+                                        letterSpacing: '-0.03em',
+                                        color: '#383838',
+                                        fontFamily: 'Lora, Georgia, serif',
+                                        fontWeight: 400,
+                                        margin: 0,
+                                    }}>{typeof step === 'string' ? step : step.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+
+            default:
+                return renderSlideContent(slide);
+        }
+    };
+
     // Define styles based on theme or defaults
     const styles = {
         bg: theme.themeStyles?.bg || '#F9FAFB',
@@ -342,18 +532,17 @@ const WeeklyTheme = ({ theme = {} }) => {
                 grabCursor={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
                 style={{
-                    paddingBottom: '30px', // Space for pagination dots
-                    '--swiper-pagination-color': styles.accent,
-                    '--swiper-pagination-bullet-inactive-color': '#9CA3AF',
-                    '--swiper-pagination-bullet-inactive-opacity': '0.5',
+                    paddingBottom: '30px',
+                    '--swiper-pagination-color': isContemplativi ? contemplaAccent : styles.accent,
+                    '--swiper-pagination-bullet-inactive-color': isContemplativi ? 'rgba(56,56,56,0.25)' : '#9CA3AF',
+                    '--swiper-pagination-bullet-inactive-opacity': '1',
                 }}
             >
                 {theme.slides.map((slide, index) => (
                     <SwiperSlide key={index} style={{ height: 'auto' }}>
                         <div className="card weekly-theme-card" style={{
-                            // Elegant Fixed Dimensions with Internal Scroll
-                            aspectRatio: '3/5', // Slightly taller than 4/5 for modern content
-                            maxHeight: '75vh', // Never take up more than 75% of screen height
+                            aspectRatio: '3/5',
+                            maxHeight: '75vh',
                             display: 'flex',
                             flexDirection: 'column',
                             padding: '2rem',
@@ -362,7 +551,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                             borderRadius: '16px',
                             boxShadow: styles.cardShadow,
                             position: 'relative',
-                            overflow: 'hidden', // Hide overflow of container
+                            overflow: 'hidden',
                             backgroundImage: styles.backgroundImage,
                             backgroundSize: styles.backgroundSize,
                             backgroundPosition: 'center',
@@ -373,12 +562,11 @@ const WeeklyTheme = ({ theme = {} }) => {
                                 overflowY: 'auto',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                // Hide scrollbar but allow functionality
-                                scrollbarWidth: 'none', /* Firefox */
-                                msOverflowStyle: 'none',  /* IE and Edge */
-                                paddingRight: '4px' // Prevent content touching scroll edge
+                                scrollbarWidth: 'none',
+                                msOverflowStyle: 'none',
+                                paddingRight: '4px'
                             }}>
-                                {renderSlideContent(slide)}
+                                {isContemplativi ? renderContemplativi(slide) : renderSlideContent(slide)}
                             </div>
 
                             {/* Styling for WebKit scrollbar hiding injected via class or style */}

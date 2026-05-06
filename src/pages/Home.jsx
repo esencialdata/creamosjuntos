@@ -8,6 +8,7 @@ import SermonList from '../components/SermonList';
 import TempleGrowth from '../components/TempleGrowth';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import AudioModuleCard from '../components/AudioModuleCard';
+import CreationDays from '../components/CreationDays';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
 import { subscribeToSchedule } from '../services/firestoreService';
@@ -98,6 +99,8 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                 )}
 
                 <DailyVerse verse={CONFIG.dailyVerse} />
+
+                <CreationDays />
 
                 {/* --- SECCIÓN "LO ÚLTIMO" --- */}
                 <section style={{ marginBottom: 'var(--spacing-md)' }}>
