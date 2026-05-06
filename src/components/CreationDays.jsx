@@ -62,12 +62,7 @@ const CreationDays = () => {
     if (!el) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => setVisible(entry.isIntersecting),
       { threshold: 0.25 }
     );
 
@@ -78,14 +73,9 @@ const CreationDays = () => {
   return (
     <>
       <style>{`
-        @keyframes dawnBrighten {
-          0%   { filter: brightness(0.05) saturate(0.2); }
-          70%  { filter: brightness(1.15) saturate(1.1); }
-          100% { filter: brightness(1) saturate(1); }
-        }
-        @keyframes dawnBreath {
-          0%, 100% { filter: brightness(0.88) saturate(0.95); }
-          50%       { filter: brightness(1.1) saturate(1.05); }
+        @keyframes dawnGlow {
+          0%, 100% { opacity: 0.18; }
+          50%       { opacity: 0.55; }
         }
       `}</style>
 
@@ -104,12 +94,31 @@ const CreationDays = () => {
           height: '200px',
           background: day.gradient,
           overflow: 'hidden',
-          filter: visible ? undefined : 'brightness(0.05) saturate(0.2)',
-          animation: visible
-            ? 'dawnBrighten 2.8s ease-out forwards, dawnBreath 7s ease-in-out 2.8s infinite'
-            : 'none',
         }}>
+          {/* Velo oscuro: opaco en reposo, se desvanece al entrar al viewport */}
+          <div aria-hidden="true" style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: '#000',
+            opacity: visible ? 0 : 0.92,
+            transition: visible
+              ? 'opacity 2.6s ease-out'
+              : 'opacity 0.4s ease-in',
+            willChange: 'opacity',
+            zIndex: 1,
+          }} />
+          {/* Destello de luz: pulsa suavemente una vez revelado */}
+          <div aria-hidden="true" style={{
+            position: 'absolute',
+            inset: 0,
+            background: `radial-gradient(ellipse at 55% 55%, white 0%, transparent 70%)`,
+            opacity: visible ? undefined : 0,
+            animation: visible ? 'dawnGlow 8s ease-in-out infinite' : 'none',
+            willChange: 'opacity',
+            zIndex: 2,
+          }} />
           <span aria-hidden="true" style={{
+            zIndex: 3,
             position: 'absolute',
             top: '0.75rem',
             right: '1.25rem',
