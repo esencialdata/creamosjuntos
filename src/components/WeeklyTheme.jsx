@@ -523,7 +523,7 @@ const WeeklyTheme = ({ theme = {} }) => {
 
 
     return (
-        <section id="weekly-theme" style={{ position: 'relative', marginBottom: 'var(--spacing-md)' }}>
+        <section id={theme.id ? `weekly-theme-${theme.id}` : 'weekly-theme'} style={{ position: 'relative', marginBottom: 'var(--spacing-md)' }}>
             <Swiper
                 modules={[Pagination]}
                 spaceBetween={20}
