@@ -107,11 +107,11 @@ const CreationDays = () => {
             willChange: 'opacity',
             zIndex: 1,
           }} />
-          {/* Destello de luz: pulsa suavemente una vez revelado */}
+          {/* Luz de amanecer: viene desde arriba, asimétrica y orgánica */}
           <div aria-hidden="true" style={{
             position: 'absolute',
             inset: 0,
-            background: `radial-gradient(ellipse at 55% 55%, white 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 160% 70% at 62% -15%, rgba(255,255,255,0.42) 0%, transparent 65%)`,
             opacity: visible ? undefined : 0,
             animation: visible ? 'dawnGlow 8s ease-in-out infinite' : 'none',
             willChange: 'opacity',
