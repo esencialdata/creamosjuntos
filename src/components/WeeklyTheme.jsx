@@ -63,7 +63,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                 paddingTop: '1rem',
             }}>
                 <p style={{
-                    fontSize: '0.85rem',
+                    fontSize: '0.95rem',
                     fontStyle: 'italic',
                     lineHeight: 1.6,
                     letterSpacing: '-0.02em',
@@ -90,23 +90,26 @@ const WeeklyTheme = ({ theme = {} }) => {
             case 'cover':
                 return (
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-                        {slide.imageUrl && (
+                        {(slide.imageUrl || slide.gradient) && (
                             <div style={{
                                 margin: '-2rem -2rem 1.5rem -2rem',
                                 height: '220px',
                                 overflow: 'hidden',
                                 backgroundColor: '#f0ede6',
+                                background: slide.gradient || undefined,
                             }}>
-                                <img
-                                    src={slide.imageUrl}
-                                    alt={slide.title}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
-                                />
+                                {slide.imageUrl && (
+                                    <img
+                                        src={slide.imageUrl}
+                                        alt={slide.title}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                                    />
+                                )}
                             </div>
                         )}
                         {eyebrow(slide.footerText)}
                         <h1 style={{
-                            fontSize: 'clamp(1.6rem, 4vw, 2.1rem)',
+                            fontSize: 'clamp(1.85rem, 5vw, 2.4rem)',
                             fontWeight: 400,
                             lineHeight: 1.3,
                             letterSpacing: '-0.03em',
@@ -117,7 +120,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                         {divider}
                         {slide.subtitle && (
                             <p style={{
-                                fontSize: '0.95rem',
+                                fontSize: '1.05rem',
                                 lineHeight: 1.65,
                                 letterSpacing: '-0.03em',
                                 color: 'rgba(56, 56, 56, 0.7)',
@@ -136,7 +139,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                         {eyebrow(slide.label)}
                         {divider}
                         <h2 style={{
-                            fontSize: 'clamp(1.15rem, 3.5vw, 1.5rem)',
+                            fontSize: 'clamp(1.3rem, 4vw, 1.75rem)',
                             fontWeight: 400,
                             lineHeight: 1.35,
                             letterSpacing: '-0.03em',
@@ -147,7 +150,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                         }}>{slide.title}</h2>
                         {slide.body && (
                             <p style={{
-                                fontSize: '0.9rem',
+                                fontSize: '1rem',
                                 lineHeight: 1.65,
                                 letterSpacing: '-0.03em',
                                 color: 'rgba(56, 56, 56, 0.8)',
@@ -167,7 +170,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                         {eyebrow('Práctica')}
                         {divider}
                         <h2 style={{
-                            fontSize: 'clamp(1.15rem, 3.5vw, 1.5rem)',
+                            fontSize: 'clamp(1.3rem, 4vw, 1.75rem)',
                             fontWeight: 400,
                             lineHeight: 1.35,
                             letterSpacing: '-0.03em',
@@ -177,7 +180,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                         }}>{slide.title}</h2>
                         {slide.subtitle && (
                             <p style={{
-                                fontSize: '0.875rem',
+                                fontSize: '0.975rem',
                                 lineHeight: 1.6,
                                 color: 'rgba(56, 56, 56, 0.65)',
                                 fontFamily: 'Inter, system-ui, sans-serif',
@@ -201,7 +204,7 @@ const WeeklyTheme = ({ theme = {} }) => {
                                         minWidth: '1.5rem',
                                     }}>0{idx + 1}</span>
                                     <p style={{
-                                        fontSize: '0.9rem',
+                                        fontSize: '1rem',
                                         lineHeight: 1.65,
                                         letterSpacing: '-0.03em',
                                         color: '#383838',

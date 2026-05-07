@@ -923,7 +923,7 @@ export const CONFIG = {
                     type: 'cover',
                     title: 'El Ruido que te Está Vaciando',
                     subtitle: 'Y lo que Dios tiene que decirte al respecto.',
-                    imageUrl: '/portada-ruido.jpg',
+                    gradient: 'radial-gradient(ellipse 38% 85% at 68% -8%, rgba(220, 148, 38, 0.72) 0%, transparent 58%), linear-gradient(160deg, #090507 0%, #1c1014 30%, #2c1a0a 58%, #0c0808 100%)',
                     footerText: 'Creamos Juntos · Semana 23',
                 },
                 {
