@@ -967,7 +967,7 @@ export const CONFIG = {
                 {
                     type: 'diagnostic',
                     label: 'LA HISTORIA BÍBLICA · ELÍAS',
-                    title: 'El profeta más poderoso del AT pidió morirse de agotamiento.',
+                    title: 'El profeta poderoso del AT pidió morirse de agotamiento.',
                     body: 'Elías acababa de ganar la batalla más grande de su vida. Y se derrumbó bajo un enebro.\n\nDios no lo reprendió. Le dio pan. Le dio agua. Le dijo: "Levántate y come, porque largo camino te resta."\n\nEl ruido que te vacía también le llegó al más valiente. Y Dios también tiene pan para ti.',
                     citation: 'Basta ya, oh Jehová, quítame la vida.',
                     reference: '1 Reyes 19:4 (RVA)',
