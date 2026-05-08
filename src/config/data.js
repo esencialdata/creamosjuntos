@@ -1,3 +1,194 @@
+export const CURRENT_MONTH_LABEL = "Mayo 2026";
+
+export const CURRENT_MONTH_VERSES = [
+    {
+        text: "Bendice, alma mía á Jehová; Y bendigan todas mis entrañas su santo nombre.",
+        reference: "Salmos 103:1",
+        likes: 0,
+        comment: "La adoración genuina surge de lo más profundo del ser, reconociendo la soberanía divina por encima de cualquier circunstancia terrenal."
+    },
+    {
+        text: "No deseches, hijo mío, el castigo de Jehová; Ni te fatigues de su corrección:",
+        reference: "Proverbios 3:11",
+        likes: 0,
+        comment: "La disciplina divina no es muestra de rechazo, sino evidencia de un cuidado formativo que busca el perfeccionamiento del carácter."
+    },
+    {
+        text: "El temor de Jehová es el principio de la sabiduría; Y el conocimiento de lo santo es la inteligencia.",
+        reference: "Proverbios 9:10",
+        likes: 0,
+        comment: "La verdadera inteligencia no radica en la acumulación de datos seculares, sino en el respeto reverente hacia el Creador y la asimilación de sus mandamientos."
+    },
+    {
+        text: "Para todas las cosas hay sazón, y todo lo que se quiere debajo del cielo, tiene su tiempo.",
+        reference: "Eclesiastés 3:1",
+        likes: 0,
+        comment: "Comprender que la soberanía de Dios administra los tiempos y las estaciones trae descanso y orden frente a la ansiedad por el futuro."
+    },
+    {
+        text: "Porque un niño nos es nacido, hijo nos es dado; y el principado sobre su hombro: y llamaráse su nombre Admirable, Consejero, Dios fuerte, Padre eterno, Príncipe de paz.",
+        reference: "Isaías 9:6",
+        likes: 0,
+        comment: "El gobierno absoluto del mundo descansa finalmente sobre el Mesías; la paz verdadera es un derivado inseparable de su autoridad."
+    },
+    {
+        text: "Todos nosotros nos descarriamos como ovejas, cada cual se apartó por su camino: mas Jehová cargó en él el pecado de todos nosotros.",
+        reference: "Isaías 53:6",
+        likes: 0,
+        comment: "El extravío humano es universal, pero la provisión del sacrificio expiatorio en Cristo asume la totalidad de la deuda moral de la humanidad."
+    },
+    {
+        text: "Clama á mí, y te responderé, y te enseñaré cosas grandes y dificultosas que tú no sabes.",
+        reference: "Jeremías 33:3",
+        likes: 0,
+        comment: "La comunicación directa con el Altísimo abre la puerta a revelaciones y niveles de entendimiento que superan la capacidad analítica humana."
+    },
+    {
+        text: "Mi porción es Jehová, dijo mi alma; por tanto en él esperaré.",
+        reference: "Lamentaciones 3:24",
+        likes: 0,
+        comment: "La esperanza depositada en Dios nunca es estéril; aguardar su intervención y considerarlo como la herencia suprema es la postura más segura ante la adversidad."
+    },
+    {
+        text: "Y os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazón de piedra, y os daré corazón de carne.",
+        reference: "Ezequiel 36:26",
+        likes: 0,
+        comment: "La reforma moral requiere más que fuerza de voluntad; exige una intervención divina que reemplace la dureza interior por receptividad espiritual."
+    },
+    {
+        text: "Y Daniel habló, y dijo: Sea bendito el nombre de Dios de siglo hasta siglo: porque suya es la sabiduría y la fortaleza:",
+        reference: "Daniel 2:20",
+        likes: 0,
+        comment: "Los cambios políticos y los tiempos están bajo estricto control celestial; el poder humano es transitorio y delegado exclusivamente por Dios."
+    },
+    {
+        text: "Y roturad vuestro corazón, y no vuestros vestidos; y convertíos á Jehová vuestro Dios; porque misericordioso es y clemente, tardo para la ira, y grande en misericordia, y que se arrepiente del castigo.",
+        reference: "Joel 2:13",
+        likes: 0,
+        comment: "El arrepentimiento superficial o ceremonial es inútil. La ley divina demanda una contrición interna y real para manifestar restauración."
+    },
+    {
+        text: "Jehová el Señor es mi fortaleza, El cual pondrá mis pies como de ciervas, Y me hará andar sobre mis alturas.",
+        reference: "Habacuc 3:19",
+        likes: 0,
+        comment: "La fortaleza espiritual proveniente de Dios permite transitar por terrenos de alta dificultad y peligro con firmeza y seguridad inquebrantables."
+    },
+    {
+        text: "Jehová en medio de ti, poderoso, él salvará; gozaráse sobre ti con alegría, callará de amor, se regocijará sobre ti con cantar.",
+        reference: "Sofonías 3:17",
+        likes: 0,
+        comment: "La presencia divina en medio del pueblo redimido es activa y salvadora, demostrando un deleite profundo en otorgar redención."
+    },
+    {
+        text: "Así que, no os congojéis por el día de mañana; que el día de mañana traerá su fatiga: basta al día su afán.",
+        reference: "Mateo 6:34",
+        likes: 0,
+        comment: "La anticipación ansiosa de problemas futuros agota las reservas de fe asignadas exclusivamente para resolver las responsabilidades del presente."
+    },
+    {
+        text: "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas.",
+        reference: "Mateo 11:29",
+        likes: 0,
+        comment: "La instrucción de Cristo se asimila al imitar su mansedumbre; la sumisión voluntaria a su autoridad produce el verdadero reposo interior."
+    },
+    {
+        text: "Y les dijo: Mirad, y guardaos de toda avaricia; porque la vida del hombre no consiste en la abundancia de los bienes que posee.",
+        reference: "Lucas 12:15",
+        likes: 0,
+        comment: "El valor de la existencia humana no se mide por la acumulación de patrimonio material; la codicia distorsiona y destruye el propósito del Creador."
+    },
+    {
+        text: "Dios es Espíritu; y los que le adoran, en espíritu y en verdad es necesario que adoren.",
+        reference: "Juan 4:24",
+        likes: 0,
+        comment: "El culto aceptable a Dios trasciende ubicaciones geográficas y formalismos; exige autenticidad absoluta y una conexión espiritual dictada por la verdad bíblica."
+    },
+    {
+        text: "El ladrón no viene sino para hurtar, y matar, y destruir: yo he venido para que tengan vida, y para que la tengan en abundancia.",
+        reference: "Juan 10:10",
+        likes: 0,
+        comment: "El propósito central del Mesías es la restitución de una vitalidad plena, en contraste directo con las fuerzas antagónicas que buscan la destrucción moral y física."
+    },
+    {
+        text: "JUSTIFICADOS pues por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo:",
+        reference: "Romanos 5:1",
+        likes: 0,
+        comment: "La paz con Dios es un estatus legal y espiritual permanente, alcanzado únicamente mediante la absolución que otorga la fe en el sacrificio de Cristo."
+    },
+    {
+        text: "Por lo cual estoy cierto que ni la muerte, ni la vida, ni ángeles, ni principados, ni potestades, ni lo presente, ni lo por venir, ni lo alto, ni lo bajo, ni ninguna criatura nos podrá apartar del amor de Dios, que es en Cristo Jesús Señor nuestro.",
+        reference: "Romanos 8:38-39",
+        likes: 0,
+        comment: "Ninguna fuerza temporal, espiritual, dimensional o jerárquica posee la capacidad de quebrar el vínculo de gracia establecido entre Dios y los redimidos."
+    },
+    {
+        text: "Porque las cosas que antes fueron escritas, para nuestra enseñanza fueron escritas; para que por la paciencia, y por la consolación de las Escrituras, tengamos esperanza.",
+        reference: "Romanos 15:4",
+        likes: 0,
+        comment: "El registro bíblico histórico constituye la base pedagógica diseñada divinamente para sostener la esperanza humana y proveer instrucción infalible."
+    },
+    {
+        text: "Si pues coméis, ó bebéis, ó hacéis otra cosa, hacedlo todo á gloria de Dios.",
+        reference: "1 Corintios 10:31",
+        likes: 0,
+        comment: "Ninguna acción cotidiana es trivial. Todo acto humano, por biológico o básico que parezca, debe ejecutarse bajo el estándar de honrar al Creador."
+    },
+    {
+        text: "Al que no conoció pecado, hizo pecado por nosotros, para que nosotros fuésemos hechos justicia de Dios en él.",
+        reference: "2 Corintios 5:21",
+        likes: 0,
+        comment: "El intercambio redentor imputa la perfección de Cristo al creyente, habiendo asumido el Mesías la condena penal correspondiente a la humanidad."
+    },
+    {
+        text: "ESTAD, pues, firmes en la libertad con que Cristo nos hizo libres, y no volváis otra vez á ser presos en el yugo de servidumbre.",
+        reference: "Gálatas 5:1",
+        likes: 0,
+        comment: "La libertad espiritual otorgada no es automática en su mantenimiento; debe defenderse tenazmente para evitar recaer en sistemas de esclavitud moral o legalismos humanos."
+    },
+    {
+        text: "Porque somos hechura suya, criados en Cristo Jesús para buenas obras, las cuales Dios preparó para que anduviésemos en ellas.",
+        reference: "Efesios 2:10",
+        likes: 0,
+        comment: "La salvación excluye las obras como medio de pago, pero establece la ejecución de buenas acciones como el diseño y propósito posterior de la vida redimida."
+    },
+    {
+        text: "Por lo demás, hermanos, todo lo que es verdadero, todo lo honesto, todo lo justo, todo lo puro, todo lo amable, todo lo que es de buen nombre; si hay virtud alguna, si alguna alabanza, en esto pensad.",
+        reference: "Filipenses 4:8",
+        likes: 0,
+        comment: "La higiene mental requiere un control disciplinado del intelecto, filtrando los pensamientos para enfocar la mente exclusivamente en conceptos puros y edificantes."
+    },
+    {
+        text: "Sufriéndoos los unos á los otros, y perdonándoos los unos á los otros si alguno tuviere queja del otro: de la manera que Cristo os perdonó, así también hacedlo vosotros.",
+        reference: "Colosenses 3:13",
+        likes: 0,
+        comment: "La disposición para tolerar defectos y perdonar agravios no se basa en el mérito del ofensor, sino que tiene como estándar obligatorio el perdón absoluto otorgado por el Mesías."
+    },
+    {
+        text: "Estad siempre gozosos. Orad sin cesar. Dad gracias en todo; porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.",
+        reference: "1 Tesalonicenses 5:16-18",
+        likes: 0,
+        comment: "El gozo constante, la oración ininterrumpida y la gratitud total no dependen de escenarios favorables; constituyen la postura permanente exigida por la voluntad divina."
+    },
+    {
+        text: "Retengamos firme la profesión de nuestra esperanza sin fluctuar; que fiel es el que prometió:",
+        reference: "Hebreos 10:23",
+        likes: 0,
+        comment: "La firmeza doctrinal y la estabilidad en la fe se sostienen al recordar que el cumplimiento de las promesas no depende del esfuerzo humano, sino de la fidelidad infalible de Dios."
+    },
+    {
+        text: "Por esto, mis amados hermanos, todo hombre sea pronto para oír, tardo para hablar, tardo para airarse:",
+        reference: "Santiago 1:19",
+        likes: 0,
+        comment: "La madurez del carácter se evidencia en el dominio propio: maximizando la capacidad de escuchar y aplicando un control riguroso sobre las reacciones verbales e impulsos iracundos."
+    },
+    {
+        text: "Si confesamos nuestros pecados, él es fiel y justo para que nos perdone nuestros pecados, y nos limpie de toda maldad.",
+        reference: "1 Juan 1:9",
+        likes: 0,
+        comment: "El reconocimiento honesto de las infracciones a la Ley divina es el único mecanismo que activa la justicia de Dios para otorgar perdón y limpieza integral."
+    }
+];
+
 export const VERSES_POOL = [
     // --- NUEVO SET (ENERO - CICLO 2) ---
     {
@@ -563,18 +754,13 @@ export const VERSES_POOL = [
 ];
 
 const getDailyVerse = () => {
-    // Logic: Use day of year to rotate through the pool
-    // This allows consistency: everyone sees the same verse on the same day
     const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
+    const dayOfMonth = now.getDate() - 1;
 
     // Safety check just in case
-    if (!VERSES_POOL || VERSES_POOL.length === 0) return null;
+    if (!CURRENT_MONTH_VERSES || CURRENT_MONTH_VERSES.length === 0) return null;
 
-    return VERSES_POOL[dayOfYear % VERSES_POOL.length];
+    return CURRENT_MONTH_VERSES[dayOfMonth % CURRENT_MONTH_VERSES.length];
 };
 
 const getCurrentWeekId = () => {

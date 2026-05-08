@@ -5,7 +5,7 @@ import WeeklyTheme from '../components/WeeklyTheme';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import AudioModuleCard from '../components/AudioModuleCard';
 import AudioModuleDetail from '../components/AudioModuleDetail';
-import { CONFIG, VERSES_POOL } from '../config/data';
+import { CONFIG, CURRENT_MONTH_LABEL, CURRENT_MONTH_VERSES, VERSES_POOL } from '../config/data';
 import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
 import { useBookmarks } from '../hooks/useBookmarks';
@@ -90,14 +90,14 @@ const Library = () => {
 
     // Filter verses to only show those released up to today
     const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
-    // Subtract 1 because array is 0-indexed (Jan 1st = Index 0)
+    const dayOfMonth = now.getDate();
     // Use Math.max to ensure we don't slice with a negative number if something is off
-    const currentIndex = Math.max(0, dayOfYear - 1);
-    const visibleVerses = VERSES_POOL.slice(0, currentIndex + 1);
+    const currentIndex = Math.max(0, dayOfMonth - 1);
+    const visibleVerses = CURRENT_MONTH_VERSES.slice(0, currentIndex + 1);
+    const historicalVerses = {
+        "enero-abril 2026": VERSES_POOL,
+        ...CITAS_HISTORIAL
+    };
 
     return (
         <Layout>
@@ -172,7 +172,7 @@ const Library = () => {
                         {/* Current Month */}
                         <div>
                             <h2 style={{ fontSize: '1.2rem', marginBottom: 'var(--spacing-md)', color: 'var(--color-text-secondary)' }}>
-                                Enero 2026
+                                {CURRENT_MONTH_LABEL}
                             </h2>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
                                 {visibleVerses.map((verse, index) => {
@@ -285,7 +285,7 @@ const Library = () => {
                         </div>
 
                         {/* History */}
-                        {Object.entries(CITAS_HISTORIAL).map(([month, verses]) => (
+                        {Object.entries(historicalVerses).map(([month, verses]) => (
                             <div key={month}>
                                 <h2 style={{ fontSize: '1.2rem', marginBottom: 'var(--spacing-md)', color: 'var(--color-text-secondary)', textTransform: 'capitalize' }}>
                                     {month} {month === 'diciembre' ? '2025' : ''}
