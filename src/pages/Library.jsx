@@ -418,7 +418,7 @@ const Library = () => {
                                     borderBottom: '1px solid #E8E0D4',
                                 }}>
                                     <div style={{
-                                        fontSize: '10px',
+                                        fontSize: '11px',
                                         letterSpacing: '0.12em',
                                         fontWeight: 400,
                                         color: '#8B6914',
@@ -430,7 +430,7 @@ const Library = () => {
                                     </div>
                                     <div style={{
                                         fontFamily: 'Lora, Georgia, serif',
-                                        fontSize: '18px',
+                                        fontSize: '22px',
                                         fontWeight: 400,
                                         color: '#2C2218',
                                         lineHeight: 1.4,
@@ -441,7 +441,7 @@ const Library = () => {
                                     </div>
                                     <div style={{
                                         fontFamily: 'Lora, Georgia, serif',
-                                        fontSize: '13px',
+                                        fontSize: '16px',
                                         fontWeight: 400,
                                         color: '#7A6E62',
                                         lineHeight: 1.65,
@@ -457,7 +457,7 @@ const Library = () => {
                                             { label: 'Espíritu', bg: '#E1F5EE', color: '#085041' },
                                         ].map(({ label, bg, color }) => (
                                             <span key={label} style={{
-                                                fontSize: '9px',
+                                                fontSize: '11px',
                                                 fontWeight: 400,
                                                 letterSpacing: '0.1em',
                                                 textTransform: 'uppercase',
@@ -479,7 +479,7 @@ const Library = () => {
                                             padding: '8px 0 0 0',
                                             cursor: 'pointer',
                                             fontFamily: 'Inter, sans-serif',
-                                            fontSize: '11px',
+                                            fontSize: '13px',
                                             fontWeight: 400,
                                             color: '#8B6914',
                                             display: 'flex',
@@ -500,7 +500,7 @@ const Library = () => {
                                 {entradaModules.length > 0 && (
                                     <div style={{ marginBottom: '24px' }}>
                                         <div style={{
-                                            fontSize: '10px',
+                                            fontSize: '11px',
                                             letterSpacing: '0.12em',
                                             fontWeight: 400,
                                             color: '#7A6E62',
@@ -526,7 +526,7 @@ const Library = () => {
                                         <div key={key} style={{ marginBottom: '24px' }}>
                                             <div style={{
                                                 display: 'inline-block',
-                                                fontSize: '9px',
+                                                fontSize: '11px',
                                                 letterSpacing: '0.1em',
                                                 fontWeight: 400,
                                                 textTransform: 'uppercase',
@@ -648,7 +648,7 @@ const Library = () => {
 
                         {/* Eyebrow */}
                         <div style={{
-                            fontSize: '10px',
+                            fontSize: '11px',
                             letterSpacing: '0.12em',
                             fontWeight: 400,
                             color: '#8B6914',
@@ -671,7 +671,7 @@ const Library = () => {
                         ].map(({ text, strong }, i) => (
                             <p key={i} style={{
                                 fontFamily: 'Lora, Georgia, serif',
-                                fontSize: '15px',
+                                fontSize: '17px',
                                 lineHeight: 1.7,
                                 letterSpacing: '-0.03em',
                                 color: strong ? '#2C2218' : '#7A6E62',
@@ -687,7 +687,7 @@ const Library = () => {
                         <div style={{
                             textAlign: 'center',
                             fontFamily: 'Inter, sans-serif',
-                            fontSize: '10px',
+                            fontSize: '12px',
                             letterSpacing: '0.12em',
                             fontWeight: 400,
                             color: '#8B6914',
@@ -700,7 +700,7 @@ const Library = () => {
                         {/* Párrafo final */}
                         <p style={{
                             fontFamily: 'Lora, Georgia, serif',
-                            fontSize: '15px',
+                            fontSize: '17px',
                             lineHeight: 1.7,
                             letterSpacing: '-0.03em',
                             color: '#7A6E62',
@@ -723,7 +723,7 @@ const Library = () => {
                                 border: 'none',
                                 borderRadius: '20px',
                                 fontFamily: 'Inter, sans-serif',
-                                fontSize: '14px',
+                                fontSize: '16px',
                                 fontWeight: 400,
                                 cursor: 'pointer',
                                 minHeight: '44px',
