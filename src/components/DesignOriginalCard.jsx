@@ -56,7 +56,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                 {/* Eyebrow */}
                 <p style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: '10px',
+                    fontSize: '11px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     fontWeight: 400,
@@ -77,7 +77,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                 {/* Título */}
                 <p style={{
                     fontFamily: "'Lora', Georgia, serif",
-                    fontSize: '17px',
+                    fontSize: '22px',
                     fontWeight: 400,
                     color: '#2C2218',
                     lineHeight: 1.4,
@@ -90,7 +90,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                 {/* Tagline */}
                 <p style={{
                     fontFamily: "'Lora', Georgia, serif",
-                    fontSize: '13px',
+                    fontSize: '16px',
                     fontWeight: 400,
                     color: '#7A6E62',
                     lineHeight: 1.65,
@@ -109,7 +109,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                     ].map(({ label: pillLabel, bg, color }) => (
                         <span key={pillLabel} style={{
                             fontFamily: "'Inter', system-ui, sans-serif",
-                            fontSize: '9px',
+                            fontSize: '11px',
                             textTransform: 'uppercase',
                             letterSpacing: '0.1em',
                             fontWeight: 400,
@@ -141,7 +141,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                     </span>
                     <span style={{
                         fontFamily: "'Inter', system-ui, sans-serif",
-                        fontSize: '12px',
+                        fontSize: '13px',
                         fontWeight: 400,
                         color: '#2563EB',
                         display: 'flex',
