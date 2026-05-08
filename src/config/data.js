@@ -705,7 +705,39 @@ export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     audioModules: [
         {
+            id: '__placeholder-carne',
+            layer: 'eje',
+            eje: 'carne',
+            title: '[PRÓXIMO] Tu Cuerpo No Es el Enemigo',
+            coverImageUrl: '',
+            description: 'Serie en desarrollo.',
+            accentColor: '#D85A30',
+            episodes: []
+        },
+        {
+            id: '__placeholder-alma',
+            layer: 'eje',
+            eje: 'alma',
+            title: '[PRÓXIMO] La Arquitectura del Alma',
+            coverImageUrl: '',
+            description: 'Serie en desarrollo.',
+            accentColor: '#7F77DD',
+            episodes: []
+        },
+        {
+            id: '__placeholder-espiritu',
+            layer: 'eje',
+            eje: 'espiritu',
+            title: '[PRÓXIMO] El Espíritu que Habita en Ti',
+            coverImageUrl: '',
+            description: 'Serie en desarrollo.',
+            accentColor: '#1D9E75',
+            episodes: []
+        },
+        {
             id: 'mod-abre-tus-ojos',
+            layer: 'entrada',
+            eje: null,
             title: 'INQUEBRANTABLE: 8 Días para Tomar el Gobierno de tu Vida',
             coverImageUrl: '/portada_inquebrantable_opt.jpg',
             description: 'El protocolo definitivo para desmantelar la inercia del fracaso y restaurar la autoridad de tu diseño original. 8 episodios de audio diseñados para limpiar tu estructura interna, elevar tus estándares y convertirte en el administrador soberano de tu propósito y tu fruto.',

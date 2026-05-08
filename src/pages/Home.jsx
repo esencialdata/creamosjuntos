@@ -8,6 +8,7 @@ import SermonList from '../components/SermonList';
 import TempleGrowth from '../components/TempleGrowth';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import AudioModuleCard from '../components/AudioModuleCard';
+import DesignOriginalCard from '../components/DesignOriginalCard';
 import CreationDays from '../components/CreationDays';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
@@ -161,26 +162,29 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                     return null;
                 })()}
 
-                {/* Tu Dosis Semanal Section (MÓDULOS DE AUDIO / SERIES) */}
-                {CONFIG.audioModules && CONFIG.audioModules.length > 0 && (
-                    <section style={{ marginBottom: 'var(--spacing-md)' }}>
-                        <h3 style={{
-                            fontSize: '0.875rem',
-                            textTransform: 'uppercase',
-                            marginBottom: 'var(--spacing-sm)',
-                            color: 'var(--color-accent)'
-                        }}>
-                            Series de Audio
-                        </h3>
-                        {CONFIG.audioModules.map(mod => (
-                            <AudioModuleCard 
-                                key={`module-${mod.id}`} 
-                                module={mod} 
-                                onClick={() => navigate('/recursos?anchor=audios-tab', { state: { openModule: mod.id } })}
+                {/* DISEÑO ORIGINAL — entrada al universo de series */}
+                {(() => {
+                    const now = new Date();
+                    const isModuleAvailable = (mod) => {
+                        if (!mod.episodes || mod.episodes.length === 0) return false;
+                        return mod.episodes.some(ep => {
+                            if (!ep.releaseDate) return true;
+                            return new Date(ep.releaseDate + 'T00:00:00') <= now;
+                        });
+                    };
+                    const availableModules = (CONFIG.audioModules || []).filter(isModuleAvailable);
+                    if (availableModules.length === 0) return null;
+                    const coverModule = availableModules.find(m => m.coverImageUrl) || availableModules[0];
+                    return (
+                        <section style={{ marginBottom: 'var(--spacing-md)' }}>
+                            <DesignOriginalCard
+                                coverImageUrl={coverModule.coverImageUrl}
+                                availableCount={availableModules.length}
+                                onClick={() => navigate('/recursos?anchor=audios-tab')}
                             />
-                        ))}
-                    </section>
-                )}
+                        </section>
+                    );
+                })()}
                 <WeeklyHabit
                     habit={CONFIG.weeklyHabit}
                     toggleHabit={toggleHabit}

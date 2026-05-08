@@ -14,6 +14,7 @@ const Library = () => {
     const [activeTab, setActiveTab] = useState('themes');
     const [selectedModule, setSelectedModule] = useState(null);
     const [selectedTheme, setSelectedTheme] = useState(null);
+    const [showManifiesto, setShowManifiesto] = useState(false);
     const { toggleBookmark, isBookmarked } = useBookmarks();
     const location = useLocation();
 
@@ -64,6 +65,28 @@ const Library = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const isModuleAvailable = (mod) => {
+        if (!mod.episodes || mod.episodes.length === 0) return false;
+        const now = new Date();
+        return mod.episodes.some(ep => {
+            if (!ep.releaseDate) return true;
+            return new Date(ep.releaseDate + 'T00:00:00') <= now;
+        });
+    };
+
+    const audioModules = CONFIG.audioModules || [];
+    const entradaModules = audioModules.filter(m => m.layer === 'entrada' && isModuleAvailable(m));
+    const ejeOrder = [
+        { key: 'carne',    label: 'Carne',    color: '#D85A30', bg: '#FAECE7' },
+        { key: 'alma',     label: 'Alma',     color: '#3C3489', bg: '#EEEDFE' },
+        { key: 'espiritu', label: 'Espíritu', color: '#085041', bg: '#E1F5EE' },
+    ];
+    const ejeModules = ejeOrder.reduce((acc, { key }) => {
+        acc[key] = audioModules.filter(m => m.layer === 'eje' && m.eje === key && isModuleAvailable(m));
+        return acc;
+    }, {});
+    const unclassifiedModules = audioModules.filter(m => !m.layer && isModuleAvailable(m));
 
     // Filter verses to only show those released up to today
     const now = new Date();
@@ -386,17 +409,166 @@ const Library = () => {
                                 onBack={() => setSelectedModule(null)}
                             />
                         ) : (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-                                {CONFIG.audioModules && CONFIG.audioModules.length > 0 ? (
-                                    CONFIG.audioModules.map(mod => (
-                                        <AudioModuleCard
-                                            key={mod.id}
-                                            module={mod}
-                                            onClick={() => setSelectedModule(mod)}
-                                        />
-                                    ))
-                                ) : (
-                                    <p style={{ color: 'var(--color-text-secondary)', textAlign: 'center', padding: 'var(--spacing-lg)' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+
+                                {/* Encabezado compacto DISEÑO ORIGINAL */}
+                                <div style={{
+                                    paddingBottom: '20px',
+                                    marginBottom: '20px',
+                                    borderBottom: '1px solid #E8E0D4',
+                                }}>
+                                    <div style={{
+                                        fontSize: '10px',
+                                        letterSpacing: '0.12em',
+                                        fontWeight: 400,
+                                        color: '#8B6914',
+                                        textTransform: 'uppercase',
+                                        fontFamily: 'Inter, sans-serif',
+                                        marginBottom: '10px',
+                                    }}>
+                                        Diseño Original
+                                    </div>
+                                    <div style={{
+                                        fontFamily: 'Lora, Georgia, serif',
+                                        fontSize: '18px',
+                                        fontWeight: 400,
+                                        color: '#2C2218',
+                                        lineHeight: 1.4,
+                                        letterSpacing: '-0.03em',
+                                        marginBottom: '6px',
+                                    }}>
+                                        Fuiste construido con propósito
+                                    </div>
+                                    <div style={{
+                                        fontFamily: 'Lora, Georgia, serif',
+                                        fontSize: '13px',
+                                        fontWeight: 400,
+                                        color: '#7A6E62',
+                                        lineHeight: 1.65,
+                                        letterSpacing: '-0.03em',
+                                        marginBottom: '12px',
+                                    }}>
+                                        Tres dimensiones. Un manual. Tu vida como fue diseñada.
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '6px', marginBottom: '8px' }}>
+                                        {[
+                                            { label: 'Carne',    bg: '#FAECE7', color: '#712B13' },
+                                            { label: 'Alma',     bg: '#EEEDFE', color: '#3C3489' },
+                                            { label: 'Espíritu', bg: '#E1F5EE', color: '#085041' },
+                                        ].map(({ label, bg, color }) => (
+                                            <span key={label} style={{
+                                                fontSize: '9px',
+                                                fontWeight: 400,
+                                                letterSpacing: '0.1em',
+                                                textTransform: 'uppercase',
+                                                fontFamily: 'Inter, sans-serif',
+                                                padding: '3px 10px',
+                                                borderRadius: '20px',
+                                                background: bg,
+                                                color,
+                                            }}>
+                                                {label}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <button
+                                        onClick={() => setShowManifiesto(true)}
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            padding: '8px 0 0 0',
+                                            cursor: 'pointer',
+                                            fontFamily: 'Inter, sans-serif',
+                                            fontSize: '11px',
+                                            fontWeight: 400,
+                                            color: '#8B6914',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '4px',
+                                            letterSpacing: '0.02em',
+                                        }}
+                                    >
+                                        Leer manifiesto completo
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                            stroke="#8B6914" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                {/* Capa 1: Para comenzar */}
+                                {entradaModules.length > 0 && (
+                                    <div style={{ marginBottom: '24px' }}>
+                                        <div style={{
+                                            fontSize: '10px',
+                                            letterSpacing: '0.12em',
+                                            fontWeight: 400,
+                                            color: '#7A6E62',
+                                            textTransform: 'uppercase',
+                                            fontFamily: 'Inter, sans-serif',
+                                            marginBottom: '12px',
+                                        }}>
+                                            Para comenzar
+                                        </div>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                            {entradaModules.map(mod => (
+                                                <AudioModuleCard key={mod.id} module={mod} onClick={() => setSelectedModule(mod)} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Capa 2: Series por eje */}
+                                {ejeOrder.map(({ key, label, color, bg }) => {
+                                    const mods = ejeModules[key];
+                                    if (!mods || mods.length === 0) return null;
+                                    return (
+                                        <div key={key} style={{ marginBottom: '24px' }}>
+                                            <div style={{
+                                                display: 'inline-block',
+                                                fontSize: '9px',
+                                                letterSpacing: '0.1em',
+                                                fontWeight: 400,
+                                                textTransform: 'uppercase',
+                                                fontFamily: 'Inter, sans-serif',
+                                                color,
+                                                background: bg,
+                                                padding: '3px 10px',
+                                                borderRadius: '20px',
+                                                marginBottom: '12px',
+                                            }}>
+                                                {label}
+                                            </div>
+                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                                {mods.map(mod => (
+                                                    <AudioModuleCard key={mod.id} module={mod} onClick={() => setSelectedModule(mod)} />
+                                                ))}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+
+                                {/* Fallback: módulos sin layer */}
+                                {unclassifiedModules.length > 0 && (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                                        {unclassifiedModules.map(mod => (
+                                            <AudioModuleCard key={mod.id} module={mod} onClick={() => setSelectedModule(mod)} />
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Empty state */}
+                                {entradaModules.length === 0 &&
+                                 ejeOrder.every(({ key }) => !ejeModules[key]?.length) &&
+                                 unclassifiedModules.length === 0 && (
+                                    <p style={{
+                                        color: '#7A6E62',
+                                        textAlign: 'center',
+                                        padding: '32px 0',
+                                        fontFamily: 'Lora, Georgia, serif',
+                                        fontSize: '14px',
+                                        fontWeight: 400,
+                                    }}>
                                         Aún no hay programas disponibles.
                                     </p>
                                 )}
@@ -440,6 +612,128 @@ const Library = () => {
                     </div>
                 )}
             </div>
+
+            {/* Modal: Manifiesto completo */}
+            {showManifiesto && (
+                <div
+                    onClick={() => setShowManifiesto(false)}
+                    style={{
+                        position: 'fixed',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        background: 'rgba(44, 34, 24, 0.7)',
+                        zIndex: 1000,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end',
+                    }}
+                >
+                    <div
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                            background: '#F9F6F1',
+                            borderRadius: '20px 20px 0 0',
+                            padding: '32px 24px 48px',
+                            maxHeight: '85vh',
+                            overflowY: 'auto',
+                        }}
+                    >
+                        {/* Handle */}
+                        <div style={{
+                            width: '36px',
+                            height: '4px',
+                            background: '#E8E0D4',
+                            borderRadius: '2px',
+                            margin: '0 auto 24px',
+                        }} />
+
+                        {/* Eyebrow */}
+                        <div style={{
+                            fontSize: '10px',
+                            letterSpacing: '0.12em',
+                            fontWeight: 400,
+                            color: '#8B6914',
+                            textTransform: 'uppercase',
+                            fontFamily: 'Inter, sans-serif',
+                            marginBottom: '16px',
+                        }}>
+                            Diseño Original
+                        </div>
+
+                        {/* Párrafos del manifiesto */}
+                        {[
+                            { text: 'Fuiste construido con una precisión que todavía no terminas de entender.', strong: true },
+                            { text: 'No como metáfora. Como hecho.', strong: false },
+                            { text: 'Tienes un cuerpo con sistemas de autorregulación más sofisticados que cualquier tecnología existente. Tienes una mente capaz de reescribirse a sí misma. Tienes una dimensión interior que ninguna resonancia magnética ha podido mapear del todo.', strong: false },
+                            { text: 'Tres capas. Un solo ser. Un diseño con propósito.', strong: true },
+                            { text: 'El problema no es que estés roto. El problema es que nadie te entregó el manual.', strong: false },
+                            { text: 'DISEÑO ORIGINAL es eso: el manual. Una colección de audio construida desde la sabiduría más antigua del mundo, validada por la ciencia más reciente, traducida al lenguaje de tu vida cotidiana.', strong: false },
+                            { text: 'No importa desde dónde llegues. Importa hacia dónde puedes ir.', strong: false },
+                        ].map(({ text, strong }, i) => (
+                            <p key={i} style={{
+                                fontFamily: 'Lora, Georgia, serif',
+                                fontSize: '15px',
+                                lineHeight: 1.7,
+                                letterSpacing: '-0.03em',
+                                color: strong ? '#2C2218' : '#7A6E62',
+                                fontWeight: 400,
+                                marginBottom: '16px',
+                                marginTop: 0,
+                            }}>
+                                {text}
+                            </p>
+                        ))}
+
+                        {/* Ejes */}
+                        <div style={{
+                            textAlign: 'center',
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '10px',
+                            letterSpacing: '0.12em',
+                            fontWeight: 400,
+                            color: '#8B6914',
+                            textTransform: 'uppercase',
+                            margin: '24px 0',
+                        }}>
+                            Carne · Alma · Espíritu
+                        </div>
+
+                        {/* Párrafo final */}
+                        <p style={{
+                            fontFamily: 'Lora, Georgia, serif',
+                            fontSize: '15px',
+                            lineHeight: 1.7,
+                            letterSpacing: '-0.03em',
+                            color: '#7A6E62',
+                            fontWeight: 400,
+                            margin: '0 0 32px 0',
+                            textAlign: 'center',
+                        }}>
+                            Cada serie trabaja una dimensión específica de lo que eres. Puedes empezar por donde más lo necesites.
+                        </p>
+
+                        {/* Botón cerrar */}
+                        <button
+                            onClick={() => setShowManifiesto(false)}
+                            style={{
+                                display: 'block',
+                                width: '100%',
+                                padding: '14px',
+                                background: '#2563EB',
+                                color: '#FFFFFF',
+                                border: 'none',
+                                borderRadius: '20px',
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '14px',
+                                fontWeight: 400,
+                                cursor: 'pointer',
+                                minHeight: '44px',
+                            }}
+                        >
+                            Explorar las series
+                        </button>
+                    </div>
+                </div>
+            )}
         </Layout >
     );
 };
