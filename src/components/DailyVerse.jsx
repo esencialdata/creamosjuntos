@@ -40,40 +40,51 @@ const DailyVerse = ({ verse }) => {
 
     return (
         <section id="daily-verse" style={{ marginBottom: 'var(--spacing-lg)', textAlign: 'center', position: 'relative' }}>
-            <h2 style={{
-                fontSize: '0.875rem',
+            <p style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontSize: '11px',
                 textTransform: 'uppercase',
-                letterSpacing: '2px',
+                letterSpacing: '0.12em',
+                fontWeight: 400,
                 color: 'var(--color-accent)',
-                marginBottom: 'var(--spacing-sm)'
+                marginBottom: 'var(--spacing-sm)',
             }}>
                 Cita del día
-            </h2>
+            </p>
             <div style={{ maxWidth: '80%', margin: '0 auto', position: 'relative' }}>
                 <p style={{
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: "'Lora', Georgia, serif",
                     fontSize: '1.5rem',
-                    lineHeight: '1.5',
-                    color: 'var(--color-text-primary)'
+                    lineHeight: 1.5,
+                    letterSpacing: '-0.03em',
+                    fontWeight: 400,
+                    color: 'var(--color-text-primary)',
                 }}>
                     "{verse.text}"
                 </p>
                 <div style={{
                     marginTop: 'var(--spacing-sm)',
+                    fontFamily: "'Lora', Georgia, serif",
                     fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: '1rem',
                     color: 'var(--color-text-secondary)',
-                    marginBottom: 'var(--spacing-md)'
+                    marginBottom: 'var(--spacing-md)',
                 }}>
                     — {verse.reference}
                 </div>
                 <p style={{
+                    fontFamily: "'Lora', Georgia, serif",
                     fontSize: '1rem',
+                    lineHeight: 1.65,
+                    letterSpacing: '-0.03em',
+                    fontWeight: 400,
                     color: 'var(--color-text-secondary)',
                     maxWidth: '500px',
                     margin: '0 auto',
-                    borderLeft: '2px solid var(--color-border)',
+                    borderLeft: '2px solid var(--color-accent)',
                     paddingLeft: 'var(--spacing-sm)',
-                    textAlign: 'left'
+                    textAlign: 'left',
                 }}>
                     {verse.comment}
                 </p>
