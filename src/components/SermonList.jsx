@@ -112,14 +112,17 @@ const SermonList = ({ schedule }) => {
 
     return (
         <section style={{ marginBottom: 'var(--spacing-md)', position: 'relative' }}>
-            <h3 style={{
-                fontSize: '1.25rem',
-                fontWeight: '600',
+            <p style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                fontWeight: 400,
+                color: 'var(--color-text-secondary)',
                 marginBottom: '1rem',
-                color: 'var(--color-text-primary)'
             }}>
                 Mensajes de esta semana
-            </h3>
+            </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {sermonEvents.map(event => {
@@ -158,16 +161,18 @@ const SermonList = ({ schedule }) => {
 
                                     return (
                                         <h4 style={{
+                                            fontFamily: "'Lora', Georgia, serif",
                                             fontSize: '1rem',
-                                            fontWeight: '700',
+                                            fontWeight: 400,
+                                            letterSpacing: '-0.03em',
+                                            lineHeight: 1.4,
                                             marginBottom: '0.25rem',
-                                            lineHeight: '1.3'
                                         }}>
                                             {displayTitle}
                                         </h4>
                                     );
                                 })()}
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem' }}>
+                                <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: '1rem', fontWeight: 400, lineHeight: 1.65, letterSpacing: '-0.03em', color: 'var(--color-text-secondary)', marginTop: '0.25rem' }}>
                                     {event.objective}
                                 </p>
                             </div>

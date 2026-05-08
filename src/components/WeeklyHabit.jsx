@@ -24,14 +24,18 @@ const WeeklyHabit = ({ habit, toggleHabit, isCompleted }) => {
     return (
         <section className="card">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <h2 style={{
-                    fontSize: '0.875rem',
+                <p style={{
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontSize: '11px',
                     textTransform: 'uppercase',
+                    letterSpacing: '0.12em',
+                    fontWeight: 400,
+                    color: 'var(--color-accent)',
                     marginBottom: 'var(--spacing-sm)',
-                    color: 'var(--color-accent)'
+                    margin: '0 0 var(--spacing-sm) 0',
                 }}>
                     Hábito de la semana
-                </h2>
+                </p>
                 <button
                     onClick={handleShare}
                     style={{
@@ -53,13 +57,13 @@ const WeeklyHabit = ({ habit, toggleHabit, isCompleted }) => {
                 </button>
             </div>
 
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.25rem' }}>{habit.name}</h3>
+            <h3 style={{ fontFamily: "'Lora', Georgia, serif", fontSize: '1.3rem', fontWeight: 400, letterSpacing: '-0.03em', marginBottom: '0.25rem' }}>{habit.name}</h3>
             {habit.reference && (
                 <small style={{ display: 'block', marginBottom: '1rem', color: 'var(--color-text-secondary)' }}>
                     {habit.reference}
                 </small>
             )}
-            <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>
+            <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: '1.1rem', fontWeight: 400, lineHeight: 1.65, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
                 {habit.action}
             </p>
 

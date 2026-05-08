@@ -156,8 +156,10 @@ const AudioCapsuleCard = ({ capsule }) => {
                 <div style={{ flex: 1, overflow: 'hidden' }}>
                     <h4 style={{
                         margin: 0,
+                        fontFamily: "'Lora', Georgia, serif",
                         fontSize: '1rem',
-                        fontWeight: '600',
+                        fontWeight: 400,
+                        letterSpacing: '-0.03em',
                         color: 'var(--color-text-primary)',
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
@@ -243,9 +245,12 @@ const AudioCapsuleCard = ({ capsule }) => {
                 <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--color-border)' }}>
                     <p style={{
                         margin: 0,
-                        fontSize: '0.83rem',
+                        fontFamily: "'Lora', Georgia, serif",
+                        fontSize: '1rem',
+                        fontWeight: 400,
+                        letterSpacing: '-0.03em',
                         color: 'var(--color-text-secondary)',
-                        lineHeight: 1.55,
+                        lineHeight: 1.65,
                         overflow: 'hidden',
                         display: '-webkit-box',
                         WebkitBoxOrient: 'vertical',
