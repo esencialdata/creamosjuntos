@@ -1011,7 +1011,7 @@ export const CONFIG = {
         {
             id: 38,
             weekId: 23,
-            availableFrom: "2026-05-08T00:00:00",
+            availableFrom: "2026-05-09T00:00:00",
             title: "NO SABEN QUE NO SABEN",
             description: "Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él.",
             styleVariant: 'contemplativo',
@@ -1031,7 +1031,9 @@ export const CONFIG = {
                     type: 'cover',
                     title: 'No Saben que No Saben',
                     subtitle: 'Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él',
-                    citation: 'Colosenses 2:8 · Mateo 24:5 · 1 Juan 4:1',
+                    gradient: 'radial-gradient(ellipse at 25% 65%, rgba(107, 30, 42, 0.45) 0%, transparent 58%), linear-gradient(160deg, #0a0407 0%, #1a080d 30%, #3d1220 60%, #6b1e2a 82%, #9b3a4a 100%)',
+                    gradientNumeral: '?',
+                    gradientLabel: 'Colosenses 2:8 · Mateo 24:5 · 1 Juan 4:1',
                     footerText: 'Campo David · IDI Querétaro',
                 },
                 {
