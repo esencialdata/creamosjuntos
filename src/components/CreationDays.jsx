@@ -55,7 +55,10 @@ const DAYS = [
 const CreationDays = () => {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const day = DAYS[new Date().getDay()];
+  const now = new Date();
+  const afterSunset = now.getHours() >= 19;
+  const dayIndex = (now.getDay() + (afterSunset ? 1 : 0)) % 7;
+  const day = DAYS[dayIndex];
 
   useEffect(() => {
     const el = sectionRef.current;
