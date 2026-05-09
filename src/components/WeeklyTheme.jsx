@@ -286,6 +286,47 @@ const WeeklyTheme = ({ theme = {} }) => {
                                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
                                 />
                             </div>
+                        ) : slide.gradient ? (
+                            <div style={{
+                                margin: '1.5rem 0',
+                                width: '100%',
+                                height: '200px',
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                                background: slide.gradient,
+                                position: 'relative',
+                                flexShrink: 0,
+                            }}>
+                                {slide.gradientNumeral && (
+                                    <span aria-hidden="true" style={{
+                                        position: 'absolute',
+                                        top: '0.5rem',
+                                        right: '1rem',
+                                        fontSize: '120px',
+                                        lineHeight: 1,
+                                        fontWeight: 400,
+                                        color: 'rgba(255,255,255,0.06)',
+                                        letterSpacing: '-0.05em',
+                                        fontFamily: "'Inter', system-ui, sans-serif",
+                                        userSelect: 'none',
+                                        pointerEvents: 'none',
+                                    }}>{slide.gradientNumeral}</span>
+                                )}
+                                {slide.gradientLabel && (
+                                    <p style={{
+                                        position: 'absolute',
+                                        bottom: '1rem',
+                                        left: '1.25rem',
+                                        fontFamily: "'Inter', system-ui, sans-serif",
+                                        fontSize: '10px',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.12em',
+                                        fontWeight: 400,
+                                        color: 'rgba(255,255,255,0.45)',
+                                        margin: 0,
+                                    }}>{slide.gradientLabel}</p>
+                                )}
+                            </div>
                         ) : slide.visual && (
                             <div style={{ fontSize: '4rem', margin: '2rem 0' }}>
                                 {slide.visual}
