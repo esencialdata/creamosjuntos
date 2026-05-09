@@ -825,7 +825,7 @@ export const CONFIG = {
         {
             id: 38,
             weekId: 24,
-            availableFrom: "2026-05-12T00:00:00",
+            availableFrom: "2026-05-08T00:00:00",
             title: "NO SABEN QUE NO SABEN",
             description: "Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él.",
             styleVariant: 'contemplativo',
