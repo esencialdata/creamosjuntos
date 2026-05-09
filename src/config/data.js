@@ -824,7 +824,7 @@ export const CONFIG = {
         // ── ARCHIVO (RECURSOS) · SEMANA 24 · Lun May 12, 2026 ───────────────────
         {
             id: 38,
-            weekId: 24,
+            weekId: 23,
             availableFrom: "2026-05-08T00:00:00",
             title: "NO SABEN QUE NO SABEN",
             description: "Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él.",
