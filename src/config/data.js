@@ -821,6 +821,123 @@ export const CONFIG = {
 
     themes: [
 
+        // ── ARCHIVO (RECURSOS) · SEMANA 24 · Lun May 12, 2026 ───────────────────
+        {
+            id: 38,
+            weekId: 24,
+            availableFrom: "2026-05-12T00:00:00",
+            title: "NO SABEN QUE NO SABEN",
+            description: "Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él.",
+            styleVariant: 'contemplativo',
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#6B1E2A',
+                fontSerif: 'Lora, Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: 'none',
+                cardShadow: 'rgba(44, 34, 24, 0.10) 0px 8px 32px -4px',
+                backgroundImage: 'none',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'No Saben que No Saben',
+                    subtitle: 'Doctrinas que parecen predicar al Hijo de Dios pero que desvían de Él',
+                    citation: 'Colosenses 2:8 · Mateo 24:5 · 1 Juan 4:1',
+                    footerText: 'Campo David · IDI Querétaro',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL ERROR MÁS PELIGROSO',
+                    title: 'El error más peligroso no es el que se ve.',
+                    body: 'Es el que se siente como verdad.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'DIAGNÓSTICO',
+                    title: 'Hay sistemas que tienen todo lo correcto en la superficie.',
+                    body: 'el nombre de Cristo ✓\nla Biblia en la mano ✓\nfervor genuino ✓\ntestimonios de cambio ✓\n\nY aun así — en su arquitectura doctrinal — contradicen la Palabra de Dios.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'PRINCIPIO · Platón, Apología 21d',
+                    title: 'El hombre más peligroso no es el ignorante.',
+                    body: 'Es el que no sabe que no sabe.\n\nSu certeza interna le cierra la puerta a la corrección.\n\nSócrates lo dijo hace 2,400 años.',
+                    citation: 'El hombre más peligroso no es el ignorante. Es el que no sabe que no sabe.',
+                    reference: 'Platón, Apología de Sócrates 21d',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA LEY DEL ERROR',
+                    title: 'El error doctrinal no entra por la puerta principal.',
+                    body: 'Entra de contrabando — mezclado entre verdades parciales.',
+                    citation: '...introducirán encubiertamente herejías de perdición.',
+                    reference: '2 Pedro 2:1 (pareisáxousin: infiltrar de lado)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'HISTORIA · Éxodo 32:5',
+                    title: 'Israel no abandonó a Jehová con el becerro de oro.',
+                    body: 'Aarón convocó una fiesta para Jehová alrededor del ídolo.\n\nEl error no era la ausencia de Dios en su mente.\nEra la redefinición del modo de adorarlo.',
+                    citation: 'Mañana será fiesta para Jehová.',
+                    reference: 'Éxodo 32:5',
+                },
+                {
+                    type: 'action',
+                    title: '¿Cómo detectar el error disfrazado?',
+                    subtitle: 'Los 4 marcadores',
+                    steps: [
+                        '01 — Fuente de autoridad paralela: Gálatas 1:8',
+                        '02 — Verdad parcial sistemática: 2 Pedro 3:16',
+                        '03 — El fenómeno como validación: Mateo 24:24',
+                        '04 — Apariencia sin obediencia integral: 2 Timoteo 3:5',
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA SINCERIDAD NO ES GARANTÍA',
+                    title: 'Saulo era sincero cuando perseguía a la Iglesia.',
+                    body: 'Hechos 26:9\n\nNadab y Abiú eran sacerdotes ungidos cuando ofrecieron fuego extraño.\nLevítico 10:1-2\n\nLa semilla doctrinal contaminada produce cosecha contaminada — aunque el agricultor sea el más sincero del mundo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'JOSÍAS · 2 Reyes 22',
+                    title: 'El pueblo adoraba. El templo funcionaba. Jehová era invocado.',
+                    body: 'Pero el Libro de la Ley llevaba décadas sin ser leído.\n\nCuando lo encontraron y lo leyeron ante el rey:\n"...rasgó sus vestidos."\n\nLa reforma más radical en la historia de Israel no la inició un profeta carismático. La inició el encuentro con el texto.',
+                    citation: '...rasgó sus vestidos.',
+                    reference: '2 Reyes 22:11',
+                },
+                {
+                    type: 'action',
+                    title: 'Cinco preguntas para discernir',
+                    subtitle: 'Los 5 criterios',
+                    steps: [
+                        '01 — ¿Añade o quita de la Escritura?: Apocalipsis 22:18-19',
+                        '02 — ¿Cumple la Ley o la anula?: Mateo 5:17',
+                        '03 — ¿Lleva la conducta a la santidad o la justifica?: Mateo 7:20',
+                        '04 — ¿El maestro vive lo que enseña?: Mateo 23:3',
+                        '05 — ¿Produce libertad o dependencia?: Juan 8:32',
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'PRINCIPIO FINAL · Juan 17:17',
+                    title: '"Santifícalos en tu verdad: tu palabra es verdad."',
+                    body: 'La santificación ocurre en la verdad.\nNo en la sinceridad. No en el fervor. En la verdad.\n\nPalabra → Santificación → Discernimiento',
+                    citation: 'Santifícalos en tu verdad: tu palabra es verdad.',
+                    reference: 'Juan 17:17',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CIERRE · Campo David · IDI Querétaro',
+                    title: 'El antídoto al "no saben que no saben" no es la burla al engañado.',
+                    body: 'Es poner el Libro de la Ley delante de ellos.\n\nLeerlo. Exponerlo. Contrastarlo.',
+                },
+            ],
+        },
+
         // ── ARCHIVO (RECURSOS) · SEMANA 23 · Mar May 5, 2026 ────────────────────
         {
             id: 36,
