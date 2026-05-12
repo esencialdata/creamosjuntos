@@ -78,7 +78,7 @@ const Library = () => {
     const audioModules = CONFIG.audioModules || [];
     const entradaModules = audioModules.filter(m => m.layer === 'entrada' && isModuleAvailable(m));
     const ejeOrder = [
-        { key: 'carne',    label: 'Carne',    color: '#D85A30', bg: '#FAECE7' },
+        { key: 'carne',    label: 'Cuerpo',   color: '#D85A30', bg: '#FAECE7' },
         { key: 'alma',     label: 'Alma',     color: '#3C3489', bg: '#EEEDFE' },
         { key: 'espiritu', label: 'Espíritu', color: '#085041', bg: '#E1F5EE' },
     ];
