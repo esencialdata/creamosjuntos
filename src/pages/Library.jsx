@@ -452,7 +452,7 @@ const Library = () => {
                                     </div>
                                     <div style={{ display: 'flex', gap: '6px', marginBottom: '8px' }}>
                                         {[
-                                            { label: 'Carne',    bg: '#FAECE7', color: '#712B13' },
+                                            { label: 'Cuerpo',   bg: '#FAECE7', color: '#712B13' },
                                             { label: 'Alma',     bg: '#EEEDFE', color: '#3C3489' },
                                             { label: 'Espíritu', bg: '#E1F5EE', color: '#085041' },
                                         ].map(({ label, bg, color }) => (
