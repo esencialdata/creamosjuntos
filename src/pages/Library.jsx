@@ -694,7 +694,7 @@ const Library = () => {
                             textTransform: 'uppercase',
                             margin: '24px 0',
                         }}>
-                            Carne · Alma · Espíritu
+                            Cuerpo · Alma · Espíritu
                         </div>
 
                         {/* Párrafo final */}
