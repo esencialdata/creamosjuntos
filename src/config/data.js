@@ -891,14 +891,27 @@ export const CONFIG = {
     dailyVerse: getDailyVerse(), // Dynamically selected on load
     audioModules: [
         {
-            id: '__placeholder-carne',
+            id: 'mod-diseno-original-carne',
             layer: 'eje',
             eje: 'carne',
-            title: '[PRÓXIMO] Tu Cuerpo No Es el Enemigo',
+            title: 'DISEÑO ORIGINAL — CARNE: La Fisiología de la Santidad',
             coverImageUrl: '',
-            description: 'Serie en desarrollo.',
+            description: 'El cuerpo no es el enemigo. Es el templo. Cuatro episodios sobre la fisiología inscrita en el diseño original del ser humano: nutrición, neuroinflamación, reposo y ayuno — desde Génesis 2:7 hasta la ciencia contemporánea.',
             accentColor: '#D85A30',
-            episodes: []
+            seriesTag: 'DISEÑO ORIGINAL',
+            microSeries: '1.0 — La Fisiología de la Santidad',
+            episodes: [
+                {
+                    id: 1,
+                    title: '1. El Hombre de barro',
+                    description: 'El cuerpo es barro literal. Génesis 2:7 no es metáfora, es química. El eje intestino-cerebro es la infraestructura fisiológica del templo del Espíritu Santo.',
+                    textBase: 'Génesis 2:7 / 1 Corintios 6:19',
+                    duration: '6:34',
+                    audioUrl: '/do-intro.mp3',
+                    color: '#D85A30',
+                    releaseDate: '2026-05-11'
+                }
+            ]
         },
         {
             id: '__placeholder-alma',
