@@ -103,7 +103,7 @@ const DesignOriginalCard = ({ coverImageUrl, availableCount, onClick }) => {
                 {/* Pills de ejes */}
                 <div style={{ display: 'flex', gap: '6px', marginBottom: '14px', flexWrap: 'wrap' }}>
                     {[
-                        { label: 'Carne',    bg: '#FAECE7', color: '#712B13' },
+                        { label: 'Cuerpo',   bg: '#FAECE7', color: '#712B13' },
                         { label: 'Alma',     bg: '#EEEDFE', color: '#3C3489' },
                         { label: 'Espíritu', bg: '#E1F5EE', color: '#085041' },
                     ].map(({ label: pillLabel, bg, color }) => (

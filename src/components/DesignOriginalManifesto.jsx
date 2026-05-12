@@ -93,7 +93,7 @@ const DesignOriginalManifesto = () => {
                 textAlign: 'center',
                 margin: '0 0 1.5rem 0',
             }}>
-                Carne · Alma · Espíritu
+                Cuerpo · Alma · Espíritu
             </p>
 
             <p style={{ ...prose, marginBottom: 0, textAlign: 'center' }}>
