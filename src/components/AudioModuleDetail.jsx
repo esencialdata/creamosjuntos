@@ -1,7 +1,13 @@
 import React from 'react';
 import AudioCapsuleCard from './AudioCapsuleCard';
 
-const AudioModuleDetail = ({ module, onBack }) => {
+const getEpisodeState = (ep) => {
+    if (!ep.audioUrl) return 'coming_soon';
+    if (!ep.releaseDate) return 'available';
+    return new Date(ep.releaseDate + 'T00:00:00') <= new Date() ? 'available' : 'coming_soon';
+};
+
+const AudioModuleDetail = ({ module, onBack, onEpisodeClick }) => {
     const accent = module.accentColor || '#2563EB';
 
     return (
@@ -131,12 +137,48 @@ const AudioModuleDetail = ({ module, onBack }) => {
 
             {/* Episode list */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                {module.episodes.map((episode) => (
-                    <AudioCapsuleCard
-                        key={episode.id}
-                        capsule={episode}
-                    />
-                ))}
+                {module.episodes.map((episode) => {
+                    if (onEpisodeClick) {
+                        const state = getEpisodeState(episode);
+                        return (
+                            <div
+                                key={episode.id}
+                                onClick={() => state === 'available' && onEpisodeClick(episode)}
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: '12px',
+                                    padding: '14px 0',
+                                    borderBottom: '1px solid var(--color-border)',
+                                    cursor: state === 'available' ? 'pointer' : 'default',
+                                    opacity: state === 'coming_soon' ? 0.45 : 1,
+                                }}
+                            >
+                                <span style={{
+                                    fontSize: '12px', color: '#9CA3AF',
+                                    width: '20px', flexShrink: 0, textAlign: 'right',
+                                    fontFamily: 'Inter, system-ui, sans-serif',
+                                }}>
+                                    {episode.numero}
+                                </span>
+                                <div style={{ flex: 1 }}>
+                                    <p style={{
+                                        fontFamily: 'Inter, system-ui, sans-serif',
+                                        fontSize: '14px', color: 'var(--color-text)',
+                                        margin: 0, lineHeight: 1.4,
+                                    }}>
+                                        {episode.title?.replace(/^\d+\.\s*/, '') || episode.title}
+                                    </p>
+                                </div>
+                                <span style={{
+                                    fontFamily: 'Inter, system-ui, sans-serif',
+                                    fontSize: '12px', color: '#9CA3AF', flexShrink: 0,
+                                }}>
+                                    {state === 'available' ? episode.duration : 'Próximamente'}
+                                </span>
+                            </div>
+                        );
+                    }
+                    return <AudioCapsuleCard key={episode.id} capsule={episode} />;
+                })}
             </div>
         </div>
     );

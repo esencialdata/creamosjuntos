@@ -902,14 +902,60 @@ export const CONFIG = {
             microSeries: '1.0 — La Fisiología de la Santidad',
             episodes: [
                 {
-                    id: 1,
+                    id: 'do-cuerpo-1-1',
+                    numero: 1,
                     title: '1. El cuerpo de barro',
+                    descripcionCorta: 'Nadie te dijo que el cuerpo importa. Eso cambia aquí.',
+                    descripcionLarga: 'Este episodio explora el eje intestino-cerebro y por qué Levítico 11 es fisiología preventiva, no religión arbitraria. Con Daniel 1 como narrativa ancla: diez días de legumbres vs. la mesa del rey. Resultado: medible, documentado, irreversible.',
                     description: 'El cuerpo es barro literal. Génesis 2:7 no es metáfora, es química. El eje intestino-cerebro es la infraestructura fisiológica del templo del Espíritu Santo.',
-                    textBase: 'Génesis 2:7 / 1 Corintios 6:19',
+                    textoBase: {
+                        cita: 'Entonces Jehová Dios formó al hombre del polvo de la tierra, y sopló en su nariz aliento de vida; y fue el hombre un alma viviente.',
+                        referencia: 'Génesis 2:7',
+                        version: 'RVA'
+                    },
                     duration: '6:34',
                     audioUrl: '/do-c-ep1.mp3',
                     color: '#D85A30',
                     releaseDate: '2026-05-12'
+                },
+                {
+                    id: 'do-cuerpo-1-2',
+                    numero: 2,
+                    title: '2. Neuroinflamación y la Erosión del Dominio Propio',
+                    descripcionCorta: 'La inflamación crónica bloquea el acceso al dominio propio.',
+                    descripcionLarga: '',
+                    description: '',
+                    textoBase: null,
+                    duration: null,
+                    audioUrl: null,
+                    color: '#D85A30',
+                    releaseDate: null
+                },
+                {
+                    id: 'do-cuerpo-1-3',
+                    numero: 3,
+                    title: '3. El Sábado: Cronobiología y Restauración Celular',
+                    descripcionCorta: 'El reposo no es debilidad. Es el sistema de restauración más antiguo del mundo.',
+                    descripcionLarga: '',
+                    description: '',
+                    textoBase: null,
+                    duration: null,
+                    audioUrl: null,
+                    color: '#D85A30',
+                    releaseDate: null
+                },
+                {
+                    id: 'do-cuerpo-1-4',
+                    numero: 4,
+                    title: '4. El Ayuno: Autofagia y la Bioquímica de la Voluntad',
+                    descripcionCorta: 'El mandato viene antes que la ciencia. La ciencia lo confirma.',
+                    descripcionLarga: '',
+                    description: '',
+                    textoBase: null,
+                    duration: null,
+                    audioUrl: null,
+                    color: '#D85A30',
+                    releaseDate: null
                 }
             ]
         },

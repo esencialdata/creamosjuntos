@@ -9,6 +9,7 @@ import TempleGrowth from '../components/TempleGrowth';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import AudioModuleCard from '../components/AudioModuleCard';
 import DesignOriginalCard from '../components/DesignOriginalCard';
+import EpisodeCard from '../components/EpisodeCard';
 import CreationDays from '../components/CreationDays';
 import { CONFIG } from '../config/data';
 import { updateStreak } from '../utils/storage';
@@ -141,8 +142,27 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                         const hasAudio = CONFIG.audioCapsules && CONFIG.audioCapsules.length > 0;
                         const latestAudio = hasAudio ? CONFIG.audioCapsules[CONFIG.audioCapsules.length - 1] : null;
 
+                        const now = new Date();
+                        let latestDOEpisode = null;
+                        for (const mod of (CONFIG.audioModules || [])) {
+                            if (!mod.seriesTag) continue;
+                            for (const ep of (mod.episodes || [])) {
+                                if (!ep.audioUrl) continue;
+                                const rd = ep.releaseDate ? new Date(ep.releaseDate + 'T00:00:00') : null;
+                                if (!rd || rd <= now) { latestDOEpisode = { episode: ep, module: mod }; break; }
+                            }
+                            if (latestDOEpisode) break;
+                        }
+
                         return (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
+                                {latestDOEpisode && (
+                                    <EpisodeCard
+                                        key={`do-ep-${latestDOEpisode.episode.id}`}
+                                        episode={latestDOEpisode.episode}
+                                        module={latestDOEpisode.module}
+                                    />
+                                )}
                                 {latestAudio && <AudioCapsuleCard key={`latest-audio-${latestAudio.id}`} capsule={latestAudio} />}
                                 <WeeklyTheme key={`latest-theme-${latestTheme.id}`} theme={latestTheme} />
                             </div>
@@ -173,6 +193,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                     const isModuleAvailable = (mod) => {
                         if (!mod.episodes || mod.episodes.length === 0) return false;
                         return mod.episodes.some(ep => {
+                            if (!ep.audioUrl) return false;
                             if (!ep.releaseDate) return true;
                             return new Date(ep.releaseDate + 'T00:00:00') <= now;
                         });

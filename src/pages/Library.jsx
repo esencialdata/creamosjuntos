@@ -5,6 +5,7 @@ import WeeklyTheme from '../components/WeeklyTheme';
 import AudioCapsuleCard from '../components/AudioCapsuleCard';
 import AudioModuleCard from '../components/AudioModuleCard';
 import AudioModuleDetail from '../components/AudioModuleDetail';
+import EpisodeDetail from '../components/EpisodeDetail';
 import { CONFIG, CURRENT_MONTH_LABEL, CURRENT_MONTH_VERSES, VERSES_POOL } from '../config/data';
 import { CITAS_HISTORIAL } from '../resources/citas_biblicas';
 import { shareContent } from '../utils/share';
@@ -13,6 +14,7 @@ import { useBookmarks } from '../hooks/useBookmarks';
 const Library = () => {
     const [activeTab, setActiveTab] = useState('themes');
     const [selectedModule, setSelectedModule] = useState(null);
+    const [selectedEpisode, setSelectedEpisode] = useState(null);
     const [selectedTheme, setSelectedTheme] = useState(null);
     const [showManifiesto, setShowManifiesto] = useState(false);
     const { toggleBookmark, isBookmarked } = useBookmarks();
@@ -37,7 +39,14 @@ const Library = () => {
 
         const anchor = getAnchor();
         
-        if (location.state?.openModule) {
+        if (location.state?.openEpisode) {
+            setActiveTab('audios');
+            const allMods = CONFIG.audioModules || [];
+            for (const mod of allMods) {
+                const ep = (mod.episodes || []).find(e => e.id === location.state.openEpisode);
+                if (ep) { setSelectedModule(mod); setSelectedEpisode(ep); break; }
+            }
+        } else if (location.state?.openModule) {
             setActiveTab('audios');
             const mod = CONFIG.audioModules?.find(m => m.id === location.state.openModule);
             if (mod) setSelectedModule(mod);
@@ -70,6 +79,7 @@ const Library = () => {
         if (!mod.episodes || mod.episodes.length === 0) return false;
         const now = new Date();
         return mod.episodes.some(ep => {
+            if (!ep.audioUrl) return false;
             if (!ep.releaseDate) return true;
             return new Date(ep.releaseDate + 'T00:00:00') <= now;
         });
@@ -403,10 +413,20 @@ const Library = () => {
 
                 {activeTab === 'audios' && (
                     <div>
-                        {selectedModule ? (
+                        {selectedEpisode ? (
+                            <EpisodeDetail
+                                episode={selectedEpisode}
+                                module={selectedModule}
+                                onBack={() => setSelectedEpisode(null)}
+                                onSelectEpisode={(ep) => setSelectedEpisode(ep)}
+                            />
+                        ) : selectedModule ? (
                             <AudioModuleDetail
                                 module={selectedModule}
                                 onBack={() => setSelectedModule(null)}
+                                onEpisodeClick={selectedModule.seriesTag === 'DISEÑO ORIGINAL'
+                                    ? (ep) => setSelectedEpisode(ep)
+                                    : undefined}
                             />
                         ) : (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
