@@ -907,7 +907,7 @@ export const CONFIG = {
                     description: 'El cuerpo es barro literal. Génesis 2:7 no es metáfora, es química. El eje intestino-cerebro es la infraestructura fisiológica del templo del Espíritu Santo.',
                     textBase: 'Génesis 2:7 / 1 Corintios 6:19',
                     duration: '6:34',
-                    audioUrl: '/do-c-e1.mp3',
+                    audioUrl: '/do-c-ep1.mp3',
                     color: '#D85A30',
                     releaseDate: '2026-05-12'
                 }
