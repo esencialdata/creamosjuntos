@@ -905,7 +905,7 @@ export const CONFIG = {
                     id: 'do-cuerpo-1-1',
                     numero: 1,
                     title: '1. El cuerpo de barro',
-                    descripcionCorta: 'Nadie te dijo que el cuerpo importa. Eso cambia aquí.',
+                    descripcionCorta: 'Fuiste formado, no solo creado. Hay una diferencia.',
                     descripcionLarga: 'Dios no te creó de palabra. Te formó. Con sus manos. El hebreo tiene dos verbos distintos — y la diferencia cambia todo lo que creías sobre el cuerpo y su lugar en la fe.',
                     description: 'El cuerpo es barro literal. Génesis 2:7 no es metáfora, es química. El eje intestino-cerebro es la infraestructura fisiológica del templo del Espíritu Santo.',
                     textoBase: {
@@ -914,6 +914,7 @@ export const CONFIG = {
                         version: 'RVA'
                     },
                     duration: '6:34',
+                    portadaUrl: '/barro.png',
                     audioUrl: '/do-c-ep1.mp3',
                     color: '#D85A30',
                     releaseDate: '2026-05-12'
