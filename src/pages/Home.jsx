@@ -163,7 +163,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
                                         module={latestDOEpisode.module}
                                     />
                                 )}
-                                {latestAudio && <AudioCapsuleCard key={`latest-audio-${latestAudio.id}`} capsule={latestAudio} />}
+                                {/* latestAudio oculto — audioCapsules ya no son novedad */}
                                 <WeeklyTheme key={`latest-theme-${latestTheme.id}`} theme={latestTheme} />
                             </div>
                         );
