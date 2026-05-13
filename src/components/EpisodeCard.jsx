@@ -69,28 +69,92 @@ const EpisodeCard = ({ episode, module }) => {
             onMouseLeave={e => e.currentTarget.style.boxShadow = 'rgba(44, 34, 24, 0.1) 0px 8px 32px -4px'}
         >
             {/* Cover 16:9 */}
-            {episode.portadaUrl ? (
-                <img
-                    src={episode.portadaUrl}
-                    alt={episode.title}
-                    style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }}
-                />
-            ) : (
-                <div style={{
-                    width: '100%', aspectRatio: '16/9',
-                    background: '#111827',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    padding: '20px',
-                }}>
-                    <p style={{
-                        fontFamily: 'Georgia, serif',
-                        fontSize: '16px', color: '#ffffff',
-                        textAlign: 'center', margin: 0, lineHeight: 1.4,
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}>
+                {episode.portadaUrl ? (
+                    <img
+                        src={episode.portadaUrl}
+                        alt={episode.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                ) : (
+                    /* Portada editorial contemplativa — gradiente tierra/barro */
+                    <div style={{
+                        width: '100%', height: '100%',
+                        background: 'linear-gradient(160deg, #1c1208 0%, #4a2e10 30%, #8a5c28 55%, #c4904a 80%, #e8d0a0 100%)',
                     }}>
-                        {displayTitle}
-                    </p>
+                        {/* Numeral fantasma decorativo */}
+                        <span aria-hidden="true" style={{
+                            position: 'absolute',
+                            bottom: '-16px', right: '10px',
+                            fontFamily: 'Lora, Georgia, serif',
+                            fontSize: '120px', lineHeight: 1,
+                            fontWeight: 400,
+                            color: 'rgba(255, 255, 255, 0.07)',
+                            letterSpacing: '-0.06em',
+                            userSelect: 'none', pointerEvents: 'none',
+                        }}>
+                            {episode.numero || 1}
+                        </span>
+                        {/* Eyebrow micro-serie */}
+                        <p style={{
+                            position: 'absolute',
+                            top: '14px', left: '16px',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontSize: '10px', textTransform: 'uppercase',
+                            letterSpacing: '0.12em', fontWeight: 400,
+                            color: 'rgba(255,255,255,0.5)',
+                            margin: 0,
+                        }}>
+                            {module.microSeries || 'La Fisiología de la Santidad'}
+                        </p>
+                        {/* Divisor acento */}
+                        <div style={{
+                            position: 'absolute',
+                            bottom: '44px', left: '16px',
+                            width: '2rem', height: '1px',
+                            background: 'rgba(201, 148, 74, 0.8)',
+                        }} />
+                        {/* Título en portada */}
+                        <p style={{
+                            position: 'absolute',
+                            bottom: '14px', left: '16px', right: '60px',
+                            fontFamily: 'Lora, Georgia, serif',
+                            fontSize: '15px', fontWeight: 400,
+                            color: 'rgba(255,255,255,0.92)',
+                            lineHeight: 1.4, letterSpacing: '-0.02em',
+                            margin: 0,
+                        }}>
+                            {displayTitle}
+                        </p>
+                    </div>
+                )}
+
+                {/* Play button — esquina inferior izquierda */}
+                <div style={{
+                    position: 'absolute',
+                    bottom: episode.portadaUrl ? '12px' : '12px',
+                    right: '14px',
+                    width: '40px', height: '40px',
+                    borderRadius: '50%',
+                    background: isCurrent && isPlaying
+                        ? 'rgba(255,255,255,1)'
+                        : 'rgba(255,255,255,0.92)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.35)',
+                    transition: 'transform 0.15s ease',
+                    flexShrink: 0,
+                }}>
+                    {isCurrent && isPlaying ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#2C2218">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#2C2218" style={{ marginLeft: '2px' }}>
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    )}
                 </div>
-            )}
+            </div>
 
             {/* Body */}
             <div style={{ padding: '16px' }}>
