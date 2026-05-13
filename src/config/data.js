@@ -906,7 +906,7 @@ export const CONFIG = {
                     numero: 1,
                     title: '1. El cuerpo de barro',
                     descripcionCorta: 'Nadie te dijo que el cuerpo importa. Eso cambia aquí.',
-                    descripcionLarga: 'Este episodio explora el eje intestino-cerebro y por qué Levítico 11 es fisiología preventiva, no religión arbitraria. Con Daniel 1 como narrativa ancla: diez días de legumbres vs. la mesa del rey. Resultado: medible, documentado, irreversible.',
+                    descripcionLarga: 'Dios no te creó de palabra. Te formó. Con sus manos. El hebreo tiene dos verbos distintos — y la diferencia cambia todo lo que creías sobre el cuerpo y su lugar en la fe.',
                     description: 'El cuerpo es barro literal. Génesis 2:7 no es metáfora, es química. El eje intestino-cerebro es la infraestructura fisiológica del templo del Espíritu Santo.',
                     textoBase: {
                         cita: 'Entonces Jehová Dios formó al hombre del polvo de la tierra, y sopló en su nariz aliento de vida; y fue el hombre un alma viviente.',

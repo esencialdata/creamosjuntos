@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useGlobalPlayer } from '../context/GlobalPlayerContext';
 import { toggleCapsuleLike } from '../services/firestoreService';
 import { buildShareUrl } from '../utils/share';
 
 const EpisodeCard = ({ episode, module }) => {
     const navigate = useNavigate();
+    const { playTrack, togglePlay, currentTrack, isPlaying } = useGlobalPlayer();
     const [liked, setLiked] = useState(() => {
         const stored = JSON.parse(localStorage.getItem('do_episode_likes') || '{}');
         return !!stored[episode.id];
     });
+
+    const isCurrent = currentTrack?.audioUrl === episode.audioUrl;
 
     const label = [
         module.seriesTag || 'DISEÑO ORIGINAL',
@@ -19,7 +23,9 @@ const EpisodeCard = ({ episode, module }) => {
     const displayTitle = episode.title?.replace(/^\d+\.\s*/, '') || episode.title;
 
     const handleClick = () => {
-        navigate('/recursos', { state: { openEpisode: episode.id } });
+        if (!episode.audioUrl) return;
+        if (isCurrent) togglePlay();
+        else playTrack(episode);
     };
 
     const handleLike = async (e) => {
@@ -127,7 +133,10 @@ const EpisodeCard = ({ episode, module }) => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                     <div style={{
                         width: '8px', height: '8px', borderRadius: '50%',
-                        border: '1.5px solid #D1D5DB', flexShrink: 0,
+                        background: isCurrent && isPlaying ? '#1D6EE8' : 'transparent',
+                        border: isCurrent && isPlaying ? 'none' : '1.5px solid #D1D5DB',
+                        flexShrink: 0,
+                        transition: 'all 0.2s ease',
                     }} />
                     <div style={{ flex: 1, height: '1px', background: '#E6E4DD' }} />
                     <span style={{
@@ -139,7 +148,28 @@ const EpisodeCard = ({ episode, module }) => {
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '4px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            navigate('/recursos', { state: { openEpisode: episode.id } });
+                        }}
+                        style={{
+                            background: 'none', border: 'none', cursor: 'pointer',
+                            padding: '4px', marginRight: 'auto',
+                            display: 'flex', alignItems: 'center', gap: '4px',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontSize: '11px', color: '#9CA3AF',
+                            letterSpacing: '0.06em',
+                        }}
+                    >
+                        Ver más
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" strokeWidth="2.5"
+                            strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
                     <button
                         onClick={handleLike}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', color: liked ? '#EF4444' : '#D1D5DB' }}
