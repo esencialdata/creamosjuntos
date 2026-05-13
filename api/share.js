@@ -6,7 +6,7 @@ const escape = (str) =>
         .replace(/>/g, '&gt;');
 
 export default function handler(req, res) {
-    const { anchor, title, desc, image } = req.query;
+    const { anchor, title, desc, image, openEpisode } = req.query;
 
     const proto = req.headers['x-forwarded-proto'] || 'https';
     const host  = req.headers['x-forwarded-host'] || req.headers.host;
@@ -17,9 +17,15 @@ export default function handler(req, res) {
     const ogImage = image && image.startsWith('/') && !image.includes('://')
         ? `${baseUrl}${image}`
         : `${baseUrl}/apple-touch-icon.png`;
-    const appUrl  = anchor
-        ? `${baseUrl}/#/?anchor=${encodeURIComponent(anchor)}`
-        : baseUrl;
+
+    let appUrl;
+    if (openEpisode) {
+        appUrl = `${baseUrl}/#/recursos?openEpisode=${encodeURIComponent(openEpisode)}`;
+    } else if (anchor) {
+        appUrl = `${baseUrl}/#/?anchor=${encodeURIComponent(anchor)}`;
+    } else {
+        appUrl = baseUrl;
+    }
 
     const html = `<!DOCTYPE html>
 <html lang="es">

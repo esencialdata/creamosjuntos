@@ -62,10 +62,12 @@ export const shareContent = async (title, text, url) => {
     prompt("No pudimos copiarlo automáticamente. Por favor copia este texto manualmante:", fullText);
 };
 
-export const buildShareUrl = (anchor, { title, desc, image } = {}) => {
-    const params = new URLSearchParams({ anchor });
-    if (title) params.set('title', title);
-    if (desc)  params.set('desc', desc);
-    if (image) params.set('image', image);
+export const buildShareUrl = (anchor, { title, desc, image, openEpisode } = {}) => {
+    const params = new URLSearchParams();
+    if (anchor)      params.set('anchor', anchor);
+    if (title)       params.set('title', title);
+    if (desc)        params.set('desc', desc);
+    if (image)       params.set('image', image);
+    if (openEpisode) params.set('openEpisode', openEpisode);
     return `${window.location.origin}/api/share?${params.toString()}`;
 };

@@ -59,10 +59,11 @@ const EpisodeDetail = ({ episode, module, onBack, onSelectEpisode }) => {
     };
 
     const handleShare = async () => {
-        const url = buildShareUrl(`do-ep-${episode.id}`, {
+        const url = buildShareUrl(null, {
             title: episode.title,
             desc: episode.descripcionCorta || '',
             image: episode.portadaUrl || null,
+            openEpisode: episode.id,
         });
         if (navigator.share) {
             try { await navigator.share({ title: episode.title, text: episode.descripcionCorta, url }); }

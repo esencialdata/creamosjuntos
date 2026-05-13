@@ -39,11 +39,14 @@ const Library = () => {
 
         const anchor = getAnchor();
         
-        if (location.state?.openEpisode) {
+        const searchParams = new URLSearchParams(location.search);
+        const openEpisodeParam = location.state?.openEpisode || searchParams.get('openEpisode');
+
+        if (openEpisodeParam) {
             setActiveTab('audios');
             const allMods = CONFIG.audioModules || [];
             for (const mod of allMods) {
-                const ep = (mod.episodes || []).find(e => e.id === location.state.openEpisode);
+                const ep = (mod.episodes || []).find(e => e.id === openEpisodeParam);
                 if (ep) { setSelectedModule(mod); setSelectedEpisode(ep); break; }
             }
         } else if (location.state?.openModule) {
