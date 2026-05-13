@@ -915,6 +915,7 @@ export const CONFIG = {
                     },
                     duration: '6:34',
                     portadaUrl: '/barro.png',
+                    shareImageUrl: '/barro-og.jpg',
                     audioUrl: '/do-c-ep1.mp3',
                     color: '#D85A30',
                     releaseDate: '2026-05-12'

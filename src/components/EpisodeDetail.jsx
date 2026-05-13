@@ -62,7 +62,7 @@ const EpisodeDetail = ({ episode, module, onBack, onSelectEpisode }) => {
         const url = buildShareUrl(null, {
             title: episode.title,
             desc: episode.descripcionCorta || '',
-            image: episode.portadaUrl || null,
+            image: episode.shareImageUrl || episode.portadaUrl || null,
             openEpisode: episode.id,
         });
         if (navigator.share) {
