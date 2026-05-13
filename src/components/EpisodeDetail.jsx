@@ -62,6 +62,7 @@ const EpisodeDetail = ({ episode, module, onBack, onSelectEpisode }) => {
         const url = buildShareUrl(`do-ep-${episode.id}`, {
             title: episode.title,
             desc: episode.descripcionCorta || '',
+            image: episode.portadaUrl || null,
         });
         if (navigator.share) {
             try { await navigator.share({ title: episode.title, text: episode.descripcionCorta, url }); }
