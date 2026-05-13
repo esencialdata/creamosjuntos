@@ -102,7 +102,7 @@ const Home = ({ toggleHabit, isHabitCompletedToday, brickCount }) => {
 
                 <DailyVerse verse={CONFIG.dailyVerse} />
 
-                <CreationDays />
+                {/* <CreationDays /> */}
 
                 {/* --- SECCIÓN "LO ÚLTIMO" --- */}
                 <section style={{ marginBottom: 'var(--spacing-md)' }}>
