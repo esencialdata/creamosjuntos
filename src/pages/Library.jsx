@@ -38,9 +38,19 @@ const Library = () => {
         };
 
         const anchor = getAnchor();
-        
-        const searchParams = new URLSearchParams(location.search);
-        const openEpisodeParam = location.state?.openEpisode || searchParams.get('openEpisode');
+
+        const getOpenEpisode = () => {
+            if (location.state?.openEpisode) return location.state.openEpisode;
+            const fromSearch = new URLSearchParams(location.search).get('openEpisode');
+            if (fromSearch) return fromSearch;
+            // Fallback: parse from hash directly (link externo via HashRouter)
+            if (window.location.hash.includes('openEpisode=')) {
+                const hashSearch = window.location.hash.split('?')[1];
+                if (hashSearch) return new URLSearchParams(hashSearch).get('openEpisode');
+            }
+            return null;
+        };
+        const openEpisodeParam = getOpenEpisode();
 
         if (openEpisodeParam) {
             setActiveTab('audios');
