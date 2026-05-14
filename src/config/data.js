@@ -895,7 +895,7 @@ export const CONFIG = {
             layer: 'eje',
             eje: 'cuerpo',
             title: 'DISEÑO ORIGINAL — CUERPO: La Fisiología de la Santidad',
-            coverImageUrl: '',
+            coverImageUrl: '/cuerpo_santuario.png',
             description: 'El cuerpo no es el enemigo. Es el templo. Cuatro episodios sobre la fisiología inscrita en el diseño original del ser humano: nutrición, neuroinflamación, reposo y ayuno — desde Génesis 2:7 hasta la ciencia contemporánea.',
             accentColor: '#D85A30',
             seriesTag: 'DISEÑO ORIGINAL',
