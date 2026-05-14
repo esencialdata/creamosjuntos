@@ -915,7 +915,7 @@ export const CONFIG = {
                     },
                     duration: '6:34',
                     portadaUrl: '/hombre-polvo.png',
-                    shareImageUrl: '/barro-og.jpg',
+                    shareImageUrl: '/hombre-polvo-og.jpg',
                     audioUrl: '/do-c-ep1.mp3',
                     color: '#D85A30',
                     releaseDate: '2026-05-12'
