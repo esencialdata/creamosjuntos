@@ -1213,7 +1213,7 @@ export const CONFIG = {
                     type: 'cover',
                     title: 'La Puerta Ancha y la Puerta Estrecha',
                     subtitle: 'El hombre más rico de la historia eligió la puerta estrecha. Después eligió la ancha. Y lo documentó todo.',
-                    imageUrl: '/puerta-ancha.png',
+                    imageUrl: '/portada-puerta-ancha.jpg',
                     footerText: 'Campo David · IDI Querétaro',
                 },
                 {
