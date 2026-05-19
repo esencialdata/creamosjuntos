@@ -789,10 +789,12 @@ const getCurrentWeekId = () => {
     const week21Start = new Date(2026, 3, 15); // Apr 15
     const week22Start = new Date(2026, 3, 29); // Apr 29
     const week23Start = new Date(2026, 4, 5);  // May 5
+    const week24Start = new Date(2026, 4, 19); // May 19
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week24Start) return 24;
     if (now >= week23Start) return 23;
     if (now >= week22Start) return 22;
     if (now >= week21Start) return 21;
@@ -1183,6 +1185,114 @@ export const CONFIG = {
                     label: 'CIERRE · Campo David · IDI Querétaro',
                     title: 'El antídoto al "no saben que no saben" no es la burla al engañado.',
                     body: 'Es poner el Libro de la Ley delante de ellos.\n\nLeerlo. Exponerlo. Contrastarlo.',
+                },
+            ],
+        },
+
+        // ── SEMANA 24 · Mar May 19, 2026 ────────────────────────────────────────
+        {
+            id: 39,
+            weekId: 24,
+            availableFrom: "2026-05-19T00:00:00",
+            title: "LA PUERTA ANCHA Y LA PUERTA ESTRECHA",
+            description: "El hombre más rico de la historia eligió la puerta estrecha. Después eligió la ancha. Y lo documentó todo.",
+            styleVariant: 'contemplativo',
+            themeStyles: {
+                bg: '#F7F8FC',
+                textPrimary: '#111111',
+                textSecondary: '#374151',
+                accent: '#1D6EE8',
+                fontSerif: 'Playfair Display, Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: 'none',
+                cardShadow: '0 5px 30px rgba(0,0,0,0.06)',
+                backgroundImage: 'none',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'La Puerta Ancha y la Puerta Estrecha',
+                    subtitle: 'El hombre más rico de la historia eligió la puerta estrecha. Después eligió la ancha. Y lo documentó todo.',
+                    imageUrl: '/puerta-ancha.png',
+                    footerText: 'Campo David · IDI Querétaro',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'GANCHO',
+                    title: 'Jesús no describió dos puertas como metáfora.',
+                    body: 'Las describió como dos sistemas completos de vida.\n\nUno cómodo. Uno lleno de gente.\nUno solo lleva a donde quieres llegar.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'ESCENA',
+                    title: 'La puerta ancha no está marcada con una calavera.',
+                    body: 'Está marcada con dos palabras:\n\ncómoda y espaciosa.\n\nEl peligro no es que duela entrar.\nEs que la destrucción llega sin anuncio.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CRISIS',
+                    title: 'El problema no es apostasía declarada.',
+                    body: 'La puerta ancha no necesita que abandones a Dios.\n\nSolo necesita que tu corazón empiece a servir en varias direcciones al mismo tiempo.\n\nEso es suficiente.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'TEXTO BASE · MATEO 7:13–14',
+                    title: '"Entrad por la puerta estrecha."',
+                    body: '"...porque ancha es la puerta y espacioso el camino que lleva a la perdición, y muchos son los que entran por ella.\n\nPortque estrecha es la puerta y angosto el camino que lleva a la vida, y pocos son los que la hallan."',
+                    citation: 'Entrad por la puerta estrecha.',
+                    reference: 'Mateo 7:13–14 · RV1909',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'LA LEY · LÉXICO',
+                    title: 'Plateia — plaza pública. Entra todo. No filtra nada.',
+                    body: 'Stenē — comprimida, angosta. Obliga a detenerse. A soltar.\n\nTethlimmenē — del mismo verbo de Juan 16:33: tribulación.\n\nNo es difícil por castigo. Es difícil por construcción.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'PRINCIPIO',
+                    title: 'La puerta ancha es el camino de la inercia.',
+                    body: 'La puerta estrecha es el camino de la intención sostenida.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL LABORATORIO · SALOMÓN',
+                    title: 'El hombre más sabio. 22 toneladas de oro al año. Dios le habló dos veces.',
+                    body: 'No hubo un momento dramático.\n\nUna alianza razonable. Un matrimonio inteligente. Un altar pequeño. 700 veces la misma lógica.\n\nNunca anunció que cambiaba de puerta.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL DIAGNÓSTICO · 1 REYES 11:4',
+                    title: '"Su corazón no era perfecto con Jehová su Dios."',
+                    body: 'La palabra es shalem — completo, sin división. Raíz de shalom.\n\nLa integridad dividida es el primer nombre del camino espacioso en el corazón de un creyente.',
+                    citation: 'Su corazón no era perfecto con Jehová su Dios.',
+                    reference: '1 Reyes 11:4 · RV1909',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'EL INFORME · ECLESIASTÉS 2:11',
+                    title: 'Salomón lo tuvo todo. Y escribió el libro más honesto de la Biblia.',
+                    body: 'El camino ancho entrega exactamente lo que promete.\nEl problema es que lo que promete no alcanza.',
+                    citation: 'Todo era vanidad y aflicción de espíritu.',
+                    reference: 'Eclesiastés 2:11 · RV1909',
+                },
+                {
+                    type: 'action',
+                    title: 'Tres preguntas para hoy',
+                    subtitle: 'No para evaluar. Para ubicarte.',
+                    steps: [
+                        '01 — ¿En qué área estás dejando que la inercia decida?',
+                        '02 — ¿Tu fe cabe sin ninguna fricción en la cultura que te rodea?',
+                        '03 — ¿Estás siendo shalem — íntegro — o sirviendo en múltiples direcciones?',
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'CIERRE · MATEO 7:13',
+                    title: '"Entrad por la puerta estrecha."',
+                    body: 'No es una sugerencia. Es un imperativo de quien tiene autoridad sobre ambas puertas.\n\nLa puerta estrecha no se estrecha más por esperarla.\nSe estrecha el tiempo disponible para elegirla.',
+                    citation: 'Entrad por la puerta estrecha.',
+                    reference: 'Mateo 7:13 · RV1909',
                 },
             ],
         },

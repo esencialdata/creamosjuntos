@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — Somos Manos de Dios</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1A0E08;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 2px #3A1F10;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F9F6F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #7C4A2D, transparent);
+    opacity: 0.6;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px; right: 22px;
+    font-size: 0.52rem;
+    color: #D4B8A8;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #3A1F10;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #7C4A2D; transform: scale(1.5); }
+
+  /* ── PORTADA ─────────────────────────────────────────── */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase;
+    color: #7C4A2D; margin-bottom: 16px; font-weight: 600;
+  }
+  .cover-visual { font-size: 3rem; margin-bottom: 16px; line-height: 1; }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.9rem; font-weight: 700; line-height: 1.08;
+    text-transform: uppercase; color: #2C2218; margin-bottom: 14px;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem; color: #7A6E62; font-style: italic; line-height: 1.65; margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 2.5px; color: #C4A898; text-transform: uppercase;
+  }
+
+  /* ── LABELS Y CUERPO ─────────────────────────────────── */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 3px; color: #7C4A2D;
+    text-transform: uppercase; margin-bottom: 14px; font-weight: 600; opacity: 0.85;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem; font-weight: 700; line-height: 1.35;
+    color: #2C2218; margin-bottom: 16px; white-space: pre-line;
+  }
+  .slide-title.italic { font-style: italic; }
+  .slide-body {
+    font-size: 0.82rem; line-height: 1.75; color: #5A4E42;
+    margin-bottom: 14px; white-space: pre-line; font-family: 'Inter', sans-serif;
+  }
+  .citation-block {
+    border-left: 2px solid #7C4A2D; padding-left: 14px; margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem; font-style: italic; color: #5A4E42; line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem; color: #7C4A2D; letter-spacing: 1px;
+    margin-top: 6px; font-weight: 700; text-transform: uppercase;
+  }
+
+  /* ── ACTION STEPS ────────────────────────────────────── */
+  .action-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+  .action-step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num {
+    flex-shrink: 0; width: 22px; height: 22px;
+    background: #7C4A2D; color: #F9F6F1; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 0.58rem; font-weight: 700; margin-top: 2px;
+  }
+  .step-text {
+    font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.65; color: #5A4E42;
+  }
+
+  /* ── CIERRE ──────────────────────────────────────────── */
+  .slide-cierre { background: #2C1408; }
+  .slide-cierre::before { background: linear-gradient(90deg, transparent, #C4855A, transparent); opacity: 0.5; }
+  .slide-cierre .label      { color: #C4855A; opacity: 1; }
+  .slide-cierre .slide-title { color: #F5EDD8; font-style: italic; }
+  .slide-cierre .slide-body  { color: #C4A898; }
+  .slide-cierre .citation-block { border-left-color: #C4855A; }
+  .slide-cierre .citation-text  { color: #F5EDD8; }
+  .slide-cierre .citation-ref   { color: #C4855A; }
+  .slide-cierre .slide-num      { color: #4A2010; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 12</span>
+      <div>
+        <p class="cover-eyebrow">Creamos Juntos · Semana 23</p>
+        <div class="cover-visual">🤲</div>
+        <div class="cover-title">SOMOS MANOS DE DIOS</div>
+        <p class="cover-subtitle">El compromiso nace cuando sabes quién eres.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular."</div>
+          <div class="citation-ref">1 Corintios 12:27 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">Campo David · IDI QRO</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 12</span>
+      <div class="label">La pregunta que lo cambia todo</div>
+      <div class="slide-title">No es ¿qué debo hacer?
+No es ¿a dónde debo ir?
+Es esta: ¿Quién soy yo?</div>
+      <div class="slide-body">Hay una pregunta que lo cambia todo. La mayoría pasa la vida respondiendo las otras dos — y nunca llega a esta.</div>
+    </div>
+
+    <!-- SLIDE 3: CONTEXTO -->
+    <div class="slide">
+      <span class="slide-num">03 / 12</span>
+      <div class="label">Contexto · Jueces 6</div>
+      <div class="slide-title">Israel llevaba 7 años escondido en cuevas.</div>
+      <div class="slide-body">No porque los vencieran en batalla. Sino porque olvidaron quién eran.
+
+Ese olvido colectivo tuvo un nombre: Gedeón.</div>
+    </div>
+
+    <!-- SLIDE 4: LA ESCENA -->
+    <div class="slide">
+      <span class="slide-num">04 / 12</span>
+      <div class="label">La escena · Jueces 6:11</div>
+      <div class="slide-title">Dios lo encuentra en un lagar. Escondido. Encorvado. Con miedo.</div>
+      <div class="slide-body">Usando el lugar equivocado para hacer lo que podía.
+
+¿Lo conoces? Ese lagar también tiene tu forma.</div>
+    </div>
+
+    <!-- SLIDE 5: LA DECLARACIÓN -->
+    <div class="slide">
+      <span class="slide-num">05 / 12</span>
+      <div class="label">La declaración · Jueces 6:12</div>
+      <div class="slide-title italic">"Jehová está contigo, varón esforzado y valiente."</div>
+      <div class="slide-body">Y en ese momento — el peor momento — Dios le habla así.
+
+No lo llamó por lo que era. Lo llamó por lo que ya era en Su diseño.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Jehová está contigo, varón esforzado y valiente."</div>
+        <div class="citation-ref">Jueces 6:12 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: LA CRISIS -->
+    <div class="slide">
+      <span class="slide-num">06 / 12</span>
+      <div class="label">La crisis · Jueces 6:15</div>
+      <div class="slide-title italic">"¿Con qué salvaré yo a Israel?"</div>
+      <div class="slide-body">Gedeón no recibe eso con gratitud. Lo cuestiona:
+
+"Mi familia es la más pobre en Manasés, y yo el menor en la casa de mi padre."
+
+Tribu equivocada. Familia equivocada. Posición equivocada.
+Identidad construida con el peor material.</div>
+    </div>
+
+    <!-- SLIDE 7: LA RESPUESTA -->
+    <div class="slide">
+      <span class="slide-num">07 / 12</span>
+      <div class="label">La respuesta de Dios · Jueces 6:16</div>
+      <div class="slide-title italic">"Ciertamente yo estaré contigo."</div>
+      <div class="slide-body">Dios no corrige la genealogía. No le asigna una tribu mejor. No le cambia el apellido.
+
+La respuesta a la crisis de identidad siempre es presencia, no credenciales.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Ciertamente yo estaré contigo."</div>
+        <div class="citation-ref">Jueces 6:16 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: EL ESPÍRITU -->
+    <div class="slide">
+      <span class="slide-num">08 / 12</span>
+      <div class="label">El espíritu que lo vistió · Jueces 6:34</div>
+      <div class="slide-title">El Espíritu de Jehová vistió a Gedeón.</div>
+      <div class="slide-body">En hebreo: <em style="color:#7C4A2D; font-family:'Playfair Display',serif;">labash</em> — vestirse. No vino sobre él como poder ajeno. Lo vistió como prenda propia.
+
+La misión no fue añadida desde afuera. Era suya desde antes de que lo supiera.</div>
+      <div class="citation-block">
+        <div class="citation-text">"El Espíritu de Jehová vistió a Gedeón."</div>
+        <div class="citation-ref">Jueces 6:34 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: EL NOMBRE NUEVO -->
+    <div class="slide">
+      <span class="slide-num">09 / 12</span>
+      <div class="label">El nombre nuevo · Jueces 6:32</div>
+      <div class="slide-title">Jerobaal — "Contienda Baal contra él."</div>
+      <div class="slide-body">Entró escondido en un lagar. Salió con un nombre que declaraba que había peleado contra la opresión.
+
+La identidad transformada produce un nombre nuevo.</div>
+    </div>
+
+    <!-- SLIDE 10: EL PRINCIPIO -->
+    <div class="slide">
+      <span class="slide-num">10 / 12</span>
+      <div class="label">El principio</div>
+      <div class="slide-title">Gedeón no fue al campo de batalla porque prometió ir.
+Fue porque supo quién era.</div>
+      <div class="slide-body">Y cuando lo supo — el lagar quedó atrás para siempre.</div>
+    </div>
+
+    <!-- SLIDE 11: APLICACIÓN -->
+    <div class="slide">
+      <span class="slide-num">11 / 12</span>
+      <div class="label">Aplicación</div>
+      <div class="slide-title">Tres preguntas para hoy</div>
+      <p style="font-family:'Inter',sans-serif; font-size:0.76rem; color:#7C4A2D; font-style:italic; margin-bottom:16px;">No para evaluar. Para ubicarte.</p>
+      <div class="action-steps">
+        <div class="action-step">
+          <div class="step-num">1</div>
+          <div class="step-text">¿He resuelto quién soy — o solo qué hago?</div>
+        </div>
+        <div class="action-step">
+          <div class="step-num">2</div>
+          <div class="step-text">¿Desde qué lagar estoy sirviendo?</div>
+        </div>
+        <div class="action-step">
+          <div class="step-num">3</div>
+          <div class="step-text">¿Quién está esperando mis manos hoy?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">12 / 12</span>
+      <div class="label">Cierre · Campo David · IDI QRO</div>
+      <div class="slide-title">"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular."</div>
+      <div class="slide-body">La cabeza ya envió la señal. La pregunta no es si quieres ser mano de Dios.
+
+La pregunta es si sabes que ya lo eres.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular."</div>
+        <div class="citation-ref">1 Corintios 12:27 · RV1909</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 12;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+  const W = 375;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Puerta Ancha y la Puerta Estrecha — Campo David IDI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #E0E4EF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 16px;
+    min-height: 100vh;
+  }
+
+  h1.page-title {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin-bottom: 8px;
+  }
+
+  .slide-wrapper {
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+  }
+
+  .slide-number {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    color: #9CA3AF;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    padding-left: 2px;
+  }
+
+  .slide {
+    background: #F7F8FC;
+    border: 1px solid #E0E4EF;
+    border-radius: 4px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Accent line top */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 52px; right: 52px;
+    height: 2px;
+    background: #E0E4EF;
+  }
+
+  .slide.accent-top::before {
+    background: #1D6EE8;
+    left: 52px;
+    right: 72%;
+  }
+
+  /* Slide label */
+  .slide-label {
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9CA3AF;
+    margin-bottom: 24px;
+  }
+
+  /* Main heading */
+  .slide-headline {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #111111;
+    margin-bottom: 0;
+  }
+
+  .slide-headline.large {
+    font-size: 30px;
+    line-height: 1.18;
+  }
+
+  .slide-headline.medium {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  /* Body text */
+  .slide-body {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #374151;
+    margin-top: 20px;
+  }
+
+  .slide-body.small {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  /* Scripture */
+  .scripture {
+    font-style: italic;
+    color: #111111;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .scripture-ref {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1D6EE8;
+    margin-top: 16px;
+    display: block;
+  }
+
+  /* Highlight / accent word */
+  .accent {
+    color: #1D6EE8;
+  }
+
+  /* Divider */
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: #E0E4EF;
+    margin: 20px 0;
+  }
+
+  .divider.blue {
+    background: #1D6EE8;
+  }
+
+  /* Greek/Hebrew terms */
+  .term {
+    font-style: italic;
+    color: #1D6EE8;
+  }
+
+  /* Step list (slide 6) */
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #374151;
+  }
+
+  .step-arrow {
+    color: #1D6EE8;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 13px;
+  }
+
+  /* Question list */
+  .q-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .q-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #374151;
+  }
+
+  .q-num {
+    color: #1D6EE8;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+    padding-top: 2px;
+    min-width: 14px;
+  }
+
+  /* Footer */
+  .slide-footer {
+    position: absolute;
+    bottom: 24px;
+    left: 52px;
+    right: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #C4C9D4;
+  }
+
+  .footer-refs {
+    font-family: Georgia, serif;
+    font-size: 9px;
+    color: #C4C9D4;
+    letter-spacing: 0.06em;
+    text-align: right;
+  }
+
+  /* CTA slide */
+  .cta-block {
+    background: #111827;
+    border-radius: 3px;
+    padding: 22px 26px;
+    margin-top: 22px;
+  }
+
+  .cta-text {
+    font-family: Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #F7F8FC;
+  }
+
+  /* Print hint */
+  .print-note {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    color: #9CA3AF;
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Carrusel — Campo David IDI · Mateo 7:13–14</h1>
+
+<!-- SLIDE 1 — PORTADA -->
+<div class="slide-wrapper">
+  <div class="slide-number">01 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Portada</span>
+    <h2 class="slide-headline large">El hombre más rico de la historia eligió la puerta estrecha.</h2>
+    <div class="divider blue"></div>
+    <p class="slide-body">Después eligió la ancha.<br>Y lo documentó todo.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+      <span class="footer-refs">Mateo 7:13–14</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2 — GANCHO -->
+<div class="slide-wrapper">
+  <div class="slide-number">02 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Gancho</span>
+    <h2 class="slide-headline">Jesús no describió dos puertas como metáfora.</h2>
+    <div class="divider"></div>
+    <p class="slide-body">Las describió como dos sistemas completos de vida.<br><br>Uno cómodo. Uno lleno de gente.<br>Uno solo lleva a donde quieres llegar.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+      <span class="footer-refs">Mateo 7:13–14</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3 — ESCENA / DIAGNÓSTICO -->
+<div class="slide-wrapper">
+  <div class="slide-number">03 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Diagnóstico</span>
+    <h2 class="slide-headline medium">La puerta ancha no está marcada con una calavera.</h2>
+    <div class="divider"></div>
+    <p class="slide-body">Está marcada con dos palabras:<br><br><span style="font-style:italic; color:#111111;">cómoda y espaciosa.</span><br><br>El peligro no es que duela entrar.<br>Es que la destrucción llega sin anuncio.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 — TEXTO BASE -->
+<div class="slide-wrapper">
+  <div class="slide-number">04 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Texto Base</span>
+    <p class="scripture">"Entrad por la puerta estrecha; porque ancha es la puerta y espacioso el camino que lleva a la perdición, y muchos son los que entran por ella."</p>
+    <span class="scripture-ref">Mateo 7:13 — RVA</span>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5 — VERDAD / LEY (Léxico) -->
+<div class="slide-wrapper">
+  <div class="slide-number">05 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">La Ley</span>
+    <h2 class="slide-headline medium"><span class="term">Plateia</span> — plaza pública. Entra todo. No filtra nada.</h2>
+    <div class="divider"></div>
+    <p class="slide-body small"><span class="term">Stenē</span> — comprimida, angosta. Obliga a detenerse. A soltar.<br><br><span class="term">Tethlimmenē</span> — del mismo verbo de Juan 16:33: tribulación.<br><br>No es difícil por castigo. Es difícil por construcción.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+      <span class="footer-refs">Mt 7:13–14 · Jn 16:33</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6 — PRINCIPIO -->
+<div class="slide-wrapper">
+  <div class="slide-number">06 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Principio</span>
+    <h2 class="slide-headline medium">La puerta ancha es el camino de la <span class="accent">inercia</span>.</h2>
+    <div class="divider blue"></div>
+    <p class="slide-body">La puerta estrecha es el camino de la <span class="accent">intención sostenida</span>.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7 — PERSONAJE / HISTORIA -->
+<div class="slide-wrapper">
+  <div class="slide-number">07 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">El Laboratorio</span>
+    <h2 class="slide-headline medium">Salomón. 22 toneladas de oro al año. Dios le habló dos veces.</h2>
+    <div class="divider"></div>
+    <p class="slide-body small">No hubo un momento de apostasía declarada.<br><br>Fue una alianza razonable. Un matrimonio inteligente. Otro tratado. Un altar pequeño. 700 veces la misma lógica.<br><br>Nunca anunció que cambiaba de puerta.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+      <span class="footer-refs">1 Reyes 11:4</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8 — LA MECÁNICA -->
+<div class="slide-wrapper">
+  <div class="slide-number">08 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">El Diagnóstico</span>
+    <p class="scripture">"Su corazón no era perfecto con Jehová su Dios."</p>
+    <span class="scripture-ref">1 Reyes 11:4 — RVA</span>
+    <div class="divider"></div>
+    <p class="slide-body small">La palabra es <span class="term">shalem</span> — completo, sin división. Raíz de shalom.<br><br>La puerta ancha no necesita que abandones a Dios. Solo que tu corazón sirva en varias direcciones al mismo tiempo.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9 — EL INFORME -->
+<div class="slide-wrapper">
+  <div class="slide-number">09 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">El Informe</span>
+    <h2 class="slide-headline medium">Salomón lo tuvo todo. Y escribió el libro más honesto de la Biblia.</h2>
+    <div class="divider"></div>
+    <p class="scripture">"Todo era vanidad y aflicción de espíritu."</p>
+    <span class="scripture-ref">Eclesiastés 2:11 — RVA</span>
+    <p class="slide-body small" style="margin-top:14px;">El camino ancho entrega exactamente lo que promete.<br>El problema es que lo que promete no alcanza.</p>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10 — CIERRE DE SALOMÓN -->
+<div class="slide-wrapper">
+  <div class="slide-number">10 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">La Conclusión</span>
+    <h2 class="slide-headline medium">La misma puerta estrecha desde la que comenzó. Cuarenta años después.</h2>
+    <div class="divider blue"></div>
+    <p class="scripture">"Teme á Dios, y guarda sus mandamientos. Porque esto es el todo del hombre."</p>
+    <span class="scripture-ref">Eclesiastés 12:13 — RVA</span>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11 — APLICACIÓN -->
+<div class="slide-wrapper">
+  <div class="slide-number">11 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Aplicación</span>
+    <h2 class="slide-headline medium">Tres preguntas para hoy:</h2>
+    <div class="q-list">
+      <div class="q-item">
+        <span class="q-num">01</span>
+        <span>¿En qué área estás dejando que la inercia decida?</span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">02</span>
+        <span>¿Tu fe cabe sin fricción en la cultura que te rodea?</span>
+      </div>
+      <div class="q-item">
+        <span class="q-num">03</span>
+        <span>¿Estás siendo <span class="term">shalem</span> — íntegro — o sirviendo en múltiples direcciones?</span>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span class="footer-brand">Campo David · IDI</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12 — CTA -->
+<div class="slide-wrapper">
+  <div class="slide-number">12 / 12</div>
+  <div class="slide accent-top">
+    <span class="slide-label">Cierre</span>
+    <p class="scripture">"Entrad por la puerta estrecha."</p>
+    <span class="scripture-ref">Mateo 7:13 — RVA</span>
+    <div class="divider"></div>
+    <p class="slide-body small">No es una sugerencia. Es un imperativo de quien tiene autoridad sobre ambas puertas.<br><br>La puerta estrecha no se estrecha más por esperarla.<br>Se estrecha el <span class="accent">tiempo disponible</span> para elegirla.</p>
+    <div class="cta-block">
+      <p class="cta-text">¿En qué área la inercia ha estado decidiendo por ti?<br>Comparte este carrusel con alguien que necesite ver las dos puertas hoy.</p>
+    </div>
+    <div class="slide-footer" style="bottom:16px;">
+      <span class="footer-brand">Campo David · IDI</span>
+      <span class="footer-refs">Mt 7:13–14 · 1 R 11:4 · Ec 12:13</span>
+    </div>
+  </div>
+</div>
+
+<p class="print-note">Carrusel generado para Campo David IDI QRO · Traducción RVA 1909</p>
+
+</body>
+</html>

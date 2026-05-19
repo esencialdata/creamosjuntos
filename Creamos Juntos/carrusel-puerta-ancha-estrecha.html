@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — La Puerta Ancha y la Puerta Estrecha</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0D1117;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 2px #1D2535;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F7F8FC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #1D6EE8;
+    opacity: 0.15;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px; right: 22px;
+    font-size: 0.52rem;
+    color: #9CA3AF;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #374151;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #1D6EE8; transform: scale(1.5); }
+
+  /* ── PORTADA ─────────────────────────────────────────── */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase;
+    color: #1D6EE8; margin-bottom: 16px; font-weight: 600;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.85rem; font-weight: 700; line-height: 1.1;
+    color: #111111; margin-bottom: 14px;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem; color: #6B7280; font-style: italic; line-height: 1.65; margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 2.5px; color: #9CA3AF; text-transform: uppercase;
+  }
+
+  /* ── LABELS Y CUERPO ─────────────────────────────────── */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 3px; color: #1D6EE8;
+    text-transform: uppercase; margin-bottom: 14px; font-weight: 600;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem; font-weight: 700; line-height: 1.35;
+    color: #111111; margin-bottom: 16px; white-space: pre-line;
+  }
+  .slide-title.italic { font-style: italic; }
+  .slide-body {
+    font-size: 0.82rem; line-height: 1.75; color: #374151;
+    margin-bottom: 14px; white-space: pre-line; font-family: 'Inter', sans-serif;
+  }
+  .citation-block {
+    border-left: 2px solid #1D6EE8; padding-left: 14px; margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem; font-style: italic; color: #374151; line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem; color: #1D6EE8; letter-spacing: 1px;
+    margin-top: 6px; font-weight: 700; text-transform: uppercase;
+  }
+
+  /* ── TERM (griego/hebreo) ────────────────────────────── */
+  em.term {
+    color: #1D6EE8;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+  }
+
+  /* ── MECÁNICA DE CAÍDA ───────────────────────────────── */
+  .steps { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .step-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.55; color: #374151;
+  }
+  .step-arrow { color: #1D6EE8; flex-shrink: 0; font-size: 0.78rem; }
+
+  /* ── PREGUNTAS ───────────────────────────────────────── */
+  .q-list { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
+  .q-item { display: flex; gap: 10px; align-items: flex-start; }
+  .q-num {
+    flex-shrink: 0; width: 20px; height: 20px;
+    background: #1D6EE8; color: #F7F8FC; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-size: 0.56rem; font-weight: 700; margin-top: 2px;
+  }
+  .q-text {
+    font-family: 'Inter', sans-serif; font-size: 0.80rem; line-height: 1.6; color: #374151;
+  }
+
+  /* ── CIERRE ──────────────────────────────────────────── */
+  .slide-cierre { background: #111827; }
+  .slide-cierre::before { background: #1D6EE8; opacity: 0.6; }
+  .slide-cierre .label      { color: #60A5FA; }
+  .slide-cierre .slide-title { color: #F7F8FC; font-style: italic; }
+  .slide-cierre .slide-body  { color: #9CA3AF; }
+  .slide-cierre .citation-block { border-left-color: #60A5FA; }
+  .slide-cierre .citation-text  { color: #E5E7EB; }
+  .slide-cierre .citation-ref   { color: #60A5FA; }
+  .slide-cierre .slide-num      { color: #374151; }
+  .slide-cierre .cover-footer   { color: #4B5563; }
+
+  /* ── CTA ─────────────────────────────────────────────── */
+  .cta-box {
+    background: #1D6EE8; border-radius: 6px; padding: 18px 20px; margin-top: 20px;
+  }
+  .cta-text {
+    font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.65; color: #F7F8FC;
+  }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 12</span>
+      <div>
+        <p class="cover-eyebrow">Campo David · IDI QRO</p>
+        <div class="cover-title">La Puerta Ancha y la Puerta Estrecha</div>
+        <p class="cover-subtitle">El hombre más rico de la historia eligió la puerta estrecha. Después eligió la ancha. Y lo documentó todo.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Entrad por la puerta estrecha."</div>
+          <div class="citation-ref">Mateo 7:13 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">Mateo 7:13–14 · 1 Reyes 11:4 · Eclesiastés 12:13</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 12</span>
+      <div class="label">Gancho</div>
+      <div class="slide-title">Jesús no describió dos puertas como metáfora.</div>
+      <div class="slide-body">Las describió como dos sistemas completos de vida.
+
+Uno cómodo. Uno lleno de gente.
+Uno solo lleva a donde quieres llegar.</div>
+    </div>
+
+    <!-- SLIDE 3: ESCENA / DIAGNÓSTICO -->
+    <div class="slide">
+      <span class="slide-num">03 / 12</span>
+      <div class="label">Escena</div>
+      <div class="slide-title">La puerta ancha no está marcada con una calavera.</div>
+      <div class="slide-body">Está marcada con dos palabras:
+
+<em style="font-family:'Playfair Display',serif; color:#111111;">cómoda y espaciosa.</em>
+
+El peligro no es que duela entrar.
+Es que la destrucción llega sin anuncio.</div>
+    </div>
+
+    <!-- SLIDE 4: CRISIS -->
+    <div class="slide">
+      <span class="slide-num">04 / 12</span>
+      <div class="label">Crisis</div>
+      <div class="slide-title">El problema no es apostasía declarada.</div>
+      <div class="slide-body">Es que la puerta ancha no necesita que abandones a Dios.
+
+Solo necesita que tu corazón empiece a servir en varias direcciones al mismo tiempo.
+
+Eso es suficiente.</div>
+    </div>
+
+    <!-- SLIDE 5: TEXTO BASE -->
+    <div class="slide">
+      <span class="slide-num">05 / 12</span>
+      <div class="label">Texto Base · Mateo 7:13–14</div>
+      <div class="citation-block" style="margin-top: 0;">
+        <div class="citation-text" style="font-size:0.9rem; line-height:1.7;">"Entrad por la puerta estrecha; porque ancha es la puerta y espacioso el camino que lleva a la perdición, y muchos son los que entran por ella.
+
+Porque estrecha es la puerta y angosto el camino que lleva a la vida, y pocos son los que la hallan."</div>
+        <div class="citation-ref">Mateo 7:13–14 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: VERDAD / LEY -->
+    <div class="slide">
+      <span class="slide-num">06 / 12</span>
+      <div class="label">La Ley · Léxico</div>
+      <div class="slide-title"><em class="term">Plateia</em> — plaza pública. Entra todo. No filtra nada.</div>
+      <div class="slide-body"><em class="term">Stenē</em> — comprimida, angosta. Obliga a detenerse. A soltar.
+
+<em class="term">Tethlimmenē</em> — del mismo verbo de Juan 16:33: tribulación.
+
+No es difícil por castigo. Es difícil por construcción.</div>
+    </div>
+
+    <!-- SLIDE 7: PRINCIPIO -->
+    <div class="slide">
+      <span class="slide-num">07 / 12</span>
+      <div class="label">Principio</div>
+      <div class="slide-title" style="font-size:1.3rem; line-height:1.25;">La puerta ancha es el camino de la inercia.</div>
+      <div class="slide-body" style="font-size:0.9rem; margin-top:8px;">La puerta estrecha es el camino de la <strong style="color:#111111;">intención sostenida</strong>.</div>
+    </div>
+
+    <!-- SLIDE 8: PERSONAJE / HISTORIA -->
+    <div class="slide">
+      <span class="slide-num">08 / 12</span>
+      <div class="label">El Laboratorio · Salomón</div>
+      <div class="slide-title">El hombre más sabio. 22 toneladas de oro al año. Dios le habló dos veces.</div>
+      <div class="slide-body">No hubo un momento dramático.
+
+Una alianza razonable. Un matrimonio inteligente. Un altar pequeño. 700 veces la misma lógica.
+
+Nunca anunció que cambiaba de puerta.</div>
+    </div>
+
+    <!-- SLIDE 9: APLICACIÓN 1 -->
+    <div class="slide">
+      <span class="slide-num">09 / 12</span>
+      <div class="label">El Diagnóstico · 1 Reyes 11:4</div>
+      <div class="citation-block" style="margin-top:0;">
+        <div class="citation-text">"Su corazón no era perfecto con Jehová su Dios."</div>
+        <div class="citation-ref">1 Reyes 11:4 · RV1909</div>
+      </div>
+      <div class="slide-body" style="margin-top:18px;">La palabra es <em class="term">shalem</em> — completo, sin división. Raíz de shalom.
+
+La integridad dividida es el primer nombre del camino espacioso en el corazón de un creyente.</div>
+    </div>
+
+    <!-- SLIDE 10: APLICACIÓN 2 -->
+    <div class="slide">
+      <span class="slide-num">10 / 12</span>
+      <div class="label">El Informe · Eclesiastés 2:11</div>
+      <div class="slide-title">Salomón lo tuvo todo. Y escribió el libro más honesto de la Biblia.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Todo era vanidad y aflicción de espíritu."</div>
+        <div class="citation-ref">Eclesiastés 2:11 · RV1909</div>
+      </div>
+      <div class="slide-body" style="margin-top:14px;">El camino ancho entrega exactamente lo que promete.
+El problema es que lo que promete no alcanza.</div>
+    </div>
+
+    <!-- SLIDE 11: CIERRE -->
+    <div class="slide">
+      <span class="slide-num">11 / 12</span>
+      <div class="label">Tres preguntas para hoy</div>
+      <div class="q-list">
+        <div class="q-item">
+          <div class="q-num">1</div>
+          <div class="q-text">¿En qué área estás dejando que la inercia decida?</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">2</div>
+          <div class="q-text">¿Tu fe cabe sin ninguna fricción en la cultura que te rodea?</div>
+        </div>
+        <div class="q-item">
+          <div class="q-num">3</div>
+          <div class="q-text">¿Estás siendo <em class="term">shalem</em> — íntegro — o sirviendo en múltiples direcciones?</div>
+        </div>
+      </div>
+      <div class="slide-body" style="margin-top:16px; font-size:0.76rem; color:#6B7280;">La fractura no hace ruido. Opera exactamente como operó en Salomón.</div>
+    </div>
+
+    <!-- SLIDE 12: CTA / CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">12 / 12</span>
+      <div class="label">Cierre · Campo David · IDI QRO</div>
+      <div class="slide-title">"Entrad por la puerta estrecha."</div>
+      <div class="slide-body">No es una sugerencia. Es un imperativo de quien tiene autoridad sobre ambas puertas.
+
+La puerta estrecha no se estrecha más por esperarla.
+Se estrecha el tiempo disponible para elegirla.</div>
+      <div class="cta-box">
+        <div class="cta-text">¿En qué área la inercia ha estado decidiendo por ti? Comparte este carrusel con alguien que necesite ver las dos puertas hoy.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 12;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+  const W = 375;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

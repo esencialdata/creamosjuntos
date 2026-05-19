@@ -1,0 +1,11 @@
+.weekly-theme-card .card-content-scrollable {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.weekly-theme-card .card-content-scrollable::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}

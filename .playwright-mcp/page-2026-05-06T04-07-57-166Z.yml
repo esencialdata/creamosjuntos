@@ -1,0 +1,228 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Creamos juntos" [ref=e6] [cursor=pointer]:
+        - /url: "#/"
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - button "A-" [ref=e9] [cursor=pointer]
+          - button "100%" [ref=e10] [cursor=pointer]
+          - button "A+" [ref=e11] [cursor=pointer]
+        - navigation [ref=e12]:
+          - list [ref=e13]:
+            - listitem [ref=e14]:
+              - link "Inicio" [ref=e15] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e16]:
+              - link "Hábitos" [ref=e17] [cursor=pointer]:
+                - /url: "#/habitos"
+            - listitem [ref=e18]:
+              - link "Recursos" [ref=e19] [cursor=pointer]:
+                - /url: "#/recursos"
+            - listitem [ref=e20]:
+              - link "Favoritos" [ref=e21] [cursor=pointer]:
+                - /url: "#/favoritos"
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - heading "Cita del día" [level=2] [ref=e25]
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: "\"Y amarás á Jehová tu Dios de todo tu corazón, y de toda tu alma, y con todo tu poder.\""
+          - generic [ref=e28]: — Deuteronomio 6:5
+          - paragraph [ref=e29]: La verdadera adoración no admite rivales ni entregas a medias; Dios exige la totalidad de nuestro afecto, intelecto y voluntad.
+          - generic [ref=e30]:
+            - button "Guardar en favoritos" [ref=e31] [cursor=pointer]:
+              - img [ref=e32]
+            - button "Compartir" [ref=e34] [cursor=pointer]:
+              - img [ref=e35]
+      - generic [ref=e41]:
+        - generic [ref=e43]: "3"
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: GÉNESIS 1 · DÍA TERCERO
+          - heading "Tercer Día" [level=2] [ref=e46]
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - heading "Lo Último" [level=3] [ref=e51]
+          - generic [ref=e52]: Nuevos
+        - generic [ref=e53]:
+          - generic [ref=e55]:
+            - button [ref=e56] [cursor=pointer]:
+              - img [ref=e57]
+            - heading "8. El fruto y la maestría de la utilidad" [level=4] [ref=e60]
+            - generic [ref=e77]:
+              - generic [ref=e78]: 05:53
+              - generic [ref=e79]:
+                - button "Compartir" [ref=e80] [cursor=pointer]:
+                  - img [ref=e81]
+                - button "Me gusta" [ref=e87] [cursor=pointer]:
+                  - img [ref=e88]
+                - button "Guardar" [ref=e90] [cursor=pointer]:
+                  - img [ref=e91]
+          - generic [ref=e93]:
+            - generic [ref=e95]:
+              - generic [ref=e99]:
+                - generic [ref=e100]:
+                  - heading "SOMOS MANOS DE DIOS" [level=1] [ref=e101]
+                  - paragraph [ref=e102]: El compromiso nace cuando sabes quién eres.
+                - generic [ref=e103]: 🤲
+                - generic [ref=e104]:
+                  - blockquote [ref=e105]:
+                    - text: "\"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular.\""
+                    - generic [ref=e106]: — 1 Corintios 12:27 (RV1909)
+                  - paragraph [ref=e107]: Creamos Juntos · Semana 23
+              - generic [ref=e111]:
+                - generic [ref=e112]: LA PREGUNTA QUE LO CAMBIA TODO
+                - 'heading "No es ¿qué debo hacer? No es ¿a dónde debo ir? Es esta: ¿Quién soy yo?" [level=2] [ref=e113]'
+                - generic [ref=e114]: Hay una pregunta que lo cambia todo. La mayoría pasa la vida respondiendo las otras dos — y nunca llega a esta.
+              - generic [ref=e118]:
+                - generic [ref=e119]: CONTEXTO · Jueces 6
+                - heading "Israel llevaba 7 años escondido en cuevas." [level=2] [ref=e120]
+                - generic [ref=e121]: "No porque los vencieran en batalla. Sino porque olvidaron quién eran. Ese olvido colectivo tuvo un nombre: Gedeón."
+              - generic [ref=e125]:
+                - generic [ref=e126]: LA ESCENA · Jueces 6:11
+                - heading "Dios lo encuentra en un lagar. Escondido. Encorvado. Con miedo." [level=2] [ref=e127]
+                - generic [ref=e128]: Usando el lugar equivocado para hacer lo que podía. ¿Lo conoces? Ese lagar también tiene tu forma.
+              - generic [ref=e132]:
+                - generic [ref=e133]: LA DECLARACIÓN · Jueces 6:12
+                - heading "\"Jehová está contigo, varón esforzado y valiente.\"" [level=2] [ref=e134]
+                - generic [ref=e135]: Y en ese momento — el peor momento — Dios le habla así. No lo llamó por lo que era. Lo llamó por lo que ya era en Su diseño.
+                - blockquote [ref=e136]:
+                  - text: "\"Jehová está contigo, varón esforzado y valiente.\""
+                  - generic [ref=e137]: — Jueces 6:12 (RV1909)
+              - generic [ref=e141]:
+                - generic [ref=e142]: LA CRISIS · Jueces 6:15
+                - heading "\"¿Con qué salvaré yo a Israel?\"" [level=2] [ref=e143]
+                - generic [ref=e144]: "Gedeón no recibe eso con gratitud. Lo cuestiona: \"Mi familia es la más pobre en Manasés, y yo el menor en la casa de mi padre.\" Tribu equivocada. Familia equivocada. Posición equivocada. Identidad construida con el peor material."
+              - generic [ref=e148]:
+                - generic [ref=e149]: LA RESPUESTA DE DIOS · Jueces 6:16
+                - heading "\"Ciertamente yo estaré contigo.\"" [level=2] [ref=e150]
+                - generic [ref=e151]: Dios no corrige la genealogía. No le asigna una tribu mejor. No le cambia el apellido. La respuesta a la crisis de identidad siempre es presencia, no credenciales.
+                - blockquote [ref=e152]:
+                  - text: "\"Ciertamente yo estaré contigo.\""
+                  - generic [ref=e153]: — Jueces 6:16 (RV1909)
+              - generic [ref=e157]:
+                - generic [ref=e158]: EL ESPÍRITU QUE LO VISTIÓ · Jueces 6:34
+                - heading "El Espíritu de Jehová vistió a Gedeón." [level=2] [ref=e159]
+                - generic [ref=e160]: "En hebreo: labash — vestirse. No vino sobre él como poder ajeno. Lo vistió como prenda propia. La misión no fue añadida desde afuera. Era suya desde antes de que lo supiera."
+                - blockquote [ref=e161]:
+                  - text: "\"El Espíritu de Jehová vistió a Gedeón.\""
+                  - generic [ref=e162]: — Jueces 6:34 (RV1909)
+              - generic [ref=e166]:
+                - generic [ref=e167]: EL NOMBRE NUEVO · Jueces 6:32
+                - heading "Jerobaal — \"Contienda Baal contra él.\"" [level=2] [ref=e168]
+                - generic [ref=e169]: Entró escondido en un lagar. Salió con un nombre que declaraba que había peleado contra la opresión. La identidad transformada produce un nombre nuevo.
+              - generic [ref=e173]:
+                - generic [ref=e174]: EL PRINCIPIO
+                - heading "Gedeón no fue al campo de batalla porque prometió ir. Fue porque supo quién era." [level=2] [ref=e175]
+                - generic [ref=e176]: Y cuando lo supo — el lagar quedó atrás para siempre.
+              - generic [ref=e181]:
+                - heading "Tres preguntas para hoy" [level=2] [ref=e182]
+                - paragraph [ref=e183]: No para evaluar. Para ubicarte.
+                - generic [ref=e184]:
+                  - generic [ref=e185]:
+                    - generic [ref=e186]: "1"
+                    - generic [ref=e187]: ¿He resuelto quién soy — o solo qué hago?
+                  - generic [ref=e188]:
+                    - generic [ref=e189]: "2"
+                    - generic [ref=e190]: ¿Desde qué lagar estoy sirviendo?
+                  - generic [ref=e191]:
+                    - generic [ref=e192]: "3"
+                    - generic [ref=e193]: ¿Quién está esperando mis manos hoy?
+              - generic [ref=e197]:
+                - generic [ref=e198]: CIERRE · Campo David · IDI QRO
+                - heading "\"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular.\"" [level=2] [ref=e199]
+                - generic [ref=e200]: La cabeza ya envió la señal. La pregunta no es si quieres ser mano de Dios. La pregunta es si sabes que ya lo eres.
+                - blockquote [ref=e201]:
+                  - text: "\"Vosotros sois el cuerpo de Cristo, y miembros cada uno en particular.\""
+                  - generic [ref=e202]: — 1 Corintios 12:27 (RV1909)
+            - generic [ref=e216]:
+              - button "Guardar tema" [ref=e217] [cursor=pointer]:
+                - img [ref=e218]
+              - button "Compartir tema" [ref=e220] [cursor=pointer]:
+                - img [ref=e221]
+      - generic [ref=e227]:
+        - heading "Series de Audio" [level=3] [ref=e228]
+        - generic [ref=e229] [cursor=pointer]:
+          - 'img "INQUEBRANTABLE: 8 Días para Tomar el Gobierno de tu Vida" [ref=e230]'
+          - generic [ref=e231]:
+            - 'heading "INQUEBRANTABLE: 8 Días para Tomar el Gobierno de tu Vida" [level=3] [ref=e232]'
+            - paragraph [ref=e233]: El protocolo definitivo para desmantelar la inercia del fracaso y restaurar la autoridad de tu diseño original. 8 episodios de audio diseñados para limpiar tu estructura interna, elevar tus estándares y convertirte en el administrador soberano de tu propósito y tu fruto.
+            - generic [ref=e237]:
+              - generic [ref=e238]: 8 de 8 disponibles
+              - generic [ref=e239]:
+                - text: Ver serie
+                - img [ref=e240]
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - heading "Hábito de la semana" [level=2] [ref=e244]
+          - button "Compartir hábito" [ref=e245] [cursor=pointer]:
+            - img [ref=e246]
+        - heading "Agradecí antes de pedir" [level=3] [ref=e249]
+        - generic [ref=e250]: Filipenses 4:6, Colosenses 4:2
+        - paragraph [ref=e251]: Ser conscientes de lo que ya tenemos, reconocer la provisión actual para activar la fe de que lo faltante vendrá; orar desde la abundancia y no desde la queja.
+        - generic [ref=e252]:
+          - button "Completar hoy" [ref=e253] [cursor=pointer]
+          - link "Ver todos" [ref=e254] [cursor=pointer]:
+            - /url: "#/habitos"
+      - generic [ref=e255]:
+        - heading "Mensajes de esta semana" [level=3] [ref=e256]
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - generic [ref=e260]: Viernes 24 Abr • 7:00 PM
+              - heading "Buena tierra" [level=4] [ref=e261]
+              - paragraph [ref=e262]: Oyen, entienden y aplican en su vida con grandes frutos.
+            - generic [ref=e263]:
+              - button "Compartir" [ref=e264] [cursor=pointer]:
+                - img [ref=e266]
+                - generic [ref=e272]: Compartir
+              - button "Me interesa" [ref=e273] [cursor=pointer]:
+                - img [ref=e275]
+                - generic [ref=e277]: Me interesa
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - generic [ref=e280]: Sábado 25 Abr • 10:00 AM
+              - heading "La reina Esther y la fiesta de Purim" [level=4] [ref=e281]
+              - paragraph [ref=e282]: La grey sabrá el motivo de esa conmemoración y su aplicación en este tiempo.
+            - generic [ref=e283]:
+              - button "Compartir" [ref=e284] [cursor=pointer]:
+                - img [ref=e286]
+                - generic [ref=e292]: Compartir
+              - button "Me interesa" [ref=e293] [cursor=pointer]:
+                - img [ref=e295]
+                - generic [ref=e297]: Me interesa
+          - generic [ref=e298]:
+            - generic [ref=e299]:
+              - generic [ref=e300]: Sábado 25 Abr • 4:00 PM
+              - heading "La oveja perdida" [level=4] [ref=e301]
+              - paragraph [ref=e302]: La grey se comprometerá a actuar de acuerdo a la enseñanza recibida.
+            - generic [ref=e303]:
+              - button "Compartir" [ref=e304] [cursor=pointer]:
+                - img [ref=e306]
+                - generic [ref=e312]: Compartir
+              - button "Me interesa" [ref=e313] [cursor=pointer]:
+                - img [ref=e315]
+                - generic [ref=e317]: Me interesa
+        - generic [ref=e318]:
+          - generic [ref=e319]: ❤️
+          - text: Guardado en tus intereses
+      - generic [ref=e320]:
+        - heading "Cómo va creciendo el templo" [level=2] [ref=e321]
+        - paragraph [ref=e322]: "\"Cada hábito que adoptamos es como un nuevo ladrillo en el templo que Dios está construyendo en nosotros y en la comunidad.\""
+        - generic [ref=e323]:
+          - generic [ref=e324]:
+            - generic [ref=e325]: "6"
+            - text: Hábitos
+          - generic [ref=e326]:
+            - generic [ref=e327]: "0"
+            - text: Tus Ladrillos
+          - generic [ref=e328]:
+            - generic [ref=e329]: "1"
+            - text: Días Racha
+        - paragraph [ref=e330]: Creer, Crear, Crecer
+  - contentinfo [ref=e331]:
+    - generic [ref=e332]:
+      - img "Logo Campo David" [ref=e333]
+      - generic [ref=e334]:
+        - paragraph [ref=e335]: Estamos levantando los cimientos
+        - paragraph [ref=e336]: © 2026 Creamos juntos

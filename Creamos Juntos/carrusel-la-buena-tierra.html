@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — La Buena Tierra</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0E1A13;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  /* ── PHONE FRAME ─────────────────────────────────────── */
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 2px #1B3A2D;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F9F6F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
+    opacity: 0.6;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 0.52rem;
+    color: #C8D8C2;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #1B3A2D;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #2D6A4F; transform: scale(1.5); }
+
+  /* ══════════════════════════════════════════════════════
+     SLIDE INTERNOS
+  ══════════════════════════════════════════════════════ */
+
+  /* PORTADA */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #2D6A4F;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .cover-visual { font-size: 3rem; margin-bottom: 16px; line-height: 1; }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: #2C2218;
+    margin-bottom: 14px;
+    white-space: pre-line;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #7A6E62;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 2.5px;
+    color: #C3D8C0;
+    text-transform: uppercase;
+  }
+
+  /* LABELS Y CUERPO */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #2D6A4F;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2C2218;
+    margin-bottom: 16px;
+    white-space: pre-line;
+  }
+  .slide-body {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #5A4E42;
+    margin-bottom: 14px;
+    white-space: pre-line;
+    font-family: 'Inter', sans-serif;
+  }
+  .citation-block {
+    border-left: 2px solid #2D6A4F;
+    padding-left: 14px;
+    margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #5A4E42;
+    line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem;
+    color: #2D6A4F;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* TERRENOS */
+  .terrain-list { display: flex; flex-direction: column; gap: 10px; margin: 10px 0 12px; }
+  .terrain-item {
+    background: rgba(44,34,24,0.04);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: #5A4E42;
+    border-left: 2px solid transparent;
+  }
+  .terrain-item.path   { border-left-color: #C8B89A; }
+  .terrain-item.rocky  { border-left-color: #8B8070; }
+  .terrain-item.thorny { border-left-color: #A8955A; }
+
+  /* CONDICIÓN BADGE */
+  .condition-badge {
+    display: inline-block;
+    background: #2D6A4F;
+    color: #F9F6F1;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+  }
+  .greek-term {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #2D6A4F;
+    font-weight: 700;
+  }
+
+  /* HISTORIA */
+  .slide-historia { background: #F4F1EB; }
+  .story-pair { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+  .story-card {
+    background: rgba(44,34,24,0.05);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    line-height: 1.6;
+    color: #5A4E42;
+  }
+  .story-card-name {
+    font-weight: 700;
+    color: #2C2218;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .story-card.fail { border-left: 2px solid #C0785A; }
+  .story-card.win  { border-left: 2px solid #2D6A4F; }
+
+  /* PREGUNTAS */
+  .questions-list { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+  .question-item { display: flex; gap: 12px; align-items: flex-start; }
+  .question-num {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: #2D6A4F;
+    color: #F9F6F1;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .question-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #5A4E42;
+  }
+
+  /* CIERRE */
+  .slide-cierre { background: #1B3A2D; }
+  .slide-cierre::before { background: linear-gradient(90deg, transparent, #7AC49A, transparent); opacity: 0.5; }
+  .slide-cierre .label      { color: #7AC49A; opacity: 1; }
+  .slide-cierre .slide-title { color: #F5EDD8; }
+  .slide-cierre .slide-body  { color: #B8D4C0; }
+  .slide-cierre .citation-block { border-left-color: #7AC49A; }
+  .slide-cierre .citation-text  { color: #F5EDD8; }
+  .slide-cierre .citation-ref   { color: #7AC49A; }
+  .slide-cierre .slide-num      { color: #2D5A3F; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 11</span>
+      <div>
+        <p class="cover-eyebrow">Creamos Juntos · Semana 22</p>
+        <div class="cover-visual">🌱</div>
+        <div class="cover-title">LA BUENA TIERRA
+ANATOMÍA DEL CORAZÓN
+QUE FRUCTIFICA.</div>
+        <p class="cover-subtitle">La semilla siempre es perfecta.<br>La variable eres tú.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Mas el que fue sembrado en buena tierra, éste es el que oye la palabra, y la entiende; y el que lleva fruto..."</div>
+          <div class="citation-ref">Mateo 13:23 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">Mateo 13 · Lucas 8:15</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 11</span>
+      <div class="label">La pregunta más incómoda del evangelio</div>
+      <div class="slide-title">Jesús no preguntó cuántos años llevas en la fe.
+
+Preguntó: ¿Qué clase de tierra eres?</div>
+      <div class="slide-body">La parábola describe cuatro terrenos — y tres de ellos reciben la semilla. Hay respuesta. Hay un primer movimiento. Y aun así, no hay fruto permanente.
+
+El problema no es la semilla. La semilla siempre es perfecta. El problema es el terreno que la recibe.</div>
+    </div>
+
+    <!-- SLIDE 3: DIAGNÓSTICO -->
+    <div class="slide">
+      <span class="slide-num">03 / 11</span>
+      <div class="label">Diagnóstico previo · Los tres terrenos que fallan</div>
+      <div class="slide-title">Todos recibieron la semilla. Ninguno produjo fruto permanente.</div>
+      <div class="terrain-list">
+        <div class="terrain-item path">🪨 <strong>El camino endurecido:</strong> escucha y sale igual. La Palabra rebota.</div>
+        <div class="terrain-item rocky">⛰️ <strong>El pedregoso:</strong> germina con gozo — pero no tiene raíz. Colapsa en la prueba.</div>
+        <div class="terrain-item thorny">🌿 <strong>El espinoso:</strong> crece, pero el afán del siglo lo sofoca lentamente. Sin fruto maduro.</div>
+      </div>
+      <div class="citation-block">
+        <div class="citation-text">"Y el que fue sembrado en pedregales... al venir la aflicción o la persecución... luego tropieza."</div>
+        <div class="citation-ref">Mateo 13:20-21 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: CONDICIÓN 1 -->
+    <div class="slide">
+      <span class="slide-num">04 / 11</span>
+      <span class="condition-badge">Condición 1 de 3 · Lucas 8:15</span>
+      <div class="slide-title">Corazón bueno y recto.</div>
+      <div class="slide-body">El griego usa dos adjetivos:
+<span class="greek-term">kalē</span> — noble, de valor intrínseco.
+<span class="greek-term">agathē</span> — íntegro, honesto, que no se engaña a sí mismo.
+
+No es el corazón del perfecto. Es el corazón del honesto — el que cuando la Palabra lo confronta, no busca escapatoria. Recibe el diagnóstico y actúa.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Escudriña Jehová el corazón, prueba los riñones; para dar a cada uno según su camino."</div>
+        <div class="citation-ref">Jeremías 17:10 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: CONDICIÓN 2 -->
+    <div class="slide">
+      <span class="slide-num">05 / 11</span>
+      <span class="condition-badge">Condición 2 de 3 · Lucas 8:15</span>
+      <div class="slide-title">Retienen la Palabra.</div>
+      <div class="slide-body">El verbo griego es <span class="greek-term">katéchō</span>: sujetar con fuerza, aferrar, no soltar contra la resistencia.
+
+No es retención pasiva. Es el que agarra la Palabra y no la suelta aunque cueste.
+
+<strong style="color:#2C2218;">Memoria → Obediencia → Confesión.</strong></div>
+      <div class="citation-block">
+        <div class="citation-text">"En mi corazón he guardado tus dichos, para no pecar contra ti."</div>
+        <div class="citation-ref">Salmo 119:11 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: CONDICIÓN 3 -->
+    <div class="slide">
+      <span class="slide-num">06 / 11</span>
+      <span class="condition-badge">Condición 3 de 3 · Lucas 8:15</span>
+      <div class="slide-title">Con perseverancia.</div>
+      <div class="slide-body"><span class="greek-term">Hypomonē</span> — literalmente: "permanecer bajo la carga". No es paciencia pasiva. Es resistencia activa.
+
+El fruto de treinta, sesenta, ciento por uno no es un evento. Es el resultado de meses y años de semilla sembrada, regada y protegida — sin audiencia, sin resultados visibles todavía.</div>
+      <div class="citation-block">
+        <div class="citation-text">"No nos cansemos de hacer bien; porque a su tiempo segaremos, si no desmayamos."</div>
+        <div class="citation-ref">Gálatas 6:9 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: HISTORIA -->
+    <div class="slide slide-historia">
+      <span class="slide-num">07 / 11</span>
+      <div class="label">Mismo mensaje · Dos corazones · Hechos 8</div>
+      <div class="slide-title">Simón el Mago y el Eunuco Etíope oyeron el mismo evangelio en el mismo capítulo.</div>
+      <div class="story-pair">
+        <div class="story-card fail">
+          <div class="story-card-name">❌ Simón el Mago</div>
+          Creyó, fue bautizado — pero ofreció dinero por el Espíritu Santo. Pedro: <em>"Tu corazón no es recto delante de Dios."</em> (Hech. 8:21)
+        </div>
+        <div class="story-card win">
+          <div class="story-card-name">✓ El Eunuco Etíope</div>
+          Recibió, creyó, fue bautizado — y llevó el evangelio a Etiopía. Un hombre: treinta, sesenta, ciento por uno.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: LA DIFERENCIA -->
+    <div class="slide">
+      <span class="slide-num">08 / 11</span>
+      <div class="label">La diferencia</div>
+      <div class="slide-title">No fue la predicación que escucharon.
+No fue la intensidad de su respuesta.
+Fue la condición del corazón.</div>
+      <div class="slide-body">Dos personas pueden oír el mismo sermón, responder con el mismo entusiasmo inicial, y terminar en lugares completamente opuestos.
+
+La variable siempre es el corazón.</div>
+      <div class="citation-block">
+        <div class="citation-text">"No tienes tú parte ni suerte en este negocio; porque tu corazón no es recto delante de Dios."</div>
+        <div class="citation-ref">Hechos 8:21 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: EL TERRENO SE LABRA -->
+    <div class="slide">
+      <span class="slide-num">09 / 11</span>
+      <div class="label">El terreno se labra</div>
+      <div class="slide-title">El suelo duro puede romperse. La roca puede removerse. Las espinas pueden arrancarse.</div>
+      <div class="slide-body">Dios no le habla a la tierra que ya es buena. Le habla a la que puede serlo.
+
+La buena tierra no es un estado fijo de nacimiento — es una conquista interior que se edifica con honestidad, perseverancia y fruto verificable.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Arad vuestro barbecho, y no sembréis entre espinas."</div>
+        <div class="citation-ref">Jeremías 4:3 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: TRES PREGUNTAS -->
+    <div class="slide">
+      <span class="slide-num">10 / 11</span>
+      <div class="label">Tres preguntas para llevar</div>
+      <div class="slide-title">No para condenar. Para diagnosticar la profundidad real.</div>
+      <div class="questions-list">
+        <div class="question-item">
+          <div class="question-num">1</div>
+          <div class="question-text">¿Soy honesto con lo que la Palabra me dice — o busco cómo evadir lo que me confronta?</div>
+        </div>
+        <div class="question-item">
+          <div class="question-num">2</div>
+          <div class="question-text">¿Qué hago con lo que aprendo? ¿Hay distancia entre lo que sé y lo que hago?</div>
+        </div>
+        <div class="question-item">
+          <div class="question-num">3</div>
+          <div class="question-text">¿Produzco fruto en las temporadas difíciles — o solo cuando conviene y hay audiencia?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">11 / 11</span>
+      <div class="label">Cierre</div>
+      <div class="slide-title">El corazón bueno y recto no es el que nunca falló.
+Es el que decidió no seguir fallando de la misma manera.</div>
+      <div class="slide-body">La diferencia entre el pedregal y la buena tierra no está en la calidad de la semilla. La semilla siempre es perfecta. Está en la profundidad del suelo.
+
+Y la profundidad es una decisión.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Cread en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí."</div>
+        <div class="citation-ref">Salmo 51:10 · RV1909</div>
+      </div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /phone -->
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 11;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+  const W      = 375;
+
+  // Dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // Touch
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  // Mouse (desktop preview)
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  // Keys
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

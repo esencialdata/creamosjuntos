@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrusel — El Nombre No Es Contraseña, Es Jurisdicción</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #060606;
+    font-family: 'Georgia', serif;
+    color: #f0e6d3;
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #c9a96e;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: normal;
+  }
+  .meta {
+    text-align: center;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .slide {
+    background: #0D0D0D;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 36px 28px;
+    aspect-ratio: 3/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  }
+  .slide-num {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 0.6rem;
+    color: #3a3a3a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .label {
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+    color: #c9a96e;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+  .slide-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.35;
+    color: #F5E6C8;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .slide-body {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #B8A898;
+    margin-bottom: 20px;
+  }
+  .citation-block {
+    border-left: 2px solid #c9a96e;
+    padding-left: 14px;
+    margin-top: 16px;
+  }
+  .citation-text {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: #e8dcc8;
+    line-height: 1.6;
+  }
+  .citation-ref {
+    font-size: 0.65rem;
+    color: #c9a96e;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-style: normal;
+    font-weight: bold;
+  }
+  /* PORTADA */
+  .slide-cover {
+    justify-content: space-between;
+    padding-top: 44px;
+    padding-bottom: 40px;
+  }
+  .cover-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #F5E6C8;
+    margin-bottom: 12px;
+  }
+  .cover-title span { color: #c9a96e; }
+  .cover-subtitle {
+    font-size: 0.82rem;
+    color: #B8A898;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .cover-footer {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
+  }
+  /* ACCION */
+  .action-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .action-step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num {
+    background: #c9a96e; color: #0d0d0d;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: bold; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-text { font-size: 0.83rem; line-height: 1.6; color: #B8A898; }
+  .step-text strong { color: #F5E6C8; font-style: normal; }
+  /* CIERRE */
+  .slide-cierre { text-align: center; justify-content: center; }
+  .cierre-title {
+    font-size: 1.7rem; font-weight: bold; line-height: 1.1;
+    text-transform: uppercase; color: #F5E6C8; margin-bottom: 20px;
+  }
+  .cierre-sub {
+    font-size: 0.85rem; color: #9a9080; line-height: 1.7;
+    font-style: italic; margin-bottom: 24px;
+  }
+  .cta {
+    font-size: 0.6rem; letter-spacing: 3px; color: #c9a96e;
+    text-transform: uppercase; padding: 10px 20px;
+    border: 1px solid #c9a96e44; display: inline-block; border-radius: 2px;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+    .slide { aspect-ratio: auto; min-height: 420px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>El Nombre No Es Contraseña — Es Jurisdicción</h1>
+<p class="meta">Carrusel · Sábado 19 de abril, 2026 · IDI · 10 slides</p>
+
+<div class="grid">
+
+  <!-- SLIDE 1 — Portada -->
+  <div class="slide slide-cover">
+    <span class="slide-num">01 / 10</span>
+    <div>
+      <div class="cover-title">EL NOMBRE<br>NO ES <span>CONTRASEÑA.</span><br>ES JURISDICCIÓN.</div>
+      <div class="cover-subtitle">Invocar sin obedecer no es invocar — es presumir.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y todo aquel que invocare el nombre del Señor, será salvo."</div>
+        <div class="citation-ref">Joel 2:32 (RVA)</div>
+      </div>
+    </div>
+    <div class="cover-footer">Creamos Juntos · Sábado 19 de abril</div>
+  </div>
+
+  <!-- SLIDE 2 — El error de época -->
+  <div class="slide">
+    <span class="slide-num">02 / 10</span>
+    <div class="label">El error de época</div>
+    <div class="slide-title">Muchos portan el nombre. Pocos viven bajo su peso.</div>
+    <div class="slide-body">
+      El nombre de Jehová se convirtió en una fórmula de acceso: pronúncialo y abre puertas. Se repite en oraciones, pero no se habita en la conducta.<br><br>
+      La Escritura lo advierte con una escena que debería helar a cualquiera: hombres que profetizan, expulsan demonios y hacen maravillas en Su nombre — y aun así son rechazados.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"Señor, Señor, ¿no profetizamos en tu nombre... y en tu nombre hicimos muchos milagros?"</div>
+      <div class="citation-ref">Mateo 7:22 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — Fundamento AT -->
+  <div class="slide">
+    <span class="slide-num">03 / 10</span>
+    <div class="label">Fundamento · Antiguo Testamento</div>
+    <div class="slide-title">"No tomarás el nombre de Jehová en vano."</div>
+    <div class="slide-body">
+      El verbo hebreo es <em style="color:#c9a96e;">נָשָׂא (nasá)</em>: portar, cargar, llevar. No describe un acto de habla — describe una identidad que se carga sobre los hombros.<br><br>
+      Tomar el nombre en vano no es una mala palabra dicha de prisa. Es vivir bajo Su nombre sin asumir Su carácter — llevar la etiqueta sin someterse al código.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"No tomarás el nombre de Jehová tu Dios en vano..."</div>
+      <div class="citation-ref">Éxodo 20:7 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — Nombre = Destino AT -->
+  <div class="slide">
+    <span class="slide-num">04 / 10</span>
+    <div class="label">Nombre = Destino · Antiguo Testamento</div>
+    <div class="slide-title">Cuando Dios cambia el destino, cambia primero el nombre.</div>
+    <div class="slide-body">
+      Abram se convirtió en Abraham — padre de multitudes. Cada vez que alguien lo llamaba, pronunciaba la promesa que él debía habitar.<br><br>
+      Jacob luchó y ganó un nombre nuevo: Israel. No era un título honorífico. Era un código de identidad que moldearía la conducta de una nación entera.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"No se llamará más tu nombre Abram, sino que será tu nombre Abraham..."</div>
+      <div class="citation-ref">Génesis 17:5 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 — Magnificación NT -->
+  <div class="slide">
+    <span class="slide-num">05 / 10</span>
+    <div class="label">Magnificación · Nuevo Testamento</div>
+    <div class="slide-title">La respuesta de Cristo define qué significa realmente invocar.</div>
+    <div class="slide-body">
+      Ellos invocaron. Ellos actuaron. Tenían resultados que mostrar. Y la sentencia fue definitiva: "Nunca os conocí."<br><br>
+      No dijo: "Usaron mal las palabras." Dijo: "No existe relación de conocimiento entre nosotros." La invocación sin identidad no establece jurisdicción — la revela como vacía.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"Nunca os conocí: apartaos de mí, hacedores de maldad."</div>
+      <div class="citation-ref">Mateo 7:23 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 — La Promesa -->
+  <div class="slide">
+    <span class="slide-num">06 / 10</span>
+    <div class="label">La Promesa · Joel y Hechos</div>
+    <div class="slide-title">"Todo el que invocare el nombre del Señor, será salvo."</div>
+    <div class="slide-body">
+      Invocar en el texto hebreo (<em style="color:#c9a96e;">קָרָא, qará</em>) incluye llamar, pero también ser llamado por ese nombre — que ese nombre te defina y te cubra.<br><br>
+      No es solo pronunciarlo: es someterse a Su jurisdicción, obedecer Su ley, vivir bajo Su autoridad sin excepción.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"Y todo aquel que invocare el nombre del Señor, será salvo."</div>
+      <div class="citation-ref">Joel 2:32 / Hechos 2:21 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 — Historia: Los hijos de Esceva -->
+  <div class="slide">
+    <span class="slide-num">07 / 10</span>
+    <div class="label">Historia Bíblica · Hechos 19</div>
+    <div class="slide-title">Siete hombres. Las palabras exactas. La identidad equivocada.</div>
+    <div class="slide-body">
+      Los siete hijos de Esceva eran exorcistas profesionales. Escucharon que Pablo expulsaba demonios en el nombre de Jesús y lo replicaron como si fuera una técnica de oficio.<br><br>
+      Tenían el protocolo correcto. Conocían la fórmula. Lo que no tenían era la identidad que da autoridad a esa fórmula.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"Os conjuro por Jesús, el que Pablo predica."</div>
+      <div class="citation-ref">Hechos 19:13 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 — El veredicto -->
+  <div class="slide">
+    <span class="slide-num">08 / 10</span>
+    <div class="label">El Veredicto · Hechos 19</div>
+    <div class="slide-title">"A Jesús conozco... pero vosotros, ¿quiénes sois?"</div>
+    <div class="slide-body">
+      La pregunta no vino de los fariseos. Vino del espíritu inmundo. Incluso en el ámbito espiritual, la autoridad requiere identidad verificable.<br><br>
+      El hombre en quien estaba el espíritu malo los hirió y venció. Huyeron desnudos y heridos. Tenían las palabras. No tenían jurisdicción.
+    </div>
+    <div class="citation-block">
+      <div class="citation-text">"...los venció, de tal manera que huyeron de aquella casa desnudos y heridos."</div>
+      <div class="citation-ref">Hechos 19:16 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 — Acción -->
+  <div class="slide">
+    <span class="slide-num">09 / 10</span>
+    <div class="label">Aplicación</div>
+    <div class="slide-title">PORTAR EL NOMBRE</div>
+    <div style="font-size:0.78rem; color:#9a9080; font-style:italic; margin-bottom:18px;">El Nombre no se pronuncia con atrevimiento — se porta con obediencia.</div>
+    <div class="action-steps">
+      <div class="action-step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Examina:</strong> ¿Tu conducta porta el Nombre o solo tu vocabulario? (Éxodo 20:7)</div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Alinea:</strong> Toda ley del AT magnificada en el NT define la jurisdicción que reclamas al invocarle.</div>
+      </div>
+      <div class="action-step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Habita:</strong> Invocar es pertenecer — no recitar. La cobertura del Nombre es para el que vive bajo Su autoridad. (Joel 2:32)</div>
+      </div>
+    </div>
+    <div class="citation-block" style="margin-top:20px;">
+      <div class="citation-text">"¿Y por qué me llamáis, Señor, Señor, y no hacéis lo que yo digo?"</div>
+      <div class="citation-ref">Lucas 6:46 (RVA)</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10 — Cierre -->
+  <div class="slide slide-cierre">
+    <span class="slide-num">10 / 10</span>
+    <div class="cierre-title">EL NOMBRE<br>NO SE INVOCA.<br>SE HABITA.</div>
+    <div class="cierre-sub">¿Portas el Nombre viviendo bajo Su jurisdicción?<br>El peso del cielo respalda la obediencia — no la presunción.</div>
+    <div class="citation-block" style="text-align:left; margin-bottom:20px;">
+      <div class="citation-text">"Y todo aquel que invocare el nombre del Señor, será salvo."</div>
+      <div class="citation-ref">Joel 2:32 (RVA)</div>
+    </div>
+    <div class="cta">Comparte si esto te habló ↗</div>
+  </div>
+
+</div>
+</body>
+</html>

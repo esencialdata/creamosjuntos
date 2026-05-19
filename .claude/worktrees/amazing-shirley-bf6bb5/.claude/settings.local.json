@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_click",
+      "mcp__claude_ai_Pixa__models",
+      "mcp__claude_ai_Pixa__generate_media",
+      "mcp__claude_ai_Pixa__get_job_status",
+      "mcp__claude_ai_Pixa__assets",
+      "Bash(curl -s \"https://assets.pixelcut.app/org/aadf8e79-7dcd-478f-811d-ec2526596c38/media/10147425-0664-40e3-a11c-63c51b66b627_1778041439.jpg?Expires=1778127871&KeyName=px-assets-key-1&Signature=mlA3Fe4Vp6ggfJAQNWAQ0VJETeE=\" -o /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos/public/portada-somos-manos.jpg)",
+      "Bash(git -C /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos status)",
+      "Bash(git -C /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos diff --stat)",
+      "Bash(git *)",
+      "Bash(curl -s \"https://assets.pixelcut.app/org/aadf8e79-7dcd-478f-811d-ec2526596c38/media/fcd56219-30b2-45f0-b767-3f3da2a5a48f_1778163423.jpg?Expires=1778249844&KeyName=px-assets-key-1&Signature=Muck60M8Owvvv00kTtcN-7eSESw=\" -o /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos/public/portada-ruido.jpg)",
+      "mcp__playwright__browser_resize",
+      "Bash(python3 *)",
+      "Bash(curl -s \"https://assets.pixelcut.app/org/aadf8e79-7dcd-478f-811d-ec2526596c38/media/058125bb-ac48-4cd3-a192-5ccee1e7bfc8_1778163701.jpg?Expires=1778250167&KeyName=px-assets-key-1&Signature=ZwAPP_WHdMeRIiZaXODKVvoCTXs=\" -o /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos/public/portada-ruido.jpg)",
+      "Bash(sips *)",
+      "Bash(find /Users/aaronespinosa/Proyectos-WIP/Creamos-Juntos/.claude/worktrees/amazing-shirley-bf6bb5 -name \"SKILL.md\" 2>/dev/null; find /Users/aaronespinosa/.claude/skills -name \"*.md\" 2>/dev/null | head -20)",
+      "Bash(vercel deploy *)"
+    ]
+  }
+}

@@ -1,0 +1,256 @@
+
+> creamos-juntos@0.1.9 lint
+> eslint .
+
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/inspect_firestore_data.js
+  3:24  error  'doc' is defined but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+  3:29  error  'getDoc' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/AnalyticsDashboard.jsx
+   25:18  error    'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  158:32  error    Compilation Skipped: Existing memoization could not be preserved
+
+React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. The inferred dependencies did not match the manually specified dependencies, which could cause the value to change more or less frequently than expected. The inferred dependency was `aggregatedAudios`, but the source dependencies were [aggregatedSermons, aggregatedSlides, aggregatedVerses, viewMode, sortBy]. Inferred different dependency than source.
+
+  156 |
+  157 |     // 5. Sorting
+> 158 |     const sortedData = useMemo(() => {
+      |                                ^^^^^^^
+> 159 |         let data = [];
+      | ^^^^^^^^^^^^^^^^^^^^^^
+> 160 |         if (viewMode === 'sermons') data = [...aggregatedSermons];
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^
+> 177 |         return data;
+      | ^^^^^^^^^^^^^^^^^^^^^^
+> 178 |     }, [aggregatedSermons, aggregatedSlides, aggregatedVerses, viewMode, sortBy]);
+      | ^^^^^^ Could not preserve existing manual memoization
+  179 |
+  180 |     const topItem = sortedData.length > 0 ? sortedData[0] : null;
+  181 |  react-hooks/preserve-manual-memoization
+  178:8   warning  React Hook useMemo has a missing dependency: 'aggregatedAudios'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+  316:40  error    'idx' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/AudioCapsuleCard.jsx
+  158:53  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  156 |                         <div key={i} style={{
+  157 |                             width: '3px',
+> 158 |                             height: `${Math.max(20, Math.random() * 100)}%`, // Random height 20-100%
+      |                                                     ^^^^^^^^^^^^^ Cannot call impure function
+  159 |                             backgroundColor: isActive ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+  160 |                             borderRadius: '2px',
+  161 |                             animation: isActive ? `wave 1s ease-in-out infinite ${i * 0.1}s` : 'none'  react-hooks/purity
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/AutoRefresh.jsx
+  35:30  error  'e' is defined but never used  no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/SermonList.jsx
+  1:27  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/TempleGrowth.jsx
+  3:37  error  'currentWeek' is defined but never used                                                           no-unused-vars
+  5:11  error  'getStatusMessage' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/components/WeeklyTheme.jsx
+  6:10  error  'toggleThemeSave' is defined but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+  6:27  error  'toggleThemeShare' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/context/GlobalPlayerContext.jsx
+  5:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/hooks/useBookmarks.js
+  11:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   9 |     useEffect(() => {
+  10 |         const id = getDeviceID();
+> 11 |         setDeviceId(id);
+     |         ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  12 |
+  13 |         const unsubscribe = subscribeToUserBookmarks(id, (data) => {
+  14 |             setBookmarks(data);  react-hooks/set-state-in-effect
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/hooks/usePWAInstall.js
+  12:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  10 |         // Check if app is already installed
+  11 |         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+> 12 |             setIsInstalled(true);
+     |             ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |         }
+  14 |
+  15 |         // Detect iOS  react-hooks/set-state-in-effect
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/pages/AnalyticsPage.jsx
+   2:10  error    'getThemeStats' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                no-unused-vars
+  20:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  18 |         const isLeader = localStorage.getItem('isLeader');
+  19 |         if (isLeader === 'true') {
+> 20 |             setIsAuthenticated(true);
+     |             ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  21 |         }
+  22 |     }, []);
+  23 |                                                                     react-hooks/set-state-in-effect
+  27:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  25 |     useEffect(() => {
+  26 |         if (isAuthenticated && !communityStats) {
+> 27 |             setStatsError(null);
+     |             ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  28 |             getCommunityStats()
+  29 |                 .then(stats => setCommunityStats(stats))
+  30 |                 .catch(err => {  react-hooks/set-state-in-effect
+  35:8   warning  React Hook useEffect has a missing dependency: 'communityStats'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/pages/Backstage.jsx
+    3:50  error  'initializeDefaultData' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  126:76  error  'eventDate' is defined but never used                                                         no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/pages/Favorites.jsx
+  240:34  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  238 |                         <div>
+  239 |                             {verses.length === 0 ? (
+> 240 |                                 <EmptyState />
+      |                                  ^^^^^^^^^^ This component is created during render
+  241 |                             ) : (
+  242 |                                 <div>
+  243 |                                     {verses.map(item => (
+
+  23 |     };
+  24 |
+> 25 |     const EmptyState = () => (
+     |                        ^^^^^^^
+> 26 |         <div style={{
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 27 |             textAlign: 'center',
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 44 |         </div>
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 45 |     );
+     | ^^^^^^ The component is created during render here
+  46 |
+  47 |     const VerseCard = ({ item }) => (
+  48 |         <div style={{                                                                                     react-hooks/static-components
+  254:34  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  252 |                         <div>
+  253 |                             {topics.length === 0 ? (
+> 254 |                                 <EmptyState />
+      |                                  ^^^^^^^^^^ This component is created during render
+  255 |                             ) : (
+  256 |                                 <div style={{
+  257 |                                     display: 'grid',
+
+  23 |     };
+  24 |
+> 25 |     const EmptyState = () => (
+     |                        ^^^^^^^
+> 26 |         <div style={{
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 27 |             textAlign: 'center',
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 44 |         </div>
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 45 |     );
+     | ^^^^^^ The component is created during render here
+  46 |
+  47 |     const VerseCard = ({ item }) => (
+  48 |         <div style={{                                                                                  react-hooks/static-components
+  272:34  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  270 |                         <div>
+  271 |                             {capsules.length === 0 ? (
+> 272 |                                 <EmptyState />
+      |                                  ^^^^^^^^^^ This component is created during render
+  273 |                             ) : (
+  274 |                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-sm)' }}>
+  275 |                                     {capsules.map(item => (
+
+  23 |     };
+  24 |
+> 25 |     const EmptyState = () => (
+     |                        ^^^^^^^
+> 26 |         <div style={{
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 27 |             textAlign: 'center',
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 44 |         </div>
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 45 |     );
+     | ^^^^^^ The component is created during render here
+  46 |
+  47 |     const VerseCard = ({ item }) => (
+  48 |         <div style={{  react-hooks/static-components
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/pages/Home.jsx
+  23:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  21 |     useEffect(() => {
+  22 |         const currentStreak = updateStreak();
+> 23 |         setStreak(currentStreak);
+     |         ^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |
+  25 |         const unsubscribe = subscribeToSchedule((data) => {
+  26 |             if (data) setSchedule(data);  react-hooks/set-state-in-effect
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/pages/Library.jsx
+  55:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/service-main.jsx
+  11:7  error  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/services/firestoreService.js
+  110:15  error  'fieldPath' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  128:15  error  'docSnap' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u    no-unused-vars
+  144:52  error  'shouldAdd' is defined but never used                                                      no-unused-vars
+
+/Users/aaronespinosa/Proyectos WIP/Creamos Juntos/src/utils/calendarUtils.js
+  67:11  error  'startDateTime' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 32 problems (29 errors, 3 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

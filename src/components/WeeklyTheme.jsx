@@ -89,11 +89,12 @@ const WeeklyTheme = ({ theme = {} }) => {
         switch (slide.type) {
             case 'cover':
                 return (
-                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
                         {(slide.imageUrl || slide.gradient) && (
                             <div style={{
-                                margin: '-2rem -2rem 1.5rem -2rem',
-                                height: '220px',
+                                margin: '-2rem -2rem 1rem -2rem',
+                                height: '160px',
+                                flexShrink: 0,
                                 overflow: 'hidden',
                                 backgroundColor: '#f0ede6',
                                 background: slide.gradient || undefined,
@@ -139,9 +140,9 @@ const WeeklyTheme = ({ theme = {} }) => {
                         )}
                         {eyebrow(slide.footerText)}
                         <h1 style={{
-                            fontSize: 'clamp(1.85rem, 5vw, 2.4rem)',
+                            fontSize: 'clamp(1.4rem, 4vw, 1.9rem)',
                             fontWeight: 400,
-                            lineHeight: 1.3,
+                            lineHeight: 1.25,
                             letterSpacing: '-0.03em',
                             color: '#383838',
                             fontFamily: 'Lora, Georgia, serif',
@@ -150,13 +151,13 @@ const WeeklyTheme = ({ theme = {} }) => {
                         {divider}
                         {slide.subtitle && (
                             <p style={{
-                                fontSize: '1.05rem',
-                                lineHeight: 1.65,
-                                letterSpacing: '-0.03em',
+                                fontSize: '0.9rem',
+                                lineHeight: 1.6,
+                                letterSpacing: '-0.02em',
                                 color: 'rgba(56, 56, 56, 0.7)',
                                 fontFamily: 'Lora, Georgia, serif',
                                 fontWeight: 400,
-                                margin: '0 0 1rem 0',
+                                margin: '0 0 0.75rem 0',
                             }}>{slide.subtitle}</p>
                         )}
                         {citation(slide.citation, slide.reference)}
