@@ -274,10 +274,10 @@ const WeeklyTheme = ({ theme = {} }) => {
                 return (
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
                         <div style={{ marginTop: '2rem' }}>
-                            <h1 style={{ fontFamily: styles.fontSerif, fontSize: '2.2rem', fontWeight: 700, color: styles.textPrimary, lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                            <h1 style={{ fontFamily: styles.fontSerif, fontSize: '2.2rem', fontWeight: 400, color: styles.textPrimary, lineHeight: 1.1, marginBottom: '0.5rem' }}>
                                 {slide.title}
                             </h1>
-                            <p style={{ fontFamily: styles.fontSans, fontSize: '0.9rem', color: styles.textSecondary, textTransform: 'uppercase', letterSpacing: '2px' }}>
+                            <p style={{ fontFamily: styles.fontSerif, fontSize: '0.9rem', color: styles.textSecondary, fontStyle: 'italic', lineHeight: 1.6 }}>
                                 {slide.subtitle}
                             </p>
                         </div>
