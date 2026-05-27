@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — El Día que Dejaste de Recordar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #100D07;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  /* ── PHONE FRAME ─────────────────────────────────────── */
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 2px #3A2A0E;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F9F6F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #8B6914, transparent);
+    opacity: 0.6;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 0.52rem;
+    color: #C4AD72;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #3A2A0E;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #8B6914; transform: scale(1.5); }
+
+  /* ══════════════════════════════════════════════════════
+     SLIDE INTERNOS
+  ══════════════════════════════════════════════════════ */
+
+  /* PORTADA */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8B6914;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .cover-visual { font-size: 3rem; margin-bottom: 16px; line-height: 1; }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: #2C2218;
+    margin-bottom: 14px;
+    white-space: pre-line;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #7A6E62;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 2.5px;
+    color: #C4AD72;
+    text-transform: uppercase;
+  }
+
+  /* LABELS Y CUERPO */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #8B6914;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2C2218;
+    margin-bottom: 16px;
+    white-space: pre-line;
+  }
+  .slide-body {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #5A4E42;
+    margin-bottom: 14px;
+    white-space: pre-line;
+    font-family: 'Inter', sans-serif;
+  }
+  .citation-block {
+    border-left: 2px solid #8B6914;
+    padding-left: 14px;
+    margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #5A4E42;
+    line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem;
+    color: #8B6914;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* TEXTO BASE — versículo destacado */
+  .slide-verso { justify-content: center; }
+  .verso-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #8B6914;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+  .verso-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #2C2218;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .verso-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    color: #8B6914;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* PRINCIPIO — frase central grande */
+  .slide-principio { background: #FDF9F3; }
+  .principio-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #8B6914;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+    opacity: 0.85;
+  }
+  .principio-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2C2218;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+
+  /* HISTORIA */
+  .slide-historia { background: #F5F0E8; }
+
+  /* PASOS DE APLICACIÓN */
+  .steps-list { display: flex; flex-direction: column; gap: 14px; margin: 16px 0 12px; }
+  .step-item { display: flex; gap: 14px; align-items: flex-start; }
+  .step-num {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    background: #8B6914;
+    color: #F9F6F1;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #5A4E42;
+  }
+  .step-footer {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #8B6914;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* CIERRE */
+  .slide-cierre { background: #241507; }
+  .slide-cierre::before { background: linear-gradient(90deg, transparent, #C4A040, transparent); opacity: 0.5; }
+  .slide-cierre .label      { color: #C4A040; opacity: 1; }
+  .slide-cierre .slide-title { color: #F5EDD8; }
+  .slide-cierre .slide-body  { color: #C8B898; }
+  .slide-cierre .citation-block { border-left-color: #C4A040; }
+  .slide-cierre .citation-text  { color: #F5EDD8; }
+  .slide-cierre .citation-ref   { color: #C4A040; }
+  .slide-cierre .slide-num      { color: #4A3010; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 11</span>
+      <div>
+        <p class="cover-eyebrow">Creamos Juntos · Semana 24</p>
+        <div class="cover-visual">📜</div>
+        <div class="cover-title">EL DÍA QUE
+DEJASTE DE
+RECORDAR.</div>
+        <p class="cover-subtitle">Israel no cayó por falta de milagros.<br>Cayó por falta de memoria.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Guárdate de que no te olvides de Jehová tu Dios, dejando de guardar sus mandamientos..."</div>
+          <div class="citation-ref">Deuteronomio 8:11 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">Deuteronomio 8 · Jueces 2:10</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 11</span>
+      <div class="label">La pregunta que pocos se hacen</div>
+      <div class="slide-title">¿Cuándo fue la última vez que recordaste en voz alta lo que Dios hizo en tu vida?</div>
+      <div class="slide-body">No el año pasado. No en términos generales.
+
+La última vez de verdad.</div>
+    </div>
+
+    <!-- SLIDE 3: DIAGNÓSTICO -->
+    <div class="slide">
+      <span class="slide-num">03 / 11</span>
+      <div class="label">El diagnóstico</div>
+      <div class="slide-title">La fe no se pierde de golpe.</div>
+      <div class="slide-body">Se adelgaza en silencio. Primero se vuelve rutina. Después se vuelve solo historia.
+
+Israel lo vivió. No una vez. Lo vivió por generaciones.</div>
+    </div>
+
+    <!-- SLIDE 4: CRISIS -->
+    <div class="slide">
+      <span class="slide-num">04 / 11</span>
+      <div class="label">La consecuencia</div>
+      <div class="slide-title">Una generación que no recuerda no puede enseñar.</div>
+      <div class="slide-body">Y una generación que no puede enseñar pierde lo que recibió en una sola vida.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y levantóse después de ellos otra generación que no conocía á Jehová, ni la obra que él había hecho por Israel."</div>
+        <div class="citation-ref">Jueces 2:10 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: TEXTO BASE -->
+    <div class="slide slide-verso">
+      <span class="slide-num">05 / 11</span>
+      <div class="verso-label">Texto Base · RV1909</div>
+      <div class="verso-text">"Guárdate de que no te olvides de Jehová tu Dios, dejando de guardar sus mandamientos, sus decretos y sus estatutos que yo te mando hoy."</div>
+      <div class="verso-ref">Deuteronomio 8:11</div>
+    </div>
+
+    <!-- SLIDE 6: LA LEY -->
+    <div class="slide">
+      <span class="slide-num">06 / 11</span>
+      <div class="label">La ley que opera aquí</div>
+      <div class="slide-title">Dios no dice primero "no peques". Dice primero "no olvides".</div>
+      <div class="slide-body">El pecado sistemático en Israel siempre comenzó con el olvido. La desobediencia es casi siempre consecuencia — no causa.</div>
+    </div>
+
+    <!-- SLIDE 7: EL PRINCIPIO -->
+    <div class="slide slide-principio">
+      <span class="slide-num">07 / 11</span>
+      <div class="principio-label">El principio</div>
+      <div class="principio-text">La obediencia sostenida no es cuestión de voluntad. Es cuestión de memoria.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Acuérdate de Jesucristo, del linaje de David, resucitado de los muertos, conforme á mi evangelio."</div>
+        <div class="citation-ref">2 Timoteo 2:8 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: HISTORIA -->
+    <div class="slide slide-historia">
+      <span class="slide-num">08 / 11</span>
+      <div class="label">Historia bíblica · Jueces 2</div>
+      <div class="slide-title">La generación que siguió a Josué nunca conoció el Éxodo.</div>
+      <div class="slide-body">Nadie les enseñó a recordar. No fue rebeldía activa — fue olvido pasivo.
+
+En una generación, Israel abandonó a Dios por completo.</div>
+    </div>
+
+    <!-- SLIDE 9: EL SÁBADO COMO ANCLA -->
+    <div class="slide">
+      <span class="slide-num">09 / 11</span>
+      <div class="label">La solución de Dios</div>
+      <div class="slide-title">El Sábado fue diseñado como ancla de memoria — no solo de reposo.</div>
+      <div class="slide-body">Cada semana, un paréntesis obligatorio para recordar quién te sacó, qué te dio, adónde vas.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Acuérdate del día del sábado para santificarlo."</div>
+        <div class="citation-ref">Éxodo 20:8 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: APLICACIÓN -->
+    <div class="slide">
+      <span class="slide-num">10 / 11</span>
+      <div class="label">Esta semana</div>
+      <div class="slide-title">Dos cosas concretas.</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Escribe:</strong> anota tres cosas que Dios ha hecho en tu vida. No en tu cabeza — en papel.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Recuerda en voz alta:</strong> durante el Sábado, comparte uno de esos recuerdos con alguien.</div>
+        </div>
+      </div>
+      <div class="step-footer">La memoria se ancla cuando se registra y se transmite.</div>
+    </div>
+
+    <!-- SLIDE 11: CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">11 / 11</span>
+      <div class="label">Cierre</div>
+      <div class="slide-title">La fe que no se transmite no desaparece. Se convierte en la fe de nadie.</div>
+      <div class="slide-body">Lo que recuerdas, lo transmites.
+Lo que transmites, sobrevive.</div>
+      <div class="citation-block">
+        <div class="citation-text">"En mi corazón he guardado tus dichos, para no pecar contra ti."</div>
+        <div class="citation-ref">Salmo 119:11 · RV1909</div>
+      </div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /phone -->
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 11;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+  const W      = 375;
+
+  // Dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // Touch
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  // Mouse (desktop preview)
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  // Keys
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

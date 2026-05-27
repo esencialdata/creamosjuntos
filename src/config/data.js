@@ -1070,6 +1070,107 @@ export const CONFIG = {
 
     themes: [
 
+        // ── SEMANA 24 · Mié May 27, 2026 ────────────────────────────────────────
+        {
+            id: 40,
+            weekId: 24,
+            availableFrom: "2026-05-27T00:00:00",
+            title: "EL DÍA QUE DEJASTE DE RECORDAR",
+            description: "La obediencia sostenida no es cuestión de voluntad. Es cuestión de memoria.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139,105,20,0.08) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'EL DÍA QUE\nDEJASTE DE\nRECORDAR.',
+                    subtitle: 'Israel no cayó por falta de milagros. Cayó por falta de memoria.',
+                    visual: '📜',
+                    citation: 'Guárdate de que no te olvides de Jehová tu Dios, dejando de guardar sus mandamientos...',
+                    reference: 'Deuteronomio 8:11 · RV1909',
+                    footerText: 'Creamos Juntos · Semana 24',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La pregunta que pocos se hacen',
+                    title: '¿Cuándo fue la última vez que recordaste en voz alta lo que Dios hizo en tu vida?',
+                    body: 'No el año pasado. No en términos generales.\nLa última vez de verdad.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El diagnóstico',
+                    title: 'La fe no se pierde de golpe.',
+                    body: 'Se adelgaza en silencio. Primero se vuelve rutina. Después se vuelve solo historia.\n\nIsrael lo vivió. No una vez. Lo vivió por generaciones.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La consecuencia',
+                    title: 'Una generación que no recuerda no puede enseñar.',
+                    body: 'Y una generación que no puede enseñar pierde lo que recibió en una sola vida.',
+                    citation: 'Y levantóse después de ellos otra generación que no conocía á Jehová, ni la obra que él había hecho por Israel.',
+                    reference: 'Jueces 2:10 · RV1909',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Texto Base · RV1909',
+                    citation: 'Guárdate de que no te olvides de Jehová tu Dios, dejando de guardar sus mandamientos, sus decretos y sus estatutos que yo te mando hoy.',
+                    reference: 'Deuteronomio 8:11',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La ley que opera aquí',
+                    title: 'Dios no dice primero "no peques". Dice primero "no olvides".',
+                    body: 'El pecado sistemático en Israel siempre comenzó con el olvido. La desobediencia es casi siempre consecuencia — no causa.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El principio',
+                    title: 'La obediencia sostenida no es cuestión de voluntad. Es cuestión de memoria.',
+                    citation: 'Acuérdate de Jesucristo, del linaje de David, resucitado de los muertos, conforme á mi evangelio.',
+                    reference: '2 Timoteo 2:8 · RV1909',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Historia bíblica · Jueces 2',
+                    title: 'La generación que siguió a Josué nunca conoció el Éxodo.',
+                    body: 'Nadie les enseñó a recordar. No fue rebeldía activa — fue olvido pasivo.\n\nEn una generación, Israel abandonó a Dios por completo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La solución de Dios',
+                    title: 'El Sábado fue diseñado como ancla de memoria — no solo de reposo.',
+                    body: 'Cada semana, un paréntesis obligatorio para recordar quién te sacó, qué te dio, adónde vas.',
+                    citation: 'Acuérdate del día del sábado para santificarlo.',
+                    reference: 'Éxodo 20:8 · RV1909',
+                },
+                {
+                    type: 'action',
+                    title: 'Dos cosas para esta semana.',
+                    steps: [
+                        'Escribe: anota tres cosas que Dios ha hecho en tu vida. No en tu cabeza — en papel.',
+                        'Recuerda en voz alta: durante el Sábado, comparte uno de esos recuerdos con alguien.',
+                    ],
+                    footer: 'La memoria se ancla cuando se registra y se transmite.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Cierre',
+                    title: 'La fe que no se transmite no desaparece. Se convierte en la fe de nadie.',
+                    body: 'Lo que recuerdas, lo transmites. Lo que transmites, sobrevive.',
+                    citation: 'En mi corazón he guardado tus dichos, para no pecar contra ti.',
+                    reference: 'Salmo 119:11 · RV1909',
+                },
+            ],
+        },
+
         // ── ARCHIVO (RECURSOS) · SEMANA 24 · Lun May 12, 2026 ───────────────────
         {
             id: 38,
