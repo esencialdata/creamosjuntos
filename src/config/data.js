@@ -1290,10 +1290,10 @@ export const CONFIG = {
             ],
         },
 
-        // ── SEMANA 24 · Mar May 19, 2026 ────────────────────────────────────────
+        // ── SEMANA 23 (archivado May 27, 2026) ──────────────────────────────────
         {
             id: 39,
-            weekId: 24,
+            weekId: 23,
             availableFrom: "2026-05-19T00:00:00",
             title: "LA PUERTA ANCHA Y LA PUERTA ESTRECHA",
             description: "El hombre más rico de la historia eligió la puerta estrecha. Después eligió la ancha. Y lo documentó todo.",
