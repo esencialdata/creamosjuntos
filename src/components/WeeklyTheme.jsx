@@ -21,7 +21,7 @@ const WeeklyTheme = ({ theme = {} }) => {
         const shareUrl = buildShareUrl(anchorId, {
             title: theme.title,
             desc: theme.description,
-            image: coverSlide?.imageUrl || null,
+            image: theme.shareImageUrl || coverSlide?.imageUrl || null,
         });
         const textToShare = `Esta semana en Creamos Juntos estamos trabajando: "${theme.title || 'Identidad'}" - ${theme.description}`;
         await shareContent(theme.title, textToShare, shareUrl);

@@ -1079,6 +1079,7 @@ export const CONFIG = {
             availableFrom: "2026-06-01T00:00:00",
             title: "PLANTADOS EN BUENA TIERRA",
             description: "Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado.",
+            shareImageUrl: '/arbol-plantado-og.jpg',
             themeStyles: {
                 bg: '#F7F8FC',
                 textPrimary: '#111111',
@@ -4647,39 +4648,42 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
     schedule: [
         {
             id: 1,
-            week: "Semana 1 (03 - 04 de Abril)",
+            week: "Semana 1 (05 - 06 de Junio)",
             events: [
                 {
                     id: "w1_e1",
-                    date: "Viernes 03 Abr",
+                    date: "Viernes 05 Jun",
                     type: "Recibimiento",
                     time: "7:00 PM",
-                    theme: "Junto al camino",
-                    objective: "Oyen, pero no comprenden y el maligno arrebata lo recibido.",
+                    theme: "Bendito en la ciudad y bendito en el campo",
+                    objective: "La seguridad de tener a Dios a nuestro lado donde quiera que estemos",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w1_e2",
-                    date: "Sábado 04 Abr",
+                    date: "Sábado 06 Jun",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "El tiempo / La fiesta de los ázimos",
-                    objective: "La Iglesia entenderá cual es la forma en que actualmente guardamos la fiesta y el motivo.",
+                    theme: "Las setenta semanas / La Transición de la Ley",
+                    objective: "La grey comprenderá los motivos por los cuales guardamos la Ley hasta nuestros días.",
                     details: [
-                        { role: "Lección", name: "Aaron Espinosa (El tiempo)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La fiesta de los ázimos)" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Aarón Espinosa (Las setenta semanas)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La Transición de la Ley)" }
                     ]
                 },
                 {
                     id: "w1_e3",
-                    date: "Sábado 04 Abr",
+                    date: "Sábado 06 Jun",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "Todo el que invocare el nombre de Dios será salvo.",
-                    objective: "Utilizar las palabras del apóstol Pablo para generar en la grey la responsabilidad de compartir la palabra de Dios.",
+                    theme: "La armadura de Dios: Ceñidos los lomos de verdad",
+                    objective: "Comprometernos a usar solo la verdad en la vida, como un medio ambiente en el que se desarrolla todo el evangelio.",
                     details: [
+                        { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 }
@@ -4687,39 +4691,42 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 2,
-            week: "Semana 2 (10 - 11 de Abril)",
+            week: "Semana 2 (12 - 13 de Junio)",
             events: [
                 {
                     id: "w2_e1",
-                    date: "Viernes 10 Abr",
+                    date: "Viernes 12 Jun",
                     type: "Recibimiento",
                     time: "7:00 PM",
-                    theme: "En pedregales",
-                    objective: "Reciben con alegría, pero por no tener raíz se arranca y se pierde.",
+                    theme: "Benditos tus frutos",
+                    objective: "Los resultados de nuestra participación y relación en la vida de los demás",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 },
                 {
                     id: "w2_e2",
-                    date: "Sábado 11 Abr",
+                    date: "Sábado 13 Jun",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "El día / Dijo el necio en su corazón: no hay Dios",
-                    objective: "Presentar a la grey las respuestas mas oportunas y acertadas acerca de creer en Dios y sus grandes bendiciones.",
+                    theme: "Los 2300 días / La ley del talión",
+                    objective: "La grey reconocerá los motivos por los cuales nuestra Iglesia de Dios cree en una aplicación de esta Ley llena de misericordia de parte de Dios.",
                     details: [
-                        { role: "Lección", name: "Gerardo Mier (El día)" },
-                        { role: "Predicación", name: "Aarón Espinosa (Dijo el necio en su corazón: no hay Dios)" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Lección", name: "Gerardo Mier (Los 2300 días)" },
+                        { role: "Predicación", name: "Aarón Espinosa (La ley del talión)" }
                     ]
                 },
                 {
                     id: "w2_e3",
-                    date: "Sábado 11 Abr",
+                    date: "Sábado 13 Jun",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "El año nuevo judío",
-                    objective: "La iglesia sabrá cual es el origen de esta fiesta y su aplicación en nuestros días en la Iglesia de Dios.",
+                    theme: "La armadura de Dios: La cota de Justicia",
+                    objective: "Aplicar los ejemplos bíblicos para hacer que nuestras vidas busquen siempre dar a cada quien lo que corresponde.",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
                 }
@@ -4727,39 +4734,42 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 3,
-            week: "Semana 3 (17 - 18 de Abril)",
+            week: "Semana 3 (19 - 20 de Junio)",
             events: [
                 {
                     id: "w3_e1",
-                    date: "Viernes 17 Abr",
+                    date: "Viernes 19 Jun",
                     type: "Recibimiento",
                     time: "7:00 PM",
-                    theme: "Entre espinas",
-                    objective: "Parecen recibir la palabra, pero los placeres del mundo los pierden.",
+                    theme: "Bendito ante tus enemigos",
+                    objective: "Aun ante los que nos persiguen buscando el mal, está la bendición de Dios",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Esdras Martínez" }
                     ]
                 },
                 {
                     id: "w3_e2",
-                    date: "Sábado 18 Abr",
+                    date: "Sábado 20 Jun",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "La semana / El arrepentimiento",
-                    objective: "Comprometer a la grey con el proceso que lleva a los que creen en Dios, al cambio que permanece en su vida para bendición.",
+                    theme: "Los 1335 días / Las leyes del trabajo",
+                    objective: "Comprender y aplicar la sabiduría de Dios en todo lo que esté al alcance de nuestra mano en el trabajo.",
                     details: [
-                        { role: "Lección", name: "Gerardo Mier (La semana)" },
-                        { role: "Predicación", name: "Aarón Espinosa (El arrepentimiento)" }
+                        { role: "Superintendente", name: "Absalón Perusquía" },
+                        { role: "Lección", name: "Gerardo Mier (Los 1335 días)" },
+                        { role: "Predicación", name: "Aarón Espinosa (Las leyes del trabajo)" }
                     ]
                 },
                 {
                     id: "w3_e3",
-                    date: "Sábado 18 Abr",
+                    date: "Sábado 20 Jun",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
                     theme: "El día del perdón",
                     objective: "Reconocer los motivos y características de esta festividad judía en el pueblo de Dios y su Iglesia.",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Absalón Perusquía" }
                     ]
                 }
@@ -4767,39 +4777,42 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
         },
         {
             id: 4,
-            week: "Semana 4 (24 - 25 de Abril)",
+            week: "Semana 4 (26 - 27 de Junio)",
             events: [
                 {
                     id: "w4_e1",
-                    date: "Viernes 24 Abr",
+                    date: "Viernes 26 Jun",
                     type: "Recibimiento",
                     time: "7:00 PM",
-                    theme: "Buena tierra",
-                    objective: "Oyen, entienden y aplican en su vida con grandes frutos.",
+                    theme: "Bendición en todo lo que pusieres tu mano",
+                    objective: "En todas las iniciativas que tengamos, en nuestros escenarios de vida",
                     details: [
+                        { role: "Superintendente", name: "Gerardo Mier" },
                         { role: "Predicación", name: "Aarón Espinosa" }
                     ]
                 },
                 {
                     id: "w4_e2",
-                    date: "Sábado 25 Abr",
+                    date: "Sábado 27 Jun",
                     type: "Culto Matutino",
                     time: "10:00 AM",
-                    theme: "El mes / La reina Esther y la fiesta de Purim",
-                    objective: "La grey sabrá el motivo de esa conmemoración y su aplicación en este tiempo.",
+                    theme: "Los 2520 días / La Ley de la alimentación",
+                    objective: "Conocer las características de los alimentos limpios y hacer un compromiso de obediencia, para solo alimentarnos con ellos.",
                     details: [
-                        { role: "Lección", name: "Aarón Espinosa (El mes)" },
-                        { role: "Predicación", name: "Absalón Perusquía (La reina Esther y la fiesta de Purim)" }
+                        { role: "Superintendente", name: "Gerardo Mier" },
+                        { role: "Lección", name: "Aarón Espinosa (Los 2520 días)" },
+                        { role: "Predicación", name: "Absalón Perusquía (La Ley de la alimentación)" }
                     ]
                 },
                 {
                     id: "w4_e3",
-                    date: "Sábado 25 Abr",
+                    date: "Sábado 27 Jun",
                     type: "Culto Vespertino",
                     time: "4:00 PM",
-                    theme: "La oveja perdida",
-                    objective: "La grey se comprometerá a actuar de acuerdo a la enseñanza recibida.",
+                    theme: "La armadura de Dios: Calzados los pies con el apresto del evangelio de paz",
+                    objective: "Iniciaremos un plan formal de difusión del evangelio desde nuestra localidad.",
                     details: [
+                        { role: "Superintendente", name: "Absalón Perusquía" },
                         { role: "Predicación", name: "Gerardo Mier" }
                     ]
                 }
