@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — Plantados en Buena Tierra</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0D1117;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  /* ── PHONE FRAME ─────────────────────────────────────── */
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 2px #1D2535;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F7F8FC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #1D6EE8;
+    opacity: 0.15;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px; right: 22px;
+    font-size: 0.52rem;
+    color: #9CA3AF;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #374151;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #1D6EE8; transform: scale(1.5); }
+
+  /* ── PORTADA ─────────────────────────────────────────── */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 4px; text-transform: uppercase;
+    color: #1D6EE8; margin-bottom: 16px; font-weight: 600;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.85rem; font-weight: 400; line-height: 1.15;
+    color: #111111; margin-bottom: 14px;
+  }
+  .cover-subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.88rem; color: #374151;
+    font-style: italic; line-height: 1.65; margin-bottom: 20px;
+  }
+  .cover-image-block {
+    width: 100%; height: 180px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  .cover-image-block img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 2.5px; color: #9CA3AF; text-transform: uppercase;
+  }
+
+  /* ── LABELS Y CUERPO ─────────────────────────────────── */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem; letter-spacing: 3px; color: #1D6EE8;
+    text-transform: uppercase; margin-bottom: 14px; font-weight: 600; opacity: 0.85;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem; font-weight: 700; line-height: 1.35;
+    color: #111111; margin-bottom: 16px; white-space: pre-line;
+  }
+  .slide-body {
+    font-size: 0.82rem; line-height: 1.75; color: #374151;
+    margin-bottom: 14px; white-space: pre-line; font-family: 'Inter', sans-serif;
+  }
+  .citation-block {
+    border-left: 2px solid #1D6EE8;
+    padding-left: 14px; margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem; font-style: italic; color: #374151; line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem; color: #1D6EE8; letter-spacing: 1px;
+    margin-top: 6px; font-weight: 700; text-transform: uppercase;
+  }
+
+  /* ── PASOS ───────────────────────────────────────────── */
+  .steps-list { display: flex; flex-direction: column; gap: 12px; margin: 14px 0; }
+  .step-item { display: flex; gap: 12px; align-items: flex-start; }
+  .step-arrow { color: #1D6EE8; flex-shrink: 0; font-size: 0.78rem; margin-top: 2px; }
+  .step-content {
+    font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; color: #374151;
+  }
+  .step-content strong { color: #111111; font-weight: 700; }
+  .step-footer {
+    font-family: 'Inter', sans-serif; font-size: 0.72rem; font-style: italic;
+    color: #9CA3AF; margin-top: 16px; line-height: 1.5;
+  }
+
+  /* ── CIERRE ──────────────────────────────────────────── */
+  .slide-cierre { background: #111827; }
+  .slide-cierre::before { background: #1D6EE8; opacity: 0.2; }
+  .slide-cierre .label      { color: #93C5FD; opacity: 1; }
+  .slide-cierre .slide-title { color: #F9FAFB; }
+  .slide-cierre .slide-body  { color: #9CA3AF; }
+  .slide-cierre .citation-block { border-left-color: #93C5FD; }
+  .slide-cierre .citation-text  { color: #E5E7EB; }
+  .slide-cierre .citation-ref   { color: #93C5FD; }
+  .slide-cierre .slide-num      { color: #374151; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 12</span>
+      <div>
+        <p class="cover-eyebrow">Campo David · IDI</p>
+        <div class="cover-title">Plantados en buena tierra</div>
+        <p class="cover-subtitle">Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado</p>
+        <div class="cover-image-block">
+          <img src="./public/arbol-plantado.png" alt="Arbol Plantado">
+        </div>
+        <div class="cover-footer">Romanos 8:38–39</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 12</span>
+      <div class="label">Gancho</div>
+      <div class="slide-title">La promesa más absoluta que Pablo escribió:</div>
+      <div class="citation-block">
+        <div class="citation-text">"Ni la muerte, ni la vida, ni ángeles, ni principados... ni ninguna criatura nos podrá apartar del amor de Dios."</div>
+        <div class="citation-ref">Romanos 8:38–39</div>
+      </div>
+      <div class="slide-body" style="margin-top: 14px;">Entonces, ¿por qué hay creyentes que sí terminan separados?
+No porque la promesa sea falsa. Sino porque hay una condición que nadie lee en voz alta.</div>
+    </div>
+
+    <!-- SLIDE 3: LA CONDICIÓN -->
+    <div class="slide">
+      <span class="slide-num">03 / 12</span>
+      <div class="label">La condición</div>
+      <div class="citation-block">
+        <div class="citation-text">"Ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme a la carne, sino conforme al Espíritu."</div>
+        <div class="citation-ref">Romanos 8:1</div>
+      </div>
+      <div class="slide-body" style="margin-top: 14px;">La promesa del versículo 38 es para los descritos en el versículo 1.
+Esa descripción no es automática. Es el resultado de un arraigo deliberado.
+La pregunta no es <em>"¿puede algo separarme?"</em> La pregunta es: ¿en qué tierra estás plantado?</div>
+    </div>
+
+    <!-- SLIDE 4: LA HISTORIA -->
+    <div class="slide">
+      <span class="slide-num">04 / 12</span>
+      <div class="label">La historia</div>
+      <div class="slide-title">Dos hombres, un valle</div>
+      <div class="slide-body">Génesis 13 — Lot y Abraham.
+Mismo punto de partida. Mismo Dios. Misma promesa disponible.
+Abraham le ofrece a Lot escoger primero. Y Lot mira.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y alzó Lot sus ojos, y vio toda la llanura del Jordán... como el huerto de Jehová."</div>
+      </div>
+      <div class="slide-body" style="margin-top: 14px;">Lo más fértil. Lo más verde. Lo más obvio. Lot escogió con los ojos.</div>
+    </div>
+
+    <!-- SLIDE 5: EL DETALLE -->
+    <div class="slide">
+      <span class="slide-num">05 / 12</span>
+      <div class="label">El detalle que lo cambia todo</div>
+      <div class="slide-title">El texto lo dice casi de paso:</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y fue poniendo sus tiendas hasta Sodoma."</div>
+        <div class="citation-ref">Génesis 13:12</div>
+      </div>
+      <div class="slide-body" style="margin-top: 14px;">No llegó a Sodoma el primer día. Fue acercándose. Tienda por tienda. Gradualmente.
+El suelo malo rara vez se anuncia como malo. Se presenta como tierra fértil, bien irrigada, visualmente atractiva.
+El error de Lot no fue elegir maldad. Fue no notar cuándo el vecindario empezó a definirlo más que la tierra.</div>
+    </div>
+
+    <!-- SLIDE 6: EL FINAL DE LOT -->
+    <div class="slide">
+      <span class="slide-num">06 / 12</span>
+      <div class="label">El final de Lot</div>
+      <div class="slide-title">Para Génesis 19, Lot ya no está en las afueras.</div>
+      <div class="slide-body">Está sentado a la puerta de Sodoma — el lugar de autoridad. Tenía posición. Influencia. Pertenencia.
+Cuando llegaron los ángeles a sacarlo, sus yernos "tuviéronlo por burlador." No le creyeron. El suelo lo había formado — y había formado lo que su familia pensaba de él.
+
+Los ángeles tuvieron que sacarlo literalmente de la mano. Lot no salió por convicción. Salió porque lo agarraron.
+El hombre que eligió el valle más fértil del horizonte terminó en una cueva. Sin ciudad. Sin familia completa. Sin herencia. Sin promesa.</div>
+    </div>
+
+    <!-- SLIDE 7: EL CONTRASTE -->
+    <div class="slide">
+      <span class="slide-num">07 / 12</span>
+      <div class="label">El contraste · Abraham</div>
+      <div class="slide-title">Mientras Lot elegía con los ojos, Abraham se quedó en la tierra que Dios le había asignado.</div>
+      <div class="slide-body">No la más atractiva. No la más obvia. Pero era la correcta.
+Después de que Lot se fue, Dios habló:</div>
+      <div class="citation-block">
+        <div class="citation-text">"Alza ahora tus ojos... porque toda la tierra que ves, la daré a ti y a tu simiente para siempre."</div>
+        <div class="citation-ref">Génesis 13:14–15</div>
+      </div>
+      <div class="slide-body" style="margin-top: 14px;">Lot eligió con sus ojos y perdió todo. Abraham dejó la elección en manos de Dios y recibió todo.
+La mañana del juicio sobre Sodoma, Abraham estaba en el monte, delante de Jehová. "Dios se acordó de Abraham." — Génesis 19:29</div>
+    </div>
+
+    <!-- SLIDE 8: LA HIGUERA -->
+    <div class="slide">
+      <span class="slide-num">08 / 12</span>
+      <div class="label">La higuera de Lucas 13</div>
+      <div class="slide-title">Un hombre tiene una higuera en su viña. Viene a buscar fruto. No hay. Tres años sin fruto.</div>
+      <div class="slide-body">Esta higuera no estaba en tierra salvaje. Estaba en la viña del amo. Con cuidado. Con agua. Con todo el entorno correcto. Y no producía.
+Lot era esa higuera. Tenía la compañía de Abraham. La cobertura de la promesa. La misericordia de Dios — que lo rescató dos veces.
+Pero el problema no era de entorno. Era de raíz.
+¿Cuánto tiempo en la viña — y qué fruto hay que mostrar?</div>
+    </div>
+
+    <!-- SLIDE 9: EL ÁRBOL -->
+    <div class="slide">
+      <span class="slide-num">09 / 12</span>
+      <div class="label">El árbol de Jeremías</div>
+      <div class="slide-title">Jeremías 17:5–8 — dos árboles, mismo clima.</div>
+      <div class="slide-body">El que confía en el hombre: <em>"Será como la retama en el desierto... no verá cuando viene el bien."</em>
+La retama sobrevive. Pero no florece. Y lo más devastador: el suelo malo ciega. Ya no puede ver el bien disponible.
+
+El que confía en Jehová: <em>"Será como árbol plantado junto a las aguas... en el año de sequía no se fatigará, ni dejará de hacer fruto."</em>
+Mismo calor. Mismo año de sequía. Distinto resultado — porque las raíces acceden a una corriente que la superficie no ve.
+Abraham es ese árbol. Lot en la cueva es la retama.</div>
+    </div>
+
+    <!-- SLIDE 10: ROMANOS 8 -->
+    <div class="slide">
+      <span class="slide-num">10 / 12</span>
+      <div class="label">Romanos 8 vuelve a tener sentido</div>
+      <div class="slide-title">¿Qué separó a Lot del amor de Dios?</div>
+      <div class="slide-body">No Sodoma. No los reyes que lo capturaron. No el fuego que cayó. Ninguna fuerza externa.
+Lo separó su propia elección de suelo. Gradual. Imperceptible. Tienda por tienda.
+A Abraham no lo pudo separar nada. Porque sus raíces estaban en la tierra correcta.
+La garantía de Romanos 8:38–39 es absolutamente real. Pero opera para el árbol plantado junto a corrientes de aguas.</div>
+    </div>
+
+    <!-- SLIDE 11: PREGUNTAS -->
+    <div class="slide">
+      <span class="slide-num">11 / 12</span>
+      <div class="label">Tres preguntas de diagnóstico</div>
+      <div class="slide-title">No de condena. De inventario honesto.</div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-arrow">01</div>
+          <div class="step-content"><strong>¿Estás eligiendo tu tierra con los ojos o con la voz de Dios?</strong> Lot alzó sus ojos y escogió. Abraham recibió instrucción y obedeció.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-arrow">02</div>
+          <div class="step-content"><strong>¿Cuánto te has ido acercando, tienda por tienda?</strong> La pregunta no es si estás en Sodoma — es si el movimiento de los últimos meses ha sido hacia la corriente o hacia la ciudad.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-arrow">03</div>
+          <div class="step-content"><strong>¿Tiene tu voz espiritual autoridad en tu familia?</strong> Los yernos de Lot lo tuvieron por burlador. No porque dijera algo incorrecto esa noche — sino porque años de suelo equivocado habían erosionado su credibilidad en casa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">12 / 12</span>
+      <div class="label">Cierre</div>
+      <div class="slide-title">Abraham está en el monte. Es de mañana. Mira hacia la llanura que Lot eligió. Ve el humo.</div>
+      <div class="slide-body">Y Dios se acordó de Abraham. No porque no se equivocara sino porque siempre puso a Dios como su escudo. Sus raíces siempre volvían al mismo suelo.
+¿En qué tierra estás plantado?
+Porque si la raíz es real — ni lo presente ni lo por venir, ni lo alto ni lo bajo, ni ninguna criatura...</div>
+      <div class="citation-block">
+        <div class="citation-text">"Nada te podrá apartar."</div>
+        <div class="citation-ref">Romanos 8:38–39 · RVA</div>
+      </div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /phone -->
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 12;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+  const W      = 375;
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+</script>
+</body>
+</html>

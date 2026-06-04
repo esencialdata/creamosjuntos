@@ -790,10 +790,12 @@ const getCurrentWeekId = () => {
     const week22Start = new Date(2026, 3, 29); // Apr 29
     const week23Start = new Date(2026, 4, 5);  // May 5
     const week24Start = new Date(2026, 4, 19); // May 19
+    const week25Start = new Date(2026, 5, 1);  // Jun 1
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week25Start) return 25;
     if (now >= week24Start) return 24;
     if (now >= week23Start) return 23;
     if (now >= week22Start) return 22;
@@ -1069,6 +1071,118 @@ export const CONFIG = {
     ],
 
     themes: [
+
+        // ── SEMANA 25 · Lun Jun 1, 2026 ─────────────────────────────────────────
+        {
+            id: 41,
+            weekId: 25,
+            availableFrom: "2026-06-01T00:00:00",
+            title: "PLANTADOS EN BUENA TIERRA",
+            description: "Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado.",
+            themeStyles: {
+                bg: '#F7F8FC',
+                textPrimary: '#111111',
+                textSecondary: '#374151',
+                accent: '#1D6EE8',
+                fontSerif: 'Playfair Display, Georgia, serif',
+                fontSans: 'Inter, system-ui, sans-serif',
+                cardBorder: 'none',
+                cardShadow: '0 5px 30px rgba(0,0,0,0.06)',
+                backgroundImage: 'none',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'Plantados en buena tierra',
+                    subtitle: 'Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado',
+                    imageUrl: '/arbol-plantado.png',
+                    citation: 'Ni la muerte, ni la vida, ni ángeles, ni principados... ni ninguna criatura nos podrá apartar del amor de Dios.',
+                    reference: 'Romanos 8:38–39',
+                    footerText: 'Campo David · IDI',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Gancho',
+                    title: 'La promesa más absoluta que Pablo escribió:',
+                    body: 'Entonces, ¿por qué hay creyentes que sí terminan separados?\n\nNo porque la promesa sea falsa. Sino porque hay una condición que nadie lee en voz alta.',
+                    citation: 'Ni la muerte, ni la vida, ni ángeles, ni principados... ni ninguna criatura nos podrá apartar del amor de Dios.',
+                    reference: 'Romanos 8:38–39',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La condición',
+                    title: 'La promesa del versículo 38 es para los descritos en el versículo 1.',
+                    body: 'Esa descripción no es automática. Es el resultado de un arraigo deliberado.\n\nLa pregunta no es "¿puede algo separarme?" La pregunta es: ¿en qué tierra estás plantado?',
+                    citation: 'Ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme a la carne, sino conforme al Espíritu.',
+                    reference: 'Romanos 8:1',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La historia',
+                    title: 'Dos hombres, un valle',
+                    body: 'Génesis 13 — Lot y Abraham.\nMismo punto de partida. Mismo Dios. Misma promesa disponible.\n\nAbraham le ofrece a Lot escoger primero. Y Lot mira.\n\nLo más fértil. Lo más verde. Lo más obvio. Lot escogió con los ojos.',
+                    citation: 'Y alzó Lot sus ojos, y vio toda la llanura del Jordán... como el huerto de Jehová.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El detalle que lo cambia todo',
+                    title: 'El texto lo dice casi de paso:',
+                    body: 'No llegó a Sodoma el primer día. Fue acercándose. Tienda por tienda. Gradualmente.\n\nEl suelo malo rara vez se anuncia como malo. Se presenta como tierra fértil, bien irrigada, visualmente atractiva.\n\nEl error de Lot no fue elegir maldad. Fue no notar cuándo el vecindario empezó a definirlo más que la tierra.',
+                    citation: 'Y fue poniendo sus tiendas hasta Sodoma.',
+                    reference: 'Génesis 13:12',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El final de Lot',
+                    title: 'Para Génesis 19, Lot ya no está en las afueras.',
+                    body: 'Está sentado a la puerta de Sodoma — el lugar de autoridad. Tenía posición. Influencia. Pertenencia.\n\nCuando llegaron los ángeles a sacarlo, sus yernos "tuviéronlo por burlador." No le creyeron. El suelo lo había formado — y había formado lo que su familia pensaba de él.\n\nLos ángeles tuvieron que sacarlo literalmente de la mano. Lot no salió por convicción. Salió porque lo agarraron.\n\nEl hombre que eligió el valle más fértil del horizonte terminó en una cueva. Sin ciudad. Sin familia completa. Sin herencia. Sin promesa.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El contraste · Abraham',
+                    title: 'Mientras Lot elegía con los ojos, Abraham se quedó en la tierra que Dios le había asignado.',
+                    body: 'No la más atractiva. No la más obvia. Pero era la correcta.\n\nDespués de que Lot se fue, Dios habló:\n\nLot eligió con sus ojos y perdió todo. Abraham dejó la elección en manos de Dios y recibió todo.\n\nLa mañana del juicio sobre Sodoma, Abraham estaba en el monte, delante de Jehová. "Dios se acordó de Abraham." — Génesis 19:29',
+                    citation: 'Alza ahora tus ojos... porque toda la tierra que ves, la daré a ti y a tu simiente para siempre.',
+                    reference: 'Génesis 13:14–15',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La higuera de Lucas 13',
+                    title: 'Un hombre tiene una higuera en su viña. Viene a buscar fruto. No hay. Tres años sin fruto.',
+                    body: 'Esta higuera no estaba en tierra salvaje. Estaba en la viña del amo. Con cuidado. Con agua. Con todo el entorno correcto. Y no producía.\n\nLot era esa higuera. Tenía la compañía de Abraham. La cobertura de la promesa. La misericordia de Dios — que lo rescató dos veces.\n\nPero el problema no era de entorno. Era de raíz.\n\n¿Cuánto tiempo en la viña — y qué fruto hay que mostrar?',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El árbol de Jeremías',
+                    title: 'Jeremías 17:5–8 — dos árboles, mismo clima.',
+                    body: 'El que confía en el hombre: "Será como la retama en el desierto... no verá cuando viene el bien."\nLa retama sobrevive. Pero no florece. Y lo más devastador: el suelo malo ciega. Ya no puede ver el bien disponible.\n\nEl que confía en Jehová: "Será como árbol plantado junto a las aguas... en el año de sequía no se fatigará, ni dejará de hacer fruto."\nMismo calor. Mismo año de sequía. Distinto resultado — porque las raíces acceden a una corriente que la superficie no ve.\n\nAbraham es ese árbol. Lot en la cueva es la retama.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Romanos 8 vuelve a tener sentido',
+                    title: '¿Qué separó a Lot del amor de Dios?',
+                    body: 'No Sodoma. No los reyes que lo capturaron. No el fuego que cayó. Ninguna fuerza externa.\n\nLo separó su propia elección de suelo. Gradual. Imperceptible. Tienda por tienda.\n\nA Abraham no lo pudo separar nada. Porque sus raíces estaban en la tierra correcta.\n\nLa garantía de Romanos 8:38–39 es absolutamente real. Pero opera para el árbol plantado junto a corrientes de aguas.',
+                },
+                {
+                    type: 'action',
+                    title: 'Tres preguntas de diagnóstico',
+                    subtitle: 'No de condena. De inventario honesto.',
+                    steps: [
+                        '¿Estás eligiendo tu tierra con los ojos o con la voz de Dios? Lot alzó sus ojos y escogió. Abraham recibió instrucción y obedeció.',
+                        '¿Cuánto te has ido acercando, tienda por tienda? La pregunta no es si estás en Sodoma — es si el movimiento de los últimos meses ha sido hacia la corriente o hacia la ciudad.',
+                        '¿Tiene tu voz espiritual autoridad en tu familia? Los yernos de Lot lo tuvieron por burlador. No porque dijera algo incorrecto esa noche — sino porque años de suelo equivocado habían erosionado su credibilidad en casa.',
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Cierre',
+                    title: 'Abraham está en el monte. Es de mañana. Mira hacia la llanura que Lot eligió. Ve el humo.',
+                    body: 'Y Dios se acordó de Abraham.\n\nNo porque no se equivocara sino porque siempre puso a Dios como su escudo. Sus raíces siempre volvían al mismo suelo.\n\n¿En qué tierra estás plantado?\n\nPorque si la raíz es real — ni lo presente ni lo por venir, ni lo alto ni lo bajo, ni ninguna criatura...',
+                    citation: 'Nada te podrá apartar.',
+                    reference: 'Romanos 8:38–39 · RVA',
+                },
+            ],
+        },
 
         // ── SEMANA 24 · Mié May 27, 2026 ────────────────────────────────────────
         {
@@ -4364,6 +4478,123 @@ El proceso de corrección es una reestructuración. Dios te está convirtiendo e
                     body: "Tú reconoces → Él endereza.\nTú te apoyas en tu prudencia → Tú te enredas.\nNo hay versión alternativa del contrato.\n\n¿En qué área de tu vida estás estriando en tu propia prudencia en lugar de reconocerlo a Él?",
                     citation: "Y sin fe es imposible agradar a Dios; porque es necesario que el que se acerca a Dios crea que él existe, y que es galardonador de los que le buscan.",
                     reference: "Hebreos 11:6 · RV1909"
+                }
+            ]
+        },
+        {
+            id: 35,
+            weekId: 21,
+            availableFrom: "2026-06-04T00:00:00",
+            title: "PLANTADOS EN BUENA TIERRA",
+            description: "Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado. Romanos 8:38-39 y la condición silenciosa.",
+            themeStyles: {
+                bg: '#F7F8FC',
+                textPrimary: '#111111',
+                textSecondary: '#555B6E',
+                accent: '#1D6EE8',
+                fontSerif: 'Georgia, serif',
+                cardBorder: '1px solid #E0E4EF',
+                cardShadow: '0 8px 24px -4px rgba(17, 17, 17, 0.07)'
+            },
+            slides: [
+                {
+                    type: "cover",
+                    title: "PLANTADOS\nEN BUENA\nTIERRA",
+                    subtitle: "Lo que permanece no es lo que aguanta — es lo que está correctamente arraigado.",
+                    imageUrl: "/arbol-plantado.png",
+                    footerText: "Romanos 8:38–39 · RVA — Desliza para conocer la condición."
+                },
+                {
+                    type: "diagnostic",
+                    label: "GANCHO · ROMANOS 8:38–39",
+                    title: "LA PROMESA MÁS ABSOLUTA DE PABLO",
+                    body: "\"Ni la muerte, ni la vida, ni ángeles, ni principados... ni ninguna criatura nos podrá apartar del amor de Dios.\"\n\nEntonces, ¿por qué hay creyentes que sí terminan separados?\n\nNo porque la promesa sea falsa. Sino porque hay una condición que nadie lee en voz alta.",
+                    citation: "Ni la muerte, ni la vida, ni ángeles, ni principados... ni ninguna criatura nos podrá apartar del amor de Dios.",
+                    reference: "Romanos 8:38–39 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA CONDICIÓN · ROMANOS 8:1",
+                    title: "EL VERSÍCULO QUE DEFINE A QUIÉN APLICA LA PROMESA",
+                    body: "\"Ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme a la carne, sino conforme al Espíritu.\"\n\nLa promesa del versículo 38 es para los descritos en el versículo 1.\n\nEsa descripción no es automática. Es el resultado de un arraigo deliberado.\n\nLa pregunta no es \"¿puede algo separarme?\" La pregunta es: ¿en qué tierra estás plantado?",
+                    citation: "Ninguna condenación hay para los que están en Cristo Jesús, los que no andan conforme a la carne, sino conforme al Espíritu.",
+                    reference: "Romanos 8:1 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "HISTORIA BÍBLICA · GÉNESIS 13",
+                    title: "DOS HOMBRES, UN VALLE",
+                    body: "Mismo punto de partida. Mismo Dios. Misma promesa disponible.\n\nAbraham le ofrece a Lot escoger primero. Y Lot mira.\n\n\"Y alzó Lot sus ojos, y vio toda la llanura del Jordán... como el huerto de Jehová.\"\n\nLo más fértil. Lo más verde. Lo más obvio. Lot escogió con los ojos.",
+                    citation: "Y alzó Lot sus ojos, y vio toda la llanura del Jordán... como el huerto de Jehová.",
+                    reference: "Génesis 13:10 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL DETALLE QUE LO CAMBIA TODO",
+                    title: "\"FUE PONIENDO SUS TIENDAS HASTA SODOMA\"",
+                    body: "No llegó a Sodoma el primer día. Fue acercándose. Tienda por tienda. Gradualmente.\n\nEl suelo malo rara vez se anuncia como malo. Se presenta como tierra fértil, bien irrigada, visualmente atractiva.\n\nEl error de Lot no fue elegir maldad. Fue no notar cuándo el vecindario empezó a definirlo más que la tierra.",
+                    citation: "Y fue poniendo sus tiendas hasta Sodoma.",
+                    reference: "Génesis 13:12 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL FINAL DE LOT · GÉNESIS 19",
+                    title: "EL HOMBRE QUE ELIGIÓ EL VALLE MÁS FÉRTIL",
+                    body: "Para Génesis 19, Lot ya no está en las afueras. Está sentado a la puerta de Sodoma — el lugar de autoridad.\n\nCuando llegaron los ángeles, sus yernos \"tuviéronlo por burlador.\" El suelo lo había formado — y había formado lo que su familia pensaba de él.\n\nLot no salió por convicción. Salió porque lo agarraron.\n\nTerminó en una cueva. Sin ciudad. Sin familia completa. Sin herencia.",
+                    citation: "Los yernos tuviéronlo por burlador.",
+                    reference: "Génesis 19:14 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL CONTRASTE · ABRAHAM",
+                    title: "MIENTRAS LOT ELEGÍA CON LOS OJOS",
+                    body: "Abraham se quedó en la tierra que Dios le había asignado. No la más atractiva. No la más obvia. Pero era la correcta.\n\nDespués de que Lot se fue, Dios habló: \"Alza ahora tus ojos... porque toda la tierra que ves, la daré a ti y a tu simiente para siempre.\"\n\nLot eligió con sus ojos y perdió todo. Abraham dejó la elección en manos de Dios y recibió todo.\n\nLa mañana del juicio sobre Sodoma, Abraham estaba en el monte. \"Dios se acordó de Abraham.\"",
+                    citation: "Toda la tierra que ves, la daré a ti y a tu simiente para siempre.",
+                    reference: "Génesis 13:14–15 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "LA HIGUERA · LUCAS 13",
+                    title: "TRES AÑOS EN LA VIÑA — SIN FRUTO",
+                    body: "Un hombre tiene una higuera en su viña. Con cuidado. Con agua. Con todo el entorno correcto. Tres años sin fruto.\n\nEsta higuera no estaba en tierra salvaje. Tenía la compañía de Abraham. La cobertura de la promesa. La misericordia de Dios.\n\nPero el problema no era de entorno. Era de raíz.\n\n¿Cuánto tiempo en la viña — y qué fruto hay que mostrar?",
+                    citation: "He aquí, hace tres años que vengo a buscar fruto en esta higuera, y no lo hallo.",
+                    reference: "Lucas 13:7 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "EL ÁRBOL · JEREMÍAS 17:5–8",
+                    title: "MISMO CLIMA. DISTINTO RESULTADO.",
+                    body: "Dos árboles. Mismo año de sequía.\n\nEl que confía en el hombre: \"Será como la retama en el desierto... no verá cuando viene el bien.\"\n\nEl que confía en Jehová: \"Será como árbol plantado junto a las aguas... en el año de sequía no se fatigará, ni dejará de hacer fruto.\"\n\nDistinto resultado — porque las raíces acceden a una corriente que la superficie no ve. Abraham es ese árbol. Lot en la cueva es la retama.",
+                    citation: "Será como árbol plantado junto a las aguas... en el año de sequía no se fatigará, ni dejará de hacer fruto.",
+                    reference: "Jeremías 17:8 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "ROMANOS 8 VUELVE A TENER SENTIDO",
+                    title: "¿QUÉ SEPARÓ A LOT DEL AMOR DE DIOS?",
+                    body: "No Sodoma. No los reyes. No el fuego. Ninguna fuerza externa.\n\nLo separó su propia elección de suelo. Gradual. Imperceptible. Tienda por tienda.\n\nA Abraham no lo pudo separar nada. Porque sus raíces estaban en la tierra correcta.\n\nLa garantía de Romanos 8:38–39 es absolutamente real. Pero opera para el árbol plantado junto a corrientes de aguas.",
+                    citation: "¿Quién nos separará del amor de Cristo?",
+                    reference: "Romanos 8:35 · RVA"
+                },
+                {
+                    type: "action",
+                    title: "TRES PREGUNTAS DE DIAGNÓSTICO",
+                    subtitle: "No de condena. De inventario honesto.",
+                    steps: [
+                        { label: "01. ¿Estás eligiendo tu tierra con los ojos o con la voz de Dios?", text: "Lot alzó sus ojos y escogió. Abraham recibió instrucción y obedeció." },
+                        { label: "02. ¿Cuánto te has ido acercando, tienda por tienda?", text: "La pregunta no es si estás en Sodoma — es si el movimiento de los últimos meses ha sido hacia la corriente o hacia la ciudad." },
+                        { label: "03. ¿Tiene tu voz espiritual autoridad en tu familia?", text: "Los yernos de Lot lo tuvieron por burlador. No porque dijera algo incorrecto esa noche — sino porque años de suelo equivocado habían erosionado su credibilidad en casa." }
+                    ],
+                    citation: "Guarda este post si decides revisar en qué tierra estás plantado.",
+                    reference: "Romanos 8:38–39 · RVA"
+                },
+                {
+                    type: "diagnostic",
+                    label: "SÍNTESIS · CIERRE",
+                    title: "DIOS SE ACORDÓ DE ABRAHAM",
+                    body: "Abraham está en el monte. Es de mañana. Mira hacia la llanura que Lot eligió. Ve el humo.\n\nY Dios se acordó de Abraham.\n\nNo porque no se equivocara sino porque siempre confió en Dios. Sus raíces siempre volvían al mismo suelo.\n\n¿En qué tierra estás plantado?\n\nPorque si la raíz es real — ni lo presente ni lo por venir, ni lo alto ni lo bajo, ni ninguna criatura...",
+                    citation: "Nada te podrá apartar.",
+                    reference: "Romanos 8:38–39 · RVA"
                 }
             ]
         }
