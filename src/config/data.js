@@ -1107,7 +1107,7 @@ export const CONFIG = {
                     type: 'diagnostic',
                     label: 'El nombre que no te pusiste',
                     title: 'Hay personas que llevan años cargando un nombre que Dios nunca les puso.',
-                    body: 'Fracasado. Indigno. Sin remedio.\n\nLo que pasó aquella noche quedó grabado tan profundo que ya no distinguen entre lo que hicieron y lo que son.\n\nPero la Escritura traza una línea muy clara entre los dos.',
+                    body: 'Hay una diferencia que la mayoría nunca aprendió: lo que hiciste no es lo mismo que lo que eres.\n\nEl pecado tiene consecuencias. Pero no tiene autoridad para nombrarte.\n\nEsa autoridad nunca le perteneció.',
                 },
                 {
                     type: 'diagnostic',
