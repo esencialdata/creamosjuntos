@@ -791,10 +791,12 @@ const getCurrentWeekId = () => {
     const week23Start = new Date(2026, 4, 5);  // May 5
     const week24Start = new Date(2026, 4, 19); // May 19
     const week25Start = new Date(2026, 5, 1);  // Jun 1
+    const week26Start = new Date(2026, 5, 22); // Jun 22
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week26Start) return 26;
     if (now >= week25Start) return 25;
     if (now >= week24Start) return 24;
     if (now >= week23Start) return 23;
@@ -1071,6 +1073,93 @@ export const CONFIG = {
     ],
 
     themes: [
+
+        // ── SEMANA 26 · Lun Jun 22, 2026 ────────────────────────────────────────
+        {
+            id: 42,
+            weekId: 26,
+            availableFrom: "2026-06-22T00:00:00",
+            title: "NO ERES LO QUE HICISTE. ERES LO QUE DIOS DIJO.",
+            description: "Lo que hiciste puede tener consecuencias. Pero no tiene autoridad para nombrarte.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139, 105, 20, 0.05) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: 'NO ERES LO QUE HICISTE.\nERES LO QUE DIOS DIJO.',
+                    subtitle: 'Lo que hiciste puede tener consecuencias. Pero no tiene autoridad para nombrarte.',
+                    visual: '📜',
+                    imageUrl: '/portada-no-eres-lo-que-hiciste.jpg',
+                    citation: 'Id, decid á sus discípulos, y á Pedro...',
+                    reference: 'Marcos 16:7 (RV1909)',
+                    footerText: 'Creamos Juntos · Semana 26',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El nombre que no te pusiste',
+                    title: 'Hay personas que llevan años cargando un nombre que Dios nunca les puso.',
+                    body: 'Fracasado. Indigno. Sin remedio.\n\nLo que pasó aquella noche quedó grabado tan profundo que ya no distinguen entre lo que hicieron y lo que son.\n\nPero la Escritura traza una línea muy clara entre los dos.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La escena · Marcos 16',
+                    title: 'Pedro negó a Cristo tres veces.',
+                    body: 'No una. Tres. En público. En la hora más oscura.\n\nSi alguien tenía razones para definirse por su peor momento, era él.\n\nY sin embargo, la primera vez que el ángel anuncia la resurrección, da una instrucción específica:\n\nDios lo llama por nombre cuando Pedro ya se había borrado a sí mismo.',
+                    citation: 'Id, decid á sus discípulos, y á Pedro...',
+                    reference: 'Marcos 16:7 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La crisis',
+                    title: 'El problema no es el pecado cometido. El problema es la identidad que construimos sobre él.',
+                    body: 'Hay dos voces que hablan después de una caída:\n\nUna produce convicción — te lleva de regreso a Dios. La otra produce condena — te paraliza frente a Él.\n\nLa primera voz es del Espíritu Santo. La segunda, no.',
+                    citation: 'Ahora, pues, ninguna condenación hay para los que están en Cristo Jesús.',
+                    reference: 'Romanos 8:1 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La ley · Éxodo 28 / Hebreos 9',
+                    title: 'El sumo sacerdote portaba los nombres de las doce tribus sobre su pecho al entrar al Lugar Santísimo.',
+                    body: 'No los nombres de los perfectos. Los nombres de los que habían fallado, dudado, vendido a su propio hermano.\n\nDios ordenó que esos nombres estuvieran sobre el corazón de su mediador.\n\nCristo cumplió ese patrón de forma definitiva: entró al Lugar Santísimo eterno llevando tu nombre — no tu historial.',
+                    citation: '...habiendo obtenido eterna redención.',
+                    reference: 'Hebreos 9:12 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El principio',
+                    title: 'Tu identidad no nació el día que fallaste. Nació el día que Dios te llamó.',
+                    body: 'Lo que hiciste puede tener consecuencias. Pero no tiene autoridad para nombrarte.\n\nEsa autoridad es exclusiva de quien te creó.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La resolución · Juan 21',
+                    title: 'Después de la resurrección, Jesús busca a Pedro.',
+                    body: 'No para recordarle la negación. Para restaurarle el propósito.\n\n"¿Me amas?" Tres veces. Una por cada negación.\n\nNo para humillarle. Para liberarle. Porque Pedro no podía pastorear a otros cargando una identidad rota.\n\nLo que Dios restaura, lo restaura completo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Aplicación',
+                    title: 'Hazte esta pregunta hoy:',
+                    question: '¿Estás viviendo desde lo que Dios dijo de ti, o desde lo que tú crees que mereces?',
+                    body: 'Porque no puedes servir desde la condena. No puedes crecer desde la vergüenza. No puedes amar desde un nombre equivocado.\n\nLa identidad correcta no es arrogancia. Es obediencia.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Cierre',
+                    title: 'No eres lo que hiciste. Eres lo que Dios dijo.',
+                    body: 'Y lo que Dios dijo está escrito.\n\nComparte esto con alguien que necesita recordarlo hoy.',
+                },
+            ],
+        },
 
         // ── SEMANA 25 · Lun Jun 1, 2026 ─────────────────────────────────────────
         {
