@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — ¿Por qué a mí?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #170E08;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  /* ── PHONE FRAME ─────────────────────────────────────── */
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 2px #3D2A12;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F9F6F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #B8860B, transparent);
+    opacity: 0.6;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 0.52rem;
+    color: #D8C9A8;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #3D2A12;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #B8860B; transform: scale(1.5); }
+
+  /* ══════════════════════════════════════════════════════
+     SLIDE INTERNOS
+  ══════════════════════════════════════════════════════ */
+
+  /* PORTADA */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8B6914;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .cover-visual { font-size: 3rem; margin-bottom: 16px; line-height: 1; }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #2C2218;
+    margin-bottom: 14px;
+    white-space: pre-line;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #7A6E62;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 2.5px;
+    color: #B8A98A;
+    text-transform: uppercase;
+  }
+
+  /* LABELS Y CUERPO */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #8B6914;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2C2218;
+    margin-bottom: 16px;
+    white-space: pre-line;
+  }
+  .slide-body {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #5A4E42;
+    margin-bottom: 14px;
+    white-space: pre-line;
+    font-family: 'Inter', sans-serif;
+  }
+  .slide-question {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #8B6914;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .citation-block {
+    border-left: 2px solid #B8860B;
+    padding-left: 14px;
+    margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #5A4E42;
+    line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem;
+    color: #8B6914;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* CIERRE / CTA — tono nocturno cálido */
+  .slide-noche { background: #241708; }
+  .slide-noche::before { background: linear-gradient(90deg, transparent, #E0B356, transparent); opacity: 0.55; }
+  .slide-noche .label       { color: #E0B356; opacity: 1; }
+  .slide-noche .slide-title { color: #F5EDD8; }
+  .slide-noche .slide-body  { color: #D8C4A0; }
+  .slide-noche .citation-block { border-left-color: #E0B356; }
+  .slide-noche .citation-text  { color: #F5EDD8; }
+  .slide-noche .citation-ref   { color: #E0B356; }
+  .slide-noche .slide-num      { color: #6B4E22; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 12</span>
+      <div>
+        <p class="cover-eyebrow">Creamos Juntos · Semana 27</p>
+        <div class="cover-visual">🌅</div>
+        <div class="cover-title">¿POR QUÉ A MÍ?</div>
+        <p class="cover-subtitle">El hombre que más tuvo también fue el que más dijo: mis días han sido malos.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Y Jacob respondió á Faraón: Los días de los años de mi peregrinación son ciento treinta años; pocos y malos han sido los días de los años de mi vida."</div>
+          <div class="citation-ref">Génesis 47:9 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">Jacob y la pregunta que todos hacemos</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 12</span>
+      <div class="label">El gancho</div>
+      <div class="slide-title">Nadie te lo dice: tener una promesa de Dios no te exime del dolor.</div>
+      <div class="slide-body">A veces te mete directo en él.</div>
+    </div>
+
+    <!-- SLIDE 3: ESCENA / DIAGNÓSTICO -->
+    <div class="slide">
+      <span class="slide-num">03 / 12</span>
+      <div class="label">Escena · Diagnóstico</div>
+      <div class="slide-title">Perdiste algo. Cargaste una traición. Viviste un año que no le contarías a nadie.</div>
+      <div class="slide-body">Y por dentro te preguntas si hiciste algo mal para merecerlo.</div>
+    </div>
+
+    <!-- SLIDE 4: CRISIS -->
+    <div class="slide">
+      <span class="slide-num">04 / 12</span>
+      <div class="label">La crisis</div>
+      <div class="slide-title">Cuando el dolor no tiene explicación, la mente busca una.</div>
+      <div class="slide-body">"Dios me está castigando." "Dios se olvidó de mí."
+
+Ambas son mentira.</div>
+    </div>
+
+    <!-- SLIDE 5: TEXTO BASE -->
+    <div class="slide">
+      <span class="slide-num">05 / 12</span>
+      <div class="label">Texto base · Génesis 47</div>
+      <div class="slide-title">El hombre de la promesa, frente a Faraón, midió su vida así:</div>
+      <div class="slide-body">El patriarca del pacto. El padre de las doce tribus. Y su propia boca resume su vida en dos palabras: pocos y malos.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y Jacob respondió á Faraón: Los días de los años de mi peregrinación son ciento treinta años; pocos y malos han sido los días de los años de mi vida."</div>
+        <div class="citation-ref">Génesis 47:9 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: VERDAD / LEY -->
+    <div class="slide">
+      <span class="slide-num">06 / 12</span>
+      <div class="label">La verdad · Deuteronomio 28</div>
+      <div class="slide-title">El pacto no promete ausencia de proceso. Promete presencia en él.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y vendrán sobre ti todas estas bendiciones, y te alcanzarán, si oyeres la voz de Jehová tu Dios."</div>
+        <div class="citation-ref">Deuteronomio 28:2 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: PRINCIPIO -->
+    <div class="slide">
+      <span class="slide-num">07 / 12</span>
+      <div class="label">El principio</div>
+      <div class="slide-title">Tus días malos no cancelan tu pacto.</div>
+      <div class="slide-body">Son parte de cómo se cumple.</div>
+    </div>
+
+    <!-- SLIDE 8: PERSONAJE / HISTORIA -->
+    <div class="slide">
+      <span class="slide-num">08 / 12</span>
+      <div class="label">Jacob · Génesis 32</div>
+      <div class="slide-title">Jacob huyó. Fue engañado. Lloró veinte años a un hijo que creía muerto.</div>
+      <div class="slide-body">Y una noche luchó con un ángel hasta el amanecer, sin soltarlo.
+
+Por eso se llamó Israel.</div>
+      <div class="citation-block">
+        <div class="citation-text">"No te dejaré, si no me bendices."</div>
+        <div class="citation-ref">Génesis 32:26 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: APLICACIÓN 1 -->
+    <div class="slide">
+      <span class="slide-num">09 / 12</span>
+      <div class="label">Aplicación 1</div>
+      <div class="slide-title">Deja de interpretar tu dolor como rechazo.</div>
+      <div class="slide-body">Dios no te suelta en el proceso.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Cuando pasares por las aguas, yo seré contigo; y si por los ríos, no te anegarán."</div>
+        <div class="citation-ref">Isaías 43:2 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: APLICACIÓN 2 -->
+    <div class="slide">
+      <span class="slide-num">10 / 12</span>
+      <div class="label">Aplicación 2</div>
+      <div class="slide-title">Hoy nombra un "día malo" que cargas como culpa.</div>
+      <div class="slide-question">¿Qué día malo has estado cargando como si fuera tu culpa?</div>
+      <div class="slide-body">No lo es.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Sabemos que á los que á Dios aman, todas las cosas les ayudan á bien."</div>
+        <div class="citation-ref">Romanos 8:28 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: CIERRE -->
+    <div class="slide slide-noche">
+      <span class="slide-num">11 / 12</span>
+      <div class="label">Cierre</div>
+      <div class="slide-title">Frente a Faraón, Jacob midió su vida desde la carencia.</div>
+      <div class="slide-body">Frente a sus doce hijos, la bendijo desde la abundancia.
+
+Los mismos días. Dos lentes distintos. Y el segundo fue el verdadero.</div>
+    </div>
+
+    <!-- SLIDE 12: CTA -->
+    <div class="slide slide-noche">
+      <span class="slide-num">12 / 12</span>
+      <div class="label">Para ti</div>
+      <div class="slide-title">Guarda esto.</div>
+      <div class="slide-body">Para el día que necesites recordar que tus días malos no son el final de tu historia.</div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /phone -->
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 12;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+  const W      = 375;
+
+  // Dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // Touch
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  // Mouse (desktop preview)
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  // Keys
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

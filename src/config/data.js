@@ -792,10 +792,12 @@ const getCurrentWeekId = () => {
     const week24Start = new Date(2026, 4, 19); // May 19
     const week25Start = new Date(2026, 5, 1);  // Jun 1
     const week26Start = new Date(2026, 5, 22); // Jun 22
+    const week27Start = new Date(2026, 6, 9);  // Jul 9
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week27Start) return 27;
     if (now >= week26Start) return 26;
     if (now >= week25Start) return 25;
     if (now >= week24Start) return 24;
@@ -1073,6 +1075,114 @@ export const CONFIG = {
     ],
 
     themes: [
+
+        // ── SEMANA 27 · Jue Jul 9, 2026 ─────────────────────────────────────────
+        {
+            id: 43,
+            weekId: 27,
+            availableFrom: "2026-07-09T00:00:00",
+            title: "¿POR QUÉ A MÍ?",
+            description: "El hombre que más tuvo también fue el que más dijo: mis días han sido malos.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139, 105, 20, 0.05) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: '¿POR QUÉ A MÍ?',
+                    subtitle: 'El hombre que más tuvo también fue el que más dijo: mis días han sido malos.',
+                    visual: '🌅',
+                    imageUrl: '/portada-por-que-a-mi.jpg',
+                    citation: 'Y Jacob respondió á Faraón: Los días de los años de mi peregrinación son ciento treinta años; pocos y malos han sido los días de los años de mi vida.',
+                    reference: 'Génesis 47:9 (RV1909)',
+                    footerText: 'Creamos Juntos · Semana 27',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El gancho',
+                    title: 'Nadie te lo dice: tener una promesa de Dios no te exime del dolor.',
+                    body: 'A veces te mete directo en él.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Escena · Diagnóstico',
+                    title: 'Perdiste algo. Cargaste una traición. Viviste un año que no le contarías a nadie.',
+                    body: 'Y por dentro te preguntas si hiciste algo mal para merecerlo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La crisis',
+                    title: 'Cuando el dolor no tiene explicación, la mente busca una.',
+                    body: '"Dios me está castigando." "Dios se olvidó de mí."\n\nAmbas son mentira.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Texto base · Génesis 47',
+                    title: 'El hombre de la promesa, frente a Faraón, midió su vida así:',
+                    body: 'El patriarca del pacto. El padre de las doce tribus. Y su propia boca resume su vida en dos palabras: pocos y malos.',
+                    citation: 'Y Jacob respondió á Faraón: Los días de los años de mi peregrinación son ciento treinta años; pocos y malos han sido los días de los años de mi vida.',
+                    reference: 'Génesis 47:9 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La verdad · Deuteronomio 28',
+                    title: 'El pacto no promete ausencia de proceso. Promete presencia en él.',
+                    citation: 'Y vendrán sobre ti todas estas bendiciones, y te alcanzarán, si oyeres la voz de Jehová tu Dios.',
+                    reference: 'Deuteronomio 28:2 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El principio',
+                    title: 'Tus días malos no cancelan tu pacto.',
+                    body: 'Son parte de cómo se cumple.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Jacob · Génesis 32',
+                    title: 'Jacob huyó. Fue engañado. Lloró veinte años a un hijo que creía muerto.',
+                    body: 'Y una noche luchó con un ángel hasta el amanecer, sin soltarlo.\n\nPor eso se llamó Israel.',
+                    citation: 'No te dejaré, si no me bendices.',
+                    reference: 'Génesis 32:26 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Aplicación 1',
+                    title: 'Deja de interpretar tu dolor como rechazo.',
+                    body: 'Dios no te suelta en el proceso.',
+                    citation: 'Cuando pasares por las aguas, yo seré contigo; y si por los ríos, no te anegarán.',
+                    reference: 'Isaías 43:2 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Aplicación 2',
+                    title: 'Hoy nombra un "día malo" que cargas como culpa.',
+                    body: 'No lo es.',
+                    question: '¿Qué día malo has estado cargando como si fuera tu culpa?',
+                    citation: 'Sabemos que á los que á Dios aman, todas las cosas les ayudan á bien.',
+                    reference: 'Romanos 8:28 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Cierre',
+                    title: 'Frente a Faraón, Jacob midió su vida desde la carencia.',
+                    body: 'Frente a sus doce hijos, la bendijo desde la abundancia.\n\nLos mismos días. Dos lentes distintos. Y el segundo fue el verdadero.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Para ti',
+                    title: 'Guarda esto.',
+                    body: 'Para el día que necesites recordar que tus días malos no son el final de tu historia.',
+                },
+            ],
+        },
 
         // ── SEMANA 26 · Lun Jun 22, 2026 ────────────────────────────────────────
         {
