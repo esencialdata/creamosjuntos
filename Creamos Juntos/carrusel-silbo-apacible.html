@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carrusel — ¿Escuchando a Dios o a mi propia voz?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #120D0A;
+    font-family: 'Inter', sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  /* ── PHONE FRAME ─────────────────────────────────────── */
+  .phone {
+    width: 375px;
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 2px #2A2018;
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── SLIDE BASE ─────────────────────────────────────── */
+  .slide {
+    flex: 0 0 375px;
+    width: 375px;
+    height: 100%;
+    background: #F9F6F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #8B6914, transparent);
+    opacity: 0.6;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 0.52rem;
+    color: #B8985A;
+    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── DOTS ────────────────────────────────────────────── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #2A2018;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .dot.active { background: #8B6914; transform: scale(1.5); }
+
+  /* ══════════════════════════════════════════════════════
+     SLIDE INTERNOS
+  ══════════════════════════════════════════════════════ */
+
+  /* PORTADA */
+  .slide-cover { justify-content: space-between; padding-top: 52px; padding-bottom: 44px; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8B6914;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .cover-visual { font-size: 3rem; margin-bottom: 16px; line-height: 1; }
+  .cover-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.12;
+    text-transform: uppercase;
+    color: #2C2218;
+    margin-bottom: 14px;
+    white-space: pre-line;
+  }
+  .cover-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #7A6E62;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .cover-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 2.5px;
+    color: #C9B98C;
+    text-transform: uppercase;
+  }
+
+  /* LABELS Y CUERPO */
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.52rem;
+    letter-spacing: 3px;
+    color: #8B6914;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2C2218;
+    margin-bottom: 16px;
+    white-space: pre-line;
+  }
+  .slide-body {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #5A4E42;
+    margin-bottom: 14px;
+    white-space: pre-line;
+    font-family: 'Inter', sans-serif;
+  }
+  .slide-question {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #5A4E42;
+    margin-top: 6px;
+  }
+  .citation-block {
+    border-left: 2px solid #8B6914;
+    padding-left: 14px;
+    margin-top: 16px;
+  }
+  .citation-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #5A4E42;
+    line-height: 1.6;
+  }
+  .citation-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.56rem;
+    color: #8B6914;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .citation-block + .citation-block { margin-top: 12px; }
+
+  /* LISTA DE VOCES (diagnóstico) */
+  .voice-list { display: flex; flex-direction: column; gap: 10px; margin: 10px 0 12px; }
+  .voice-item {
+    background: rgba(44,34,24,0.04);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #5A4E42;
+    border-left: 2px solid transparent;
+    font-weight: 600;
+  }
+  .voice-item.n1 { border-left-color: #C8B89A; }
+  .voice-item.n2 { border-left-color: #8B8070; }
+  .voice-item.n3 { border-left-color: #A8955A; }
+
+  /* BADGE DE APLICACIÓN */
+  .action-badge {
+    display: inline-block;
+    background: #8B6914;
+    color: #F9F6F1;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+  }
+  .steps-list { display: flex; flex-direction: column; gap: 12px; margin: 12px 0 6px; }
+  .step-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #5A4E42;
+  }
+  .step-label {
+    font-weight: 700;
+    color: #2C2218;
+    margin-right: 4px;
+  }
+
+  /* HISTORIA */
+  .slide-historia { background: #F4F1EB; }
+  .story-pair { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+  .story-card {
+    background: rgba(44,34,24,0.05);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    line-height: 1.6;
+    color: #5A4E42;
+  }
+  .story-card-name {
+    font-weight: 700;
+    color: #2C2218;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .story-card.fail { border-left: 2px solid #C0785A; }
+  .story-card.win  { border-left: 2px solid #8B6914; }
+
+  /* CIERRE / CTA */
+  .slide-cierre { background: #1E160D; }
+  .slide-cierre::before { background: linear-gradient(90deg, transparent, #D4AF67, transparent); opacity: 0.5; }
+  .slide-cierre .label       { color: #D4AF67; opacity: 1; }
+  .slide-cierre .slide-title { color: #F5EDD8; }
+  .slide-cierre .slide-body  { color: #D9C8A0; }
+  .slide-cierre .citation-block { border-left-color: #D4AF67; }
+  .slide-cierre .citation-text  { color: #F5EDD8; }
+  .slide-cierre .citation-ref   { color: #D4AF67; }
+  .slide-cierre .slide-num      { color: #5A4A24; }
+
+  .cta-list { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+  .cta-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 103, 0.12);
+    border: 1px solid rgba(212, 175, 103, 0.35);
+    border-radius: 20px;
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: #F5EDD8;
+    font-weight: 600;
+  }
+  .cta-pill .icon { font-size: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+  <div class="track" id="track">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide slide-cover">
+      <span class="slide-num">01 / 12</span>
+      <div>
+        <p class="cover-eyebrow">Creamos Juntos · Semana 28</p>
+        <img class="cover-image" src="../public/voces.jpg" alt="">
+        <div class="cover-title">¿CÓMO SÉ SI ESTOY
+ESCUCHANDO A DIOS
+O SOLO A MI PROPIA VOZ?</div>
+        <p class="cover-subtitle">Elías esperaba fuego.<br>Dios llegó en silencio.</p>
+        <div class="citation-block">
+          <div class="citation-text">"Y tras el fuego un silbo apacible y delicado. Y cuando lo oyó Elías, cubrió su rostro con su manto."</div>
+          <div class="citation-ref">1 Reyes 19:12-13 · RV1909</div>
+        </div>
+      </div>
+      <div class="cover-footer">1 Reyes 19:9-15</div>
+    </div>
+
+    <!-- SLIDE 2: GANCHO -->
+    <div class="slide">
+      <span class="slide-num">02 / 12</span>
+      <div class="label">El gancho</div>
+      <div class="slide-title">El profeta que acababa de ver fuego caer del cielo terminó escondido en una cueva, pidiendo morir.</div>
+      <div class="slide-body">Ver a Dios actuar no garantiza que lo estés oyendo.</div>
+    </div>
+
+    <!-- SLIDE 3: DIAGNÓSTICO -->
+    <div class="slide">
+      <span class="slide-num">03 / 12</span>
+      <div class="label">Diagnóstico</div>
+      <div class="slide-title">Confundes convicción con emoción.</div>
+      <div class="slide-body">Le llamas "voz de Dios" a:</div>
+      <div class="voice-list">
+        <div class="voice-item n1">Tu miedo.</div>
+        <div class="voice-item n2">Tu cansancio.</div>
+        <div class="voice-item n3">Tu necesidad de tener razón.</div>
+      </div>
+      <div class="slide-question">Nadie te enseñó a distinguirlo.</div>
+    </div>
+
+    <!-- SLIDE 4: CRISIS -->
+    <div class="slide">
+      <span class="slide-num">04 / 12</span>
+      <div class="label">La crisis</div>
+      <div class="slide-title">Sin ese filtro, obedeces a tu ansiedad creyendo que obedeces a Dios.</div>
+      <div class="slide-body">Tomas decisiones —de pareja, de trabajo, de fe— dirigido por lo que grita más fuerte, no por lo que es verdadero.</div>
+    </div>
+
+    <!-- SLIDE 5: TEXTO BASE -->
+    <div class="slide">
+      <span class="slide-num">05 / 12</span>
+      <div class="label">Texto base</div>
+      <div class="slide-title">Un silbo apacible y delicado.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Y tras el fuego un silbo apacible y delicado. Y cuando lo oyó Elías, cubrió su rostro con su manto."</div>
+        <div class="citation-ref">1 Reyes 19:12-13 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: VERDAD / LEY -->
+    <div class="slide">
+      <span class="slide-num">06 / 12</span>
+      <div class="label">Verdad</div>
+      <div class="slide-title">La voz de Dios nunca ha necesitado gritar para ser real.</div>
+      <div class="slide-body">Israel fue llamado primero a oír. Jesús lo confirma después.</div>
+      <div class="citation-block">
+        <div class="citation-text">"Oye, Israel: Jehová nuestro Dios, Jehová uno es."</div>
+        <div class="citation-ref">Deuteronomio 6:4 · RV1909</div>
+      </div>
+      <div class="citation-block">
+        <div class="citation-text">"Mis ovejas oyen mi voz, y yo las conozco, y me siguen."</div>
+        <div class="citation-ref">Juan 10:27 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: PRINCIPIO -->
+    <div class="slide">
+      <span class="slide-num">07 / 12</span>
+      <div class="label">Principio</div>
+      <div class="slide-title" style="font-size: 1.5rem;">Dios no compite con el ruido.
+Se retira del ruido.</div>
+    </div>
+
+    <!-- SLIDE 8: HISTORIA -->
+    <div class="slide slide-historia">
+      <span class="slide-num">08 / 12</span>
+      <div class="label">Historia · 1 Reyes 19</div>
+      <div class="slide-title">Elías esperaba a Dios en el viento, el terremoto, el fuego.</div>
+      <div class="story-pair">
+        <div class="story-card fail">
+          <div class="story-card-name">El ruido</div>
+          Viento recio, terremoto, fuego. Dios no estaba en ninguno.
+        </div>
+        <div class="story-card win">
+          <div class="story-card-name">El silencio</div>
+          Llegó después, en el silbo apacible. Ahí, Elías cubrió su rostro. Ahí, por fin escuchó.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: APLICACIÓN 1 -->
+    <div class="slide">
+      <span class="slide-num">09 / 12</span>
+      <span class="action-badge">Aplicación 1 de 2</span>
+      <div class="slide-title">Antes de decidir algo importante.</div>
+      <div class="steps-list">
+        <div class="step-item"><span class="step-label">Silencio:</span>guarda silencio real —sin pantalla, sin música— al menos diez minutos.</div>
+        <div class="step-item"><span class="step-label">Peso:</span>lo que persiste en la quietud merece más peso que lo que grita en el impulso.</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: APLICACIÓN 2 -->
+    <div class="slide">
+      <span class="slide-num">10 / 12</span>
+      <span class="action-badge">Aplicación 2 de 2</span>
+      <div class="slide-title">Antes de llamarlo dirección de Dios.</div>
+      <div class="steps-list">
+        <div class="step-item"><span class="step-label">Prueba:</span>no creas a todo espíritu; prueba los espíritus.</div>
+        <div class="step-item"><span class="step-label">Contrasta:</span>contrasta cada impulso con la Palabra escrita antes de llamarlo dirección de Dios.</div>
+      </div>
+      <div class="citation-block">
+        <div class="citation-text">"Amados, no creáis á todo espíritu, sino probad los espíritus si son de Dios; porque muchos falsos profetas son salidos en el mundo."</div>
+        <div class="citation-ref">1 Juan 4:1 · RV1909</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: CIERRE -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">11 / 12</span>
+      <div class="label">Cierre</div>
+      <div class="slide-title">No busques a Dios en lo espectacular.</div>
+      <div class="slide-body">Búscalo en lo que queda cuando el ruido se apaga.</div>
+    </div>
+
+    <!-- SLIDE 12: CTA -->
+    <div class="slide slide-cierre">
+      <span class="slide-num">12 / 12</span>
+      <div class="label">Antes de irte</div>
+      <div class="slide-title">Guarda esto.</div>
+      <div class="slide-body">Etiqueta a alguien que necesita aprender a distinguir la voz.</div>
+      <div class="cta-list">
+        <div class="cta-pill"><span class="icon">🔖</span> Guardar</div>
+        <div class="cta-pill"><span class="icon">🏷️</span> Etiquetar a alguien</div>
+      </div>
+    </div>
+
+  </div><!-- /track -->
+</div><!-- /phone -->
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const total = 12;
+  let current = 0;
+  let startX = 0;
+  let dragging = false;
+
+  const track  = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const phone  = document.getElementById('phone');
+  const W      = 375;
+
+  // Dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * W}px)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // Touch
+  phone.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  phone.addEventListener('touchend',   e => {
+    if (!dragging) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  }, { passive: true });
+
+  // Mouse (desktop preview)
+  phone.addEventListener('mousedown', e => { startX = e.clientX; dragging = true; });
+  phone.addEventListener('mouseup',   e => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    dragging = false;
+  });
+
+  // Keys
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+  });
+
+  goTo(0);
+</script>
+</body>
+</html>

@@ -793,10 +793,12 @@ const getCurrentWeekId = () => {
     const week25Start = new Date(2026, 5, 1);  // Jun 1
     const week26Start = new Date(2026, 5, 22); // Jun 22
     const week27Start = new Date(2026, 6, 9);  // Jul 9
+    const week28Start = new Date(2026, 6, 22); // Jul 22
 
     // TODO: Remove this override when done testing Theme 7
     // return 7;
 
+    if (now >= week28Start) return 28;
     if (now >= week27Start) return 27;
     if (now >= week26Start) return 26;
     if (now >= week25Start) return 25;
@@ -1075,6 +1077,119 @@ export const CONFIG = {
     ],
 
     themes: [
+
+        // ── SEMANA 28 · Mié Jul 22, 2026 ─────────────────────────────────────────
+        {
+            id: 44,
+            weekId: 28,
+            availableFrom: "2026-07-22T00:00:00",
+            title: "¿CÓMO SÉ SI ESTOY ESCUCHANDO A DIOS O SOLO A MI PROPIA VOZ?",
+            description: "Elías esperaba fuego. Dios llegó en silencio.",
+            themeStyles: {
+                bg: '#F9F6F1',
+                textPrimary: '#2C2218',
+                textSecondary: '#7A6E62',
+                accent: '#8B6914',
+                fontSerif: '"Playfair Display", Georgia, serif',
+                fontSans: 'Inter, sans-serif',
+                cardBorder: '1px solid #E8E0D4',
+                cardShadow: '0 8px 32px -4px rgba(44, 34, 24, 0.10)',
+                backgroundImage: 'radial-gradient(ellipse at top, rgba(139, 105, 20, 0.05) 0%, transparent 70%)',
+            },
+            slides: [
+                {
+                    type: 'cover',
+                    title: '¿CÓMO SÉ SI ESTOY\nESCUCHANDO A DIOS\nO SOLO A MI PROPIA VOZ?',
+                    subtitle: 'Elías esperaba fuego. Dios llegó en silencio.',
+                    visual: '🕯️',
+                    imageUrl: '/voces.jpg',
+                    citation: 'Y tras el fuego un silbo apacible y delicado. Y cuando lo oyó Elías, cubrió su rostro con su manto.',
+                    reference: '1 Reyes 19:12-13 (RV1909)',
+                    footerText: 'Creamos Juntos · Semana 28',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'El gancho',
+                    title: 'El profeta que acababa de ver fuego caer del cielo terminó escondido en una cueva, pidiendo morir.',
+                    body: 'Ver a Dios actuar no garantiza que lo estés oyendo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Diagnóstico',
+                    title: 'Confundes convicción con emoción.',
+                    body: "Le llamas 'voz de Dios' a:",
+                    options: ['Tu miedo.', 'Tu cansancio.', 'Tu necesidad de tener razón.'],
+                    question: 'Nadie te enseñó a distinguirlo.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'La crisis',
+                    title: 'Sin ese filtro, obedeces a tu ansiedad creyendo que obedeces a Dios.',
+                    body: 'Tomas decisiones -de pareja, de trabajo, de fe- dirigido por lo que grita más fuerte, no por lo que es verdadero.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Texto base',
+                    title: 'Un silbo apacible y delicado.',
+                    citation: 'Y tras el fuego un silbo apacible y delicado. Y cuando lo oyó Elías, cubrió su rostro con su manto.',
+                    reference: '1 Reyes 19:12-13 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Verdad',
+                    title: 'La voz de Dios nunca ha necesitado gritar para ser real.',
+                    body: 'Israel fue llamado primero a oír. Jesús lo confirma después.',
+                    citations: [
+                        { text: 'Oye, Israel: Jehová nuestro Dios, Jehová uno es.', reference: 'Deuteronomio 6:4 (RV1909)' },
+                        { text: 'Mis ovejas oyen mi voz, y yo las conozco, y me siguen.', reference: 'Juan 10:27 (RV1909)' },
+                    ],
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Principio',
+                    title: 'Dios no compite con el ruido.',
+                    body: 'Se retira del ruido.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Historia · 1 Reyes 19',
+                    title: 'Elías esperaba a Dios en el viento, el terremoto, el fuego.',
+                    body: 'Dios no estaba en ninguno.\n\nLlegó después, en el silencio. Ahí, cubrió su rostro. Ahí, por fin escuchó.',
+                },
+                {
+                    type: 'action',
+                    subtitle: 'Aplicación 1 de 2',
+                    title: 'Antes de decidir algo importante.',
+                    steps: [
+                        { label: 'Silencio:', text: 'Guarda silencio real -sin pantalla, sin música- al menos diez minutos.' },
+                        { label: 'Peso:', text: 'Lo que persiste en la quietud merece más peso que lo que grita en el impulso.' },
+                    ],
+                },
+                {
+                    type: 'action',
+                    subtitle: 'Aplicación 2 de 2',
+                    title: 'Antes de llamarlo dirección de Dios.',
+                    steps: [
+                        { label: 'Prueba:', text: 'No creas a todo espíritu; prueba los espíritus.' },
+                        { label: 'Contrasta:', text: 'Contrasta cada impulso con la Palabra escrita antes de llamarlo dirección de Dios.' },
+                    ],
+                    citation: 'Amados, no creáis á todo espíritu, sino probad los espíritus si son de Dios; porque muchos falsos profetas son salidos en el mundo.',
+                    reference: '1 Juan 4:1 (RV1909)',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Cierre',
+                    title: 'No busques a Dios en lo espectacular.',
+                    body: 'Búscalo en lo que queda cuando el ruido se apaga.',
+                },
+                {
+                    type: 'diagnostic',
+                    label: 'Antes de irte',
+                    title: 'Guarda esto.',
+                    body: 'Etiqueta a alguien que necesita aprender a distinguir la voz.',
+                },
+            ],
+        },
 
         // ── SEMANA 27 · Jue Jul 9, 2026 ─────────────────────────────────────────
         {
